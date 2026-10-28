@@ -849,6 +849,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
 <div class="cardinfo" id="cardInfo" hidden></div>
 <div id="modalRoot"></div>
 
+<script>window.VOBACA_VERSION="20261028165037";window.VOBACA_CHANGELOG=[{"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
 <script src="config.js"></script>
 <script>
 // バボカ BREAK — HV-D01 烏野 / HV-D02 音駒 スターターデッキ カードデータ
@@ -4233,8 +4234,101 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       view = 'home'; msg = { text: '로그인 서버에 연결하지 못했어요. 게스트로 이용하거나 새로고침해 주세요.' }; renderGate();
     }
   }
-  window.VobacaAuth = { me: () => ({ ...ME }), configured: CONFIGURED };
+  window.VobacaAuth = { me: () => ({ ...ME }), configured: CONFIGURED, flush: () => (syncUid ? saveNow() : Promise.resolve()) };
   boot();
+})();
+
+</script>
+<script>
+// 독립 사이트 전용: 새 버전 알림(새로고침 안내) + 업데이트 후 바뀐 점 보여 주기
+(function () {
+  'use strict';
+  const CUR = window.VOBACA_VERSION || '';
+  const LOG = Array.isArray(window.VOBACA_CHANGELOG) ? window.VOBACA_CHANGELOG : [];
+  const SEEN_KEY = 'vobaca-seen-update', SNOOZE_MS = 10 * 60 * 1000, CHECK_MS = 3 * 60 * 1000;
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const get = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
+  const set = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
+
+  const st = document.createElement('style');
+  st.textContent = `
+  .updbar { position: fixed; left: 50%; top: 66px; z-index: 95; transform: translateX(-50%); width: min(460px, calc(100vw - 24px)); display: grid; gap: 8px; padding: 12px 14px; border-radius: 16px;
+    background: rgba(14,16,24,.97); border: 2px solid var(--ball); box-shadow: 0 16px 40px rgba(0,0,0,.6), 0 0 24px rgba(255,210,63,.35); animation: upd-in .3s cubic-bezier(.2,.9,.3,1); color: #fff; }
+  .updbar[hidden], .whatsnew[hidden] { display: none; }
+  @keyframes upd-in { from { opacity: 0; transform: translate(-50%, -14px); } }
+  .updbar .u-top { display: flex; align-items: center; gap: 10px; }
+  .updbar .u-ic { flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-size: 18px; background: var(--ball); color: #1b1600; font-weight: 900; }
+  .updbar b { font-size: 15px; } .updbar .u-sub { font-size: 12px; color: #c7cede; }
+  .updbar ul { margin: 0; padding-left: 20px; font-size: 12.5px; color: #e4e8f2; display: grid; gap: 2px; }
+  .updbar .u-acts { display: flex; gap: 8px; justify-content: flex-end; }
+  .whatsnew { position: fixed; inset: 0; z-index: 94; display: grid; place-items: center; padding: 16px; background: rgba(5,7,12,.7); animation: cs-in .2s ease-out; }
+  .wn-card { width: min(480px, 100%); max-height: calc(100dvh - 32px); overflow-y: auto; display: grid; gap: 12px; padding: 20px 22px; border-radius: 20px;
+    background: linear-gradient(180deg, rgba(30,18,8,.98), rgba(18,10,4,.98)); border: 2px solid rgba(255,210,63,.6); box-shadow: 0 24px 60px rgba(0,0,0,.6); color: #fff; }
+  .wn-card h2 { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: 26px; color: var(--ball); }
+  .wn-ent { display: grid; gap: 4px; padding: 10px 12px; border-radius: 12px; background: rgba(255,255,255,.05); }
+  .wn-ent .wn-h { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+  .wn-ent b { font-size: 15px; } .wn-ent small { font-size: 11px; color: #a8957e; white-space: nowrap; }
+  .wn-ent ul { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.55; color: #e9dccb; }
+  .wn-bar { height: 4px; border-radius: 999px; background: rgba(255,255,255,.1); overflow: hidden; }
+  .wn-bar i { display: block; height: 100%; width: 100%; background: var(--ball); transform-origin: left; animation: wn-t 9s linear forwards; }
+  .whatsnew:hover .wn-bar i, .whatsnew:focus-within .wn-bar i { animation-play-state: paused; }
+  @keyframes wn-t { to { transform: scaleX(0); } }
+  .wn-acts { display: flex; justify-content: flex-end; }
+  `;
+  document.head.appendChild(st);
+
+  // ───── 업데이트 후 처음 열었을 때: 바뀐 점 ─────
+  // ?v= 로 새로고침해 들어왔으면 주소창을 깔끔하게
+  try { const u = new URL(location.href); if (u.searchParams.has('v')) { u.searchParams.delete('v'); history.replaceState(null, '', u.pathname + u.search + u.hash); } } catch (e) {}
+  function showWhatsNew() {
+    if (!LOG.length) return;
+    const latest = LOG[0].id;
+    const seen = +get(SEEN_KEY) || 0;
+    set(SEEN_KEY, String(latest));
+    if (seen >= latest) return;
+    const list = seen ? LOG.filter(e => e.id > seen).slice(0, 4) : LOG.slice(0, 1);   // 처음 온 사람에게는 최신 것만
+    const el = document.createElement('div'); el.className = 'whatsnew'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-label', '업데이트 소식');
+    el.innerHTML = `<div class="wn-card"><h2>업데이트 소식</h2>
+      ${list.map(e => `<div class="wn-ent"><div class="wn-h"><b>${esc(e.title)}</b><small>${esc(e.date || '')}</small></div><ul>${(e.notes || []).map(n => `<li>${esc(n)}</li>`).join('')}</ul></div>`).join('')}
+      <div class="wn-bar" aria-hidden="true"><i></i></div>
+      <div class="wn-acts"><button class="btn primary" type="button">확인</button></div></div>`;
+    document.body.appendChild(el);
+    const close = () => { if (el.isConnected) { el.style.animation = 'cs-out .2s ease-in forwards'; setTimeout(() => el.remove(), 200); } };
+    el.querySelector('button').addEventListener('click', close);
+    el.addEventListener('click', e => { if (e.target === el) close(); });
+    el.querySelector('.wn-bar i').addEventListener('animationend', close);   // 잠깐 보여 주고 자동으로 닫힘 (마우스를 올리면 멈춤)
+  }
+
+  // ───── 새 버전 확인 ─────
+  const bar = document.createElement('div'); bar.className = 'updbar'; bar.hidden = true; bar.setAttribute('role', 'alert');
+  document.body.appendChild(bar);
+  let snoozeUntil = 0, latestSeen = null;
+  async function check() {
+    if (!CUR || document.hidden || Date.now() < snoozeUntil) return;
+    let r;
+    try { r = await (await fetch('version.json?t=' + Date.now(), { cache: 'no-store' })).json(); } catch (e) { return; }
+    if (!r || !r.v || r.v === CUR) return;
+    latestSeen = r;
+    const inGame = !!(window.VobacaUI && window.VobacaUI.ST.game && !document.body.classList.contains('in-lobby'));
+    const notes = (r.notes || []).slice(0, 3);
+    bar.innerHTML = `<div class="u-top"><span class="u-ic">↻</span><div><b>새 버전이 나왔어요${r.title ? ` — ${esc(r.title)}` : ''}</b><div class="u-sub">새로고침하면 최신 버전으로 바뀌어요.${inGame ? ' 지금 경기는 끝난 뒤에 눌러도 돼요.' : ''}</div></div></div>
+      ${notes.length ? `<ul>${notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul>` : ''}
+      <div class="u-acts"><button class="btn" type="button" data-u="later">나중에</button><button class="btn primary" type="button" data-u="reload">지금 새로고침</button></div>`;
+    bar.hidden = false;
+  }
+  bar.addEventListener('click', async e => {
+    const b = e.target.closest('[data-u]'); if (!b) return;
+    if (b.dataset.u === 'later') { bar.hidden = true; snoozeUntil = Date.now() + SNOOZE_MS; return; }
+    b.disabled = true; b.textContent = '저장하고 새로고침…';
+    try { if (window.VobacaAuth && window.VobacaAuth.flush) await window.VobacaAuth.flush(); } catch (er) {}
+    // 주소를 바꿔 새로 받아 오게 (GitHub Pages 캐시 우회)
+    location.replace(location.pathname + '?v=' + encodeURIComponent(latestSeen ? latestSeen.v : Date.now()));
+  });
+  setInterval(check, CHECK_MS);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) check(); });
+  setTimeout(check, 4000);
+  setTimeout(showWhatsNew, 600);
+  window.VobacaUpdate = { check, showWhatsNew, version: CUR };
 })();
 
 </script>
