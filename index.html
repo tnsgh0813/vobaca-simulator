@@ -842,7 +842,39 @@ body.in-lobby #modalRoot .modal { z-index: 58; }   /* 로비 화면 위에 확�
 /* 덱 편집 */
 .dname { flex: 1 1 200px; max-width: 360px; font: inherit; font-size: 16px; font-weight: 700; padding: 8px 12px; border-radius: 10px; border: 1.5px solid rgba(255,220,170,.35); background: rgba(20,10,4,.7); color: #fff; }
 .dname:focus { outline: 2px solid var(--ball); }
-.editor { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 16px; align-items: start; }
+.screen[data-screen="editor"] > * { max-width: 1520px; }
+.editor { display: grid; grid-template-columns: 300px 330px minmax(0, 1fr); gap: 14px; align-items: start; }
+.edcol { min-width: 0; }
+.ed-infocol, .ed-deckcol { position: sticky; top: 0; max-height: calc(100dvh - 40px); overflow-y: auto; overscroll-behavior: contain; background: rgba(16,9,4,.92); border: 1px solid rgba(255,220,170,.25); border-radius: 16px; padding: 14px; }
+.edtabs { display: none; }
+.ctile.picked { outline: 2.5px solid var(--ball); outline-offset: 1px; }
+.ctile .pm button.blocked, .drows button.blocked { opacity: .3; cursor: not-allowed; }
+.dleft { margin: 0 0 8px; font-size: 12.5px; color: #e9dccb; }
+.dgrp { margin: 10px 0 6px; font-size: 12px; letter-spacing: .06em; color: #a8957e; display: flex; justify-content: space-between; }
+.dgrp em { font-style: normal; color: #f3e5d2; }
+.drows li.picked { background: rgba(255,210,63,.14); }
+.ei-empty { display: grid; gap: 6px; padding: 8px 2px; color: var(--muted); } .ei-empty b { color: #f3e5d2; font-size: 15px; } .ei-empty p { margin: 0; font-size: 13px; line-height: 1.6; }
+.ei { display: grid; gap: 12px; }
+.ei-top { display: grid; gap: 10px; }
+.ei-img { width: 100%; max-width: 220px; justify-self: center; aspect-ratio: 744/1039; border-radius: 10px; box-shadow: 0 10px 24px rgba(0,0,0,.5); display: block; }
+.ei-head h3 { margin: 0; font-size: 18px; text-wrap: balance; }
+.ei-attrs { font-size: 11.5px; color: var(--muted); margin: 3px 0 8px; }
+.ei-prm { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
+.ei-prm span { display: grid; justify-items: center; gap: 1px; padding: 5px 0; border-radius: 8px; background: rgba(255,255,255,.06); }
+.ei-prm i { font-style: normal; font-size: 10.5px; color: var(--muted); } .ei-prm b { font-family: var(--f-display); font-weight: 400; font-size: 20px; }
+.ei-prm.ev { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); } .ei-prm.ev b { font-family: inherit; font-size: 14px; font-weight: 800; }
+.ei-sk { margin: 0; font-size: 13px; line-height: 1.65; color: #f3e5d2; background: rgba(255,255,255,.04); border-radius: 10px; padding: 10px 12px; } .ei-sk.none { color: var(--muted); }
+.ei-ctl { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center; }
+.ei-ctl b { font-family: var(--f-display); font-weight: 400; font-size: 26px; text-align: center; min-width: 48px; } .ei-ctl b small { font-family: inherit; font-size: 12px; margin-left: 2px; color: var(--muted); }
+.ei-ctl .btn.blocked { opacity: .4; cursor: not-allowed; }
+.ei-why { margin: -4px 0 0; font-size: 12.5px; color: #ffcf8a; text-align: center; }
+.ei-cnt { font-size: 13px; color: var(--muted); } .ei-cnt b { color: #fff; font-size: 16px; }
+.ei-kw h4 { margin: 0 0 6px; font-size: 11px; letter-spacing: .08em; color: var(--muted); }
+.ei-kw dl { margin: 0; display: grid; gap: 8px; } .ei-kw dt { font-weight: 700; font-size: 12.5px; color: var(--ball); } .ei-kw dd { margin: 2px 0 0; font-size: 12px; color: #d4d9e6; line-height: 1.5; }
+.edtoast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); z-index: 70; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; padding: 10px 16px; border-radius: 12px; background: rgba(30,14,4,.97); border: 1.5px solid var(--ball); color: #fff; font-size: 14px; font-weight: 700; box-shadow: 0 12px 30px rgba(0,0,0,.5); transition: opacity .18s, transform .18s; max-width: calc(100vw - 32px); text-align: center; }
+body.in-lobby:has(#screen[data-screen="editor"]) .sndbtn { display: none; }
+.edtoast.on { opacity: 1; transform: translate(-50%, 0); }
+@media (max-width: 1180px) and (min-width: 861px) { .editor { grid-template-columns: 250px 290px minmax(0, 1fr); } .ei-img { max-width: 200px; } }
 .pool-grid { grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); }
 .deckpanel { position: sticky; top: 0; background: rgba(16,9,4,.92); border: 1px solid rgba(255,220,170,.25); border-radius: 16px; padding: 14px; max-height: calc(100dvh - 40px); overflow-y: auto; }
 .dstats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; text-align: center; }
@@ -891,6 +923,11 @@ body.in-lobby #modalRoot .modal { z-index: 58; }   /* 로비 화면 위에 확�
   .hero { grid-template-columns: minmax(0, .9fr) minmax(0, 1fr); min-height: 0; } .hero-fan { height: 140px; } .hero-fan img { width: 64px; transform: translateX(calc(-50% + var(--i) * 40%)) rotate(calc(var(--i) * 8deg)); }
   .aibottom { grid-template-columns: 1fr; }
   .editor { grid-template-columns: 1fr; }
+  .edtabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 4px; margin-bottom: 12px; border-radius: 14px; background: rgba(16,9,4,.92); border: 1px solid rgba(255,220,170,.25); position: sticky; top: -18px; z-index: 6; }
+  .edtabs button { padding: 9px 4px; border: 0; border-radius: 10px; background: none; color: #cdbba5; font: inherit; font-size: 14px; font-weight: 800; cursor: pointer; }
+  .edtabs button.on { background: var(--ball); color: #1b1600; }
+  .editor .edcol { display: none; position: static; max-height: none; } .ei-img { max-width: 180px; }
+  .editor[data-tab="search"] .pool, .editor[data-tab="deck"] .ed-deckcol, .editor[data-tab="info"] .ed-infocol { display: block; }
   .cardgrid { grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); }
   .coach { top: 98px; right: 10px; width: calc(100vw - 20px); padding: 10px 12px; }
   .coach p { font-size: 12.5px; line-height: 1.5; }
@@ -1302,7 +1339,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
 })(typeof window !== 'undefined' ? window : globalThis);
 
 </script>
-<script>window.VOBACA_VERSION="20261028225404";window.VOBACA_CHANGELOG=[{"id": 11, "date": "2026-10-28", "title": "효과음 · 배경음", "notes": ["배구 효과음: 서브 · 스파이크(OP가 클수록 세게) · 리시브 · 토스 · 블록 · 도샷 · 원터치 · 공이 바닥에 떨어지는 소리 · 농구화 끼익 · 휘슬 · 관중 환호/탄식", "카드 뽑기 · 캐릭터 등장 · 이벤트/스킬 발동 · 코인 토스 · 승리/패배 소리", "배경음: 로비와 대전에서 각각 다른 곡", "소리 크기: 로비 왼쪽 아래 스피커 버튼, 경기 중에는 「설정」에서 배경음 · 효과음 따로 조절하거나 끌 수 있어요"]}, {"id": 10, "date": "2026-10-28", "title": "부스터 1탄 「쓰레기장의 결전」 카드 추가", "notes": ["부스터 1탄 93종(캐릭터 73 · 이벤트 20) 추가 — 패러렐 버전은 제외, 모든 카드 스킬을 공식 텍스트 · Q&A 기준으로 구현", "새 키워드: 원터치 · 페인트 · 블록아웃 · 턴1 · 도샷(6), 패에서 쓰는 캐릭터 스킬(엔노시타 · 시바야마), 2인 카드(히나타·코즈메 / 츠키시마·쿠로오)의 이름 고르기", "샘플 덱 2종: 아오바죠사이 · 후쿠로다니 (AI 대전에서 바로 선택 가능)", "카드 목록 · 덱 편집: 세트 · 학교 필터와 이름 · 효과 검색"]}, {"id": 9, "date": "2026-10-28", "title": "휴대폰 · 태블릿 지원", "notes": ["휴대폰 세로(아이폰 · 갤럭시 S · 폴드 커버): 스크롤 없이 한 화면에 필드와 패가 꽉 차게, 위쪽 ⋯ 메뉴에 로그 · 설정 · 기권", "태블릿 세로(아이패드 · 갤럭시 탭 · 폴드 펼침): 카드를 화면 폭에 맞춰 크게, 가로는 여백을 줄여 카드를 조금 더 크게", "카드를 꾹 누르면 카드 정보 (휴대폰 · 태블릿)", "휴대폰을 가로로 들면 세로로 돌리라는 안내 (그래도 가로로 볼 수 있음)"]}, {"id": 8, "date": "2026-10-28", "title": "매트 다듬기 · 첫 패 연출", "notes": ["서브 에리어(왼쪽 줄)를 더 넓게", "가츠: 맨 위 캐릭터 아래 깔린 카드가 왼쪽으로 비스듬히 삐져나오고, 장수는 노란 숫자로", "덱 · 드롭 · 이벤트 칸을 같은 크기로 (드롭과 이벤트는 룰상 다른 영역이라 그대로 따로)", "멀리건이 끝나면 첫 패를 덱에서 한 장씩 뽑아 오는 연출"]}, {"id": 7, "date": "2026-10-28", "title": "경기 결과 연출", "notes": ["승리하면 팀 색 꽃가루와 함께 「승리!」, 패배하면 화면이 어두워지며 「패배…」", "세트마다 마지막 점수를 낸 카드(어택 · 서브 · 블록/도샷, OP, 토스 카드)와 상대가 놓친 이유를 차례로 보여 줘요", "결정타를 가장 많이 낸 카드는 「오늘의 해결사」로 표시 — 카드 그림을 누르면 정보창"]}, {"id": 6, "date": "2026-10-28", "title": "상대 패 모양", "notes": ["상대 패(뒷면) 부채꼴을 내 패를 마주 본 방향으로 뒤집었어요"]}, {"id": 5, "date": "2026-10-28", "title": "드로우 연출 · 효과 알림 개선", "notes": ["카드를 뽑으면 덱(또는 세트 에리어)에서 패로 날아와요 — 상대가 뽑을 때도", "스킬 · 이벤트 알림이 효과가 실제로 적용되는 순간(포인트 증감, 드로우 등)마다 떠요", "알림은 화면 오른쪽 가운데, 알림 속 카드 그림을 누르면 정보창", "키워드 설명은 정보창의 「키워드 설명 보기」를 눌렀을 때만"]}, {"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
+<script>window.VOBACA_VERSION="20261028231130";window.VOBACA_CHANGELOG=[{"id": 12, "date": "2026-10-28", "title": "덱 편집 화면 새 구성", "notes": ["덱 편집을 세 칸으로: 왼쪽 카드 정보(그림 · 능력치 · 효과 · 키워드 설명) · 가운데 덱 정보 · 오른쪽 카드 검색", "덱 규칙에 맞춰 40장을 넘거나 이벤트가 8장을 넘으면 더 넣을 수 없어요 (캐릭터는 같은 카드도 제한 없음)", "덱 목록을 캐릭터 / 이벤트로 나눠 보여 주고 남은 자리를 알려 줘요", "휴대폰에서는 위쪽 탭으로 카드 검색 · 덱 · 카드 정보를 오가요"]}, {"id": 11, "date": "2026-10-28", "title": "효과음 · 배경음", "notes": ["배구 효과음: 서브 · 스파이크(OP가 클수록 세게) · 리시브 · 토스 · 블록 · 도샷 · 원터치 · 공이 바닥에 떨어지는 소리 · 농구화 끼익 · 휘슬 · 관중 환호/탄식", "카드 뽑기 · 캐릭터 등장 · 이벤트/스킬 발동 · 코인 토스 · 승리/패배 소리", "배경음: 로비와 대전에서 각각 다른 곡", "소리 크기: 로비 왼쪽 아래 스피커 버튼, 경기 중에는 「설정」에서 배경음 · 효과음 따로 조절하거나 끌 수 있어요"]}, {"id": 10, "date": "2026-10-28", "title": "부스터 1탄 「쓰레기장의 결전」 카드 추가", "notes": ["부스터 1탄 93종(캐릭터 73 · 이벤트 20) 추가 — 패러렐 버전은 제외, 모든 카드 스킬을 공식 텍스트 · Q&A 기준으로 구현", "새 키워드: 원터치 · 페인트 · 블록아웃 · 턴1 · 도샷(6), 패에서 쓰는 캐릭터 스킬(엔노시타 · 시바야마), 2인 카드(히나타·코즈메 / 츠키시마·쿠로오)의 이름 고르기", "샘플 덱 2종: 아오바죠사이 · 후쿠로다니 (AI 대전에서 바로 선택 가능)", "카드 목록 · 덱 편집: 세트 · 학교 필터와 이름 · 효과 검색"]}, {"id": 9, "date": "2026-10-28", "title": "휴대폰 · 태블릿 지원", "notes": ["휴대폰 세로(아이폰 · 갤럭시 S · 폴드 커버): 스크롤 없이 한 화면에 필드와 패가 꽉 차게, 위쪽 ⋯ 메뉴에 로그 · 설정 · 기권", "태블릿 세로(아이패드 · 갤럭시 탭 · 폴드 펼침): 카드를 화면 폭에 맞춰 크게, 가로는 여백을 줄여 카드를 조금 더 크게", "카드를 꾹 누르면 카드 정보 (휴대폰 · 태블릿)", "휴대폰을 가로로 들면 세로로 돌리라는 안내 (그래도 가로로 볼 수 있음)"]}, {"id": 8, "date": "2026-10-28", "title": "매트 다듬기 · 첫 패 연출", "notes": ["서브 에리어(왼쪽 줄)를 더 넓게", "가츠: 맨 위 캐릭터 아래 깔린 카드가 왼쪽으로 비스듬히 삐져나오고, 장수는 노란 숫자로", "덱 · 드롭 · 이벤트 칸을 같은 크기로 (드롭과 이벤트는 룰상 다른 영역이라 그대로 따로)", "멀리건이 끝나면 첫 패를 덱에서 한 장씩 뽑아 오는 연출"]}, {"id": 7, "date": "2026-10-28", "title": "경기 결과 연출", "notes": ["승리하면 팀 색 꽃가루와 함께 「승리!」, 패배하면 화면이 어두워지며 「패배…」", "세트마다 마지막 점수를 낸 카드(어택 · 서브 · 블록/도샷, OP, 토스 카드)와 상대가 놓친 이유를 차례로 보여 줘요", "결정타를 가장 많이 낸 카드는 「오늘의 해결사」로 표시 — 카드 그림을 누르면 정보창"]}, {"id": 6, "date": "2026-10-28", "title": "상대 패 모양", "notes": ["상대 패(뒷면) 부채꼴을 내 패를 마주 본 방향으로 뒤집었어요"]}, {"id": 5, "date": "2026-10-28", "title": "드로우 연출 · 효과 알림 개선", "notes": ["카드를 뽑으면 덱(또는 세트 에리어)에서 패로 날아와요 — 상대가 뽑을 때도", "스킬 · 이벤트 알림이 효과가 실제로 적용되는 순간(포인트 증감, 드로우 등)마다 떠요", "알림은 화면 오른쪽 가운데, 알림 속 카드 그림을 누르면 정보창", "키워드 설명은 정보창의 「키워드 설명 보기」를 눌렀을 때만"]}, {"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
 <script src="config.js"></script>
 <script>
 // バボカ BREAK — HV-D01 烏野 / HV-D02 音駒 スターターデッキ カードデータ
@@ -7547,18 +7584,26 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     },
     editor(d) {
       return `${head(d.readonly ? '덱 보기' : '덱 편집', 'decks', d.readonly ? '' : `<input class="dname" id="deckName" maxlength="24" value="${esc(d.name)}" aria-label="덱 이름">`)}
-      <div class="editor ${d.readonly ? 'ro' : ''}">
-        <section class="pool">
+      <div class="edtabs" role="tablist" aria-label="덱 편집 화면">
+        <button type="button" role="tab" data-edtab="search">카드 검색</button>
+        <button type="button" role="tab" data-edtab="deck">덱 <span id="edTabCount"></span></button>
+        <button type="button" role="tab" data-edtab="info">카드 정보</button>
+      </div>
+      <div class="editor ${d.readonly ? 'ro' : ''}" id="editor" data-tab="search">
+        <section class="edcol ed-infocol" aria-label="카드 정보"><div id="edInfo"></div></section>
+        <section class="edcol ed-deckcol" aria-label="덱 정보"><div id="deckPanel"></div></section>
+        <section class="edcol pool" aria-label="카드 검색">
           <div class="filters" id="poolFilters">
             <label class="qsearch csearch"><span aria-hidden="true">⌕</span><input id="poolSearch" type="search" placeholder="카드 이름·효과로 찾기" autocomplete="off" aria-label="카드 검색"></label>
             <div class="chips" data-f="set"><button class="chip on" data-v="all">모든 세트</button>${SETS.map(x => `<button class="chip" data-v="${x.id}">${esc(x.label)}</button>`).join('')}</div>
-        <div class="chips" data-f="team"><button class="chip on" data-v="all">모든 학교</button>${SCHOOLS.map(([k, l]) => `<button class="chip" data-v="${k}">${l}</button>`).join('')}</div>
+            <div class="chips" data-f="team"><button class="chip on" data-v="all">모든 학교</button>${SCHOOLS.map(([k, l]) => `<button class="chip" data-v="${k}">${l}</button>`).join('')}</div>
             <div class="chips" data-f="type"><button class="chip on" data-v="all">모든 종류</button><button class="chip" data-v="C">캐릭터</button><button class="chip" data-v="E">이벤트</button></div>
           </div>
+          <p class="lead small" id="poolCount"></p>
           <div class="cardgrid pool-grid" id="poolGrid"></div>
         </section>
-        <aside class="deckpanel"><div id="deckPanel"></div></aside>
-      </div>`;
+      </div>
+      <div class="edtoast" id="edToast" role="status" aria-live="polite"></div>`;
     },
     qna() {
       return `${head('QNA 검색', 'hub')}
@@ -7605,27 +7650,76 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     for (const c of CARDS) { const n = ED.counts.get(c.no) || 0; if (!n) continue; const k = Math.min(ED.dp.get(c.no) || 0, n); if (n - k) out.push([c.no, n - k, c.img || 'D']); if (k) out.push([c.no, k, 'DP']); }
     return out;
   }
+  // 덱 규칙: 정확히 40장, 이벤트 카드는 8장까지, 캐릭터는 같은 카드도 제한 없음 (공식 Q&A)
+  const DECK_MAX = 40, EVENT_MAX = 8;
+  function edTotals() { let total = 0, ev = 0; for (const [no, n] of ED.counts) { total += n; if (DB[no].type === 'E') ev += n; } return { total, ev }; }
+  function addBlock(no) {
+    const { total, ev } = edTotals();
+    if (total >= DECK_MAX) return `덱이 ${DECK_MAX}장으로 꽉 찼어요`;
+    if (DB[no].type === 'E' && ev >= EVENT_MAX) return `이벤트 카드는 ${EVENT_MAX}장까지 넣을 수 있어요`;
+    return '';
+  }
+  const pmHtml = (no, n) => { const why = addBlock(no); return `<div class="pm"><button type="button" data-dec="${no}" aria-label="빼기" ${n ? '' : 'disabled'}>−</button><button type="button" data-inc="${no}" aria-label="넣기" ${why ? `aria-disabled="true" class="blocked" title="${esc(why)}"` : ''}>＋</button></div>`; };
   function renderPool() {
-    const fs = ED.fs;
-    $('#poolGrid').innerHTML = filterCards(fs).map(c => { const n = ED.counts.get(c.no) || 0; return tileHtml(c, `<div class="cnt ${n ? 'on' : ''}">${n}</div>${ED.readonly ? '' : `<div class="pm"><button type="button" data-dec="${c.no}" aria-label="빼기" ${n ? '' : 'disabled'}>−</button><button type="button" data-inc="${c.no}" aria-label="넣기">＋</button></div>`}`); }).join('');
+    const fs = ED.fs; const list = filterCards(fs);
+    $('#poolGrid').innerHTML = list.map(c => { const n = ED.counts.get(c.no) || 0; return tileHtml(c, `<div class="cnt ${n ? 'on' : ''}">${n}</div>${ED.readonly ? '' : pmHtml(c.no, n)}`).replace('class="ctile', `class="ctile${ED.sel === c.no ? ' picked' : ''}`); }).join('') || '<p class="lead">조건에 맞는 카드가 없어요.</p>';
+    $('#poolCount').textContent = `${list.length}종 · 카드를 누르면 「카드 정보」에 자세히 보여요${ED.readonly ? '' : ' · ＋/− 로 넣고 빼기'}`;
   }
   function renderDeckPanel() {
     const d = { list: edList() }; const s = deckStats(d);
-    const rows = CARDS.filter(c => ED.counts.get(c.no)).map(c => `<li class="t-${teamOf(c)}"><img src="${img(c.no)}" alt="" data-cardno="${c.no}"><span class="rn" data-cardno="${c.no}">${esc(KN(c.no))}</span>${ED.readonly ? '' : `<button type="button" data-dec="${c.no}" aria-label="빼기">−</button>`}<b>${ED.counts.get(c.no)}</b>${ED.readonly ? '' : `<button type="button" data-inc="${c.no}" aria-label="넣기">＋</button>`}</li>`).join('');
+    const row = c => `<li class="t-${teamOf(c)} ${ED.sel === c.no ? 'picked' : ''}"><img src="${img(c.no)}" alt="" data-pick="${c.no}"><span class="rn" data-pick="${c.no}">${esc(KN(c.no))}</span>${ED.readonly ? '' : `<button type="button" data-dec="${c.no}" aria-label="빼기">−</button>`}<b>${ED.counts.get(c.no)}</b>${ED.readonly ? '' : `<button type="button" data-inc="${c.no}" aria-label="넣기" ${addBlock(c.no) ? 'aria-disabled="true" class="blocked"' : ''}>＋</button>`}</li>`;
+    const chars = CARDS.filter(c => ED.counts.get(c.no) && c.type === 'C'), evs = CARDS.filter(c => ED.counts.get(c.no) && c.type === 'E');
+    const left = DECK_MAX - s.total, evLeft = EVENT_MAX - s.ev;
     $('#deckPanel').innerHTML = `
-      <div class="dstats"><div class="${s.total === 40 ? 'ok' : 'bad'}"><b>${s.total}</b><span>/ 40장</span></div><div class="${s.ev <= 8 ? '' : 'bad'}"><b>${s.ev}</b><span>이벤트 (≤8)</span></div><div><b>${s.chars}</b><span>캐릭터</span></div></div>
-      <div class="meter"><i style="width:${Math.min(100, s.total / 40 * 100)}%" class="${s.total > 40 ? 'over' : s.total === 40 ? 'full' : ''}"></i></div>
+      <div class="dstats"><div class="${s.total === DECK_MAX ? 'ok' : s.total > DECK_MAX ? 'bad' : ''}"><b>${s.total}</b><span>/ ${DECK_MAX}장</span></div><div class="${s.ev > EVENT_MAX ? 'bad' : s.ev === EVENT_MAX ? 'full' : ''}"><b>${s.ev}</b><span>이벤트 / ${EVENT_MAX}</span></div><div><b>${s.chars}</b><span>캐릭터</span></div></div>
+      <div class="meter"><i style="width:${Math.min(100, s.total / DECK_MAX * 100)}%" class="${s.total > DECK_MAX ? 'over' : s.total === DECK_MAX ? 'full' : ''}"></i></div>
       ${s.errs.length ? `<ul class="derrs">${s.errs.map(e => `<li>${esc(e)}</li>`).join('')}</ul>` : '<p class="dok">대전에 쓸 수 있는 덱이에요.</p>'}
-      <ul class="drows">${rows || '<li class="empty">왼쪽 카드의 ＋를 눌러 덱에 넣으세요.</li>'}</ul>
+      ${ED.readonly ? '' : `<p class="dleft">${left > 0 ? `${left}장 더 넣을 수 있어요 · 이벤트는 ${Math.max(0, Math.min(evLeft, left))}장 더` : left === 0 ? '40장을 다 채웠어요 — 다른 카드를 넣으려면 먼저 빼 주세요' : `${-left}장을 빼야 해요`}</p>`}
+      <div class="drows-wrap">
+        ${chars.length ? `<h4 class="dgrp">캐릭터 <em>${s.chars}</em></h4><ul class="drows">${chars.map(row).join('')}</ul>` : ''}
+        ${evs.length ? `<h4 class="dgrp">이벤트 <em>${s.ev} / ${EVENT_MAX}</em></h4><ul class="drows">${evs.map(row).join('')}</ul>` : ''}
+        ${!chars.length && !evs.length ? '<ul class="drows"><li class="empty">오른쪽 카드 검색에서 ＋를 눌러 덱에 넣으세요.</li></ul>' : ''}
+      </div>
       ${ED.readonly ? `<div class="dacts"><button class="btn primary" type="button" data-deck-copy="${esc(ED.id)}">복사해서 편집</button></div>`
         : `<div class="dacts"><button class="btn" type="button" data-ed-clear>비우기</button><button class="btn" type="button" data-go="decks">취소</button><button class="btn primary" type="button" data-ed-save>저장</button></div>`}`;
+    const tc = $('#edTabCount'); if (tc) tc.textContent = `${s.total}/${DECK_MAX}`;
   }
+  function renderInfo() {
+    const box = $('#edInfo'); if (!box) return;
+    const no = ED.sel; const c = no && DB[no];
+    if (!c) { box.innerHTML = `<div class="ei-empty"><b>카드 정보</b><p>카드 검색이나 덱 목록에서 카드를 누르면 여기에 그림 · 능력치 · 효과와 키워드 설명이 보여요.</p></div>`; return; }
+    const n = ED.counts.get(no) || 0; const why = ED.readonly ? '' : addBlock(no);
+    const set = (SETS.find(x => x.id === setOf(c)) || {}).label || '';
+    const attrs = [c.type === 'C' ? '캐릭터' : '이벤트', (c.aff || []).map(a => AFF_KO[a] || a).join('/'), c.grade ? GRADE_KO[c.grade] || c.grade : '', (c.pos || []).join('/'), set, c.no].filter(Boolean).join(' · ');
+    const prm = c.type === 'C' ? `<div class="ei-prm">${PARAM.map(([k, l]) => `<span class="s-${k}"><i>${l}</i><b>${c.params[k] == null ? '－' : c.params[k]}</b></span>`).join('')}</div>`
+      : `<div class="ei-prm ev">${(c.timing || []).map(t => `<span><b>${TIMING_KO[t]}</b><i>페이즈에 플레이</i></span>`).join('')}</div>`;
+    const kws = UI.keywordsFor(c.ko || '');
+    box.innerHTML = `<div class="ei">
+      <div class="ei-top"><img class="ei-img" src="${img(no)}" alt="${esc(KN(no))}"><div class="ei-head"><h3>${esc(KN(no))}</h3><div class="ei-attrs">${esc(attrs)}</div>${prm}</div></div>
+      <p class="ei-sk ${c.ko ? '' : 'none'}">${esc(c.ko || '스킬 없음')}</p>
+      ${ED.readonly ? `<div class="ei-cnt">덱에 <b>${n}</b>장</div>` : `<div class="ei-ctl"><button class="btn" type="button" data-dec="${no}" ${n ? '' : 'disabled'}>− 빼기</button><b>${n}<small>장</small></b><button class="btn primary ${why ? 'blocked' : ''}" type="button" data-inc="${no}" ${why ? 'aria-disabled="true"' : ''}>＋ 넣기</button></div>${why ? `<p class="ei-why">${esc(why)}</p>` : ''}`}
+      ${kws.length ? `<div class="ei-kw"><h4>키워드 설명</h4><dl>${kws.map(k => `<div><dt>${esc(k.k)}</dt><dd>${esc(k.d)}</dd></div>`).join('')}</dl></div>` : ''}
+    </div>`;
+  }
+  let toastT = 0;
+  function toast(text) { const t = $('#edToast'); if (!t) return; t.textContent = text; t.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 2200); }
   function edChange(no, delta) {
     if (ED.readonly) return;
+    if (delta > 0) { const why = addBlock(no); if (why) { toast(why); return; } }
     const n = Math.max(0, (ED.counts.get(no) || 0) + delta);
     if (n) ED.counts.set(no, n); else ED.counts.delete(no);
     if ((ED.dp.get(no) || 0) > n) ED.dp.set(no, n);
-    renderPool(); renderDeckPanel();
+    renderEditor();
+  }
+  function renderEditor() { renderPool(); renderDeckPanel(); renderInfo(); }
+  function edPick(no) {
+    ED.sel = no; renderEditor();
+    if (matchMedia('(max-width: 860px)').matches) setTab('info');
+  }
+  function setTab(t) {
+    const e = $('#editor'); if (!e) return; e.dataset.tab = t;
+    document.querySelectorAll('[data-edtab]').forEach(b => { b.classList.toggle('on', b.dataset.edtab === t); b.setAttribute('aria-selected', String(b.dataset.edtab === t)); });
+    root.scrollTop = 0;
   }
 
   const AFTER = {
@@ -7678,7 +7772,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       ED.fs = { team: 'all', type: 'all', set: 'all', q: '' };
       bindFilters($('#poolFilters'), ED.fs, renderPool);
       $('#poolSearch').addEventListener('input', e => { ED.fs.q = e.target.value; renderPool(); });
-      renderPool(); renderDeckPanel();
+      renderEditor(); setTab('search');
       const nm = $('#deckName'); if (nm) nm.addEventListener('input', () => { ED.name = nm.value; });
     },
   };
@@ -7724,7 +7818,9 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       show(go.dataset.go); return;
     }
     const tut = t.closest('[data-tut]'); if (tut) { startTutorial(+tut.dataset.tut); return; }
+    const tab = t.closest('[data-edtab]'); if (tab) { setTab(tab.dataset.edtab); return; }
     const inc = t.closest('[data-inc]'); if (inc) { edChange(inc.dataset.inc, +1); return; }
+    const pk = t.closest('[data-pick]'); if (pk && cur === 'editor') { edPick(pk.dataset.pick); return; }
     const dec = t.closest('[data-dec]'); if (dec) { edChange(dec.dataset.dec, -1); return; }
     if (t.closest('[data-deck-new]')) { ED = edFromDeck({ id: 'deck-' + Date.now(), name: '새 덱', list: [] }, false); show('editor', ED); return; }
     const cp = t.closest('[data-deck-copy]');
@@ -7733,7 +7829,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     const ed = t.closest('[data-deck-edit]'); if (ed) { ED = edFromDeck(customDecks().find(x => x.id === ed.dataset.deckEdit), false); show('editor', ED); return; }
     const del = t.closest('[data-deck-del]');
     if (del) { const d = customDecks().find(x => x.id === del.dataset.deckDel); if (d && await ask(`「${d.name}」 덱을 삭제할까요?`, '삭제', true)) { saveDecks(customDecks().filter(x => x.id !== d.id)); show('decks'); } return; }
-    if (t.closest('[data-ed-clear]')) { ED.counts.clear(); ED.dp.clear(); renderPool(); renderDeckPanel(); return; }
+    if (t.closest('[data-ed-clear]')) { ED.counts.clear(); ED.dp.clear(); renderEditor(); return; }
     if (t.closest('[data-ed-save]')) {
       const list = edList(); const name = (ED.name || '').trim() || '이름 없는 덱';
       const deck = { id: ED.id, name, list, updated: Date.now() };
@@ -7742,8 +7838,8 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       saveDecks(all); show('decks'); return;
     }
     const cardEl = t.closest('[data-cardno]');
-    if (cardEl && !(cur === 'editor' && !ED.readonly && cardEl.classList.contains('ctile'))) { UI.showCardInfo(cardEl.dataset.cardno); return; }
-    if (cardEl && cur === 'editor') { edChange(cardEl.dataset.cardno, +1); UI.showCardInfo(cardEl.dataset.cardno); return; }
+    if (cardEl && cur === 'editor') { edPick(cardEl.dataset.cardno); return; }   // 덱 편집: 왼쪽 「카드 정보」에 표시
+    if (cardEl) { UI.showCardInfo(cardEl.dataset.cardno); return; }
     UI.showCardInfo(null);
   });
 
