@@ -335,11 +335,12 @@ header.topbar { min-height: 58px; }
 .coinstage.done .vcoin-cap { animation: pulse .5s ease-out; }
 @keyframes pulse { 0% { transform: scale(.8); } 60% { transform: scale(1.12); } 100% { transform: scale(1); } }
 /* 스킬 · 이벤트 발동 기록 (오른쪽 아래에 쌓임) */
-.skillfeed { position: fixed; right: max(12px, env(safe-area-inset-right, 0px)); bottom: 14px; z-index: 47; width: min(330px, calc(100vw - 24px)); display: flex; flex-direction: column; gap: 6px; pointer-events: none; }
+.skillfeed { position: fixed; right: max(12px, env(safe-area-inset-right, 0px)); top: 50%; transform: translateY(-50%); z-index: 47; width: min(300px, calc(100vw - 24px)); display: flex; flex-direction: column; gap: 6px; pointer-events: none; }
 .sf-item { --tc: var(--ball); display: flex; align-items: center; gap: 10px; padding: 7px 10px 7px 7px; border-radius: 12px; overflow: hidden;
   background: linear-gradient(100deg, color-mix(in srgb, var(--tc) 30%, #0d0f16) 0%, rgba(13,15,22,.94) 60%); border: 1.5px solid color-mix(in srgb, var(--tc) 70%, transparent);
   box-shadow: 0 8px 22px rgba(0,0,0,.5); opacity: .82; transition: opacity .3s; }
-.sf-card { flex: 0 0 auto; width: 40px; border-radius: 5px; overflow: hidden; box-shadow: 0 0 0 1.5px rgba(255,255,255,.7); }
+.sf-card { flex: 0 0 auto; width: 40px; padding: 0; border: 0; background: none; border-radius: 5px; overflow: hidden; box-shadow: 0 0 0 1.5px rgba(255,255,255,.7); pointer-events: auto; cursor: pointer; transition: transform .12s; }
+.sf-card:hover { transform: scale(1.06) rotate(0deg) !important; box-shadow: 0 0 0 2px var(--ball); }
 .sf-card img { width: 100%; aspect-ratio: 744 / 1039; display: block; object-fit: cover; }
 .sf-info { display: grid; gap: 2px; min-width: 0; }
 .sf-who { justify-self: start; font-size: 10px; font-weight: 900; padding: 0 7px; border-radius: 999px; background: var(--tc); color: #160c00; }
@@ -352,7 +353,7 @@ header.topbar { min-height: 58px; }
 .sf-item:last-child .sf-info b { font-family: var(--f-display); font-weight: 400; font-size: 19px; white-space: normal; }
 .sf-item:last-child .sf-eff { font-size: 13px; -webkit-line-clamp: 4; }
 .sf-item:last-child .sf-ko { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-@media (max-width: 760px) { .skillfeed { width: min(280px, calc(100vw - 24px)); bottom: 8px; } .sf-item:last-child .sf-card { width: 60px; } .sf-item:last-child .sf-ko { display: none; } .sf-item:not(:last-child):not(:nth-last-child(2)) { display: none; } }
+@media (max-width: 760px) { .skillfeed { width: min(260px, calc(100vw - 24px)); top: auto; bottom: 8px; transform: none; } .sf-item:last-child .sf-card { width: 60px; } .sf-item:last-child .sf-ko { display: none; } .sf-item:not(:last-child):not(:nth-last-child(2)) { display: none; } }
 .fxlayer { position: absolute; inset: 0; pointer-events: none; z-index: 20; overflow: visible; }
 .vball { z-index: 5; } .vshadow { z-index: 4; } .vghost { z-index: 3; } .vburst, .vring, .vpart { z-index: 6; } .vbanner { z-index: 8; }
 .vball, .vshadow, .vghost { position: absolute; left: 0; top: 0; width: clamp(22px, 4.6cqi, 40px); aspect-ratio: 1; will-change: transform; }
@@ -452,7 +453,17 @@ body.is-dragging { cursor: grabbing; user-select: none; }
 .ci-main .big img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .ci-main h3 { margin: 0; font-size: 16px; text-wrap: balance; }
 .ci-main .attrs { font-size: 11.5px; color: var(--muted); margin: 3px 0 8px; }
-.ci-main .hint { grid-column: 1 / -1; font-size: 11px; color: var(--muted); text-align: right; margin-top: -4px; }
+.ci-main .hint { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 11px; color: var(--muted); text-align: right; margin-top: -4px; }
+.ci-main .hint span { margin-left: auto; }
+.kwbtn { font: inherit; font-size: 11.5px; font-weight: 800; padding: 3px 10px; border-radius: 999px; cursor: pointer; color: var(--ball); background: rgba(255,210,63,.1); border: 1px solid rgba(255,210,63,.45); }
+.kwbtn:hover { background: rgba(255,210,63,.2); }
+/* 드로우 연출 */
+.hc.arriving { visibility: hidden; }
+.flycard { position: fixed; left: 0; top: 0; z-index: 45; pointer-events: none; perspective: 700px; transform-origin: 0 0; }
+.flycard .fc-in { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; }
+.flycard .fc-back, .flycard .fc-front { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 5px; box-shadow: 0 10px 22px rgba(0,0,0,.55); }
+.flycard .fc-front { transform: rotateY(180deg); overflow: hidden; }
+.flycard .fc-front img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .ci-kw { width: 260px; display: grid; gap: 8px; }
 .ci-kw h4 { margin: 0; font-size: 11px; letter-spacing: .08em; color: var(--muted); font-weight: 700; }
 .ci-kw dl { margin: 0; display: grid; gap: 8px; }
@@ -849,7 +860,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
 <div class="cardinfo" id="cardInfo" hidden></div>
 <div id="modalRoot"></div>
 
-<script>window.VOBACA_VERSION="20261028165037";window.VOBACA_CHANGELOG=[{"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
+<script>window.VOBACA_VERSION="20261028170953";window.VOBACA_CHANGELOG=[{"id": 5, "date": "2026-10-28", "title": "드로우 연출 · 효과 알림 개선", "notes": ["카드를 뽑으면 덱(또는 세트 에리어)에서 패로 날아와요 — 상대가 뽑을 때도", "스킬 · 이벤트 알림이 효과가 실제로 적용되는 순간(포인트 증감, 드로우 등)마다 떠요", "알림은 화면 오른쪽 가운데, 알림 속 카드 그림을 누르면 정보창", "키워드 설명은 정보창의 「키워드 설명 보기」를 눌렀을 때만"]}, {"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
 <script src="config.js"></script>
 <script>
 // バボカ BREAK — HV-D01 烏野 / HV-D02 音駒 スターターデッキ カードデータ
@@ -1004,6 +1015,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       this.turnFlags = {};
       this.winner = null; this.request = null; this.aborted = false;
       this.history = [];      // セット結果
+      this._fxq = []; this._skillCtx = null;   // 스킬 효과 연출 대기열
       this.maxDecisions = opts.maxDecisions || 100000; this.decisions = 0;
     }
 
@@ -1019,7 +1031,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     dname(card) { return this.c(card).kr || this.c(card).name; } // 表示用 (韓国語)
     isChar(card) { return this.c(card).type === 'C'; }
     shuffle(arr) { for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(this.rng() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; } return arr; }
-    say(text, player = null, kind = '') { this.log.push({ text, player, kind, turn: this.turnNo, set: this.setNo }); this.emit(); }
+    say(text, player = null, kind = '') { this.log.push({ text, player, kind, turn: this.turnNo, set: this.setNo }); if (kind === 'skill' && this._skillCtx) this.fxNote(text.replace(/^[^:]*:\s*/, '')); this.emit(); }
     emit() { if (!this.aborted) this.onChange(this); }
     pname(p) { return this.names[p]; }
     other(p) { return 1 - p; }
@@ -1034,6 +1046,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       if (this.base(card, p) === null) { this.say(`${this.dname(card)}은(는) ${PARAM_KO[p]} 포인트가 「－」라 수정되지 않습니다.`); return; }
       card.mods.push({ param: p, delta, src });
       this.say(`${this.dname(card)}의 ${PARAM_KO[p]} 포인트 ${delta > 0 ? '+' : ''}${delta} → ${this.param(card, p)}`, card.owner, 'mod');
+      this.fxNote(`${this.dname(card)} ${PARAM_KO[p]} ${delta > 0 ? '+' : ''}${delta} → ${this.param(card, p)}`, card.uid);
     }
 
     top(p, area) { const a = this.players[p].areas[area]; return a.length ? a[a.length - 1] : null; }
@@ -1073,7 +1086,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
         if (!pl.deck.length) { this.say(`${this.pname(p)}: 덱이 0장이라 카드를 뽑지 못하고 계속 진행합니다.`, p); break; }
         pl.hand.push(pl.deck.pop()); got++;
       }
-      if (got) this.say(`${this.pname(p)}: 카드 ${got}장을 뽑았습니다${why ? ' (' + why + ')' : ''}. 패 ${pl.hand.length}장`, p, 'draw');
+      if (got) { this.say(`${this.pname(p)}: 카드 ${got}장을 뽑았습니다${why ? ' (' + why + ')' : ''}. 패 ${pl.hand.length}장`, p, 'draw'); this.fxNote(`카드 ${got}장 뽑기`); }
       return got;
     }
 
@@ -1083,7 +1096,24 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     blockMax(p) { let m = 3; for (const e of this.activeEffects('blockMax', p)) m = Math.min(m, e.max); return m; }
 
     // ───────── 演出 ─────────
+    // ── 스킬 효과 연출: 효과가 실제로 적용되는 순간(포인트 증감 · 드로우 등)을 모아 두었다가 다음 대기 지점에서 보여 준다 ──
+    fxNote(text, target) {
+      const ctx = this._skillCtx; if (!ctx) return;
+      this._fxq.push({ p: ctx.p, uid: ctx.uid, event: ctx.event, label: ctx.label, text, target }); ctx.emitted = true;
+    }
+    async flushFx() {
+      while (this._fxq && this._fxq.length) { const it = this._fxq.shift(); await this.anim({ type: 'skill', ...it }); }
+    }
+    async withSkill(p, card, fn, opt = {}) {
+      const prev = this._skillCtx;
+      const ctx = { p, uid: card ? card.uid : null, event: !!opt.event, label: opt.label || null, emitted: false };
+      this._skillCtx = ctx;
+      try { await fn(); } finally { this._skillCtx = prev; }
+      await this.flushFx();
+      if (!ctx.emitted && opt.fallback) await this.anim({ type: 'skill', p, uid: ctx.uid, event: ctx.event, label: ctx.label, text: opt.fallback });
+    }
     async anim(ev) {
+      if (ev.type !== 'skill' && this._fxq && this._fxq.length) await this.flushFx();
       if (!this.animator || this.aborted) return;
       try { await this.animator(this, ev); } catch (e) { if (!this.aborted) console.error(e); }
       if (this.aborted) throw new AbortSignal();
@@ -1091,6 +1121,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
 
     // ───────── 判断要求 ─────────
     async ask(player, req) {
+      if (this._fxq && this._fxq.length) await this.flushFx();
       if (this.aborted) throw new AbortSignal();
       if (++this.decisions > this.maxDecisions) throw new Error('decision limit exceeded');
       this.request = { ...req, player };
@@ -1441,9 +1472,8 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
         await SKILLS.lev(this, p, card, item);
       } else if (item.kind === 'kenma') {
         if (this.charArea(card) !== 'attack') return;
-        await this.anim({ type: 'skill', p, uid: item.from || null, text: `상대 어택 캐릭터 ${this.dname(card)} 어택 포인트 −2`, label: '코즈메 켄마의 효과' });
-        this.say(`코즈메 켄마의 효과 (${this.pname(p)}): 상대 어택 캐릭터의 어택 포인트 −2`, p, 'skill');
-        this.addMod(card, 'attack', -2, 'kenma');
+        this.say(`코즈메 켄마의 효과 (${this.pname(p)}): 상대 어택 캐릭터의 어택 포인트 −2`, p);
+        await this.withSkill(p, item.from != null ? { uid: item.from } : null, async () => { this.addMod(card, 'attack', -2, 'kenma'); }, { label: '코즈메 켄마의 효과' });
       }
     }
 
@@ -1471,8 +1501,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       pl.hand.splice(pl.hand.indexOf(card), 1);
       pl.event.push(card);
       this.say(`${this.pname(p)}: 이벤트 「${this.dname(card)}」 플레이`, p, 'event');
-      await this.anim({ type: 'skill', p, uid: card.uid, event: true });
-      await SKILLS[this.c(card).skill](this, p, card, {});
+      await this.withSkill(p, card, () => SKILLS[this.c(card).skill](this, p, card, {}), { event: true, fallback: '효과 없음' });
     }
 
     // ───────── スキル補助 ─────────
@@ -1510,8 +1539,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       const yes = await this.ask(p, { type: 'yesno', title: `${this.dname(card)}의 스킬`, text: `${n}가츠를 지불하고 「${label}」을(를) 사용할까요? (가츠 ${have}장)`, card: card.uid, skill: this.c(card).skill });
       if (!yes) { this.say(`${this.dname(card)}의 스킬을 사용하지 않았습니다.`, p); return false; }
       this.payGuts(card, n);
-      await this.anim({ type: 'skill', p, uid: card.uid, text: label });
-      await effect();
+      await this.withSkill(p, card, effect, { fallback: label });
       return true;
     }
   }
@@ -1563,12 +1591,12 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       const yes = await g.ask(p, { type: 'yesno', title: '하이바 레프의 스킬', text: `어택 에리어에서 2가츠를 지불하고 이 캐릭터를 사이드 블로커로 등장시킬까요?${blocked ? ` ⚠ ${blocked} → 가츠만 지불되고 이동하지 않습니다.` : ''}`, card: card.uid, skill: 'lev', allowed: !blocked });
       if (!yes) { g.say('하이바 레프의 스킬을 사용하지 않았습니다.', p); return; }
       g.payGuts(card, 2);
-      await g.anim({ type: 'skill', p, uid: card.uid, text: blocked ? '사이드 블로커로 등장 (등장 불가 — 가츠만 지불)' : '사이드 블로커로 등장' });
-      if (blocked) { g.say(`하이바 레프는 블록 에리어에 등장할 수 없습니다 (${blocked}).`, p); return; }
+      if (blocked) { g.say(`하이바 레프는 블록 에리어에 등장할 수 없습니다 (${blocked}).`, p); await g.withSkill(p, card, async () => {}, { fallback: '등장할 수 없어 가츠만 지불' }); return; }
       const stack = g.players[p].areas.attack; stack.splice(stack.indexOf(card), 1);
       g.players[p].sides.push(card);
       g.turnFlags.blockAppear++;
       g.say(`하이바 레프가 사이드 블로커로 등장 (블록 ${g.param(card, 'block')})`, p, 'deploy');
+      await g.withSkill(p, card, async () => { g.fxNote(`사이드 블로커로 등장 (블록 ${g.param(card, 'block')})`); });
       g.onAppear(p, card, 'block');
     },
     // イベント
@@ -1615,7 +1643,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       g.say(`${g.pname(p)}: 덱 위 ${look.length}장을 확인합니다.`, p);
       const [u] = await g.chooseCards(p, { title: '덱 위 카드 확인', text: `덱 위 ${look.length}장입니다. 「하이바 레프」 또는 「이누오카 소」 1장까지 공개해 패에 넣을 수 있습니다.`, options: targets.map(c => c.uid), reveal: look.map(c => c.uid), min: 0, max: 1, purpose: 'butsuri', zone: 'look' });
       const picked = targets.find(c => c.uid === u);
-      if (picked) { pl.deck.splice(pl.deck.indexOf(picked), 1); pl.hand.push(picked); g.say(`${g.pname(p)}: 「${g.dname(picked)}」을(를) 공개하고 패에 넣었습니다.`, p, 'draw'); }
+      if (picked) { pl.deck.splice(pl.deck.indexOf(picked), 1); pl.hand.push(picked); g.say(`${g.pname(p)}: 「${g.dname(picked)}」을(를) 공개하고 패에 넣었습니다.`, p, 'draw'); g.fxNote(`「${g.dname(picked)}」 공개 → 패에`); }
       const rest = look.filter(c => c !== picked);
       let order = rest;
       if (rest.length > 1) {
@@ -1634,8 +1662,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     const yes = await g.ask(p, { type: 'yesno', title: `${g.dname(card)}의 스킬`, text: `패에서 카드 1장을 드롭하고 리시브 포인트 +${bonus}를 사용할까요?`, card: card.uid, skill: g.c(card).skill, bonus });
     if (!yes) { g.say(`${g.dname(card)}의 스킬을 사용하지 않았습니다.`, p); return; }
     await g.discardFromHand(p, 'cost');
-    await g.anim({ type: 'skill', p, uid: card.uid, text: `리시브 포인트 +${bonus}` });
-    g.addMod(card, 'receive', bonus, card.uid);
+    await g.withSkill(p, card, async () => { g.addMod(card, 'receive', bonus, card.uid); });
   }
 
   G.VobacaEngine = { Game, LostSignal, AbortSignal, PARAMS, AREAS, AREA_KO, PARAM_KO, PHASE_KO, TIMING_KO, SKILLS };
@@ -2167,7 +2194,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       const el = document.createElement('div'); el.className = 'sf-item' + (opts.isTop(ev.p) ? ' opp' : ''); el.dataset.t = String(Date.now());
       el.style.setProperty('--tc', opts.teamColor(ev.p));
       const eff = ev.text || (info && info.ko) || '';
-      el.innerHTML = `${info ? `<div class="sf-card"><img src="${info.img}" alt=""></div>` : ''}
+      el.innerHTML = `${info ? `<button type="button" class="sf-card" data-uid="${ev.uid}" title="카드 정보 보기" aria-label="${opts.esc(info.name)} 정보 보기"><img src="${info.img}" alt=""></button>` : ''}
         <div class="sf-info"><span class="sf-who">${opts.esc(g.pname(ev.p))} · ${ev.event ? '이벤트' : '스킬'}</span><b>${opts.esc(ev.label || (info ? info.name : ''))}</b>
         ${eff ? `<p class="sf-eff">${opts.esc(eff)}</p>` : ''}${ev.text && info && info.ko && !ev.event ? `<p class="sf-ko">${opts.esc(info.ko)}</p>` : ''}</div>`;
       f.appendChild(el);
@@ -2176,7 +2203,8 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       el.animate([{ transform: 'translateX(110%)', opacity: 0 }, { transform: 'translateX(-4%)', opacity: 1, offset: .7 }, { transform: 'none', opacity: 1 }], { duration: 320, easing: 'cubic-bezier(.2,.9,.3,1)' });
       setTimeout(() => feedRemove(el), FEED_LIFE);
       // 필드 위의 그 카드도 반짝
-      const src = ev.uid != null ? document.querySelector(`.mat .card[data-uid="${ev.uid}"]`) : null;
+      const fu = ev.target != null ? ev.target : ev.uid;   // 수치가 바뀐 카드가 있으면 그 카드를
+      const src = fu != null ? document.querySelector(`.mat .card[data-uid="${fu}"]`) : null;
       if (src) src.animate([{ filter: 'brightness(1)', transform: 'scale(1)' }, { filter: 'brightness(1.8) drop-shadow(0 0 10px #fff)', transform: 'scale(1.12)', offset: .3 }, { filter: 'brightness(1)', transform: 'scale(1)' }], { duration: ms(900), easing: 'ease-out' });
       await sleep(ms(ev.event ? 1100 : 900));   // 읽을 틈만 잠깐 주고 진행 (기록은 남아 있음)
     }
@@ -2535,6 +2563,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     $('#phases').innerHTML = phasesHtml();
     renderScore();
     renderHand();
+    trackDraws();
     renderControls();
     renderDetail();
     renderLog();
@@ -2682,6 +2711,45 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     const r = pd.req;
     return r.type === 'choose' && r.zone === 'court' && r.player === ST.viewer ? new Set(r.options) : null;
   }
+  // ── 드로우 연출: 덱(또는 세트 에리어)에서 카드가 날아와 패에 들어감 ──
+  function trackDraws() {
+    const g = ST.game; const me = g.players[ST.viewer], op = g.players[1 - ST.viewer];
+    const prev = ST.drawSnap;
+    const snap = { g, viewer: ST.viewer, hand: new Set(me.hand.map(c => c.uid)), deck: new Set(me.deck.map(c => c.uid)), set: new Set(me.setArea.map(c => c.uid)), oh: op.hand.length, od: op.deck.length, os: op.setArea.length };
+    ST.drawSnap = snap;
+    if (!prev || prev.g !== g || prev.viewer !== ST.viewer || g.phase === 'setup' || ST.speed === 'instant' || ST.handoff !== null || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const fresh = me.hand.filter(c => !prev.hand.has(c.uid) && (prev.deck.has(c.uid) || prev.set.has(c.uid)));
+    fresh.forEach((c, i) => flyDraw(c, prev.set.has(c.uid) ? 'set' : 'deck', ST.viewer, i));
+    const n = Math.max(0, op.hand.length - prev.oh);
+    for (let i = 0; i < Math.min(n, 6); i++) flyDraw(null, i === 0 && op.setArea.length < prev.os ? 'set' : 'deck', 1 - ST.viewer, i);
+  }
+  function flyDraw(card, from, p, i) {
+    const k = ST.speed === 'fast' ? .55 : 1;
+    const srcEl = document.querySelector(`.zone[data-zone="${from}"][data-p="${p}"] .pile`) || document.querySelector(`.zone[data-zone="deck"][data-p="${p}"] .pile`);
+    if (!srcEl) return;
+    if (card) { (ST.arriving || (ST.arriving = new Set())).add(card.uid); const h = document.querySelector(`#hand .hc[data-huid="${card.uid}"]`); if (h) h.classList.add('arriving'); }
+    const done = () => { if (card) { ST.arriving.delete(card.uid); const h = document.querySelector(`#hand .hc[data-huid="${card.uid}"]`); if (h) h.classList.remove('arriving'); } };
+    setTimeout(() => {
+      const dstEl = card ? document.querySelector(`#hand .hc[data-huid="${card.uid}"] .card`) : document.querySelector('.opphand');
+      if (!dstEl || !document.body.contains(srcEl)) { done(); return; }
+      const a = srcEl.getBoundingClientRect(), b = dstEl.getBoundingClientRect();
+      const w = card ? b.width : a.width, h0 = w * 1039 / 744;
+      const fc = document.createElement('div'); fc.className = 'flycard'; fc.style.width = w + 'px'; fc.style.height = h0 + 'px'; fc.style.setProperty('--slot', (w / .7) + 'px');
+      fc.innerHTML = `<div class="fc-in"><i class="cback fc-back"></i>${card ? `<div class="fc-front"><img src="${imgOf(card)}" alt=""></div>` : ''}</div>`;
+      document.body.appendChild(fc);
+      const sx = a.left + a.width / 2 - w / 2, sy = a.top + a.height / 2 - h0 / 2;
+      const ex = card ? b.left : b.right - w * .9, ey = card ? b.top : b.top + b.height / 2 - h0 / 2;
+      const s0 = Math.min(1, a.width / w);
+      const mx = (sx + ex) / 2, my = Math.min(sy, ey) - 60;
+      const dur = Math.round(560 * k);
+      fc.animate([
+        { transform: `translate(${sx}px, ${sy}px) scale(${s0}) rotate(0deg)`, offset: 0 },
+        { transform: `translate(${mx}px, ${my}px) scale(${(1 + s0) / 2 * 1.08}) rotate(-8deg)`, offset: .5 },
+        { transform: `translate(${ex}px, ${ey}px) scale(1) rotate(0deg)`, offset: 1 }], { duration: dur, easing: 'cubic-bezier(.3,.7,.3,1)', fill: 'forwards' });
+      const fin = fc.firstElementChild.animate([{ transform: 'rotateY(0deg)' }, { transform: card ? 'rotateY(180deg)' : 'rotateY(0deg)' }], { duration: dur, easing: 'ease-in-out', fill: 'forwards' });
+      fin.finished.catch(() => {}).then(() => { done(); fc.remove(); });
+    }, Math.round(i * 140 * k));
+  }
   function handWidth() { const vw = window.innerWidth, vh = window.innerHeight; return vw <= 760 ? Math.max(56, Math.min(76, vw * .15)) : Math.max(58, Math.min(96, vw * .07, vh * .09)); }
   function renderHand() {
     const g = ST.game; const p = ST.viewer; const pl = g.players[p];
@@ -2715,7 +2783,8 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
         else if (r.type === 'choose' && last) acts = `<button class="btn primary" type="button" data-act="choose">확인</button>`;
       }
       if (i === n - 1) cls.push('last');
-      return `<div class="${cls.join(' ')}" style="--i:${i}" data-no="${c.no}">${tag ? `<span class="hc-tag">${tag}</span>` : ''}${acts ? `<div class="hc-acts">${acts}</div>` : ''}<span class="hc-name">${esc(KN(c.no))}</span>${cardHtml(c, {})}${statRow(c.no)}</div>`;
+      if (ST.arriving && ST.arriving.has(c.uid)) cls.push('arriving');
+      return `<div class="${cls.join(' ')}" style="--i:${i}" data-no="${c.no}" data-huid="${c.uid}">${tag ? `<span class="hc-tag">${tag}</span>` : ''}${acts ? `<div class="hc-acts">${acts}</div>` : ''}<span class="hc-name">${esc(KN(c.no))}</span>${cardHtml(c, {})}${statRow(c.no)}</div>`;
     }).join('') || '<span style="position:absolute;left:50%;bottom:40px;transform:translateX(-50%);color:var(--muted);font-size:13px;white-space:nowrap">패가 없습니다</span>';
   }
 
@@ -2860,8 +2929,8 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       const kws = keywordsFor(info.ko);
       el.innerHTML = `<div class="ci-main"><div class="big"><img src="${imgOf(c)}" alt="${esc(KN(c.no))}"></div><div>
         <h3>${esc(KN(c.no))}</h3><div class="attrs">${esc(attrs)}</div>${prm}
-        ${info.ko ? `<p class="sk ko">${esc(info.ko)}</p>` : '<p class="sk ko none">스킬 없음</p>'}</div>${stack}<div class="hint">${d.hover ? '카드를 누르면 정보창이 고정돼요' : '아무 곳이나 누르면 닫힙니다'}</div></div>
-        ${kws.length ? `<div class="ci-kw"><h4>키워드 설명</h4><dl>${kws.map(k => `<div><dt>${esc(k.k)}</dt><dd>${esc(k.d)}</dd></div>`).join('')}</dl></div>` : ''}`;
+        ${info.ko ? `<p class="sk ko">${esc(info.ko)}</p>` : '<p class="sk ko none">스킬 없음</p>'}</div>${stack}<div class="hint">${kws.length && !d.hover ? `<button class="kwbtn" type="button" data-kw>${ST.kwOpen ? '키워드 설명 닫기' : `키워드 설명 ${kws.length}개 보기`}</button>` : ''}<span>${d.hover ? `카드를 누르면 고정돼요${kws.length ? ' · 키워드 설명은 고정한 뒤에' : ''}` : '바깥을 누르면 닫혀요'}</span></div></div>
+        ${kws.length && ST.kwOpen && !d.hover ? `<div class="ci-kw"><h4>키워드 설명</h4><dl>${kws.map(k => `<div><dt>${esc(k.k)}</dt><dd>${esc(k.d)}</dd></div>`).join('')}</dl></div>` : ''}`;
     }
     el.classList.toggle('hover', !!d.hover);
     if (el.dataset.key !== key) { el.hidden = false; el.style.animation = 'none'; void el.offsetWidth; el.style.animation = ''; }
@@ -2893,7 +2962,11 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   document.addEventListener('click', e => {
     if (ST.dragJustEnded) { ST.dragJustEnded = false; return; }
     if (e.target.closest('#screen') || e.target.closest('#coach')) return;   // 로비 화면·튜토리얼 코치는 각자 처리
+    const kwb = e.target.closest('#cardInfo [data-kw]');
+    if (kwb) { ST.kwOpen = !ST.kwOpen; renderDetail(); return; }
     if (!ST.game) { if (ST.detail) { ST.detail = null; renderDetail(); } return; }
+    const sfc = e.target.closest('.sf-card[data-uid]');
+    if (sfc) { const c = findCard(ST.game, +sfc.dataset.uid); if (c) { const a = ST.game.charArea(c); ST.detail = { card: c, area: a || undefined }; render(); } return; }
     if (e.target.closest('#modalRoot .modal') && !e.target.closest('[data-act]')) return;   // 설정 시트 등 모달 안
     const inLog = e.target.closest('#logbox');
     if (inLog) { if (e.target.closest('#logClose')) ST.logOpen = false; else if (!ST.logOpen) ST.logOpen = true; else return; ST.detail = null; render(); return; }
@@ -2938,7 +3011,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   }
   // 마우스를 카드 위에 올리면 누르지 않아도 정보창 (누르면 고정). 눌러서 연 정보창이 있으면 그대로 둔다
   let hoverT = 0, hoverKey = null;
-  function hoverTarget(t) { return t && t.closest ? t.closest('.card[data-uid], .mcard[data-uid], [data-cardno]') : null; }
+  function hoverTarget(t) { return t && t.closest ? t.closest('.card[data-uid], .mcard[data-uid], .sf-card[data-uid], [data-cardno]') : null; }
   function clearHover() { if (ST.detail && ST.detail.hover) { ST.detail = null; renderDetail(); } }
   function showHover(t) {
     if (ST.detail && !ST.detail.hover) return;
