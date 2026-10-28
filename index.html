@@ -544,6 +544,45 @@ body.is-dragging { cursor: grabbing; user-select: none; }
 .preload.ready { color: var(--ok); }
 .fieldlab { font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: .04em; }
 .result h1 { font-size: 28px; }
+/* 경기 결과 */
+.resmodal { overflow: hidden; }
+.resmodal.lose { background: rgba(4,5,9,.86); backdrop-filter: grayscale(.9); -webkit-backdrop-filter: grayscale(.9); }
+.resmodal.win { background: radial-gradient(ellipse 70% 60% at 50% 30%, color-mix(in srgb, var(--team) 30%, transparent), transparent 70%), rgba(5,7,12,.8); }
+.res-fx { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.res-fx .cf { position: absolute; top: 0; border-radius: 2px; }
+.sheet.result2 { position: relative; width: min(560px, 100%); gap: 14px; padding: 22px 22px 18px; text-align: center; border: 2px solid var(--team); box-shadow: 0 24px 60px rgba(0,0,0,.65), 0 0 40px color-mix(in srgb, var(--team) 35%, transparent); animation: res-in .45s cubic-bezier(.2,.9,.3,1.2); }
+.resmodal.lose .sheet.result2 { border-color: #5b5d63; box-shadow: 0 24px 60px rgba(0,0,0,.65); animation: res-drop .7s cubic-bezier(.3,1.4,.5,1); }
+@keyframes res-in { from { opacity: 0; transform: scale(.85); } }
+@keyframes res-drop { 0% { opacity: 0; transform: translateY(-60px); } 60% { opacity: 1; transform: translateY(6px) rotate(-1deg); } 100% { transform: none; } }
+.res-title { display: grid; justify-items: center; gap: 2px; }
+.res-big { font-family: var(--f-display); font-size: clamp(48px, 9vw, 72px); line-height: 1; color: var(--team); letter-spacing: .04em; -webkit-text-stroke: 2px #1b1200; paint-order: stroke fill; text-shadow: 0 5px 0 #1b1200, 0 0 30px color-mix(in srgb, var(--team) 60%, transparent);
+  transform: skewX(-6deg); animation: res-pop .6s .1s cubic-bezier(.2,1.6,.4,1) both; }
+.resmodal.lose .res-big { color: #8d8f96; text-shadow: 0 5px 0 #1b1200; animation: res-sag 1s .2s ease-out both; }
+@keyframes res-pop { from { transform: skewX(-6deg) scale(.3); opacity: 0; } }
+@keyframes res-sag { 0% { transform: skewX(-6deg) translateY(-20px); opacity: 0; } 70% { transform: skewX(-6deg) translateY(4px) rotate(2deg); opacity: 1; } 100% { transform: skewX(-6deg) rotate(2deg); } }
+.res-title small { font-size: 13px; color: var(--muted); }
+.res-score { display: flex; align-items: center; justify-content: center; gap: 12px; font-weight: 800; }
+.res-score span { font-size: 13px; max-width: 30%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.res-score b { font-family: var(--f-display); font-weight: 400; font-size: 40px; line-height: 1; color: #111; background: linear-gradient(180deg, #fff, #e3e3e3); border-radius: 6px; padding: 2px 10px; box-shadow: 0 3px 0 rgba(0,0,0,.4); }
+.res-score i { font-style: normal; font-size: 26px; color: var(--muted); }
+.res-sets { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; text-align: left; }
+.res-sets li { display: grid; grid-template-columns: 54px 44px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 6px 10px; border-radius: 12px; background: rgba(255,255,255,.05); border-left: 4px solid var(--tc);
+  opacity: 0; animation: rs-in .35s calc(.5s + var(--d) * .28s) ease-out forwards; }
+@keyframes rs-in { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: none; } }
+.rs-set { font-family: var(--f-display); font-size: 15px; color: #e4e8f2; }
+.rs-card { width: 44px; padding: 0; border: 0; background: none; border-radius: 5px; overflow: hidden; cursor: pointer; box-shadow: 0 0 0 1.5px rgba(255,255,255,.6), 0 4px 10px rgba(0,0,0,.5); }
+.rs-card img { width: 100%; aspect-ratio: 744 / 1039; display: block; object-fit: cover; }
+.rs-card.none { display: grid; place-items: center; height: 61px; color: var(--muted); box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.2); cursor: default; }
+.rs-who { display: grid; gap: 1px; min-width: 0; }
+.rs-who b { font-size: 14px; } .rs-who span { font-size: 12px; color: var(--ball); font-weight: 700; } .rs-who em { font-style: normal; color: #c7cede; font-weight: 500; }
+.rs-who small { font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rs-win { font-size: 12px; font-weight: 800; color: var(--tc); white-space: nowrap; }
+.rs-mvp { display: flex; align-items: center; gap: 12px; justify-content: center; padding: 8px; border-radius: 14px; background: color-mix(in srgb, var(--team) 14%, transparent); border: 1.5px dashed color-mix(in srgb, var(--team) 60%, transparent);
+  opacity: 0; animation: rs-in .4s calc(.6s + var(--d) * .28s) ease-out forwards; }
+.rs-mvp img { width: 54px; border-radius: 6px; transform: rotate(-4deg); box-shadow: 0 6px 14px rgba(0,0,0,.5); }
+.rs-mvp div { display: grid; text-align: left; } .rs-mvp span { font-size: 11px; font-weight: 800; letter-spacing: .06em; color: var(--team); } .rs-mvp b { font-family: var(--f-display); font-weight: 400; font-size: 20px; } .rs-mvp small { font-size: 11.5px; color: var(--muted); }
+.res-acts { display: flex; gap: 8px; justify-content: flex-end; }
+@media (max-width: 520px) { .res-sets li { grid-template-columns: 44px 38px minmax(0, 1fr); } .rs-win { display: none; } .rs-card { width: 38px; } }
 .hist { display: flex; gap: 6px; flex-wrap: wrap; }
 .hist span { font-size: 12px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line); }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
@@ -860,7 +899,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
 <div class="cardinfo" id="cardInfo" hidden></div>
 <div id="modalRoot"></div>
 
-<script>window.VOBACA_VERSION="20261028171817";window.VOBACA_CHANGELOG=[{"id": 6, "date": "2026-10-28", "title": "상대 패 모양", "notes": ["상대 패(뒷면) 부채꼴을 내 패를 마주 본 방향으로 뒤집었어요"]}, {"id": 5, "date": "2026-10-28", "title": "드로우 연출 · 효과 알림 개선", "notes": ["카드를 뽑으면 덱(또는 세트 에리어)에서 패로 날아와요 — 상대가 뽑을 때도", "스킬 · 이벤트 알림이 효과가 실제로 적용되는 순간(포인트 증감, 드로우 등)마다 떠요", "알림은 화면 오른쪽 가운데, 알림 속 카드 그림을 누르면 정보창", "키워드 설명은 정보창의 「키워드 설명 보기」를 눌렀을 때만"]}, {"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
+<script>window.VOBACA_VERSION="20261028172736";window.VOBACA_CHANGELOG=[{"id": 7, "date": "2026-10-28", "title": "경기 결과 연출", "notes": ["승리하면 팀 색 꽃가루와 함께 「승리!」, 패배하면 화면이 어두워지며 「패배…」", "세트마다 마지막 점수를 낸 카드(어택 · 서브 · 블록/도샷, OP, 토스 카드)와 상대가 놓친 이유를 차례로 보여 줘요", "결정타를 가장 많이 낸 카드는 「오늘의 해결사」로 표시 — 카드 그림을 누르면 정보창"]}, {"id": 6, "date": "2026-10-28", "title": "상대 패 모양", "notes": ["상대 패(뒷면) 부채꼴을 내 패를 마주 본 방향으로 뒤집었어요"]}, {"id": 5, "date": "2026-10-28", "title": "드로우 연출 · 효과 알림 개선", "notes": ["카드를 뽑으면 덱(또는 세트 에리어)에서 패로 날아와요 — 상대가 뽑을 때도", "스킬 · 이벤트 알림이 효과가 실제로 적용되는 순간(포인트 증감, 드로우 등)마다 떠요", "알림은 화면 오른쪽 가운데, 알림 속 카드 그림을 누르면 정보창", "키워드 설명은 정보창의 「키워드 설명 보기」를 눌렀을 때만"]}, {"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
 <script src="config.js"></script>
 <script>
 // バボカ BREAK — HV-D01 烏野 / HV-D02 音駒 スターターデッキ カードデータ
@@ -1147,13 +1186,13 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
           // 敗北条件: セットカード0枚の状態でロストを宣言する (0-1-3-1-1)
           if (this.players[loser].setArea.length === 0) {
             this.winner = winner;
-            this.history.push({ set: this.setNo, winner });
+            this.history.push({ set: this.setNo, winner, ...(this.lastScore || {}) });
             this.phase = 'gameover';
             this.say(`${this.pname(loser)}의 세트 카드가 0장인 상태에서 로스트 → ${this.pname(winner)} 승리!`, winner, 'win');
             await this.anim({ type: 'gameover', winner });
             break;
           }
-          this.history.push({ set: this.setNo, winner });
+          this.history.push({ set: this.setNo, winner, ...(this.lastScore || {}) });
           await this.interval(loser);
           server = winner;
         }
@@ -1230,6 +1269,9 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
 
     async lostSetStep(p, reason) {
       this.say(`${this.pname(p)} 로스트 — ${reason}`, p, 'lost');
+      // 세트 결과에 남길 「마지막 점수를 낸 카드」: 이긴 쪽이 보낸 마지막 공
+      const off = this.offense || this.scoreOffense, w = this.other(p); this.scoreOffense = null;
+      this.lastScore = { reason, loser: p, scorer: off && off.owner === w && off.lead ? { type: off.type, value: off.value, lead: off.lead, assist: off.assist } : null };
       await this.anim({ type: 'lost', p, reason });
       this.offense = null; this.defense = null; this.pending = [];
       for (const s of [...this.players[p].sides]) this.toDrop(s);   // サイドブロッカーはドロップ
@@ -1257,7 +1299,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       await this.deployStep(p, 'serve');
       await this.freeStep(p, 'serve');
       const sc = this.top(p, 'serve');
-      await this.setOffense(p, this.param(sc, 'serve'), 'serve');
+      await this.setOffense(p, this.param(sc, 'serve'), 'serve', '', sc);
       await this.endPhase(p);
     }
 
@@ -1322,7 +1364,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       await this.anim({ type: 'set', p });
       await this.freeStep(p, 'attack');
       const t = this.param(this.top(p, 'toss'), 'toss'), a = this.param(this.top(p, 'attack'), 'attack');
-      await this.setOffense(p, t + a, 'attack', `토스 ${t} + 어택 ${a}`);
+      await this.setOffense(p, t + a, 'attack', `토스 ${t} + 어택 ${a}`, this.top(p, 'attack'), this.top(p, 'toss'));
     }
 
     async blockPhase(p) {
@@ -1361,7 +1403,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
         this.say(`블록 성공! 【도샷(${this.turnFlags.doshut})】 — 이 턴 종료 시 오펜스 포인트가 ${this.turnFlags.doshut}가 됩니다.`, p, 'skill');
       }
       // オフェンスポイント算出 (ブロックは 0 基準)
-      await this.setOffense(p, 0, 'block');
+      await this.setOffense(p, 0, 'block', '', this.top(p, 'block'));
       // フェイズ終了: サイドブロッカーはドロップ
       for (const s of [...pl.sides]) { this.toDrop(s); this.say(`사이드 블로커 ${this.dname(s)} → 드롭`, p); }
       await this.checkProcess();
@@ -1373,13 +1415,15 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       this.say(`저지: 디펜스 ${this.defense} vs 오펜스 ${op} → ${kind === 'block' ? '블록' : '리시브'} ${ok ? '성공' : '실패'}`, p, ok ? 'ok' : 'fail');
       await this.anim({ type: 'judge', p, kind, ok, dp: this.defense, op, doshut: ok && kind === 'block' ? (this.turnFlags.doshutArmed || 0) : 0 });
       await this.checkProcess();
+      this.scoreOffense = ok ? null : this.offense;   // 받아내지 못한 공 = 상대의 득점
       this.offense = null; this.defense = null; this.emit();
       if (!ok) this.lost(p, `${kind === 'block' ? '블록' : '리시브'} 실패`);
       return ok;
     }
 
-    async setOffense(p, v, type, detail = '') {
-      this.offense = { owner: p, value: v, type };
+    async setOffense(p, v, type, detail = '', lead = null, assist = null) {
+      const snap = c => (c ? { uid: c.uid, no: c.no, ver: c.ver } : null);
+      this.offense = { owner: p, value: v, type, lead: snap(lead), assist: snap(assist) };   // 점수를 낸 카드 기록용
       this.say(`오펜스 포인트 산출: ${v} (${type === 'serve' ? '서브' : type === 'block' ? '블록' : '어택'}${detail ? ' · ' + detail : ''})`, p, 'calc');
       await this.anim({ type: 'offense', p, kind: type, value: v });
     }
@@ -2449,7 +2493,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   });
   window.addEventListener('resize', () => FX.relayout());
   window.__vobacaFX = FX;   // 디버그용
-  window.__vobacaDebug = () => ({ ST, render });
+  window.__vobacaDebug = () => ({ ST, render, showResult });
   async function animator(g, ev) {
     if (g !== ST.game) return;
     if (ST.tut) await ST.tut.onAnim(g, ev, 'before');
@@ -3193,12 +3237,49 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     });
     const cancel = $('#setupCancel'); if (cancel) cancel.addEventListener('click', () => { closeModal(); render(); });
   }
+  // 경기 결과: 승리/패배 연출 + 세트마다 마지막 점수를 낸 카드
   function showResult() {
     const g = ST.game; if (g.winner == null) return;
     const root = $('#modalRoot'); root.dataset.kind = 'result';
-    const hist = g.history.map(h => `<span style="color:${TEAM_COLOR[teamOf(h.winner)]}">${h.concede ? '기권' : '세트 ' + h.set}: ${esc(g.pname(h.winner))}</span>`).join('');
-    root.innerHTML = `<div class="modal"><div class="sheet result" ${teamStyle(g.winner)}><h1 style="color:var(--team)">${esc(g.pname(g.winner))} 승리!</h1><div class="hist">${hist}</div><div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn" type="button" id="resClose">보드 보기</button><button class="btn primary" type="button" data-act="newgame">로비로</button></div></div></div>`;
+    const win = g.winner === ST.viewer;
+    const won = p => g.history.filter(h => h.winner === p && !h.concede).length;
+    const KIND = { serve: '서브', attack: '어택', block: '블록' };
+    const rows = g.history.map((h, i) => {
+      const tc = TEAM_COLOR[teamOf(h.winner)];
+      if (h.concede) return `<li style="--d:${i};--tc:${tc}"><span class="rs-set">기권</span><span class="rs-win">${esc(g.pname(h.winner))} 승리</span><span class="rs-why">${esc(g.pname(1 - h.winner))} 기권</span></li>`;
+      const sc = h.scorer;
+      const kind = sc ? (sc.type === 'block' && sc.value > 0 ? '도샷' : KIND[sc.type]) : '';
+      const card = sc && sc.lead ? `<button type="button" class="rs-card" data-cardno="${sc.lead.no}" title="${esc(KN(sc.lead.no))}"><img src="${imgOf(sc.lead)}" alt=""></button>` : `<span class="rs-card none">—</span>`;
+      const who = sc && sc.lead ? `<b>${esc(KN(sc.lead.no))}</b><span>${kind} · OP ${sc.value}${sc.assist && sc.type === 'attack' ? ` <em>(토스 ${esc(KN(sc.assist.no))})</em>` : ''}</span>` : `<b>${h.reason === '로스트 선언' ? '로스트 선언' : '상대 실수'}</b><span>공을 보내지 않고 얻은 세트</span>`;
+      const why = h.reason ? `${esc(g.pname(h.loser ?? (1 - h.winner)))} ${esc(h.reason)}` : '';
+      return `<li style="--d:${i};--tc:${tc}"><span class="rs-set">세트 ${h.set}</span>${card}<div class="rs-who">${who}<small>${why}</small></div><span class="rs-win">${esc(g.pname(h.winner))}</span></li>`;
+    }).join('');
+    // 가장 많이 결정타를 낸 카드 (2세트 이상일 때)
+    const cnt = {}; for (const h of g.history) if (h.scorer && h.scorer.lead && h.winner === g.winner) { const k = h.scorer.lead.no; cnt[k] = (cnt[k] || { n: 0, c: h.scorer.lead }); cnt[k].n++; }
+    const top = Object.values(cnt).sort((a, b) => b.n - a.n)[0];
+    const mvp = top ? `<div class="rs-mvp" style="--d:${g.history.length}"><img src="${imgOf(top.c)}" alt=""><div><span>${win ? '오늘의 해결사' : '상대의 해결사'}</span><b>${esc(KN(top.c.no))}</b><small>결정타 ${top.n}회</small></div></div>` : '';
+    root.innerHTML = `<div class="modal resmodal ${win ? 'win' : 'lose'}" ${teamStyle(g.winner)}><div class="res-fx" aria-hidden="true"></div>
+      <div class="sheet result2" role="dialog" aria-label="경기 결과">
+        <div class="res-title"><span class="res-big">${win ? '승리!' : '패배…'}</span><small>${esc(g.pname(g.winner))}의 승리</small></div>
+        <div class="res-score"><span style="color:${TEAM_COLOR[teamOf(0)]}">${esc(g.pname(0))}</span><b>${won(0)}</b><i>:</i><b>${won(1)}</b><span style="color:${TEAM_COLOR[teamOf(1)]}">${esc(g.pname(1))}</span></div>
+        <ol class="res-sets">${rows}</ol>${mvp}
+        <div class="res-acts"><button class="btn" type="button" id="resClose">보드 보기</button><button class="btn primary" type="button" data-act="newgame">로비로</button></div>
+      </div></div>`;
     $('#resClose').addEventListener('click', () => { closeModal(); render(); });
+    root.querySelectorAll('.rs-card[data-cardno]').forEach(b => b.addEventListener('click', e => { e.stopPropagation(); showCardInfo(b.dataset.cardno); }));
+    if (win && !matchMedia('(prefers-reduced-motion: reduce)').matches) confetti(root.querySelector('.res-fx'), [TEAM_COLOR[teamOf(g.winner)], 'var(--ball)', '#ffffff']);
+  }
+  function confetti(box, colors) {
+    const W = innerWidth, H = innerHeight;
+    for (let i = 0; i < 70; i++) {
+      const d = document.createElement('i'); d.className = 'cf';
+      d.style.background = colors[i % colors.length]; d.style.left = (Math.random() * W) + 'px';
+      const sz = 6 + Math.random() * 8; d.style.width = sz + 'px'; d.style.height = sz * (0.4 + Math.random() * .6) + 'px';
+      box.appendChild(d);
+      const x = (Math.random() - .5) * 240, r = (Math.random() - .5) * 1080, dur = 2200 + Math.random() * 2200, delay = Math.random() * 900;
+      d.animate([{ transform: `translate(0, -40px) rotate(0deg)`, opacity: 1 }, { transform: `translate(${x}px, ${H + 60}px) rotate(${r}deg)`, opacity: .9 }], { duration: dur, delay, easing: 'cubic-bezier(.25,.6,.4,1)', fill: 'both' })
+        .finished.then(() => d.remove()).catch(() => {});
+    }
   }
 
   $('#btnBack').addEventListener('click', () => { ST.detail = null; confirmLeave(); });
