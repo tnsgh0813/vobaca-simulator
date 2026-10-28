@@ -27,6 +27,20 @@
 6. **Firestore Database** → 데이터베이스 만들기 → 위치 `asia-northeast3 (서울)` → **프로덕션 모드**
 7. Firestore → **규칙** 탭 → `firestore.rules.txt` 내용 전체를 붙여넣고 **게시**
 
+## 효과음 · 배경음 교체 (관리자 전용)
+
+기본 소리는 모두 코드로 만든 소리(파일 없음)이고, 관리자가 항목별로 파일을 올리면 모든 방문자에게 그 소리가 적용됩니다.
+파일은 Firestore `sound/{항목}`(정보) · `soundChunks/…`(900KB 조각)에 저장되고, 방문자 브라우저에 캐시됩니다.
+
+관리자 등록 (한 번만):
+1. 사이트에서 Google(또는 이메일) 계정으로 로그인 → 오른쪽 위 계정 메뉴 맨 아래 **내 UID** 복사
+2. Firebase 콘솔 → Firestore Database → 데이터 → **컬렉션 시작** → 컬렉션 ID `admins` → 문서 ID에 복사한 UID → 필드는 아무거나(예: `role` = `admin`) → 저장
+3. Firestore → 규칙 탭에 최신 `firestore.rules.txt` 전체를 붙여넣고 **게시**
+4. 사이트를 새로고침 → 계정 메뉴에 **사운드 관리** 버튼
+
+항목: 배경음(로비 · 대전), 랠리(서브 · 리시브 · 토스 · 스파이크 · 블록 · 도샷 · 원터치 · 바닥 · 농구화), 판정(휘슬 · 코인 · 환호 · 탄식 · 승리 · 패배), 카드(뽑기 · 등장 · 이벤트 · 스킬), 화면(버튼).
+한 항목에 8MB까지(mp3 · ogg · wav · m4a), 항목별 음량 0~200%, 「기본으로」로 되돌리기.
+
 ## GitHub Pages
 
 저장소 Settings → Pages → Source: **Deploy from a branch** → Branch: `main` / `/ (root)` → Save.

@@ -12,6 +12,27 @@ service cloud.firestore {
         && (!('name' in request.resource.data) || (request.resource.data.name is string && request.resource.data.name.size() <= 20))
         && (!('at' in request.resource.data) || request.resource.data.at is number);
     }
+    // 관리자 목록: Firebase 콘솔에서 admins/<관리자 UID> 문서를 직접 만든다 (사이트에서는 만들 수 없음)
+    function isAdmin() { return request.auth != null && exists(/databases/$(database)/documents/admins/$(request.auth.uid)); }
+    match /admins/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if false;
+    }
+    // 효과음 · 배경음 교체: 누구나 읽고(모든 방문자에게 적용), 관리자만 바꿈
+    match /sound/{id} {
+      allow read: if true;
+      allow delete: if isAdmin();
+      allow create, update: if isAdmin() && id.size() <= 40
+        && request.resource.data.keys().hasOnly(['name', 'mime', 'size', 'chunks', 'ver', 'vol', 'at', 'by'])
+        && request.resource.data.chunks is int && request.resource.data.chunks <= 10
+        && (!('vol' in request.resource.data) || (request.resource.data.vol is number && request.resource.data.vol >= 0 && request.resource.data.vol <= 3));
+    }
+    match /soundChunks/{id} {
+      allow read: if true;
+      allow delete: if isAdmin();
+      allow create, update: if isAdmin() && request.resource.data.keys().hasOnly(['b'])
+        && request.resource.data.b is bytes && request.resource.data.b.size() <= 1000000;
+    }
     // 그 밖의 모든 곳은 막음
     match /{document=**} {
       allow read, write: if false;

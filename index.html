@@ -945,7 +945,364 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
 <div id="modalRoot"></div>
 <div class="rotatehint" id="rotateHint" role="dialog" aria-label="화면 방향"><div class="rh-phone" aria-hidden="true"></div><b>세로로 돌려 주세요</b><p>휴대폰은 세로 화면에 맞춰져 있어요. 가로에서는 카드가 아주 작게 보여요.</p><button class="btn" type="button" id="allowLand">그래도 가로로 보기</button></div>
 
-<script>window.VOBACA_VERSION="20261028222053";window.VOBACA_CHANGELOG=[{"id": 10, "date": "2026-10-28", "title": "부스터 1탄 「쓰레기장의 결전」 카드 추가", "notes": ["부스터 1탄 93종(캐릭터 73 · 이벤트 20) 추가 — 패러렐 버전은 제외, 모든 카드 스킬을 공식 텍스트 · Q&A 기준으로 구현", "새 키워드: 원터치 · 페인트 · 블록아웃 · 턴1 · 도샷(6), 패에서 쓰는 캐릭터 스킬(엔노시타 · 시바야마), 2인 카드(히나타·코즈메 / 츠키시마·쿠로오)의 이름 고르기", "샘플 덱 2종: 아오바죠사이 · 후쿠로다니 (AI 대전에서 바로 선택 가능)", "카드 목록 · 덱 편집: 세트 · 학교 필터와 이름 · 효과 검색"]}, {"id": 9, "date": "2026-10-28", "title": "휴대폰 · 태블릿 지원", "notes": ["휴대폰 세로(아이폰 · 갤럭시 S · 폴드 커버): 스크롤 없이 한 화면에 필드와 패가 꽉 차게, 위쪽 ⋯ 메뉴에 로그 · 설정 · 기권", "태블릿 세로(아이패드 · 갤럭시 탭 · 폴드 펼침): 카드를 화면 폭에 맞춰 크게, 가로는 여백을 줄여 카드를 조금 더 크게", "카드를 꾹 누르면 카드 정보 (휴대폰 · 태블릿)", "휴대폰을 가로로 들면 세로로 돌리라는 안내 (그래도 가로로 볼 수 있음)"]}, {"id": 8, "date": "2026-10-28", "title": "매트 다듬기 · 첫 패 연출", "notes": ["서브 에리어(왼쪽 줄)를 더 넓게", "가츠: 맨 위 캐릭터 아래 깔린 카드가 왼쪽으로 비스듬히 삐져나오고, 장수는 노란 숫자로", "덱 · 드롭 · 이벤트 칸을 같은 크기로 (드롭과 이벤트는 룰상 다른 영역이라 그대로 따로)", "멀리건이 끝나면 첫 패를 덱에서 한 장씩 뽑아 오는 연출"]}, {"id": 7, "date": "2026-10-28", "title": "경기 결과 연출", "notes": ["승리하면 팀 색 꽃가루와 함께 「승리!」, 패배하면 화면이 어두워지며 「패배…」", "세트마다 마지막 점수를 낸 카드(어택 · 서브 · 블록/도샷, OP, 토스 카드)와 상대가 놓친 이유를 차례로 보여 줘요", "결정타를 가장 많이 낸 카드는 「오늘의 해결사」로 표시 — 카드 그림을 누르면 정보창"]}, {"id": 6, "date": "2026-10-28", "title": "상대 패 모양", "notes": ["상대 패(뒷면) 부채꼴을 내 패를 마주 본 방향으로 뒤집었어요"]}, {"id": 5, "date": "2026-10-28", "title": "드로우 연출 · 효과 알림 개선", "notes": ["카드를 뽑으면 덱(또는 세트 에리어)에서 패로 날아와요 — 상대가 뽑을 때도", "스킬 · 이벤트 알림이 효과가 실제로 적용되는 순간(포인트 증감, 드로우 등)마다 떠요", "알림은 화면 오른쪽 가운데, 알림 속 카드 그림을 누르면 정보창", "키워드 설명은 정보창의 「키워드 설명 보기」를 눌렀을 때만"]}, {"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
+<script>
+// 효과음 · 배경음 (Web Audio)
+// 기본음은 모두 코드로 합성한다(파일 없음). 관리자가 항목별로 파일을 올리면 그 소리로 바뀐다(사이트 전용 audioadmin.js).
+(function (G) {
+  'use strict';
+
+  // ───── 소리 항목 (관리자 화면에서 이 순서 · 이 묶음으로 보임) ─────
+  const CATS = [
+    ['bgm', '배경음'],
+    ['rally', '랠리 — 공 소리'],
+    ['judge', '판정 · 세트 · 경기'],
+    ['card', '카드 · 스킬'],
+    ['ui', '화면 조작'],
+  ];
+  const ITEMS = [
+    { id: 'bgm_lobby', cat: 'bgm', label: '로비 배경음', desc: '메인 화면 · 메뉴 · 덱 편집 · 카드 목록에서 반복 재생', bgm: true },
+    { id: 'bgm_battle', cat: 'bgm', label: '대전 배경음', desc: 'AI 대전 · 튜토리얼 경기 중 반복 재생', bgm: true },
+    { id: 'serve', cat: 'rally', label: '서브', desc: '서브 캐릭터가 공을 칠 때 (OP가 클수록 세게)' },
+    { id: 'receive', cat: 'rally', label: '리시브', desc: '리시브 성공 — 팔로 받아 올리는 소리' },
+    { id: 'toss', cat: 'rally', label: '토스', desc: '세터가 손끝으로 공을 올릴 때' },
+    { id: 'spike', cat: 'rally', label: '스파이크 (어택)', desc: '어택 캐릭터가 내리칠 때 (OP가 클수록 세게)' },
+    { id: 'block', cat: 'rally', label: '블록', desc: '블록 성공 — 손바닥에 막히는 소리' },
+    { id: 'doshut', cat: 'rally', label: '도샷', desc: '도샷으로 상대 코트에 내리꽂을 때' },
+    { id: 'onetouch', cat: 'rally', label: '원터치', desc: '원터치 · 블록 페이즈 종료 효과' },
+    { id: 'floor', cat: 'rally', label: '공이 바닥에 떨어짐', desc: '리시브 · 블록 실패' },
+    { id: 'squeak', cat: 'rally', label: '농구화 끼익', desc: '블록 / 리시브를 고를 때 코트를 박차는 소리' },
+    { id: 'whistle', cat: 'judge', label: '휘슬 (짧게)', desc: '세트 시작 · 득점' },
+    { id: 'coin', cat: 'judge', label: '코인 토스', desc: '경기 시작 서브권 코인 토스' },
+    { id: 'cheer', cat: 'judge', label: '관중 환호', desc: '내가 세트를 땄을 때' },
+    { id: 'aww', cat: 'judge', label: '관중 탄식', desc: '상대가 세트를 땄을 때' },
+    { id: 'win', cat: 'judge', label: '승리', desc: '경기 승리 결과 화면' },
+    { id: 'lose', cat: 'judge', label: '패배', desc: '경기 패배 결과 화면' },
+    { id: 'card_draw', cat: 'card', label: '카드 뽑기', desc: '덱에서 카드를 뽑을 때 (한 장마다)' },
+    { id: 'card_place', cat: 'card', label: '캐릭터 등장', desc: '코트에 캐릭터 카드를 놓을 때' },
+    { id: 'event_play', cat: 'card', label: '이벤트 플레이', desc: '이벤트 카드 효과가 적용될 때' },
+    { id: 'skill', cat: 'card', label: '스킬 발동', desc: '캐릭터 스킬 효과가 적용될 때' },
+    { id: 'ui_click', cat: 'ui', label: '버튼 클릭', desc: '버튼을 누를 때 (작게)' },
+  ];
+  const BY = Object.fromEntries(ITEMS.map(x => [x.id, x]));
+
+  // ───── 사용자 설정 (이 브라우저 · 로그인 시 계정에 저장) ─────
+  const PREF_KEY = 'vobaca-sound';
+  const prefs = { bgm: 0.5, sfx: 0.8, mute: false };
+  try { Object.assign(prefs, JSON.parse(localStorage.getItem(PREF_KEY) || '{}')); } catch (e) {}
+  function savePrefs() { try { localStorage.setItem(PREF_KEY, JSON.stringify(prefs)); } catch (e) {} }
+
+  // ───── 오디오 그래프 ─────
+  let ctx = null, master, sfxBus, bgmBus, NOISE = null, shaper = null;
+  function ensure() {
+    if (ctx) return ctx;
+    const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return null;
+    try { ctx = new AC(); } catch (e) { return null; }
+    master = ctx.createGain();
+    const comp = ctx.createDynamicsCompressor(); comp.threshold.value = -10; comp.ratio.value = 4; comp.attack.value = 0.003; comp.release.value = 0.2;
+    master.connect(comp); comp.connect(ctx.destination);
+    sfxBus = ctx.createGain(); sfxBus.connect(master);
+    bgmBus = ctx.createGain(); bgmBus.connect(master);
+    NOISE = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate);
+    const d = NOISE.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+    shaper = ctx.createWaveShaper(); const k = 18, n = 1024, curve = new Float32Array(n);
+    for (let i = 0; i < n; i++) { const x = i / (n - 1) * 2 - 1; curve[i] = (1 + k) * x / (1 + k * Math.abs(x)); }
+    shaper.curve = curve;
+    applyVol();
+    return ctx;
+  }
+  function applyVol() {
+    if (!ctx) return;
+    const t = ctx.currentTime;
+    sfxBus.gain.setTargetAtTime(prefs.mute ? 0 : prefs.sfx, t, 0.02);
+    bgmBus.gain.setTargetAtTime(prefs.mute ? 0 : prefs.bgm * 0.55, t, 0.05);
+  }
+  // 브라우저는 사용자가 한 번 누르기 전에는 소리를 못 내게 하므로, 첫 조작에서 켠다
+  let unlocked = false;
+  function unlock() {
+    if (!ensure()) return;
+    if (ctx.state === 'suspended') ctx.resume().catch(() => {});
+    if (!unlocked) { unlocked = true; if (want) startBgm(want, true); }
+  }
+  ['pointerdown', 'keydown', 'touchend'].forEach(ev => document.addEventListener(ev, unlock, { capture: true, passive: true }));
+  document.addEventListener('visibilitychange', () => {   // 다른 탭으로 가면 멈춤
+    if (!ctx) return;
+    if (document.hidden) ctx.suspend().catch(() => {}); else if (unlocked) ctx.resume().catch(() => {});
+  });
+
+  // ───── 교체 소리 (관리자가 올린 파일) ─────
+  const over = {};      // id -> { buffer, name }
+  const itemVol = {};   // id -> 배율 (관리자가 조절, 기본 1)
+  function setOverride(id, o) { if (o && o.buffer) over[id] = o; else delete over[id]; if (BY[id] && BY[id].bgm && (want === id || preview.id === id)) restartBgm(); }
+  function setItemVol(id, v) { itemVol[id] = Math.max(0, Math.min(3, +v || 0)); if (curSong && curSong.id === id) curSong.gain.gain.setTargetAtTime(itemVol[id] ?? 1, ctx.currentTime, 0.05); }
+  async function decode(arrayBuffer) {
+    const c = ensure() || new (window.OfflineAudioContext || window.webkitOfflineAudioContext)(2, 44100, 44100);
+    return await new Promise((res, rej) => { const p = c.decodeAudioData(arrayBuffer.slice(0), res, rej); if (p && p.then) p.then(res, rej); });
+  }
+
+  // ───── 합성 도구 ─────
+  function out(vol, target) { const g = ctx.createGain(); g.gain.value = vol; g.connect(target || sfxBus); return g; }
+  function envGain(t, a, peak, d, dest) {
+    const g = ctx.createGain(); g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(Math.max(0.0002, peak), t + a);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + a + d);
+    g.connect(dest); return g;
+  }
+  function noise(t, dur, dest, type, freq, Q = 1, freq2) {
+    const s = ctx.createBufferSource(); s.buffer = NOISE;
+    let node = s;
+    if (type) { const f = ctx.createBiquadFilter(); f.type = type; f.frequency.setValueAtTime(freq, t); if (freq2) f.frequency.exponentialRampToValueAtTime(freq2, t + dur); f.Q.value = Q; s.connect(f); node = f; }
+    node.connect(dest);
+    s.start(t, Math.random() * 1.2, dur + 0.05); return s;
+  }
+  function burst(t, dur, peak, dest, type, freq, Q, freq2, a = 0.002) { noise(t, dur + a, envGain(t, a, peak, dur, dest), type, freq, Q, freq2); }
+  function osc(t, dur, type, f0, f1, dest) {
+    const o = ctx.createOscillator(); o.type = type; o.frequency.setValueAtTime(f0, t);
+    if (f1 && f1 !== f0) o.frequency.exponentialRampToValueAtTime(f1, t + dur);
+    o.connect(dest); o.start(t); o.stop(t + dur + 0.05); return o;
+  }
+  function thump(t, f0, f1, dur, peak, dest, type = 'sine', a = 0.002) { osc(t, dur + a, type, f0, f1, envGain(t, a, peak, dur, dest)); }
+  function note(t, freq, dur, peak, dest, type = 'triangle', a = 0.005) { osc(t, dur + a, type, freq, freq, envGain(t, a, peak, dur, dest)); }
+  const mtof = m => 440 * Math.pow(2, (m - 69) / 12);
+
+  // 공을 손바닥으로 치는 「팡」: 짧고 날카로운 파열음 + 몸통 울림 (power 0~1)
+  function hit(t, p, dest) {
+    const d = ctx.createGain(); d.gain.value = 0.33; d.connect(dest);
+    let snapDest = d;
+    if (p > 0.55) { const sh = ctx.createWaveShaper(); sh.curve = shaper.curve; const post = ctx.createGain(); post.gain.value = 0.6 + p * 1.4; sh.connect(post); post.connect(d); const pre = ctx.createGain(); pre.gain.value = 0.7 + p; pre.connect(sh); snapDest = pre; }   // 강타는 살짝 찢어지는 소리
+    burst(t, 0.022 + p * 0.03, 0.9, snapDest, 'bandpass', 1500 + p * 900, 0.7);
+    burst(t, 0.012, 0.55 + p * 0.3, d, 'highpass', 3800, 0.7);
+    thump(t, 190 + p * 70, 72, 0.1 + p * 0.09, 0.55 + p * 0.5, d);
+    if (p > 0.75) thump(t + 0.004, 85, 42, 0.26, 0.5 * p, d);   // 강타는 바닥이 울리는 저음
+  }
+  function whistle(t, len, dest) {
+    const g = ctx.createGain(); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.24, t + 0.025);
+    g.gain.setValueAtTime(0.24, t + len - 0.06); g.gain.exponentialRampToValueAtTime(0.0001, t + len); g.connect(dest);
+    const trem = ctx.createGain(); trem.gain.value = 0.65; trem.connect(g);
+    const lfo = ctx.createOscillator(); lfo.frequency.value = 31; const lg = ctx.createGain(); lg.gain.value = 0.35; lfo.connect(lg); lg.connect(trem.gain); lfo.start(t); lfo.stop(t + len + 0.05);
+    osc(t, len, 'sine', 3150, 3080, trem); const o2 = ctx.createGain(); o2.gain.value = 0.25; o2.connect(trem); osc(t, len, 'sine', 3340, 3300, o2);
+    burst(t, len, 0.12, g, 'bandpass', 3200, 6);
+  }
+  function crowd(t, len, dest, f0, f1, peak) {
+    const g = ctx.createGain(); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(peak, t + len * 0.18); g.gain.exponentialRampToValueAtTime(0.0001, t + len); g.connect(dest);
+    for (const [f, q] of [[f0, 0.8], [f0 * 1.9, 1.2], [f0 * 3.1, 2]]) noise(t, len, g, 'bandpass', f, q, f1 ? f1 * f / f0 : undefined);
+  }
+
+  // ───── 기본 효과음 (합성) ─────
+  const SYN = {
+    serve(t, o, x) { hit(t, 0.35 + (x.power || 0.3) * 0.5, o); burst(t + 0.01, 0.22, 0.06, o, 'bandpass', 2400, 1, 700); },
+    spike(t, o, x) { hit(t, 0.55 + (x.power || 0.5) * 0.45, o); },
+    receive(t, o) { thump(t, 150, 92, 0.15, 0.7, o); burst(t, 0.05, 0.32, o, 'lowpass', 700, 0.7); burst(t, 0.012, 0.16, o, 'bandpass', 2400, 1); },
+    toss(t, o) { thump(t, 420, 270, 0.05, 0.5, o); burst(t, 0.016, 0.3, o, 'bandpass', 2600, 1.2); thump(t + 0.012, 380, 260, 0.04, 0.25, o); },
+    block(t, o) { hit(t, 0.62, o); hit(t + 0.02, 0.4, o); thump(t, 120, 70, 0.18, 0.35, o); },
+    doshut(t, o) { hit(t, 1, o); burst(t + 0.02, 0.35, 0.15, o, 'highpass', 5000, 0.5); },
+    onetouch(t, o) { burst(t, 0.018, 0.45, o, 'highpass', 2600, 0.8); thump(t, 330, 210, 0.05, 0.35, o); burst(t + 0.03, 0.18, 0.08, o, 'bandpass', 1400, 1, 600); },
+    floor(t, o) { thump(t, 115, 52, 0.24, 0.75, o); burst(t, 0.06, 0.35, o, 'lowpass', 500, 0.7); thump(t + 0.3, 105, 60, 0.12, 0.42, o); thump(t + 0.5, 100, 64, 0.08, 0.2, o); thump(t + 0.63, 98, 66, 0.05, 0.1, o); },
+    squeak(t, o) { const g = envGain(t, 0.01, 0.5, 0.09, o); const s = ctx.createOscillator(); s.type = 'sawtooth'; s.frequency.setValueAtTime(1900, t); s.frequency.linearRampToValueAtTime(2700, t + 0.05); s.frequency.linearRampToValueAtTime(2300, t + 0.1); const f = ctx.createBiquadFilter(); f.type = 'bandpass'; f.frequency.value = 2400; f.Q.value = 3; s.connect(f); f.connect(g); s.start(t); s.stop(t + 0.12); },
+    whistle(t, o, x) { whistle(t, x.long ? 0.75 : 0.42, o); },
+    coin(t, o) { burst(t, 0.25, 0.06, o, 'bandpass', 3000, 2, 6000); for (const [f, d, v] of [[2637, 0.9, 0.18], [3951, 0.6, 0.12], [5274, 0.4, 0.08], [7040, 0.25, 0.05]]) note(t + 0.22, f, d, v, o, 'sine', 0.002); },
+    cheer(t, o) { crowd(t, 2.2, o, 900, 1300, 0.45); for (let i = 0; i < 22; i++) { const tt = t + 0.1 + Math.random() * 1.5; burst(tt, 0.012, 0.16 + Math.random() * 0.1, o, 'bandpass', 1500 + Math.random() * 1200, 1.4); } whistle(t, 0.3, o); },
+    aww(t, o) {
+      const g = envGain(t, 0.25, 0.25, 1.2, o);
+      for (const [f0, f1] of [[310, 190], [330, 205], [295, 180]]) { const s = ctx.createOscillator(); s.type = 'sawtooth'; s.frequency.setValueAtTime(f0, t); s.frequency.exponentialRampToValueAtTime(f1, t + 1.3); s.detune.value = (Math.random() - 0.5) * 30; const f = ctx.createBiquadFilter(); f.type = 'bandpass'; f.frequency.setValueAtTime(900, t); f.frequency.exponentialRampToValueAtTime(600, t + 1.3); f.Q.value = 2; s.connect(f); f.connect(g); s.start(t); s.stop(t + 1.5); }
+      crowd(t, 1.4, o, 500, 350, 0.12);
+    },
+    win(t, o) {
+      const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 2600; lp.connect(o);
+      const seq = [[0, 67, 0.12], [0.13, 67, 0.12], [0.26, 67, 0.12], [0.4, 72, 0.7]];
+      for (const [dt, m, d] of seq) for (const [k, det] of [[0, -6], [4, 4], [7, 0]]) { const g = envGain(t + dt, 0.015, 0.11, d, lp); const s = ctx.createOscillator(); s.type = 'sawtooth'; s.frequency.value = mtof(m + k); s.detune.value = det; s.connect(g); s.start(t + dt); s.stop(t + dt + d + 0.05); }
+      burst(t + 0.4, 1.1, 0.14, o, 'highpass', 6000, 0.5); thump(t + 0.4, 90, 45, 0.4, 0.5, o);
+    },
+    lose(t, o) { [[0, 64], [0.28, 62], [0.56, 60], [0.84, 55]].forEach(([dt, m], i) => note(t + dt, mtof(m), i === 3 ? 1.1 : 0.32, 0.3, o, 'triangle', 0.01)); },
+    card_draw(t, o) { burst(t, 0.13, 0.5, o, 'bandpass', 1400, 1.4, 5200, 0.03); },
+    card_place(t, o) { thump(t, 230, 120, 0.06, 0.45, o); burst(t, 0.045, 0.42, o, 'lowpass', 1900, 0.7); },
+    event_play(t, o) { [1046.5, 1318.5, 1568, 2093].forEach((f, i) => note(t + i * 0.055, f, 0.5, 0.12, o, 'triangle', 0.003)); burst(t, 0.3, 0.05, o, 'highpass', 7000, 0.6); },
+    skill(t, o) { thump(t, 660, 1320, 0.16, 0.22, o, 'triangle', 0.01); note(t + 0.09, 1760, 0.35, 0.16, o, 'sine'); burst(t + 0.05, 0.25, 0.05, o, 'highpass', 6500, 0.6); },
+    ui_click(t, o) { thump(t, 1000, 760, 0.03, 0.12, o, 'sine', 0.001); },
+  };
+
+  // ───── 재생 ─────
+  const last = {};
+  const GAP = { card_draw: 0.05, skill: 0.18, event_play: 0.18, card_place: 0.05, ui_click: 0.04 };
+  function play(id, x = {}) {
+    if (!ctx || !unlocked || prefs.mute || prefs.sfx <= 0) return;
+    const it = BY[id]; if (!it || it.bgm) return;
+    const now = ctx.currentTime;
+    if (now - (last[id] || -1) < (GAP[id] ?? 0.03)) return;
+    last[id] = now;
+    playItem(id, x, sfxBus);
+  }
+  function playItem(id, x, bus, mode) {
+    const t = ctx.currentTime + 0.01;
+    const vol = (itemVol[id] ?? 1) * (x.vol ?? 1);
+    const o = out(vol, bus);
+    const ov = mode === 'default' ? null : over[id];
+    if (ov) { const s = ctx.createBufferSource(); s.buffer = ov.buffer; const pv = x.power != null ? 0.65 + x.power * 0.5 : 1; o.gain.value = vol * pv; s.connect(o); s.start(t); setTimeout(() => o.disconnect(), (ov.buffer.duration + 0.5) * 1000); return; }
+    try { SYN[id](t, o, x); } catch (e) { console.warn(e); }
+    setTimeout(() => o.disconnect(), 4000);
+  }
+
+  // ───── 배경음 ─────
+  // 기본 배경음: 간단한 시퀀서로 실시간 합성 (8마디 반복)
+  const SONGS = {
+    // 로비: 100 BPM, 가볍고 산뜻하게 (Fmaj7 - Em7 - Dm7 - Cmaj7)
+    bgm_lobby: {
+      bpm: 100,
+      chords: [[53, 57, 60, 64], [52, 55, 59, 62], [50, 53, 57, 60], [48, 52, 55, 59], [53, 57, 60, 64], [52, 55, 59, 62], [50, 53, 57, 62], [55, 59, 62, 65]],
+      mel: [[[0, 76, 3], [4, 74, 2], [6, 72, 2], [10, 74, 4]], [[0, 71, 3], [4, 72, 2], [8, 74, 6]], [[2, 69, 2], [4, 72, 2], [6, 74, 2], [8, 77, 4], [12, 76, 4]], [[0, 74, 6], [8, 71, 4], [12, 72, 4]],
+        [[0, 76, 2], [2, 77, 2], [4, 79, 4], [10, 77, 2], [12, 76, 4]], [[0, 74, 3], [4, 72, 2], [6, 74, 2], [8, 76, 6]], [[0, 77, 2], [2, 76, 2], [4, 74, 4], [8, 72, 4], [12, 74, 4]], [[0, 71, 4], [4, 74, 4], [8, 79, 8]]],
+      step(s, bar, t, sd, out) {
+        const ch = this.chords[bar], st = s % 16;
+        if (st === 0 || st === 8 || st === 11) kick(t, out, 0.55);
+        if (st === 4 || st === 12) burst(t, 0.06, 0.12, out, 'bandpass', 2200, 1.2);   // 림샷
+        if (st % 2 === 0) burst(t, 0.03, st % 4 === 2 ? 0.07 : 0.04, out, 'highpass', 8000, 0.6);
+        if (st === 0 || st === 7 || st === 10) bassNote(t, mtof(ch[0] - 12), sd * (st === 0 ? 5 : 3), out, 0.32, 'triangle');
+        if (st === 0 || st === 6 || st === 10 || st === 14) for (const m of ch) ep(t, mtof(m), sd * 3, out, 0.045);
+        for (const [ms, m, len] of this.mel[bar]) if (ms === st) pluck(t, mtof(m), sd * len, out, 0.08, 'sine');
+      },
+    },
+    // 대전: 148 BPM, 경기장 느낌의 빠른 록 (Am - F - C - G)
+    bgm_battle: {
+      bpm: 148,
+      chords: [[57, 64, 69], [53, 60, 65], [48, 55, 60], [55, 62, 67], [57, 64, 69], [53, 60, 65], [55, 62, 67], [52, 59, 64]],
+      hook: [[0, 81, 2], [2, 79, 2], [4, 76, 3], [8, 76, 2], [10, 79, 2], [12, 81, 4]],
+      step(s, bar, t, sd, out, loop) {
+        const ch = this.chords[bar], st = s % 16;
+        if (st === 0 || st === 8 || st === 10) kick(t, out, 0.75);
+        if (st === 4 || st === 12) snare(t, out, 0.3);
+        if (bar === 7 && st >= 12) snare(t, out, 0.12 + (st - 12) * 0.05);
+        if (st % 2 === 0) burst(t, st === 14 ? 0.12 : 0.025, st === 14 ? 0.07 : 0.05, out, 'highpass', 9000, 0.6);
+        if (st % 2 === 0) bassNote(t, mtof(ch[0] - 12 + (st === 6 || st === 14 ? 12 : 0)), sd * 1.6, out, 0.3, 'sawtooth');
+        if (st === 0 || st === 3 || st === 6 || st === 10) power(t, ch, sd * (st === 10 ? 5 : 2.4), out, 0.05);
+        if (loop % 2 === 1 && bar % 2 === 0) for (const [ms, m, len] of this.hook) if (ms === st) pluck(t, mtof(m + (bar === 6 ? -2 : 0)), sd * len, out, 0.07, 'square');
+        if (bar === 0 && st === 0 && loop > 0) burst(t, 0.9, 0.08, out, 'highpass', 5500, 0.5);   // 크래시
+      },
+    },
+  };
+  function kick(t, o, v) { thump(t, 130, 42, 0.18, v, o); }
+  function snare(t, o, v) { burst(t, 0.12, v, o, 'bandpass', 1900, 0.8); thump(t, 200, 150, 0.06, v * 0.6, o, 'triangle'); }
+  function bassNote(t, f, d, o, v, type) { const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 600; lp.connect(o); note(t, f, d, v, lp, type, 0.008); }
+  function ep(t, f, d, o, v) { note(t, f, d, v, o, 'sine', 0.006); note(t, f * 2, d * 0.5, v * 0.25, o, 'triangle', 0.004); }
+  function pluck(t, f, d, o, v, type) { note(t, f, d, v, o, type, 0.008); }
+  function power(t, ch, d, o, v) {
+    const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.setValueAtTime(2400, t); lp.frequency.exponentialRampToValueAtTime(900, t + d); lp.connect(o);
+    for (const m of [ch[0], ch[0] + 7, ch[0] + 12]) for (const det of [-7, 7]) { const g = envGain(t, 0.006, v, d, lp); const s = ctx.createOscillator(); s.type = 'sawtooth'; s.frequency.value = mtof(m); s.detune.value = det; s.connect(g); s.start(t); s.stop(t + d + 0.05); }
+  }
+
+  let want = null;                 // 지금 틀어야 할 배경음 id
+  let curSong = null;              // { id, gain, timer, src }
+  const preview = { id: null, mode: null };
+  function bgm(id) {
+    if (want === id && curSong && curSong.id === id && !preview.id) return;
+    want = id;
+    if (!preview.id) startBgm(id);
+  }
+  function restartBgm() { const id = preview.id || want; if (curSong) { stopSong(curSong, 0.3); curSong = null; } if (id) startBgm(id, true, preview.id ? preview.mode : null); }
+  function startBgm(id, force, mode) {
+    if (!ctx || !unlocked) return;
+    if (!force && curSong && curSong.id === id) return;
+    if (curSong) { stopSong(curSong, 0.9); curSong = null; }
+    if (!id) return;
+    const g = ctx.createGain(); g.gain.setValueAtTime(0.0001, ctx.currentTime); g.gain.exponentialRampToValueAtTime(Math.max(0.0002, itemVol[id] ?? 1), ctx.currentTime + 1.2); g.connect(bgmBus);
+    const song = { id, gain: g, timer: 0, src: null };
+    const ov = mode === 'default' ? null : over[id];
+    if (ov) { const s = ctx.createBufferSource(); s.buffer = ov.buffer; s.loop = true; s.connect(g); s.start(); song.src = s; }
+    else if (SONGS[id]) {
+      const S = SONGS[id]; const sd = 60 / S.bpm / 4; let step = 0; let next = ctx.currentTime + 0.1;
+      const mix = ctx.createGain(); mix.gain.value = 0.9; mix.connect(g);
+      song.timer = setInterval(() => {
+        if (!ctx || ctx.state !== 'running') return;
+        if (next < ctx.currentTime - 0.2) next = ctx.currentTime + 0.05;   // 탭이 멈췄다 돌아온 경우
+        while (next < ctx.currentTime + 0.15) { const bar = Math.floor(step / 16) % 8, loop = Math.floor(step / 128); try { S.step(step, bar, next, sd, mix, loop); } catch (e) {} step++; next += sd; }
+      }, 30);
+    }
+    curSong = song;
+  }
+  function stopSong(s, fade) {
+    try { s.gain.gain.cancelScheduledValues(ctx.currentTime); s.gain.gain.setValueAtTime(Math.max(0.0002, s.gain.gain.value), ctx.currentTime); s.gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + fade); } catch (e) {}
+    setTimeout(() => { clearInterval(s.timer); try { s.src && s.src.stop(); } catch (e) {} s.gain.disconnect(); }, fade * 1000 + 100);
+  }
+  // 관리자 화면 미리듣기: mode 'default'(기본 합성음) / 'current'(지금 쓰는 소리)
+  function previewItem(id, mode = 'current') {
+    if (!ensure()) return;
+    unlock();
+    const it = BY[id]; if (!it) return;
+    if (it.bgm) { preview.id = id; preview.mode = mode; startBgm(id, true, mode); return; }
+    const o = out(1, master); playItem(id, { power: 0.8 }, o, mode);   // 미리듣기는 효과음 음량 설정과 상관없이
+  }
+  function stopPreview() { if (!preview.id) return; preview.id = null; preview.mode = null; if (curSong) { stopSong(curSong, 0.3); curSong = null; } if (want) startBgm(want, true); }
+
+  function setPrefs(p) { Object.assign(prefs, p); savePrefs(); ensure(); applyVol(); if (!prefs.mute && unlocked && want && !curSong) startBgm(want); }
+
+  // ───── 소리 설정 창 (게임 설정 · 로비 소리 버튼에서 공용) ─────
+  function prefsHtml() {
+    return `<div class="sndprefs">
+      <label class="snd-row"><span>배경음</span><input type="range" min="0" max="100" step="5" name="sndBgm" value="${Math.round(prefs.bgm * 100)}" aria-label="배경음 음량"><b>${Math.round(prefs.bgm * 100)}</b></label>
+      <label class="snd-row"><span>효과음</span><input type="range" min="0" max="100" step="5" name="sndSfx" value="${Math.round(prefs.sfx * 100)}" aria-label="효과음 음량"><b>${Math.round(prefs.sfx * 100)}</b></label>
+      <label class="snd-mute"><input type="checkbox" name="sndMute" ${prefs.mute ? 'checked' : ''}><span>모든 소리 끄기</span></label></div>`;
+  }
+  function bindPrefs(root) {
+    root.addEventListener('input', e => {
+      const t = e.target; if (!t.name || !t.name.startsWith('snd')) return;
+      if (t.name === 'sndBgm') setPrefs({ bgm: t.value / 100 });
+      if (t.name === 'sndSfx') { setPrefs({ sfx: t.value / 100 }); }
+      if (t.name === 'sndMute') setPrefs({ mute: t.checked });
+      const b = t.parentElement.querySelector('b'); if (b) b.textContent = t.value;
+      syncBtn();
+    });
+    root.addEventListener('change', e => { if (e.target.name === 'sndSfx') play('toss'); });
+  }
+  // 로비 왼쪽 아래 소리 버튼
+  const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'sndbtn'; btn.setAttribute('aria-label', '소리 설정');
+  const pop = document.createElement('div'); pop.className = 'sndpop'; pop.hidden = true;
+  function syncBtn() { btn.innerHTML = prefs.mute || (prefs.bgm === 0 && prefs.sfx === 0) ? SVG_OFF : SVG_ON; btn.classList.toggle('off', !!prefs.mute); }
+  const SVG_ON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+  const SVG_OFF = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 9.5l5 5m0-5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+  function mountButton() {
+    if (btn.isConnected) return;
+    document.body.append(btn, pop); syncBtn();
+    btn.addEventListener('click', () => { pop.hidden = !pop.hidden; if (!pop.hidden) { pop.innerHTML = `<b class="sp-h">소리</b>${prefsHtml()}`; } });
+    bindPrefs(pop);
+    document.addEventListener('pointerdown', e => { if (!pop.hidden && !pop.contains(e.target) && !btn.contains(e.target)) pop.hidden = true; }, true);
+  }
+  const st = document.createElement('style');
+  st.textContent = `
+  .sndbtn { position: fixed; left: max(14px, env(safe-area-inset-left, 0px)); bottom: max(14px, env(safe-area-inset-bottom, 0px)); z-index: 60; display: none; width: 42px; height: 42px; border-radius: 50%; padding: 9px;
+    background: rgba(18,10,4,.85); border: 1.5px solid rgba(255,220,170,.35); color: #f3e5d2; cursor: pointer; box-shadow: 0 6px 18px rgba(0,0,0,.35); }
+  .sndbtn.off { color: #a8957e; } .sndbtn:hover { border-color: var(--ball); } .sndbtn svg { width: 100%; height: 100%; display: block; }
+  body.in-lobby .sndbtn { display: block; }
+  .sndpop { position: fixed; left: max(14px, env(safe-area-inset-left, 0px)); bottom: calc(max(14px, env(safe-area-inset-bottom, 0px)) + 52px); z-index: 61; width: min(300px, calc(100vw - 28px)); padding: 14px 16px; border-radius: 16px;
+    background: rgba(18,10,4,.97); border: 1.5px solid rgba(255,220,170,.3); box-shadow: 0 16px 40px rgba(0,0,0,.55); color: #f3e5d2; display: grid; gap: 8px; }
+  .sndpop[hidden], body:not(.in-lobby) .sndpop { display: none; }
+  .sndpop .sp-h { font-size: 13px; letter-spacing: .06em; color: #a8957e; }
+  .sndprefs { display: grid; gap: 8px; }
+  .snd-row { display: grid; grid-template-columns: 52px 1fr 30px; align-items: center; gap: 10px; font-size: 13.5px; font-weight: 700; }
+  .snd-row b { text-align: right; font-variant-numeric: tabular-nums; font-size: 12.5px; color: #cdbba5; }
+  .snd-row input[type=range] { width: 100%; accent-color: var(--ball); }
+  .snd-mute { display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer; }
+  .snd-mute input { width: 18px; height: 18px; accent-color: var(--ball); }
+  `;
+  document.head.appendChild(st);
+  if (document.body) mountButton(); else document.addEventListener('DOMContentLoaded', mountButton);
+
+  // 버튼 클릭 소리 (작게)
+  document.addEventListener('click', e => { if (e.target.closest('button, .btn, [role=button], .chip, label.dpick, .seg label') && !e.target.closest('[data-nosnd]')) play('ui_click'); }, true);
+
+  // 개발용: 기본 효과음을 오프라인으로 렌더해 크기(peak · rms)를 잰다
+  async function measure(id, x = {}, sec = 2.5) {
+    ensure(); const saved = [ctx, sfxBus];
+    const oc = new OfflineAudioContext(1, 44100 * sec, 44100); ctx = oc; sfxBus = oc.destination;
+    try {
+      if (SONGS[id]) { const S = SONGS[id], sd = 60 / S.bpm / 4, o = out(0.9, oc.destination); for (let st = 0, t = 0.05; t < sec - 0.5; st++, t += sd) S.step(st, Math.floor(st / 16) % 8, t, sd, o, Math.floor(st / 128)); }
+      else SYN[id](0.01, out(1, oc.destination), x);
+    } finally { [ctx, sfxBus] = saved; }
+    const buf = await oc.startRendering(); const d = buf.getChannelData(0); let pk = 0, ss = 0; for (const v of d) { pk = Math.max(pk, Math.abs(v)); ss += v * v; }
+    return { peak: +pk.toFixed(3), rms: +Math.sqrt(ss / d.length).toFixed(4) };
+  }
+  G.VobacaAudio = { measure, ITEMS, CATS, BY, play, bgm, setOverride, setItemVol, itemVol: id => itemVol[id] ?? 1, hasOverride: id => !!over[id], overrideName: id => (over[id] && over[id].name) || '', decode, previewItem, stopPreview, previewing: () => preview.id, prefs: () => ({ ...prefs }), setPrefs, prefsHtml, bindPrefs, ensure, unlock };
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<script>window.VOBACA_VERSION="20261028225404";window.VOBACA_CHANGELOG=[{"id": 11, "date": "2026-10-28", "title": "효과음 · 배경음", "notes": ["배구 효과음: 서브 · 스파이크(OP가 클수록 세게) · 리시브 · 토스 · 블록 · 도샷 · 원터치 · 공이 바닥에 떨어지는 소리 · 농구화 끼익 · 휘슬 · 관중 환호/탄식", "카드 뽑기 · 캐릭터 등장 · 이벤트/스킬 발동 · 코인 토스 · 승리/패배 소리", "배경음: 로비와 대전에서 각각 다른 곡", "소리 크기: 로비 왼쪽 아래 스피커 버튼, 경기 중에는 「설정」에서 배경음 · 효과음 따로 조절하거나 끌 수 있어요"]}, {"id": 10, "date": "2026-10-28", "title": "부스터 1탄 「쓰레기장의 결전」 카드 추가", "notes": ["부스터 1탄 93종(캐릭터 73 · 이벤트 20) 추가 — 패러렐 버전은 제외, 모든 카드 스킬을 공식 텍스트 · Q&A 기준으로 구현", "새 키워드: 원터치 · 페인트 · 블록아웃 · 턴1 · 도샷(6), 패에서 쓰는 캐릭터 스킬(엔노시타 · 시바야마), 2인 카드(히나타·코즈메 / 츠키시마·쿠로오)의 이름 고르기", "샘플 덱 2종: 아오바죠사이 · 후쿠로다니 (AI 대전에서 바로 선택 가능)", "카드 목록 · 덱 편집: 세트 · 학교 필터와 이름 · 효과 검색"]}, {"id": 9, "date": "2026-10-28", "title": "휴대폰 · 태블릿 지원", "notes": ["휴대폰 세로(아이폰 · 갤럭시 S · 폴드 커버): 스크롤 없이 한 화면에 필드와 패가 꽉 차게, 위쪽 ⋯ 메뉴에 로그 · 설정 · 기권", "태블릿 세로(아이패드 · 갤럭시 탭 · 폴드 펼침): 카드를 화면 폭에 맞춰 크게, 가로는 여백을 줄여 카드를 조금 더 크게", "카드를 꾹 누르면 카드 정보 (휴대폰 · 태블릿)", "휴대폰을 가로로 들면 세로로 돌리라는 안내 (그래도 가로로 볼 수 있음)"]}, {"id": 8, "date": "2026-10-28", "title": "매트 다듬기 · 첫 패 연출", "notes": ["서브 에리어(왼쪽 줄)를 더 넓게", "가츠: 맨 위 캐릭터 아래 깔린 카드가 왼쪽으로 비스듬히 삐져나오고, 장수는 노란 숫자로", "덱 · 드롭 · 이벤트 칸을 같은 크기로 (드롭과 이벤트는 룰상 다른 영역이라 그대로 따로)", "멀리건이 끝나면 첫 패를 덱에서 한 장씩 뽑아 오는 연출"]}, {"id": 7, "date": "2026-10-28", "title": "경기 결과 연출", "notes": ["승리하면 팀 색 꽃가루와 함께 「승리!」, 패배하면 화면이 어두워지며 「패배…」", "세트마다 마지막 점수를 낸 카드(어택 · 서브 · 블록/도샷, OP, 토스 카드)와 상대가 놓친 이유를 차례로 보여 줘요", "결정타를 가장 많이 낸 카드는 「오늘의 해결사」로 표시 — 카드 그림을 누르면 정보창"]}, {"id": 6, "date": "2026-10-28", "title": "상대 패 모양", "notes": ["상대 패(뒷면) 부채꼴을 내 패를 마주 본 방향으로 뒤집었어요"]}, {"id": 5, "date": "2026-10-28", "title": "드로우 연출 · 효과 알림 개선", "notes": ["카드를 뽑으면 덱(또는 세트 에리어)에서 패로 날아와요 — 상대가 뽑을 때도", "스킬 · 이벤트 알림이 효과가 실제로 적용되는 순간(포인트 증감, 드로우 등)마다 떠요", "알림은 화면 오른쪽 가운데, 알림 속 카드 그림을 누르면 정보창", "키워드 설명은 정보창의 「키워드 설명 보기」를 눌렀을 때만"]}, {"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
 <script src="config.js"></script>
 <script>
 // バボカ BREAK — HV-D01 烏野 / HV-D02 音駒 スターターデッキ カードデータ
@@ -5215,6 +5572,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
 (function (G) {
   'use strict';
 
+  const SND = (id, x) => { try { G.VobacaAudio && G.VobacaAudio.play(id, x); } catch (e) {} };
   const BALL_SVG = `<svg viewBox="0 0 40 40" aria-hidden="true">
     <defs><clipPath id="vbc"><circle cx="20" cy="20" r="17.6"/></clipPath>
       <radialGradient id="vbg" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#fff"/><stop offset=".7" stop-color="#f4f1ea"/><stop offset="1" stop-color="#cfc8bb"/></radialGradient></defs>
@@ -5336,6 +5694,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
         { transform: `translate(${x - s}px, ${y - s}px) scale(1)` },
         { transform: `translate(${x - s}px, ${y - s - h}px) scale(${lift})`, offset: .5 },
         { transform: `translate(${x - s}px, ${y - s}px) scale(1)` }], { duration: d, easing: 'ease-in-out' });
+      SND('coin');
       await a.finished.catch(() => {});
       st.busy--;
     }
@@ -5529,6 +5888,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     async function skillCut(g, ev) {
       const info = opts.cardInfo(ev.uid); if (!info && !ev.text) return;
       const f = feedBox();
+      SND(ev.event ? 'event_play' : 'skill');
       const el = document.createElement('div'); el.className = 'sf-item' + (opts.isTop(ev.p) ? ' opp' : ''); el.dataset.t = String(Date.now());
       el.style.setProperty('--tc', opts.teamColor(ev.p));
       const eff = ev.text || (info && info.ko) || '';
@@ -5552,7 +5912,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       const opp = p => 1 - p;
       switch (ev.type) {
         case 'setStart': {
-          setOP(null); setVisible(false);
+          setOP(null); setVisible(false); SND('whistle', { long: true });
           await showBanner(`<b>세트 ${ev.setNo}</b><span>서브: ${opts.esc(g.pname(ev.server))}</span>`, 'set', 1000);
           return;
         }
@@ -5567,7 +5927,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
               await fly({ p, s: 'serveHit', pt: hp }, { dur: 380, arc: 0, lift: 1.25, easing: 'cubic-bezier(.2,.7,.4,1)' });
               const sk = strike(p, 'serve', tierS);
               hover(sk.prep || 1);
-              await sk.hit;
+              await sk.hit; SND('serve', { power: Math.min(1, tierS / 4) });
             }
             impact(tier, 'serve'); setOP(ev.value, tier);
             // 서브는 블록할 수 없으므로 상대 리시브 에리어로 바로 날아간다
@@ -5580,7 +5940,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
               if (!st.spot || st.spot.s !== 'attackHit') place({ p, s: 'attackHit', pt: hp });
               const sk = strike(p, 'attack', tier);
               fly({ p, s: 'attackHit', pt: hp }, { dur: sk.prep || 1, arc: 4, lift: 1.12, easing: 'ease-out' });
-              await sk.hit;
+              await sk.hit; SND('spike', { power: Math.min(1, tier / 4) });
             } else place({ p, s: 'attack' });
             impact(tier, 'attack'); setOP(ev.value, tier);
             await fly({ p: o, s: 'net' }, { dur: TIER[tier].fly, arc: 18 - tier * 4, lift: 1.15, ghosts: TIER[tier].trail, easing: tier >= 3 ? 'cubic-bezier(.2,.6,.3,1)' : 'ease-in' });
@@ -5599,24 +5959,24 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
           return;
         }
         case 'toBlock': {
-          spin.classList.remove('bob');
+          spin.classList.remove('bob'); SND('squeak');
           await hover(300);
           spin.classList.add('bob');
           return;
         }
         case 'opChange': {                                 // 스킬로 상대 OP가 바뀜 (원터치 등)
           setOP(ev.value, tierOf('attack', ev.value)); ring(1, '#ffd23f');
-          burst(`${ev.label || 'OP'} ${ev.value}`, { cls: 'ok', size: .9 });
+          burst(`${ev.label || 'OP'} ${ev.value}`, { cls: 'ok', size: .9 }); SND('onetouch');
           await sleep(ms(450));
           return;
         }
         case 'toReceive': {
-          spin.classList.remove('bob');
+          spin.classList.remove('bob'); if (ev.from === 'attack') SND('squeak');
           if (ev.from === 'oneTouch') {                     // 원터치: 블로커 손끝에 맞고 자기 리시브 쪽으로 떨어진다
             const els = opts.cardsIn(ev.p, 'block');
             const lf = lift(els, ev.p, { h: .22, dur: 460, scale: 1.08 });
             await lf.peak;
-            burst(ev.label || '원터치!', { cls: 'ok', size: 1 });
+            burst(ev.label || '원터치!', { cls: 'ok', size: 1 }); SND('onetouch');
             if (ev.value != null) setOP(ev.value, tierOf('attack', ev.value));
             await fly({ p: ev.p, s: 'receive' }, { dur: 520, arc: 60, lift: 1.3, easing: 'ease-out' });
             await lf.done; spin.classList.add('bob');
@@ -5638,7 +5998,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
             if (ev.ok) {
               const tier = ev.doshut ? 3 : 2;
               shake(TIER[tier].shake, 320); ring(TIER[tier].ring, '#7fe0ff'); particles(TIER[tier].parts, '#bdf1ff');
-              burst('블록!', { cls: 'ok', size: 1.1 });
+              burst('블록!', { cls: 'ok', size: 1.1 }); SND('block');
               setOP(null);
               await fly({ p, s: 'blockBounce', pt: { x: st.x, y: st.y + d * size() * 1.2 } }, { dur: 220, arc: 20, lift: 1.15, easing: 'ease-out' });
               await lf.done;
@@ -5648,13 +6008,13 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
                 await sl.hit;
                 const T = TIER[3];
                 shake(T.shake, 400); doFlash(.35, '#cfefff'); ring(T.ring, '#7fe0ff'); particles(T.parts, '#7fe0ff');
-                burst('도샷!!', { cls: 't3', size: 1.4 });
+                burst('도샷!!', { cls: 't3', size: 1.4 }); SND('doshut');
                 await fly({ p: o, s: 'receive' }, { dur: 300, arc: 6, lift: 1.12, ghosts: 2, easing: 'cubic-bezier(.2,.6,.3,1)' });
                 await sl.done;
               }
             } else {
               shake(TIER[3].shake, 380); doFlash(.3, '#ff9a8a');
-              burst('블록 실패', { cls: 'bad', size: 1 });
+              burst('블록 실패', { cls: 'bad', size: 1 }); SND('floor');
               await fly({ p, s: 'floor' }, { dur: 300, arc: -6, lift: 1.0, easing: 'ease-in' });
               particles(10, '#ffffff'); setOP(null);
               await lf.done;
@@ -5665,11 +6025,11 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
             await lf.peak;
             if (ev.ok) {
               setOP(null);
-              burst('리시브!', { cls: 'ok', size: .9 });
+              burst('리시브!', { cls: 'ok', size: .9 }); SND('receive');
               await hop(54, 460, 1.35);
             } else {
               shake(6, 300);
-              burst('리시브 실패', { cls: 'bad', size: 1 });
+              burst('리시브 실패', { cls: 'bad', size: 1 }); SND('floor');
               setOP(null);
               await fly({ p, s: 'out' }, { dur: 480, arc: 26, lift: 1.1, easing: 'ease-out' });
             }
@@ -5684,7 +6044,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
         case 'set': {
           // 세터가 공을 밀어 올리고, 공은 어택 카드 앞 타점에 떠서 기다린다
           const lf = lift(opts.cardsIn(ev.p, 'toss').slice(0, 1), ev.p, { h: .12, dur: 420, scale: 1.08 });
-          await lf.peak;
+          await lf.peak; SND('toss');
           const hp = hitPoint(ev.p, 'attack', 2);
           await fly(hp ? { p: ev.p, s: 'attackHit', pt: hp } : { p: ev.p, s: 'attack' }, { dur: 620, arc: 110, lift: 1.7, easing: 'ease-in-out' });
           spin.classList.add('bob');
@@ -5708,6 +6068,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
         }
         case 'lost': {
           setOP(null);
+          { const v = G.VobacaUI ? G.VobacaUI.ST.viewer : 0; SND('whistle'); setTimeout(() => SND(ev.p === v ? 'aww' : 'cheer'), 380); }
           const w = opp(ev.p);
           await showBanner(`<b>로스트</b><span>${opts.esc(g.pname(w))} 세트 획득 · ${opts.esc(ev.reason)}</span>`, 'lost', 1300);
           setVisible(false);
@@ -5751,6 +6112,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
 
   // ───────── 카드 이미지 미리 불러오기 ─────────
   // 카드가 처음 나올 때 이미지가 늦게 뜨지 않도록, 두 덱의 모든 이미지를 시작 시 받아서 디코딩해 둔다.
+  const SND = (id, x) => { try { window.VobacaAudio && window.VobacaAudio.play(id, x); } catch (e) {} };
   const IMG_CACHE = [];
   const PRELOAD = { done: 0, total: 0, ready: false };
   const preloadPromise = (() => {
@@ -5861,6 +6223,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     ST.mode = 'cpu'; if (opts.speed) ST.speed = opts.speed; ST.logOpen = false; savePrefs();
     const [d0, d1] = opts.decks;
     preloadDeck(d0); preloadDeck(d1);
+    try { window.VobacaAudio && window.VobacaAudio.bgm('bgm_battle'); } catch (e) {}
     const names = opts.names || [d0.label || d0.name, (d1.label || d1.name) + ' (CPU)'];
     ST.teams = [deckTeam(d0), deckTeam(d1)]; if (ST.teams[0] === ST.teams[1]) ST.teams[1] = 'alt';
     ST.viewer = 0; ST.pending = null; ST.sel = []; ST.detail = null; ST.handoff = null; ST.prevTops = {}; ST.seenSides = new Set(); ST.lastOp = null; ST.logLen = 0;
@@ -5991,6 +6354,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     const topCard = (a, param) => {
       const stack = pl.areas[a]; const t = stack[stack.length - 1];
       const key = p + a; const enter = t && ST.prevTops[key] !== t.uid; if (t) ST.prevTops[key] = t.uid;
+      if (enter && g.phase !== 'setup') SND('card_place');
       return `<div class="slot">${gutsLayers(stack.slice(0, -1))}${t ? cardHtml(t, { param, enter, cls: tcls(t) }) : '<div class="empty"></div>'}</div>`;
     };
     const gutsMeta = a => { const n = Math.max(0, pl.areas[a].length - 1); return `<span class="meta ${n ? '' : 'zero'}">가츠 ${n}</span>`; };
@@ -5999,6 +6363,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
         ${topCard(a, a)}<span class="lab">${AREA_KO[a]}</span>${gutsMeta(a)}</div>`;
     const sides = pl.sides.map(s => {
       const key = s.uid + ':' + g.turnNo; const enter = !ST.seenSides.has(key); ST.seenSides.add(key);
+      if (enter) SND('card_place');
       return `<div class="slot">${cardHtml(s, { param: 'block', enter, badge: 'S', cls: tcls(s) })}</div>`;
     });
     const stSide = staging ? staging.slice(1) : [];
@@ -6102,6 +6467,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       if (!dstEl || !document.body.contains(srcEl)) { done(); return; }
       const a = srcEl.getBoundingClientRect(), b = dstEl.getBoundingClientRect();
       const w = card ? b.width : a.width, h0 = w * 1039 / 744;
+      SND('card_draw');
       const fc = document.createElement('div'); fc.className = 'flycard'; fc.style.width = w + 'px'; fc.style.height = h0 + 'px'; fc.style.setProperty('--slot', (w / .7) + 'px');
       fc.innerHTML = `<div class="fc-in"><i class="cback fc-back"></i>${card ? `<div class="fc-front"><img src="${imgOf(card)}" alt=""></div>` : ''}</div>`;
       document.body.appendChild(fc);
@@ -6605,6 +6971,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     const g = ST.game; if (g.winner == null) return;
     const root = $('#modalRoot'); root.dataset.kind = 'result';
     const win = g.winner === ST.viewer;
+    SND(win ? 'win' : 'lose');
     const won = p => g.history.filter(h => h.winner === p && !h.concede).length;
     const KIND = { serve: '서브', attack: '어택', block: '블록' };
     const rows = g.history.map((h, i) => {
@@ -6669,10 +7036,13 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
         <label><input type="radio" name="auto" value="1" ${ST.autoPass ? 'checked' : ''}><b>자동 진행</b><span>낼 이벤트가 없으면 바로 넘김</span></label>
         <label><input type="radio" name="auto" value="0" ${ST.autoPass ? '' : 'checked'}><b>매번 확인</b><span>프리 스텝마다 멈춤</span></label>
       </div>
+      <div class="fieldlab">소리</div>
+      ${window.VobacaAudio ? window.VobacaAudio.prefsHtml() : ''}
       <div class="sub" style="margin:0">로스트 선언은 네트 오른쪽 「로스트 선언」 버튼으로 할 수 있습니다(프리 스텝·등장 단계).</div>
       <div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn primary" type="submit">닫기</button></div>
     </form></div>`;
-    $('#setForm').addEventListener('change', ev => { const f = new FormData(ev.currentTarget); ST.speed = f.get('speed'); ST.autoPass = f.get('auto') === '1'; savePrefs(); });
+    $('#setForm').addEventListener('change', ev => { if (ev.target.name && ev.target.name.startsWith('snd')) return; const f = new FormData(ev.currentTarget); ST.speed = f.get('speed'); ST.autoPass = f.get('auto') === '1'; savePrefs(); });
+    if (window.VobacaAudio) window.VobacaAudio.bindPrefs($('#setForm'));
     $('#setForm').addEventListener('submit', ev => { ev.preventDefault(); closeModal(); render(); });
   }
   $('#btnConcede').addEventListener('click', () => {
@@ -7070,6 +7440,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     cur = name;
     UI.showCardInfo(null);
     root.hidden = false; document.body.classList.add('in-lobby');
+    try { window.VobacaAudio && window.VobacaAudio.bgm('bgm_lobby'); } catch (e) {}
     root.scrollTop = 0;
     const r = SCREENS[name](arg);
     root.innerHTML = r; root.dataset.screen = name;
@@ -7393,7 +7764,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   const CONFIGURED = !!(C.firebase && C.firebase.apiKey);
   const V = '10.12.2';
   const SDK = n => `https://www.gstatic.com/firebasejs/${V}/firebase-${n}.js`;
-  const SYNC_KEYS = ['vobaca-decks', 'vobaca-tut', 'vobaca-ai', 'vobaca-prefs'];
+  const SYNC_KEYS = ['vobaca-decks', 'vobaca-tut', 'vobaca-ai', 'vobaca-prefs', 'vobaca-sound'];
   const $ = s => document.querySelector(s);
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -7523,6 +7894,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   .acct-sec { display: grid; gap: 8px; padding-top: 12px; border-top: 1px solid rgba(255,220,170,.15); }
   .acct-sec h3 { margin: 0; font-size: 12px; letter-spacing: .06em; color: #a8957e; }
   .acct-close { justify-self: end; }
+  .acct-uid { font-size: 11px; color: #8d7c68; word-break: break-all; } .acct-uid code { font-size: 11px; color: #cdbba5; user-select: all; }
   @media (max-width: 760px) { .userchip { top: auto; bottom: 12px; right: 12px; } }
   `;
   const st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
@@ -7658,9 +8030,11 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     if (extra.nick) saveNow();
     enter();
   }
+  const announce = () => { try { window.dispatchEvent(new CustomEvent('vobaca-auth', { detail: { ...ME } })); } catch (e) {} };
   function enter() {
     gate.hidden = true; msg = null; view = 'home';
-    renderChip();
+    renderChip(); announce();
+    try { const sp = JSON.parse(rawGet.call(localStorage, 'vobaca-sound') || 'null'); if (sp && window.VobacaAudio) window.VobacaAudio.setPrefs(sp); } catch (e) {}
     try { window.VobacaUI && window.VobacaUI.leaveGame(); } catch (e) {}
     try { const p = JSON.parse(rawGet.call(localStorage, 'vobaca-prefs') || 'null'); if (p && window.VobacaUI) { if (p.speed) window.VobacaUI.ST.speed = p.speed; if (p.autoPass != null) window.VobacaUI.ST.autoPass = p.autoPass; } } catch (e) {}
     window.VobacaLobby && window.VobacaLobby.show('main');
@@ -7688,11 +8062,13 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
         <button class="ag-btn ag-google" type="button" data-s="linkGoogle">${GOOGLE_SVG}Google 계정 연결</button>
         <form class="ag-form" id="linkForm"><label>닉네임<input name="nick" maxlength="12" required></label><label>이메일<input name="email" type="email" autocomplete="email" required></label><label>비밀번호 (6자 이상)<input name="pw" type="password" autocomplete="new-password" minlength="6" required></label><button class="ag-btn ag-email" type="submit">이메일 계정 만들기</button></form></div>` : ''}
       ${!ME.guest ? `<div class="acct-sec"><h3>닉네임</h3><form class="ag-form" id="nickForm" style="grid-template-columns:1fr auto;align-items:end"><input name="nick" maxlength="12" value="${esc(ME.name)}" aria-label="닉네임"><button class="btn primary" type="submit">변경</button></form></div>` : ''}
+      ${window.VobacaSoundAdmin && window.VobacaSoundAdmin.isAdmin() ? `<div class="acct-sec"><h3>관리자</h3><button class="btn primary" type="button" data-s="soundAdmin">사운드 관리 (효과음 · 배경음 교체)</button></div>` : ''}
       ${unverified ? `<div class="acct-sec"><h3>이메일 인증</h3><button class="btn" type="button" data-s="verify">인증 메일 다시 보내기</button></div>` : ''}
       <div class="acct-sec"><h3>${ME.offline ? '' : status.text ? esc(status.text) : ''}</h3>
         <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between">
           <button class="btn danger" type="button" data-s="logout">${ME.guest ? '게스트 종료 (로그인 화면으로)' : '로그아웃'}</button>
-          <button class="btn acct-close" type="button" data-s="close">닫기</button></div></div>
+          <button class="btn acct-close" type="button" data-s="close">닫기</button></div>
+        ${ME.uid && !ME.offline ? `<div class="acct-uid">내 UID <code>${esc(ME.uid)}</code> <button type="button" class="ag-link" data-s="copyUid">복사</button></div>` : ''}</div>
     </div>`;
   }
   chip.addEventListener('click', () => { sheetMsg = null; renderSheet(); sheet.hidden = false; });
@@ -7701,12 +8077,14 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     const b = e.target.closest('[data-s]'); if (!b) return;
     const s = b.dataset.s;
     if (s === 'close') { sheet.hidden = true; return; }
+    if (s === 'soundAdmin') { sheet.hidden = true; window.VobacaSoundAdmin && window.VobacaSoundAdmin.open(); return; }
+    if (s === 'copyUid') { try { await navigator.clipboard.writeText(ME.uid); b.textContent = '복사됨'; } catch (er) { b.textContent = '복사 실패 — 직접 선택해 복사'; } return; }
     if (s === 'logout') {
       if (ME.guest && !ME.offline && !confirmGuestLeave()) return;
       await saveNow().catch(() => {});
       syncUid = null; if (!ME.offline) clearLocal();   // 오프라인 게스트는 이 브라우저 기록을 그대로 둔다
       try { if (FB) await FB.auth.signOut(FB.au); } catch (er) {}
-      Object.assign(ME, { uid: null, name: '', guest: false, provider: '', email: '', offline: false, photo: '' });
+      Object.assign(ME, { uid: null, name: '', guest: false, provider: '', email: '', offline: false, photo: '' }); announce();
       sheet.hidden = true; try { window.VobacaUI && window.VobacaUI.leaveGame(); } catch (er) {}
       view = 'home'; msg = null; renderGate(); gate.hidden = false; return;
     }
@@ -7764,8 +8142,207 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       view = 'home'; msg = { text: '로그인 서버에 연결하지 못했어요. 게스트로 이용하거나 새로고침해 주세요.' }; renderGate();
     }
   }
-  window.VobacaAuth = { me: () => ({ ...ME }), configured: CONFIGURED, flush: () => (syncUid ? saveNow() : Promise.resolve()) };
+  window.VobacaAuth = { me: () => ({ ...ME }), configured: CONFIGURED, fb: () => loadFB(), flush: () => (syncUid ? saveNow() : Promise.resolve()) };
   boot();
+})();
+
+</script>
+<script>
+// 독립 사이트 전용: 관리자가 효과음 · 배경음을 항목별로 교체 (Firestore에 저장, 모든 방문자에게 적용)
+//  sound/{항목 id}            { name, mime, size, chunks, ver, vol, at, by }   — 항목 정보 (누구나 읽기, 관리자만 쓰기)
+//  soundChunks/{id}~{ver}~{i} { b: Bytes }                                   — 파일 조각 (900KB씩)
+//  admins/{UID}                                                              — 관리자 목록 (Firebase 콘솔에서 직접 추가)
+(function () {
+  'use strict';
+  const A = window.VobacaAudio, AU = window.VobacaAuth;
+  if (!A || !AU || !AU.configured) return;
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const MAX_BYTES = 8 * 1024 * 1024, CHUNK = 900 * 1024;
+  const kb = n => n >= 1048576 ? (n / 1048576).toFixed(1) + 'MB' : Math.max(1, Math.round(n / 1024)) + 'KB';
+  let FB = null, meta = {}, admin = false, adminUid = null;
+  const fb = async () => (FB = FB || await AU.fb());
+
+  // ───── 브라우저 캐시 (같은 파일을 매번 다시 받지 않게) ─────
+  const idb = () => new Promise((res, rej) => { const r = indexedDB.open('vobaca-sound', 1); r.onupgradeneeded = () => r.result.createObjectStore('files'); r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); });
+  async function cacheGet(key) { try { const db = await idb(); return await new Promise(res => { const q = db.transaction('files').objectStore('files').get(key); q.onsuccess = () => res(q.result || null); q.onerror = () => res(null); }); } catch (e) { return null; } }
+  async function cachePut(key, buf, id) {
+    try {
+      const db = await idb(); const tx = db.transaction('files', 'readwrite'); const st = tx.objectStore('files');
+      const all = st.getAllKeys(); all.onsuccess = () => { for (const k of all.result) if (String(k).startsWith(id + '~') && k !== key) st.delete(k); st.put(buf, key); };
+    } catch (e) {}
+  }
+
+  // ───── 불러오기: 교체된 소리를 모두 적용 ─────
+  async function fetchBytes(id, m) {
+    const key = `${id}~${m.ver}`;
+    const hit = await cacheGet(key); if (hit) return hit;
+    const F = await fb(); const parts = [];
+    for (let i = 0; i < m.chunks; i++) {
+      const snap = await F.fs.getDoc(F.fs.doc(F.db, 'soundChunks', `${id}~${m.ver}~${i}`));
+      if (!snap.exists()) throw new Error('missing chunk ' + i);
+      parts.push(snap.data().b.toUint8Array());
+    }
+    const all = new Uint8Array(parts.reduce((s, p) => s + p.length, 0)); let o = 0; for (const p of parts) { all.set(p, o); o += p.length; }
+    cachePut(key, all.buffer, id);
+    return all.buffer;
+  }
+  async function apply(id, m) {
+    A.setItemVol(id, m && m.vol != null ? m.vol : 1);
+    if (!m || !m.chunks) { A.setOverride(id, null); return; }
+    const buf = await fetchBytes(id, m);
+    const buffer = await A.decode(buf);
+    A.setOverride(id, { buffer, name: m.name });
+  }
+  async function loadAll() {
+    try {
+      const F = await fb();
+      const snap = await F.fs.getDocs(F.fs.collection(F.db, 'sound'));
+      meta = {}; snap.forEach(d => { if (A.BY[d.id]) meta[d.id] = d.data(); });
+      // 배경음은 크니 효과음 먼저
+      const ids = Object.keys(meta).sort((a, b) => (A.BY[a].bgm ? 1 : 0) - (A.BY[b].bgm ? 1 : 0));
+      for (const id of ids) { try { await apply(id, meta[id]); } catch (e) { console.warn('sound', id, e); } }
+      if (!$('#sndAdmin')?.hidden) render();
+    } catch (e) { console.warn('sound load', e); }
+  }
+
+  // ───── 관리자 확인 ─────
+  async function checkAdmin(uid) {
+    admin = false; adminUid = uid || null;
+    if (!uid) return;
+    try { const F = await fb(); const s = await F.fs.getDoc(F.fs.doc(F.db, 'admins', uid)); admin = s.exists() && adminUid === uid; } catch (e) { admin = false; }
+  }
+  window.addEventListener('vobaca-auth', e => { const u = e.detail || {}; checkAdmin(u.guest ? null : u.uid); });
+
+  // ───── 업로드 · 되돌리기 · 음량 ─────
+  async function upload(id, file, onStep) {
+    if (!admin) throw new Error('관리자만 바꿀 수 있어요.');
+    if (!/^audio\//.test(file.type) && !/\.(mp3|ogg|oga|wav|m4a|aac|webm|flac)$/i.test(file.name)) throw new Error('오디오 파일(mp3 · ogg · wav · m4a 등)만 올릴 수 있어요.');
+    if (file.size > MAX_BYTES) throw new Error(`파일이 너무 커요 (${kb(file.size)}). ${kb(MAX_BYTES)} 이하로 줄여 주세요. 배경음은 128kbps mp3 · ogg로 저장하면 3~4분도 들어가요.`);
+    onStep('파일 확인 중…');
+    const buf = await file.arrayBuffer();
+    let decoded; try { decoded = await A.decode(buf); } catch (e) { throw new Error('이 브라우저에서 재생할 수 없는 파일이에요. mp3나 ogg로 바꿔 올려 주세요.'); }
+    const F = await fb(); const u8 = new Uint8Array(buf); const ver = Date.now(); const n = Math.ceil(u8.length / CHUNK);
+    for (let i = 0; i < n; i++) {
+      onStep(`올리는 중… ${i + 1}/${n}`);
+      await F.fs.setDoc(F.fs.doc(F.db, 'soundChunks', `${id}~${ver}~${i}`), { b: F.fs.Bytes.fromUint8Array(u8.subarray(i * CHUNK, (i + 1) * CHUNK)) });
+    }
+    const old = meta[id];
+    const m = { name: file.name.slice(0, 80), mime: file.type || '', size: u8.length, chunks: n, ver, vol: old && old.vol != null ? old.vol : 1, at: Date.now(), by: adminUid };
+    await F.fs.setDoc(F.fs.doc(F.db, 'sound', id), m);
+    meta[id] = m;
+    if (old && old.chunks) for (let i = 0; i < old.chunks; i++) F.fs.deleteDoc(F.fs.doc(F.db, 'soundChunks', `${id}~${old.ver}~${i}`)).catch(() => {});
+    cachePut(`${id}~${ver}`, buf, id);
+    A.setOverride(id, { buffer: decoded, name: m.name });
+    return decoded.duration;
+  }
+  async function resetItem(id) {
+    const F = await fb(); const old = meta[id];
+    await F.fs.deleteDoc(F.fs.doc(F.db, 'sound', id));
+    if (old && old.chunks) for (let i = 0; i < old.chunks; i++) F.fs.deleteDoc(F.fs.doc(F.db, 'soundChunks', `${id}~${old.ver}~${i}`)).catch(() => {});
+    delete meta[id]; A.setOverride(id, null); A.setItemVol(id, 1);
+  }
+  const volTimers = {};
+  function saveVol(id, v) {
+    A.setItemVol(id, v);
+    clearTimeout(volTimers[id]);
+    volTimers[id] = setTimeout(async () => {
+      try {
+        const F = await fb(); const m = meta[id] || { chunks: 0 };
+        m.vol = v; m.at = Date.now(); m.by = adminUid; meta[id] = m;
+        if (!m.chunks && Math.abs(v - 1) < 0.001) { await F.fs.deleteDoc(F.fs.doc(F.db, 'sound', id)); delete meta[id]; }
+        else await F.fs.setDoc(F.fs.doc(F.db, 'sound', id), { vol: v, at: m.at, by: adminUid, chunks: m.chunks || 0 }, { merge: true });
+        flash(id, '음량 저장됨');
+      } catch (e) { flash(id, '저장 실패: ' + errText(e), true); }
+    }, 600);
+  }
+  const errText = e => (e && e.code === 'permission-denied') ? '권한이 없어요 (관리자 등록 · 보안 규칙을 확인해 주세요)' : (e && e.message) || String(e);
+
+  // ───── 관리자 화면 ─────
+  const css = document.createElement('style');
+  css.textContent = `
+  .sndadm { position: fixed; inset: 0; z-index: 90; display: grid; place-items: start center; padding: 20px 14px; overflow-y: auto; background: rgba(5,7,12,.82); }
+  .sndadm[hidden] { display: none; }
+  .sa-card { width: min(860px, 100%); display: grid; gap: 14px; padding: 20px 20px 24px; border-radius: 20px; background: rgba(18,10,4,.98); border: 1.5px solid rgba(255,220,170,.28); box-shadow: 0 24px 60px rgba(0,0,0,.6); color: #f3e5d2; }
+  .sa-head { display: flex; align-items: center; gap: 12px; justify-content: space-between; flex-wrap: wrap; }
+  .sa-head h2 { margin: 0; font-size: 22px; } .sa-head p { margin: 2px 0 0; font-size: 12.5px; color: #cdbba5; }
+  .sa-cat { display: grid; gap: 8px; } .sa-cat h3 { margin: 6px 0 0; font-size: 13px; letter-spacing: .06em; color: #f3c46b; }
+  .sa-item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 14px; align-items: center; padding: 10px 12px; border-radius: 12px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,220,170,.12); }
+  .sa-item.on { border-color: rgba(63,209,143,.5); background: rgba(63,209,143,.07); }
+  .sa-name b { font-size: 14.5px; } .sa-name small { display: block; font-size: 11.5px; color: #a8957e; margin-top: 1px; }
+  .sa-st { font-size: 12px; color: #cdbba5; margin-top: 3px; } .sa-st.on { color: #8fe8b9; } .sa-st.bad { color: #ffb3ad; } .sa-st.ok { color: #f3c46b; }
+  .sa-acts { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; align-items: center; }
+  .sa-acts .btn { padding: 6px 10px; font-size: 12.5px; }
+  .sa-vol { grid-column: 1 / -1; display: grid; grid-template-columns: auto 1fr 44px; gap: 10px; align-items: center; font-size: 12px; color: #cdbba5; }
+  .sa-vol input { width: 100%; accent-color: var(--ball); }
+  .sa-note { margin: 0; font-size: 12px; color: #a8957e; line-height: 1.6; }
+  @media (max-width: 640px) { .sa-item { grid-template-columns: 1fr; } .sa-acts { justify-content: flex-start; } }
+  `;
+  document.head.appendChild(css);
+  const box = document.createElement('div'); box.className = 'sndadm'; box.id = 'sndAdmin'; box.hidden = true; box.setAttribute('role', 'dialog'); box.setAttribute('aria-label', '사운드 관리');
+  document.body.appendChild(box);
+  const msgs = {};
+  function flash(id, text, bad) { msgs[id] = { text, bad }; const el = box.querySelector(`[data-st="${id}"]`); if (el) { el.textContent = text; el.className = 'sa-st ' + (bad ? 'bad' : 'ok'); } }
+  function statusOf(id) {
+    if (msgs[id]) return msgs[id];
+    const m = meta[id];
+    if (m && m.chunks) return { text: `교체됨 — ${m.name} (${kb(m.size)}${m.at ? ' · ' + new Date(m.at).toLocaleDateString('ko-KR') : ''})`, on: true };
+    return { text: '기본음 (코드로 만든 소리)' };
+  }
+  function render() {
+    const pv = A.previewing();
+    box.innerHTML = `<div class="sa-card">
+      <div class="sa-head"><div><h2>사운드 관리</h2><p>관리자 전용 · 여기서 바꾼 소리는 사이트에 들어오는 모든 사람에게 적용돼요.</p></div>
+        <button class="btn" type="button" data-sa="close">닫기</button></div>
+      ${A.CATS.map(([cat, label]) => `<section class="sa-cat"><h3>${esc(label)}</h3>
+        ${A.ITEMS.filter(x => x.cat === cat).map(x => { const s = statusOf(x.id); const v = Math.round(A.itemVol(x.id) * 100); const on = !!(meta[x.id] && meta[x.id].chunks);
+          return `<div class="sa-item ${on ? 'on' : ''}" data-id="${x.id}">
+            <div class="sa-name"><b>${esc(x.label)}</b><small>${esc(x.desc)} · <code>${x.id}</code></small><div class="sa-st ${s.on ? 'on' : s.bad ? 'bad' : ''}" data-st="${x.id}">${esc(s.text)}</div></div>
+            <div class="sa-acts">
+              ${x.bgm ? (pv === x.id ? `<button class="btn primary" type="button" data-sa="stop">■ 정지</button>` : `<button class="btn" type="button" data-sa="play">▶ 지금 소리</button>${on ? '<button class="btn" type="button" data-sa="playDef">▶ 기본음</button>' : ''}`)
+                : `<button class="btn" type="button" data-sa="play">▶ 지금 소리</button>${on ? '<button class="btn" type="button" data-sa="playDef">▶ 기본음</button>' : ''}`}
+              <label class="btn primary" style="cursor:pointer">파일로 교체<input type="file" accept="audio/*,.mp3,.ogg,.wav,.m4a" data-sa="file" hidden></label>
+              ${on || (meta[x.id] && meta[x.id].vol != null && meta[x.id].vol !== 1) ? '<button class="btn danger" type="button" data-sa="reset">기본으로</button>' : ''}
+            </div>
+            <label class="sa-vol">음량<input type="range" min="0" max="200" step="5" value="${v}" data-sa="vol"><b>${v}%</b></label>
+          </div>`; }).join('')}
+      </section>`).join('')}
+      <p class="sa-note">· 파일은 mp3 · ogg · wav · m4a, 한 항목에 ${kb(MAX_BYTES)}까지. 효과음은 1~2초 안쪽의 짧은 소리가, 배경음은 처음과 끝이 자연스럽게 이어지는 반복용 곡이 좋아요.<br>
+      · 음량 100% = 원래 크기. 플레이어는 각자 로비 왼쪽 아래 소리 버튼 · 경기 설정에서 배경음/효과음 크기를 따로 조절해요.<br>
+      · 「기본으로」를 누르면 올린 파일을 지우고 코드로 만든 기본음으로 돌아가요.</p>
+    </div>`;
+  }
+  box.addEventListener('click', async e => {
+    if (e.target === box) { close(); return; }
+    const b = e.target.closest('[data-sa]'); if (!b) return;
+    const act = b.dataset.sa; const id = b.closest('[data-id]') && b.closest('[data-id]').dataset.id;
+    if (act === 'close') { close(); return; }
+    if (act === 'play') { A.previewItem(id, 'current'); if (A.BY[id].bgm) render(); return; }
+    if (act === 'playDef') { A.previewItem(id, 'default'); if (A.BY[id].bgm) render(); return; }
+    if (act === 'stop') { A.stopPreview(); render(); return; }
+    if (act === 'reset') {
+      if (!window.confirm(`「${A.BY[id].label}」을(를) 기본음으로 되돌릴까요? 올린 파일은 지워져요.`)) return;
+      try { await resetItem(id); delete msgs[id]; render(); flash(id, '기본음으로 되돌렸어요'); } catch (er) { flash(id, '실패: ' + errText(er), true); }
+    }
+  });
+  box.addEventListener('input', e => { const t = e.target; if (t.dataset.sa !== 'vol') return; const id = t.closest('[data-id]').dataset.id; t.nextElementSibling.textContent = t.value + '%'; saveVol(id, t.value / 100); });
+  box.addEventListener('change', async e => {
+    const t = e.target; if (t.dataset.sa === 'vol') { const id = t.closest('[data-id]').dataset.id; if (!A.BY[id].bgm) A.previewItem(id, 'current'); return; }
+    if (t.dataset.sa !== 'file' || !t.files || !t.files[0]) return;
+    const id = t.closest('[data-id]').dataset.id; const f = t.files[0];
+    box.querySelectorAll('input[type=file]').forEach(x => { x.disabled = true; });
+    try {
+      const dur = await upload(id, f, text => flash(id, text));
+      delete msgs[id]; render(); flash(id, `교체 완료 — ${f.name} (${dur.toFixed(1)}초)`);
+      if (!A.BY[id].bgm) A.previewItem(id, 'current');
+    } catch (er) { flash(id, errText(er), true); box.querySelectorAll('input[type=file]').forEach(x => { x.disabled = false; }); }
+  });
+  function open() { if (!admin) return; msgs && Object.keys(msgs).forEach(k => delete msgs[k]); render(); box.hidden = false; }
+  function close() { A.stopPreview(); box.hidden = true; }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !box.hidden) close(); });
+
+  window.VobacaSoundAdmin = { open, isAdmin: () => admin, reload: loadAll };
+  setTimeout(loadAll, 300);
 })();
 
 </script>
