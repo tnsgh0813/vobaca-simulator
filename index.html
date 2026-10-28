@@ -103,6 +103,7 @@ header.topbar { min-height: 58px; }
 .flip .fl-flap { z-index: 1; }
 .ibtn { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); background: var(--panel-2); display: grid; place-items: center; cursor: pointer; font-size: 17px; }
 .ibtn:hover { border-color: rgba(255,255,255,.4); }
+#btnMore { display: none; }
 .btn.sm { padding: 5px 12px; font-size: 12.5px; }
 .brand { font-family: var(--f-display); font-size: 18px; letter-spacing: .02em; display: flex; align-items: baseline; gap: 8px; }
 .brand small { font-family: var(--f-ui); font-size: 12px; color: var(--muted); font-weight: 500; letter-spacing: 0; }
@@ -118,7 +119,7 @@ header.topbar { min-height: 58px; }
 .btn.danger { background: transparent; color: var(--bad); border-color: color-mix(in srgb, var(--bad) 55%, transparent); }
 .btn:disabled { opacity: .4; cursor: not-allowed; }
 
-.stage { --hw: clamp(58px, min(7vw, 9dvh), 96px); --handh: calc(var(--hw) * 1.397 + 70px);
+.stage { --hw: clamp(58px, min(9vw, 9dvh), 100px); --handh: calc(var(--hw) * 1.397 + 70px);
   position: relative; display: flex; flex-direction: column; align-items: center; min-height: 0; container-type: size; padding: 50px max(14px, env(safe-area-inset-right, 0px)) 0 max(14px, env(safe-area-inset-left, 0px)); overflow: hidden; }
 /* ── 플레이 매트 (공식 매트 배치: 왼쪽 세트·서브 / 가운데 코트 = 블록 줄 + 리시브·토스·어택 / 오른쪽 덱·드롭·이벤트) ── */
 .arena { position: relative; container-type: size; flex: 0 0 auto; display: grid; grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr);
@@ -356,7 +357,7 @@ header.topbar { min-height: 58px; }
 .sf-item:last-child .sf-info b { font-family: var(--f-display); font-weight: 400; font-size: 19px; white-space: normal; }
 .sf-item:last-child .sf-eff { font-size: 13px; -webkit-line-clamp: 4; }
 .sf-item:last-child .sf-ko { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-@media (max-width: 760px) { .skillfeed { width: min(260px, calc(100vw - 24px)); top: auto; bottom: 8px; transform: none; } .sf-item:last-child .sf-card { width: 60px; } .sf-item:last-child .sf-ko { display: none; } .sf-item:not(:last-child):not(:nth-last-child(2)) { display: none; } }
+@media (max-width: 760px) { .skillfeed { width: min(250px, calc(100vw - 24px)); top: 52px; bottom: auto; right: 8px; transform: none; } .sf-item:last-child .sf-card { width: 60px; } .sf-item:last-child .sf-ko { display: none; } .sf-item:not(:last-child):not(:nth-last-child(2)) { display: none; } }
 .fxlayer { position: absolute; inset: 0; pointer-events: none; z-index: 20; overflow: visible; }
 .vball { z-index: 5; } .vshadow { z-index: 4; } .vghost { z-index: 3; } .vburst, .vring, .vpart { z-index: 6; } .vbanner { z-index: 8; }
 .vball, .vshadow, .vghost { position: absolute; left: 0; top: 0; width: clamp(22px, 4.6cqi, 40px); aspect-ratio: 1; will-change: transform; }
@@ -439,7 +440,7 @@ header.topbar { min-height: 58px; }
 .hand.hidden-hand { display: grid; place-items: center; color: var(--muted); font-size: 13px; pointer-events: auto; }
 .hand .backfan { display: flex; justify-content: center; }
 /* 드래그 */
-.dragghost { position: fixed; left: 0; top: 0; z-index: 90; width: clamp(58px, min(7vw, 9dvh), 96px); pointer-events: none; border-radius: 6px; overflow: hidden;
+.dragghost { position: fixed; left: 0; top: 0; z-index: 90; width: clamp(58px, min(9vw, 9dvh), 100px); pointer-events: none; border-radius: 6px; overflow: hidden;
   box-shadow: 0 16px 30px rgba(0,0,0,.6), 0 0 0 3px var(--ball); transform-origin: 50% 50%; }
 .dragghost img { width: 100%; display: block; }
 .droptarget { outline: 3px dashed rgba(255,210,63,.9) !important; outline-offset: 2px; }
@@ -475,12 +476,10 @@ body.is-dragging { cursor: grabbing; user-select: none; }
 .ci-list { width: min(420px, calc(100vw - 24px)); display: block; }
 .ci-list .stacklist .card { width: 54px; }
 @media (max-width: 760px) {
-  .cardinfo { flex-direction: column; top: 8px; }
+  .cardinfo { flex-direction: column; top: 50px; left: 8px; max-width: calc(100vw - 16px); }
   .ci-main { grid-template-columns: 104px minmax(0, 1fr); } .ci-main .big { width: 104px; }
   .ci-kw { width: min(400px, calc(100vw - 24px)); }
-  .hand { --hw: clamp(56px, 15vw, 76px); }
-  .dragghost { width: clamp(56px, 15vw, 76px); }
-  .handwrap { margin-top: 8px; }
+  .dragghost { width: clamp(52px, 16vw, 72px); }
   .handhead { position: static; justify-self: start; margin: 0 6px 4px; display: inline-grid; }
 }
 
@@ -589,44 +588,74 @@ body.is-dragging { cursor: grabbing; user-select: none; }
 .hist { display: flex; gap: 6px; flex-wrap: wrap; }
 .hist span { font-size: 12px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line); }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+/* ══════════ 휴대폰 세로 (아이폰 · 갤럭시 S · 폴드 커버) — 한 화면에 꽉 차게, 스크롤 없이 ══════════ */
 @media (max-width: 760px) {
-  .app { height: auto; min-height: 100dvh; }
-  .stage { overflow: visible; padding-bottom: 12px; }
-  .stage { container-type: normal; --hw: clamp(56px, 15vw, 76px); padding-top: 52px; }
-  .arena { width: 100%; height: auto; container-type: inline-size; }
-  .mainrow .area .lab, .a-serve .lab { position: static; transform: skewX(-8deg); font-size: clamp(11px, 3.2cqi, 16px); }
-  .a-serve { padding-bottom: 6px !important; }
-  .brand, .tb-left .phases { display: none; }
-  header.topbar { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 10px; }
-  .tb-mid { position: static; transform: none; justify-items: center; }
-  header.topbar { min-height: 0; } .sb { gap: 5px; padding: 3px 6px; } .sb-team { min-width: 0; max-width: 70px; padding: 2px 5px; font-size: 11px; }
-  .flip { --fh: 30px; } .flip.small { --fh: 20px; } .sb-cap { display: none; }
-  .score { font-size: 12px; gap: 6px; flex-wrap: wrap; }
-  .tb-right { grid-column: 1 / -1; margin-left: 0; justify-content: flex-end; }
-  .logbox:not(.open) { display: none; }
-  .nextbtn { right: 8px; padding: 7px 14px; }
-  .pill { font-size: 11px; padding: 4px 10px; max-width: 58%; border-radius: 12px; }
-  .optx { display: none; }
-  .opphand { left: auto; right: 12px; transform: translate(0, -62%); }
-  .lostbtn { font-size: 11.5px; padding: 5px 9px; }
-}
-@media (max-width: 760px) {
-  .arena { padding: 6px; border-radius: 10px; }
-  .mat { --slot: clamp(30px, 10.4cqi, 70px); --col: calc(var(--slot) * 1.05 + 8px); --colL: calc(var(--slot) * 1.2 + 8px); gap: 4px; padding: 12px 4px 5px; }
-  .mat.opp { padding: 5px 4px 12px; }
-  .court { padding: 4px; } .mainrow { gap: 4px; padding-top: 4px; } .mat.opp .mainrow { padding-bottom: 4px; }
-  .mainrow .area { padding: 6px 2px 4px; }
-  .area .corner { width: 8px; height: 8px; border-width: 2px; }
-  .a-block { padding: 4px 3px 3px; gap: 2px; } .bslot { padding: 2px 1px; } .bslot .sl { display: none; }
-  .area .meta { font-size: 9.5px; }
-  .zone { padding: 4px 2px; column-gap: 3px; } .zone .pile { grid-column: 1 / -1; grid-row: auto; justify-self: center; } .zone .zl { font-size: 9.5px; letter-spacing: 0; align-self: baseline; } .zone b { font-size: 13px !important; align-self: baseline; }
-  .pile { width: calc(var(--slot) * .55); } .pile.land { width: calc(var(--slot) * .8); }
-  .net { padding: 4px 8px; gap: 6px; } .phases { margin-left: 0; }
-  .card .pv { font-size: 11px; line-height: 16px; min-width: 16px; padding: 0 3px; }
+  .app { height: 100dvh; min-height: 0; }
+  .stage { --hw: clamp(52px, 16vw, 72px); --handh: calc(var(--hw) * 1.397 + 64px); padding: 44px 8px 0; overflow: hidden; }
+  .arena { width: 100%; height: calc(100cqh - var(--handh) - 8px); padding: 5px; border-radius: 10px; outline-offset: 4px; outline-width: 2px; }
+  .mat { --slot: max(28px, min(calc((100cqh - 150px) / 5.6), calc((100cqi - 80px) / 5), 96px)); --col: max(48px, calc(var(--slot) * .86 + 8px)); --colL: max(52px, calc(var(--slot) * 1.06 + 8px));
+    gap: 4px; padding: 11px 3px 3px; }
+  .mat.opp { padding: 3px 3px 11px; }
+  .mat .who { left: 8px; font-size: 11px; padding: 1px 8px; } .mat .who em { font-size: 10px; }
+  .court { padding: 3px; } .mainrow { gap: 3px; padding-top: 3px; } .mat.opp .mainrow { padding-bottom: 3px; }
+  .mainrow .area { padding: 14px 2px 4px; }
+  .area .corner { display: none; }
+  .mainrow .area .lab, .a-serve .lab { position: absolute; left: 4px; top: 2px; transform: skewX(-8deg); font-size: 10.5px; }
+  .a-serve { padding: 14px 2px 4px !important; } .a-serve .lab { left: 50%; transform: translateX(-50%) skewX(-8deg); bottom: auto; top: 2px; }
+  .a-block { padding: 3px; gap: 2px; } .bslot { padding: 2px 1px; } .bslot .sl { display: none; } .a-block .lab { font-size: 9.5px; left: 4px; top: 1px; }
+  .zone { padding: 3px 2px; column-gap: 2px; } .zone .pile { grid-column: 1 / -1; grid-row: auto; justify-self: center; } .zone .zl { font-size: 9px; letter-spacing: 0; align-self: baseline; } .zone b { font-size: 12px !important; align-self: baseline; }
+  .pile, .z-drop .pile, .z-event .pile { width: calc(var(--slot) * .5); } .pile.land { width: calc(var(--slot) * .7); }
+  .area .gl { transform: translateX(calc(var(--i) * -10%)) rotate(calc(var(--i) * -5deg)); } .area .gcount { font-size: 9.5px; line-height: 15px; min-width: 18px; padding: 0 4px; }
+  .net { margin: 3px 0; padding: 3px 6px; gap: 6px; min-height: 30px; } .opchip { font-size: 11px; } .opchip b { font-size: 13px; }
+  .card .pv { font-size: 10.5px; line-height: 15px; min-width: 15px; padding: 0 3px; }
   .card .badge { font-size: 9px; line-height: 13px; padding: 0 3px; }
-  .brand { font-size: 15px; }
-  .detail { grid-template-columns: 92px minmax(0, 1fr); }
-  .detail .big { width: 92px; }
+  .opphand { transform: translate(-50%, calc(-100% - 6px)); } .opphand b { font-size: 12px; }
+  .handwrap { margin-top: 6px; }
+  .hc { bottom: 12px; } .hc-name { font-size: 10px; line-height: 13px; padding: 1px 5px; } .hc-prm b { font-size: 11.5px; } .hc-prm i { font-size: 7.5px; }
+  .hc:hover:not(.sel) { transform: translateX(var(--tx)) translateY(calc(var(--off) * var(--off) * var(--dr, 1.4px))) rotate(calc(var(--off) * var(--rot, 4deg))); }   /* 터치는 호버로 들리지 않게 */
+  .hc.sel { transform: translateX(var(--tx)) translateY(-22px) rotate(0) scale(1.18); }
+  .hc-acts { top: 4px; } .hc-acts .btn { padding: 6px 12px; font-size: 13px; }
+  /* 상단: 한 줄 (← · 점수판 · ⋯ 메뉴) */
+  header.topbar { display: flex; min-height: 46px; padding: 3px max(8px, env(safe-area-inset-right, 0px)) 3px max(8px, env(safe-area-inset-left, 0px)); gap: 6px; }
+  .brand, .tb-left .phases { display: none; }
+  .tb-mid { position: static; transform: none; flex: 1 1 auto; justify-items: center; min-width: 0; }
+  .sb { gap: 4px; padding: 3px 6px; } .sb-team { min-width: 0; max-width: 64px; padding: 2px 5px; font-size: 10.5px; gap: 4px; } .sb-team .sb-name { max-width: 48px; }
+  .flip { --fh: 28px; } .flip.small { --fh: 18px; } .sb-cap { display: none; } .sb-big { padding-top: 4px; }
+  #btnMore { display: grid; }
+  .tb-right { position: absolute; right: 8px; top: calc(100% + 4px); z-index: 45; display: none; flex-direction: column; align-items: stretch; gap: 6px; padding: 8px; border-radius: 12px; background: rgba(14,16,24,.97); border: 1px solid var(--line); box-shadow: 0 12px 28px rgba(0,0,0,.6); }
+  .tb-right.open { display: flex; } .tb-right .btn { padding: 9px 18px; font-size: 14px; }
+  .logbox:not(.open) { display: none; }
+  .netbtns { right: 6px; gap: 5px; } .nextbtn { padding: 6px 12px; font-size: 13px; } .lostbtn { font-size: 11px; padding: 5px 8px; } .blkcancel { padding: 6px 10px; }
+  .pill { font-size: 10.5px; padding: 3px 9px; max-width: 52%; border-radius: 12px; left: 34%; } .pill span { display: none; }
+  .optx { display: none; }
+  .cbox { padding: 14px 14px; } .stc { min-width: 0; flex: 1 1 140px; padding: 10px 12px; } .stc b { font-size: 18px; }
+  .coach { top: 54px; }
+  .detail { grid-template-columns: 92px minmax(0, 1fr); } .detail .big { width: 92px; }
+}
+@media (max-width: 380px) { .mat { --col: max(44px, calc(var(--slot) * .8 + 6px)); } .sb-team { display: none; } }
+/* ══════════ 태블릿 세로 (아이패드 · 갤럭시 탭 · 폴드 펼침) — 양옆 줄을 줄이고 카드를 화면 폭에 맞춤 ══════════ */
+@media (min-width: 761px) and (orientation: portrait) {
+  .stage { padding-top: 54px; }
+  .arena { width: 100%; }
+  .mat { --slot: max(40px, min(calc((100cqh - 210px) / 5.6), calc((100cqi - 110px) / 5.6), 130px)); --col: calc(var(--slot) * .9 + 14px); --colL: calc(var(--slot) * 1.12 + 16px); }
+  .mainrow .area { padding: 24px 8px 8px; }
+  .mainrow .area .lab, .a-serve .lab { left: 10px; top: 4px; transform: skewX(-8deg); font-size: 16px; }
+  .a-serve { padding: 26px 6px 8px !important; } .a-serve .lab { left: 50%; transform: translateX(-50%) skewX(-8deg); bottom: auto; }
+  .area .corner { width: 10px; height: 10px; }
+}
+/* 높이가 낮은 가로 화면 (태블릿 가로 · 작은 노트북): 여백을 줄여 카드를 조금 더 크게 */
+@media (min-width: 761px) and (orientation: landscape) and (max-height: 860px) {
+  .stage { padding-top: 44px; }
+  .mat { --slot: max(30px, min(calc((100cqh - 176px) / 5.6), 15cqi, 124px)); padding: 11px 6px 6px; }
+  .mainrow .area { padding: 6px 6px; } .a-block { padding: 5px; } .net { margin: 2px 0; }
+}
+/* 휴대폰 가로: 세로로 돌리기 권장 */
+.rotatehint { display: none; }
+@media (orientation: landscape) and (max-height: 500px) and (max-width: 1000px) {
+  body:not(.allow-land) .rotatehint { position: fixed; inset: 0; z-index: 99; display: grid; place-items: center; align-content: center; gap: 14px; padding: 20px; text-align: center; background: rgba(20,10,4,.97); color: #fff; }
+  .rotatehint .rh-phone { width: 46px; height: 78px; border: 4px solid #fff; border-radius: 10px; animation: rh-rot 1.8s ease-in-out infinite; }
+  @keyframes rh-rot { 0%, 30% { transform: rotate(-90deg); } 60%, 100% { transform: rotate(0deg); } }
+  .rotatehint b { font-family: var(--f-display); font-weight: 400; font-size: 22px; } .rotatehint p { margin: 0; font-size: 13px; color: #d9c6ad; }
 }
 
 /* ══════════ 로비 화면 ══════════ */
@@ -844,12 +873,13 @@ body.in-lobby #modalRoot .modal { z-index: 58; }   /* 로비 화면 위에 확�
 .td-badge { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-size: 34px; font-weight: 900; background: var(--ok); color: #062a18; margin: 0 auto; }
 @media (max-width: 860px) {
   .modes { grid-template-columns: 1fr; } .mode { min-height: 150px; }
-  .hub { grid-template-columns: 1fr; gap: 12px; } .hubtile { min-height: 132px; padding: 16px 18px; }
+  .hub { grid-template-columns: 1fr; gap: 12px; } .hubtile { min-height: 120px; padding: 16px 18px; } .hubtile .ht-icon { display: none; }
+  .editor .deckpanel { position: sticky; bottom: 0; z-index: 5; max-height: 44dvh; overflow-y: auto; box-shadow: 0 -10px 24px rgba(0,0,0,.5); }
   .dsel { grid-template-columns: 1fr; } .vs { margin: -6px 0; } .vs span { width: 54px; height: 54px; font-size: 22px; }
   .dside[data-side="cpu"] .ds-label { text-align: left; }
   .hero { grid-template-columns: minmax(0, .9fr) minmax(0, 1fr); min-height: 0; } .hero-fan { height: 140px; } .hero-fan img { width: 64px; transform: translateX(calc(-50% + var(--i) * 40%)) rotate(calc(var(--i) * 8deg)); }
   .aibottom { grid-template-columns: 1fr; }
-  .editor { grid-template-columns: 1fr; } .deckpanel { position: static; max-height: none; }
+  .editor { grid-template-columns: 1fr; }
   .cardgrid { grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); }
   .coach { top: 98px; right: 10px; width: calc(100vw - 20px); padding: 10px 12px; }
   .coach p { font-size: 12.5px; line-height: 1.5; }
@@ -884,6 +914,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       <button class="btn sm" id="btnSettings" type="button">설정</button>
       <button class="btn sm" id="btnConcede" type="button">기권</button>
     </div>
+    <button class="ibtn" id="btnMore" type="button" aria-label="메뉴" aria-expanded="false">⋯</button>
   </header>
   <main class="stage" id="stage">
     <div class="arena" id="arena">
@@ -901,8 +932,9 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
 <div class="screen" id="screen" hidden></div>
 <div class="cardinfo" id="cardInfo" hidden></div>
 <div id="modalRoot"></div>
+<div class="rotatehint" id="rotateHint" role="dialog" aria-label="화면 방향"><div class="rh-phone" aria-hidden="true"></div><b>세로로 돌려 주세요</b><p>휴대폰은 세로 화면에 맞춰져 있어요. 가로에서는 카드가 아주 작게 보여요.</p><button class="btn" type="button" id="allowLand">그래도 가로로 보기</button></div>
 
-<script>window.VOBACA_VERSION="20261028174407";window.VOBACA_CHANGELOG=[{"id": 8, "date": "2026-10-28", "title": "매트 다듬기 · 첫 패 연출", "notes": ["서브 에리어(왼쪽 줄)를 더 넓게", "가츠: 맨 위 캐릭터 아래 깔린 카드가 왼쪽으로 비스듬히 삐져나오고, 장수는 노란 숫자로", "덱 · 드롭 · 이벤트 칸을 같은 크기로 (드롭과 이벤트는 룰상 다른 영역이라 그대로 따로)", "멀리건이 끝나면 첫 패를 덱에서 한 장씩 뽑아 오는 연출"]}, {"id": 7, "date": "2026-10-28", "title": "경기 결과 연출", "notes": ["승리하면 팀 색 꽃가루와 함께 「승리!」, 패배하면 화면이 어두워지며 「패배…」", "세트마다 마지막 점수를 낸 카드(어택 · 서브 · 블록/도샷, OP, 토스 카드)와 상대가 놓친 이유를 차례로 보여 줘요", "결정타를 가장 많이 낸 카드는 「오늘의 해결사」로 표시 — 카드 그림을 누르면 정보창"]}, {"id": 6, "date": "2026-10-28", "title": "상대 패 모양", "notes": ["상대 패(뒷면) 부채꼴을 내 패를 마주 본 방향으로 뒤집었어요"]}, {"id": 5, "date": "2026-10-28", "title": "드로우 연출 · 효과 알림 개선", "notes": ["카드를 뽑으면 덱(또는 세트 에리어)에서 패로 날아와요 — 상대가 뽑을 때도", "스킬 · 이벤트 알림이 효과가 실제로 적용되는 순간(포인트 증감, 드로우 등)마다 떠요", "알림은 화면 오른쪽 가운데, 알림 속 카드 그림을 누르면 정보창", "키워드 설명은 정보창의 「키워드 설명 보기」를 눌렀을 때만"]}, {"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
+<script>window.VOBACA_VERSION="20261028175833";window.VOBACA_CHANGELOG=[{"id": 9, "date": "2026-10-28", "title": "휴대폰 · 태블릿 지원", "notes": ["휴대폰 세로(아이폰 · 갤럭시 S · 폴드 커버): 스크롤 없이 한 화면에 필드와 패가 꽉 차게, 위쪽 ⋯ 메뉴에 로그 · 설정 · 기권", "태블릿 세로(아이패드 · 갤럭시 탭 · 폴드 펼침): 카드를 화면 폭에 맞춰 크게, 가로는 여백을 줄여 카드를 조금 더 크게", "카드를 꾹 누르면 카드 정보 (휴대폰 · 태블릿)", "휴대폰을 가로로 들면 세로로 돌리라는 안내 (그래도 가로로 볼 수 있음)"]}, {"id": 8, "date": "2026-10-28", "title": "매트 다듬기 · 첫 패 연출", "notes": ["서브 에리어(왼쪽 줄)를 더 넓게", "가츠: 맨 위 캐릭터 아래 깔린 카드가 왼쪽으로 비스듬히 삐져나오고, 장수는 노란 숫자로", "덱 · 드롭 · 이벤트 칸을 같은 크기로 (드롭과 이벤트는 룰상 다른 영역이라 그대로 따로)", "멀리건이 끝나면 첫 패를 덱에서 한 장씩 뽑아 오는 연출"]}, {"id": 7, "date": "2026-10-28", "title": "경기 결과 연출", "notes": ["승리하면 팀 색 꽃가루와 함께 「승리!」, 패배하면 화면이 어두워지며 「패배…」", "세트마다 마지막 점수를 낸 카드(어택 · 서브 · 블록/도샷, OP, 토스 카드)와 상대가 놓친 이유를 차례로 보여 줘요", "결정타를 가장 많이 낸 카드는 「오늘의 해결사」로 표시 — 카드 그림을 누르면 정보창"]}, {"id": 6, "date": "2026-10-28", "title": "상대 패 모양", "notes": ["상대 패(뒷면) 부채꼴을 내 패를 마주 본 방향으로 뒤집었어요"]}, {"id": 5, "date": "2026-10-28", "title": "드로우 연출 · 효과 알림 개선", "notes": ["카드를 뽑으면 덱(또는 세트 에리어)에서 패로 날아와요 — 상대가 뽑을 때도", "스킬 · 이벤트 알림이 효과가 실제로 적용되는 순간(포인트 증감, 드로우 등)마다 떠요", "알림은 화면 오른쪽 가운데, 알림 속 카드 그림을 누르면 정보창", "키워드 설명은 정보창의 「키워드 설명 보기」를 눌렀을 때만"]}, {"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
 <script src="config.js"></script>
 <script>
 // バボカ BREAK — HV-D01 烏野 / HV-D02 音駒 スターターデッキ カードデータ
@@ -2803,7 +2835,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       fin.finished.catch(() => {}).then(() => { done(); fc.remove(); });
     }, Math.round(i * 140 * k));
   }
-  function handWidth() { const vw = window.innerWidth, vh = window.innerHeight; return vw <= 760 ? Math.max(56, Math.min(76, vw * .15)) : Math.max(58, Math.min(96, vw * .07, vh * .09)); }
+  function handWidth() { const vw = window.innerWidth, vh = window.innerHeight; return vw <= 760 ? Math.max(52, Math.min(72, vw * .16)) : Math.max(58, Math.min(100, vw * .09, vh * .09)); }
   function renderHand() {
     const g = ST.game; const p = ST.viewer; const pl = g.players[p];
     const handEl = $('#hand');
@@ -3062,6 +3094,36 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     if (kind === 'blockDeploy') return [...document.querySelectorAll(`.area[data-area="block"][data-p="${p}"]`)];
     return [$('#arena')];
   }
+  // ── 터치: 카드를 꾹 누르면 정보창 (누른 뒤의 클릭은 무시해서 카드가 골라지지 않게) ──
+  let lp = null, swallowClick = false;
+  function pinInfo(t) {
+    if (t.dataset.cardno) { showCardInfo(t.dataset.cardno); return; }
+    const g = ST.game; if (!g) return; const c = findCard(g, +t.dataset.uid); if (!c) return;
+    const a = g.charArea(c); ST.detail = { card: c, area: a || undefined }; renderDetail();
+  }
+  document.addEventListener('pointerdown', e => {
+    if (e.pointerType === 'mouse') return;
+    const t = hoverTarget(e.target); if (!t) return;
+    clearTimeout(lp && lp.timer);
+    lp = { x: e.clientX, y: e.clientY, fired: false };
+    lp.timer = setTimeout(() => {
+      if (!lp || (drag && drag.started)) return;
+      lp.fired = true; drag = null;
+      try { navigator.vibrate && navigator.vibrate(12); } catch (er) {}
+      pinInfo(t);
+    }, 430);
+  }, true);
+  document.addEventListener('pointermove', e => { if (lp && !lp.fired && Math.hypot(e.clientX - lp.x, e.clientY - lp.y) > 10) { clearTimeout(lp.timer); lp = null; } }, true);
+  const lpEnd = () => { if (!lp) return; clearTimeout(lp.timer); if (lp.fired) { swallowClick = true; setTimeout(() => { swallowClick = false; }, 450); } lp = null; };
+  document.addEventListener('pointerup', lpEnd, true);
+  document.addEventListener('pointercancel', lpEnd, true);
+  document.addEventListener('click', e => { if (swallowClick) { swallowClick = false; e.stopPropagation(); e.preventDefault(); } }, true);
+  document.addEventListener('contextmenu', e => { if (hoverTarget(e.target)) e.preventDefault(); });
+  // 휴대폰 상단 ⋯ 메뉴 (로그 · 설정 · 기권)
+  $('#btnMore').addEventListener('click', e => { e.stopPropagation(); const r = document.querySelector('.tb-right'); const o = r.classList.toggle('open'); e.currentTarget.setAttribute('aria-expanded', o); });
+  document.addEventListener('click', e => { const r = document.querySelector('.tb-right.open'); if (r && !e.target.closest('#btnMore')) { r.classList.remove('open'); $('#btnMore').setAttribute('aria-expanded', 'false'); } });
+  $('#allowLand').addEventListener('click', () => document.body.classList.add('allow-land'));
+
   // 마우스를 카드 위에 올리면 누르지 않아도 정보창 (누르면 고정). 눌러서 연 정보창이 있으면 그대로 둔다
   let hoverT = 0, hoverKey = null;
   function hoverTarget(t) { return t && t.closest ? t.closest('.card[data-uid], .mcard[data-uid], .sf-card[data-uid], [data-cardno]') : null; }
@@ -3420,7 +3482,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
         { on: 'before', m: e => e.type === 'setStart', title: '바보카!! BREAK에 어서 오세요', text: '배구를 카드로 하는 게임입니다. 서로 공을 주고받다가 <b>공을 받지 못한 쪽이 「로스트」</b>하고, 그 세트는 상대가 가져갑니다.' },
         { on: 'before', m: e => e.type === 'setStart', title: '승리 조건', text: '각자 <b>세트 카드 2장</b>을 가지고 시작해요. 로스트할 때마다 세트 카드가 1장씩 패로 돌아오고, <b>세트 카드가 0장인 상태에서 또 로스트하면 패배</b>합니다. 즉 3세트를 먼저 따내면 승리!<br>위쪽 <b>점수판</b>의 큰 숫자는 따낸 세트, 가운데 작은 숫자는 남은 세트 카드예요.', hl: [zone('set', 0), zone('set', 1), '#score .sb'] },
         { on: 'before', m: e => e.type === 'setStart', title: '매트 보는 법', text: '아래가 내 매트, 위가 상대 매트입니다. 가운데 코트에 <b>블록 · 리시브 · 토스 · 어택</b> 에리어, 왼쪽에 <b>서브</b> 에리어가 있어요. 오른쪽은 덱 · 드롭(버림) · 이벤트 에리어입니다. 상대 매트는 뒤집혀 있어서 <b>상대 어택이 내 리시브 바로 위</b>에 있어요.', hl: ['#courtBottom .court', area('serve')] },
-        { on: 'before', m: e => e.type === 'setStart', title: '카드 보는 법', text: '캐릭터 카드 아래쪽 숫자가 <b>서브 · 블록 · 리시브 · 토스 · 어택</b> 포인트예요. 카드에 마우스를 올리면 왼쪽 위에 크게 보이고, 누르면 고정돼요 (아무 곳이나 누르면 닫힘). 「－」인 능력은 그 에리어에 낼 수 없어요.', hl: ['#hand .hc'] },
+        { on: 'before', m: e => e.type === 'setStart', title: '카드 보는 법', text: '캐릭터 카드 아래쪽 숫자가 <b>서브 · 블록 · 리시브 · 토스 · 어택</b> 포인트예요. 카드에 마우스를 올리면 왼쪽 위에 크게 보이고, 누르면 고정돼요 (휴대폰 · 태블릿은 카드를 <b>꾹 누르기</b>). 「－」인 능력은 그 에리어에 낼 수 없어요.', hl: ['#hand .hc'] },
         { on: 'req', m: r => r.type === 'deploy' && r.area === 'serve', act: true, allow: [K(4)], title: '서브 페이즈', text: '세트의 첫 턴은 서브부터! 서브 에리어에 캐릭터 1장을 냅니다. <b>서브 포인트가 그대로 오펜스 포인트(OP)</b>가 돼요.<br>서브 포인트 5인 <b>야마구치</b>를 서브 에리어로 끌어다 놓거나, 눌러서 「서브 등장」을 누르세요.', hl: [handCard(K(4)), area('serve')] },
         { on: 'after', m: e => e.type === 'offense' && e.p === 0, title: 'OP 5 서브!', text: '상대는 <b>리시브 포인트가 OP 이상</b>인 캐릭터로 받아야 해요. 서브는 블록할 수 없어서 공이 바로 상대 리시브 에리어로 갑니다.' },
         { on: 'after', m: e => e.type === 'judge' && e.p === 1, end: true, title: '상대가 받았어요', text: '상대는 리시브 5로 받았습니다. <b>디펜스 = 오펜스여도 성공</b>이에요. 이렇게 리시브 → 토스 → 어택으로 공을 돌려보내며 랠리가 이어집니다. 다음 챕터에서 직접 해 봐요!' },
