@@ -118,17 +118,17 @@ header.topbar { min-height: 58px; }
 .btn.danger { background: transparent; color: var(--bad); border-color: color-mix(in srgb, var(--bad) 55%, transparent); }
 .btn:disabled { opacity: .4; cursor: not-allowed; }
 
-.stage { --hw: clamp(62px, min(8vw, 10.5dvh), 104px); --handh: calc(var(--hw) * 1.397 + 66px);
-  position: relative; display: flex; flex-direction: column; align-items: center; min-height: 0; container-type: size; padding: 56px max(14px, env(safe-area-inset-right, 0px)) 0 max(14px, env(safe-area-inset-left, 0px)); overflow: hidden; }
+.stage { --hw: clamp(58px, min(7vw, 9dvh), 96px); --handh: calc(var(--hw) * 1.397 + 70px);
+  position: relative; display: flex; flex-direction: column; align-items: center; min-height: 0; container-type: size; padding: 50px max(14px, env(safe-area-inset-right, 0px)) 0 max(14px, env(safe-area-inset-left, 0px)); overflow: hidden; }
 /* ── 플레이 매트 (공식 매트 배치: 왼쪽 세트·서브 / 가운데 코트 = 블록 줄 + 리시브·토스·어택 / 오른쪽 덱·드롭·이벤트) ── */
 .arena { position: relative; container-type: size; flex: 0 0 auto; display: grid; grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr);
-  height: calc(100cqh - var(--handh) - 6px); width: min(100%, calc((100cqh - var(--handh) - 6px) * 1.56));   /* 처음 매트 비율 (가로 1.56 : 세로 1) */ margin-inline: auto; padding: 10px; border-radius: 14px;
+  height: calc(100cqh - var(--handh) - 16px); width: min(100%, calc((100cqh - var(--handh) - 16px) * 1.8)); margin-inline: auto; padding: 10px; border-radius: 14px;
   background: repeating-linear-gradient(90deg, rgba(90,52,20,.10) 0 2px, transparent 2px 96px),
     repeating-linear-gradient(90deg, transparent 0 47px, rgba(255,240,215,.08) 47px 49px, transparent 49px 96px),
     linear-gradient(180deg, var(--wood-a), var(--wood-b));
   box-shadow: inset 0 0 0 1px rgba(0,0,0,.25), 0 10px 40px rgba(20,8,2,.55);
   outline: 3px solid rgba(255,255,255,.78); outline-offset: 7px;   /* 코트 라인 */ }
-.mat { --slot: max(30px, min(calc((100cqh - 196px) / 5.6), 15cqi, 118px)); --col: max(72px, calc(var(--slot) * 1.12 + 12px));
+.mat { --slot: max(30px, min(calc((100cqh - 200px) / 5.6), 15cqi, 124px)); --col: max(72px, calc(var(--slot) * 1.12 + 12px));
   position: relative; display: grid; gap: 6px; padding: 12px 8px 8px; min-height: 0; border-radius: 10px; color: var(--mat-ink);
   background: linear-gradient(180deg, var(--mat-a), var(--mat-b)); box-shadow: 0 6px 16px rgba(40,20,0,.35), inset 0 0 0 1px rgba(0,0,0,.08);
   grid-template-columns: var(--col) minmax(0, 1fr) var(--col);
@@ -158,7 +158,7 @@ header.topbar { min-height: 58px; }
 .area .meta { position: absolute; right: 4px; top: 4px; z-index: 2; font-size: 10px; font-weight: 700; line-height: 15px; padding: 0 5px; border-radius: 999px;
   color: #fff; background: rgba(0,0,0,.45); font-variant-numeric: tabular-nums; }
 .area .meta.zero { display: none; }
-.mainrow .area { flex: 1 1 0; padding: 6px 4px; }
+.mainrow .area { flex: 1 1 0; padding: 11px 6px; }
 /* 에리어 이름은 카드 왼쪽에 크게 (세로 공간 절약) */
 .mainrow .area .lab, .a-serve .lab { position: absolute; left: 14px; top: 50%; transform: translateY(-50%) skewX(-8deg); font-size: clamp(14px, 2.2cqi, 30px); opacity: .95; pointer-events: none; }
 .a-serve .lab { left: 50%; top: auto; bottom: 6px; transform: translateX(-50%) skewX(-8deg); font-size: clamp(12px, 1.5cqi, 20px); white-space: nowrap; }
@@ -169,7 +169,7 @@ header.topbar { min-height: 58px; }
 .area .c3 { left: 5px; bottom: 5px; border-right: 0; border-top: 0; } .area .c4 { right: 5px; bottom: 5px; border-left: 0; border-top: 0; }
 .a-serve { grid-area: serve; align-self: stretch; background: var(--c-serve); padding: 8px 4px 6px; }
 .a-serve .corner { display: none; }
-.a-block { display: grid; grid-template-columns: 1fr 1.15fr 1fr; grid-template-areas: "s1 c s2" "lab lab lab"; gap: 4px; padding: 5px; background: var(--c-block);
+.a-block { display: grid; grid-template-columns: 1fr 1.15fr 1fr; grid-template-areas: "s1 c s2" "lab lab lab"; gap: 4px; padding: 8px; background: var(--c-block);
   box-shadow: inset 0 0 0 2px rgba(0,0,0,.25); align-items: end; }
 .a-block .corner { display: none; }
 .a-block { grid-template-areas: "s1 c s2"; }
@@ -212,7 +212,7 @@ header.topbar { min-height: 58px; }
 .minicard img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* ── 네트 ── */
-.net { position: relative; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 8px 0; padding: 6px 12px; border-radius: 3px; color: #fff;
+.net { position: relative; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 4px 0; padding: 4px 12px; border-radius: 3px; color: #fff;
   background: repeating-linear-gradient(90deg, rgba(255,255,255,.13) 0 1px, transparent 1px 9px), repeating-linear-gradient(0deg, rgba(255,255,255,.13) 0 1px, transparent 1px 9px), #121212;
   box-shadow: 0 -3px 0 #f4f4f4, 0 3px 0 #f4f4f4, 0 6px 12px rgba(0,0,0,.3); }
 .opchip { display: inline-flex; align-items: baseline; gap: 8px; font-size: 12px; color: #ddd; }
@@ -243,36 +243,26 @@ header.topbar { min-height: 58px; }
 .pill b { color: var(--team, var(--ball)); white-space: nowrap; }
 .pill span { color: #dfe4ee; }
 .pill i { width: 8px; height: 8px; border-radius: 50%; background: var(--team, var(--muted)); animation: blink 1s infinite; flex: 0 0 auto; }
-/* 블록 / 리시브 고르기: 위 가운데 안내 + 두 에리어 강조 */
-.guide { position: fixed; left: 50%; top: 64px; z-index: 46; transform: translateX(-50%); display: grid; justify-items: center; gap: 6px; padding: 10px 22px 9px; border-radius: 16px; pointer-events: none; text-align: center;
-  max-width: calc(100vw - 24px); background: linear-gradient(180deg, rgba(14,16,24,.97), rgba(22,26,38,.95)); border: 2px solid var(--team, var(--ball)); box-shadow: 0 14px 34px rgba(0,0,0,.55); animation: gd-in .25s ease-out; }
-.guide[hidden] { display: none; }
-.guide.mid { transform: translate(-50%, -50%); animation: gd-in2 .25s ease-out; }
-@keyframes gd-in2 { from { opacity: 0; transform: translate(-50%, -60%); } }
-@keyframes gd-in { from { opacity: 0; transform: translate(-50%, -10px); } }
-.gd-top { display: flex; align-items: baseline; gap: 10px; }
-.gd-op { font-size: 12.5px; font-weight: 700; color: #c7cede; }
-.gd-op b { font-family: var(--f-display); font-weight: 400; font-size: 16px; color: #1b1600; background: var(--ball); padding: 0 9px; border-radius: 999px; margin-left: 2px; }
-.gd-q { font-family: var(--f-display); font-size: clamp(17px, 2vw, 22px); color: #fff; }
-.gd-opts { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; }
-.gd-opt { font-size: 14px; color: #e4e8f2; padding: 4px 12px; border-radius: 10px; background: rgba(255,255,255,.06); }
-.gd-opt i { font-style: normal; font-weight: 900; padding: 0 7px; border-radius: 6px; margin-right: 3px; color: #fff; }
-.gd-b i { background: #6a6461; } .gd-r i { background: var(--c-receive); }
-.gd-opt b { color: #fff; }
-.gd-b b { text-decoration: underline 2px #cfc8c4; text-underline-offset: 3px; } .gd-r b { text-decoration: underline 2px #6fb0ff; text-underline-offset: 3px; }
-.gd-or { font-size: 12px; color: var(--muted); }
-.guide small { font-size: 11.5px; color: #9aa3b8; }
-.area.pick { z-index: 2; cursor: pointer; --pk: #fff3b0; animation: pickpulse 1.3s ease-in-out infinite; }
-.area.pick-block { --pk: #e9e2dc; } .area.pick-receive { --pk: #8fc4ff; }
-@keyframes pickpulse { 0%, 100% { box-shadow: 0 0 0 3px var(--pk), 0 0 24px 6px color-mix(in srgb, var(--pk) 60%, transparent); } 50% { box-shadow: 0 0 0 3px color-mix(in srgb, var(--pk) 50%, transparent), 0 0 8px 2px color-mix(in srgb, var(--pk) 30%, transparent); } }
-.area.pick:hover { filter: brightness(1.12); }
-.pickhint { position: absolute; left: 50%; top: 6px; z-index: 5; transform: translateX(-50%); padding: 2px 12px; border-radius: 999px; font-size: 12px; font-weight: 900; white-space: nowrap; pointer-events: none;
-  color: #111; background: var(--pk); box-shadow: 0 4px 10px rgba(0,0,0,.35); }
-.a-block .pickhint { left: auto; right: 10px; top: auto; bottom: 7px; transform: none; }
-.hc-acts .pk-block { background: #6a6461; border-color: #cfc8c4; color: #fff; }
-.hc-acts .pk-receive { background: var(--c-receive); border-color: #8fc4ff; color: #fff; }
-@media (max-width: 760px) { .guide { top: 100px; width: calc(100vw - 28px); padding: 7px 10px; gap: 4px; } .gd-top { gap: 8px; } .gd-q { font-size: 15px; } .gd-opts { flex-wrap: nowrap; gap: 4px; }
-  .gd-opt { font-size: 11px; padding: 3px 6px; white-space: nowrap; } .gd-opt i { padding: 0 4px; } .gd-or { display: none; } .guide small { display: none; } .pickhint { font-size: 10px; padding: 1px 8px; } }
+/* 블록 / 리시브 선택 창 */
+.cbox.start { gap: 10px; padding: 18px 22px 20px; }
+.st-op { font-size: 13px; font-weight: 700; color: #c7cede; }
+.st-op b { font-family: var(--f-display); font-weight: 400; font-size: 20px; color: #1b1600; background: var(--ball); padding: 0 12px; border-radius: 999px; margin-left: 4px; }
+.st-choice { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
+.stc { display: grid; gap: 4px; justify-items: center; min-width: 200px; padding: 14px 20px; border-radius: 16px; cursor: pointer; color: #fff; font: inherit; text-align: center; border: 2px solid rgba(255,255,255,.3); transition: transform .12s, filter .12s; }
+.stc:hover { transform: translateY(-2px); filter: brightness(1.1); }
+.stc b { font-family: var(--f-display); font-weight: 400; font-size: 22px; }
+.stc span { font-size: 12px; color: rgba(255,255,255,.85); line-height: 1.45; }
+.stc-block { background: linear-gradient(160deg, #6a6461, #3b3533); border-color: #cfc8c4; }
+.stc-receive { background: linear-gradient(160deg, #2a7be0, #134a9a); border-color: #8fc4ff; }
+/* 블록 에리어에 올려 둔 카드 (결정 전) */
+.staged { position: relative; }
+.staged .card { outline: 2.5px dashed var(--ball); outline-offset: 2px; box-shadow: 0 0 18px rgba(255,210,63,.55); animation: drop-in .25s ease-out; }
+.stg-acts { position: absolute; left: 50%; bottom: 4px; transform: translateX(-50%); z-index: 5; display: flex; flex-direction: column; gap: 3px; align-items: center; }
+.stg-acts .btn { padding: 1px 8px; font-size: 10.5px; font-weight: 800; line-height: 1.5; white-space: nowrap; color: #fff; background: rgba(10,12,20,.92); border-color: rgba(255,255,255,.45); box-shadow: 0 3px 8px rgba(0,0,0,.5); }
+.stg-acts .btn:hover { border-color: var(--ball); color: var(--ball); }
+.blkcancel { padding: 8px 16px; font-weight: 800; }
+.nextbtn:disabled { filter: grayscale(.8) brightness(.7); animation: none; cursor: not-allowed; }
+.bc-ok { color: var(--ok); font-weight: 800; } .bc-bad { color: var(--bad); font-weight: 800; }
 /* 가운데 선택 창 */
 .center { position: fixed; inset: 0; z-index: 48; display: none; place-items: center; padding: 16px; pointer-events: none; }
 .center.on { display: grid; }
@@ -344,21 +334,25 @@ header.topbar { min-height: 58px; }
 .vcoin-cap b { color: var(--ball); font-weight: 400; }
 .coinstage.done .vcoin-cap { animation: pulse .5s ease-out; }
 @keyframes pulse { 0% { transform: scale(.8); } 60% { transform: scale(1.12); } 100% { transform: scale(1); } }
-/* 스킬 컷인 (왼쪽) */
-.skillcut { --tc: var(--ball); position: fixed; left: max(10px, env(safe-area-inset-left, 0px)); top: 50%; z-index: 64; display: flex; align-items: center; gap: 14px; max-width: min(460px, calc(100vw - 20px));
-  padding: 12px 18px 12px 12px; border-radius: 16px; pointer-events: none; transform: translate(-110%, -50%);
-  background: linear-gradient(100deg, color-mix(in srgb, var(--tc) 38%, #0d0f16) 0%, rgba(13,15,22,.96) 55%); border: 2px solid var(--tc);
-  box-shadow: 0 18px 44px rgba(0,0,0,.6), 0 0 34px color-mix(in srgb, var(--tc) 45%, transparent); overflow: hidden; }
-.skillcut .sc-streak { position: absolute; inset: 0; background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,.32) 45%, transparent 60%); transform: translateX(-100%); animation: scstreak .7s .15s ease-out forwards; }
-@keyframes scstreak { to { transform: translateX(100%); } }
-.sc-card { flex: 0 0 auto; width: clamp(92px, 11vw, 150px); border-radius: 8px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,.6), 0 0 0 2px rgba(255,255,255,.75); transform: rotate(-4deg); }
-.sc-card img { width: 100%; aspect-ratio: 744 / 1039; display: block; object-fit: cover; }
-.sc-info { position: relative; display: grid; gap: 5px; min-width: 0; }
-.sc-who { justify-self: start; font-size: 11.5px; font-weight: 900; letter-spacing: .04em; padding: 2px 10px; border-radius: 999px; background: var(--tc); color: #160c00; }
-.sc-info b { font-family: var(--f-display); font-weight: 400; font-size: clamp(18px, 2.2vw, 26px); line-height: 1.15; color: #fff; text-wrap: balance; }
-.sc-eff { margin: 0; font-size: 14px; font-weight: 700; color: var(--ball); line-height: 1.45; }
-.sc-ko { margin: 0; font-size: 11.5px; color: #c4cada; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-@media (max-width: 760px) { .skillcut { top: 38%; gap: 10px; padding: 8px 12px 8px 8px; } .sc-card { width: 72px; } .sc-eff { font-size: 12.5px; } .sc-ko { display: none; } }
+/* 스킬 · 이벤트 발동 기록 (오른쪽 아래에 쌓임) */
+.skillfeed { position: fixed; right: max(12px, env(safe-area-inset-right, 0px)); bottom: 14px; z-index: 47; width: min(330px, calc(100vw - 24px)); display: flex; flex-direction: column; gap: 6px; pointer-events: none; }
+.sf-item { --tc: var(--ball); display: flex; align-items: center; gap: 10px; padding: 7px 10px 7px 7px; border-radius: 12px; overflow: hidden;
+  background: linear-gradient(100deg, color-mix(in srgb, var(--tc) 30%, #0d0f16) 0%, rgba(13,15,22,.94) 60%); border: 1.5px solid color-mix(in srgb, var(--tc) 70%, transparent);
+  box-shadow: 0 8px 22px rgba(0,0,0,.5); opacity: .82; transition: opacity .3s; }
+.sf-card { flex: 0 0 auto; width: 40px; border-radius: 5px; overflow: hidden; box-shadow: 0 0 0 1.5px rgba(255,255,255,.7); }
+.sf-card img { width: 100%; aspect-ratio: 744 / 1039; display: block; object-fit: cover; }
+.sf-info { display: grid; gap: 2px; min-width: 0; }
+.sf-who { justify-self: start; font-size: 10px; font-weight: 900; padding: 0 7px; border-radius: 999px; background: var(--tc); color: #160c00; }
+.sf-info b { font-size: 13px; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sf-eff { margin: 0; font-size: 11.5px; font-weight: 700; color: var(--ball); line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.sf-ko { display: none; margin: 0; font-size: 11px; color: #c4cada; line-height: 1.45; }
+/* 가장 최근 것은 크게 */
+.sf-item:last-child { opacity: 1; padding: 10px 14px 10px 10px; border-width: 2px; box-shadow: 0 14px 34px rgba(0,0,0,.6), 0 0 26px color-mix(in srgb, var(--tc) 40%, transparent); }
+.sf-item:last-child .sf-card { width: clamp(78px, 7vw, 104px); transform: rotate(-3deg); }
+.sf-item:last-child .sf-info b { font-family: var(--f-display); font-weight: 400; font-size: 19px; white-space: normal; }
+.sf-item:last-child .sf-eff { font-size: 13px; -webkit-line-clamp: 4; }
+.sf-item:last-child .sf-ko { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+@media (max-width: 760px) { .skillfeed { width: min(280px, calc(100vw - 24px)); bottom: 8px; } .sf-item:last-child .sf-card { width: 60px; } .sf-item:last-child .sf-ko { display: none; } .sf-item:not(:last-child):not(:nth-last-child(2)) { display: none; } }
 .fxlayer { position: absolute; inset: 0; pointer-events: none; z-index: 20; overflow: visible; }
 .vball { z-index: 5; } .vshadow { z-index: 4; } .vghost { z-index: 3; } .vburst, .vring, .vpart { z-index: 6; } .vbanner { z-index: 8; }
 .vball, .vshadow, .vghost { position: absolute; left: 0; top: 0; width: clamp(22px, 4.6cqi, 40px); aspect-ratio: 1; will-change: transform; }
@@ -412,8 +406,8 @@ header.topbar { min-height: 58px; }
 .handhead b { color: var(--fg); font-size: 12px; }
 .hand { position: relative; height: calc(var(--handh) - 10px); pointer-events: none; }
 .hc { --off: calc(var(--i) - var(--mid)); --tx: calc(-50% + var(--off) * var(--sp, 70px));
-  position: absolute; left: 50%; bottom: 22px; width: var(--hw); z-index: calc(10 + var(--i)); pointer-events: auto;
-  transform: translateX(var(--tx)) translateY(calc(var(--off) * var(--off) * var(--dr, 1.4px) - 18px)) rotate(calc(var(--off) * var(--rot, 4deg)));
+  position: absolute; left: 50%; bottom: 16px; width: var(--hw); z-index: calc(10 + var(--i)); pointer-events: auto;
+  transform: translateX(var(--tx)) translateY(calc(var(--off) * var(--off) * var(--dr, 1.4px))) rotate(calc(var(--off) * var(--rot, 4deg)));
   transform-origin: 50% 130%; transition: transform .16s ease, filter .16s; }
 .hc:hover, .hc.sel, .hc.focus { transform: translateX(var(--tx)) translateY(-34px) rotate(0) scale(1.12); z-index: 60; }
 .hc.sel { z-index: 61; }
@@ -441,7 +435,7 @@ header.topbar { min-height: 58px; }
 .hand.hidden-hand { display: grid; place-items: center; color: var(--muted); font-size: 13px; pointer-events: auto; }
 .hand .backfan { display: flex; justify-content: center; }
 /* 드래그 */
-.dragghost { position: fixed; left: 0; top: 0; z-index: 90; width: clamp(62px, min(8vw, 10.5dvh), 104px); pointer-events: none; border-radius: 6px; overflow: hidden;
+.dragghost { position: fixed; left: 0; top: 0; z-index: 90; width: clamp(58px, min(7vw, 9dvh), 96px); pointer-events: none; border-radius: 6px; overflow: hidden;
   box-shadow: 0 16px 30px rgba(0,0,0,.6), 0 0 0 3px var(--ball); transform-origin: 50% 50%; }
 .dragghost img { width: 100%; display: block; }
 .droptarget { outline: 3px dashed rgba(255,210,63,.9) !important; outline-offset: 2px; }
@@ -450,6 +444,7 @@ body.is-dragging { cursor: grabbing; user-select: none; }
 /* 카드 정보 (왼쪽 위) */
 .cardinfo { position: fixed; left: max(12px, env(safe-area-inset-left, 0px)); top: 58px; z-index: 62; display: flex; gap: 10px; align-items: flex-start; max-width: calc(100vw - 24px); pointer-events: auto; animation: ci-in .16s ease-out; }
 .cardinfo[hidden] { display: none; }
+.cardinfo.hover { pointer-events: none; animation-duration: .1s; }   /* 마우스만 올린 정보창은 클릭을 가로막지 않음 */
 @keyframes ci-in { from { opacity: 0; transform: translateY(-6px); } }
 .ci-main, .ci-kw { background: rgba(18,22,34,.97); border: 1px solid rgba(255,255,255,.18); border-radius: 12px; box-shadow: 0 14px 34px rgba(0,0,0,.6); padding: 12px; }
 .ci-main { width: min(400px, calc(100vw - 24px)); display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 12px; align-items: start; }
@@ -848,7 +843,6 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   </main>
 </div>
 <aside class="logbox" id="logbox" aria-label="진행 로그"><div class="loghead"><span>진행 로그</span><button class="ibtn" id="logClose" type="button" aria-label="로그 닫기" style="width:28px;height:28px;font-size:14px">✕</button></div><div class="log" id="log"></div></aside>
-<div class="guide" id="guide" hidden aria-live="polite"></div>
 <div class="center" id="center"></div>
 <aside class="coach" id="coach" hidden aria-live="polite"></aside>
 <div class="screen" id="screen" hidden></div>
@@ -1241,18 +1235,22 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       await this.checkProcess();
       const opp = this.other(p);
       const canBlock = !!(this.offense && this.offense.owner === opp && this.offense.type === 'attack');
-      let choice = 'receive';
-      if (canBlock) {
-        choice = await this.ask(p, { type: 'start', title: '블록 / 리시브 선택', text: `상대 어택의 오펜스 포인트 ${this.offense.value}. 블록할지 리시브할지 고르세요.`, canBlock });
-        if (choice !== 'block') choice = 'receive';
-      } else {
-        this.say(`직전 상대가 어택하지 않았으므로(${this.offense ? (this.offense.type === 'serve' ? '서브' : '블록') : '-'}) 리시브만 선택할 수 있습니다.`, p);
+      if (!canBlock) this.say(`직전 상대가 어택하지 않았으므로(${this.offense ? (this.offense.type === 'serve' ? '서브' : '블록') : '-'}) 리시브만 선택할 수 있습니다.`, p);
+      for (;;) {
+        let choice = 'receive';
+        if (canBlock) {
+          choice = await this.ask(p, { type: 'start', title: '블록 / 리시브 선택', text: `상대 어택의 오펜스 포인트 ${this.offense.value}. 블록할지 리시브할지 고르세요.`, canBlock });
+          if (choice !== 'block') choice = 'receive';
+        }
+        this.say(`${this.pname(p)}: ${choice === 'block' ? '블록' : '리시브'} 선택`, p);
+        this.turnKind = choice;
+        await this.anim({ type: choice === 'block' ? 'toBlock' : 'toReceive', p, from: this.offense ? this.offense.type : null });
+        if (choice === 'block') {
+          // 블록 캐릭터를 내기 전에는 취소하고 블록/리시브 선택으로 돌아갈 수 있다 (아직 아무 카드도 움직이지 않았으므로)
+          if (await this.blockPhase(p) === 'cancel') { this.say(`${this.pname(p)}: 블록 취소 — 다시 고릅니다`, p); this.turnKind = 'normal'; this.setPhase('start'); continue; }
+        } else { await this.drawPhase(p); await this.receivePhase(p); await this.tossPhase(p); await this.attackPhase(p); }
+        break;
       }
-      this.say(`${this.pname(p)}: ${choice === 'block' ? '블록' : '리시브'} 선택`, p);
-      this.turnKind = choice;
-      await this.anim({ type: choice === 'block' ? 'toBlock' : 'toReceive', p, from: this.offense ? this.offense.type : null });
-      if (choice === 'block') await this.blockPhase(p);
-      else { await this.drawPhase(p); await this.receivePhase(p); await this.tossPhase(p); await this.attackPhase(p); }
       await this.endPhase(p);
     }
 
@@ -1303,7 +1301,8 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       const max = this.blockMax(p);
       const candidates = pl.hand.filter(c => this.isChar(c) && this.base(c, 'block') !== null);
       const ans = await this.ask(p, { type: 'blockDeploy', title: '블록 캐릭터 등장', text: `블록 캐릭터를 1~${max}장 고르세요 (같은 이름 불가). 첫 번째로 고른 카드가 센터 블로커가 됩니다. 상대 OP ${this.offense.value}`,
-        options: candidates.map(c => c.uid), max });
+        options: candidates.map(c => c.uid), max, cancelable: true });
+      if (ans && ans.cancel) return 'cancel';
       const picked = (ans && ans.uids ? ans.uids : []).map(u => pl.hand.find(c => c.uid === u)).filter(Boolean);
       const names = new Set(picked.map(c => this.cname(c)));
       if (!picked.length || picked.length > max || names.size !== picked.length) this.lost(p, '블록 캐릭터를 등장시키지 않음');
@@ -2145,27 +2144,40 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       el.remove();
     }
 
-    // 스킬·이벤트 발동: 화면 왼쪽에 카드가 잠깐 튀어나와 누가 어떤 효과를 쓰는지 보여 줌
+    // 스킬·이벤트 발동 기록: 화면 오른쪽 아래에 카드가 쌓임 (최신이 맨 아래 · 크게). 20초 뒤 또는 다음 턴에 사라짐
+    const FEED_MAX = 4, FEED_LIFE = 20000;
+    function feedBox() {
+      let f = document.getElementById('skillfeed');
+      if (!f) { f = document.createElement('div'); f.id = 'skillfeed'; f.className = 'skillfeed'; f.setAttribute('aria-live', 'polite'); f.setAttribute('aria-label', '스킬 · 이벤트 발동 기록'); document.body.appendChild(f); }
+      return f;
+    }
+    function feedRemove(el) {
+      if (!el || el.dataset.out) return; el.dataset.out = '1';
+      el.animate([{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateX(40px)' }], { duration: 260, easing: 'ease-in', fill: 'forwards' }).finished.catch(() => {}).then(() => el.remove());
+    }
+    function clearFeed(keepRecentMs = 0) {
+      const f = document.getElementById('skillfeed'); if (!f) return;
+      const now = Date.now();
+      for (const el of [...f.children]) if (!keepRecentMs || now - +el.dataset.t > keepRecentMs) feedRemove(el);
+    }
     async function skillCut(g, ev) {
       const info = opts.cardInfo(ev.uid); if (!info && !ev.text) return;
-      const top = opts.isTop(ev.p);
-      const el = document.createElement('div'); el.className = 'skillcut' + (top ? ' opp' : ''); el.setAttribute('role', 'status');
+      const f = feedBox();
+      const el = document.createElement('div'); el.className = 'sf-item' + (opts.isTop(ev.p) ? ' opp' : ''); el.dataset.t = String(Date.now());
       el.style.setProperty('--tc', opts.teamColor(ev.p));
-      const kind = ev.event ? '이벤트' : '스킬 발동';
       const eff = ev.text || (info && info.ko) || '';
-      el.innerHTML = `<div class="sc-streak"></div>
-        ${info ? `<div class="sc-card"><img src="${info.img}" alt=""></div>` : ''}
-        <div class="sc-info"><span class="sc-who">${opts.esc(g.pname(ev.p))} · ${kind}</span><b>${opts.esc(ev.label || (info ? info.name : ''))}</b>
-        ${eff ? `<p class="sc-eff">${opts.esc(eff)}</p>` : ''}${ev.text && info && info.ko && !ev.event ? `<p class="sc-ko">${opts.esc(info.ko)}</p>` : ''}</div>`;
-      document.body.appendChild(el);
+      el.innerHTML = `${info ? `<div class="sf-card"><img src="${info.img}" alt=""></div>` : ''}
+        <div class="sf-info"><span class="sf-who">${opts.esc(g.pname(ev.p))} · ${ev.event ? '이벤트' : '스킬'}</span><b>${opts.esc(ev.label || (info ? info.name : ''))}</b>
+        ${eff ? `<p class="sf-eff">${opts.esc(eff)}</p>` : ''}${ev.text && info && info.ko && !ev.event ? `<p class="sf-ko">${opts.esc(info.ko)}</p>` : ''}</div>`;
+      f.appendChild(el);
+      const live = [...f.children].filter(x => !x.dataset.out);
+      if (live.length > FEED_MAX) feedRemove(live[0]);
+      el.animate([{ transform: 'translateX(110%)', opacity: 0 }, { transform: 'translateX(-4%)', opacity: 1, offset: .7 }, { transform: 'none', opacity: 1 }], { duration: 320, easing: 'cubic-bezier(.2,.9,.3,1)' });
+      setTimeout(() => feedRemove(el), FEED_LIFE);
       // 필드 위의 그 카드도 반짝
       const src = ev.uid != null ? document.querySelector(`.mat .card[data-uid="${ev.uid}"]`) : null;
       if (src) src.animate([{ filter: 'brightness(1)', transform: 'scale(1)' }, { filter: 'brightness(1.8) drop-shadow(0 0 10px #fff)', transform: 'scale(1.12)', offset: .3 }, { filter: 'brightness(1)', transform: 'scale(1)' }], { duration: ms(900), easing: 'ease-out' });
-      const hold = ev.event ? 1500 : 1300;
-      el.animate([{ transform: 'translate(-110%, -50%) skewX(-8deg)', opacity: 0 }, { transform: 'translate(4%, -50%) skewX(0deg)', opacity: 1, offset: .7 }, { transform: 'translate(0, -50%)', opacity: 1 }], { duration: ms(320), easing: 'cubic-bezier(.2,.9,.3,1)', fill: 'forwards' });
-      await sleep(ms(hold));
-      await el.animate([{ transform: 'translate(0, -50%)', opacity: 1 }, { transform: 'translate(-30%, -50%)', opacity: 0 }], { duration: ms(240), easing: 'ease-in', fill: 'forwards' }).finished.catch(() => {});
-      el.remove();
+      await sleep(ms(ev.event ? 1100 : 900));   // 읽을 틈만 잠깐 주고 진행 (기록은 남아 있음)
     }
 
     // ───── エンジンイベント → 演出 ─────
@@ -2303,8 +2315,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
           return;
         }
         case 'skill': {
-          if (!k()) return;
-          await skillCut(g, ev);
+          await skillCut(g, ev);   // 연출 끄기에서도 기록은 남김 (기다림만 0)
           return;
         }
         case 'coin': {
@@ -2326,7 +2337,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       }
     }
 
-    return { play, place, relayout, setVisible, setOP, get state() { return st; } };
+    return { play, place, relayout, setVisible, setOP, clearFeed, get state() { return st; } };
   }
 
   G.VobacaFX = { create, tierOf };
@@ -2429,33 +2440,11 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
         const resolve = v => { const t = ST.tut; ST.tutRestrict = null; res(v); if (t) t.onAnswered(req, v); };
         ST.pending = { req, resolve, game: g };
         ST.sel = []; ST.lostConfirm = false;
-        applyPresel(req);
         if (ST.mode === 'pvp' && req.player !== ST.viewer) ST.handoff = req.player;
         render();
       });
     },
   };
-  // 블록/리시브를 카드로 고르면 그 카드를 다음 등장 단계에서 미리 골라 둔다
-  function applyPresel(req) {
-    const ps = ST.presel; if (!ps) return;
-    const hit = (req.type === 'blockDeploy' && ps.kind === 'block') || (req.type === 'deploy' && req.area === 'receive' && ps.kind === 'receive');
-    if (hit) { if (req.options.includes(ps.uid)) ST.sel = [ps.uid]; ST.presel = null; }
-    else if (['deploy', 'blockDeploy', 'start'].includes(req.type)) ST.presel = null;
-  }
-  // 블록/리시브 선택 중: 어느 쪽에 낼 수 있는 카드인가
-  function startKinds(uid) {
-    const g = ST.game; const c = findCard(g, uid); if (!c) return [];
-    const d = DB[c.no]; if (d.type !== 'C') return [];
-    const TR = ST.tutRestrict || {};
-    const out = [];
-    if (TR.only !== 'receive' && d.params.block != null) out.push('block');
-    if (TR.only !== 'block' && d.params.receive != null) out.push('receive');
-    return out;
-  }
-  function pickStart(kind, uid) {
-    if (uid != null) ST.presel = { uid, kind };
-    answer(kind);
-  }
   const cpuAgent = {
     async decide(g, req) {
       const trivial = req.type === 'free' && !req.options.length;
@@ -2466,7 +2455,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   };
   function answer(v) {
     const pd = ST.pending; if (!pd) return;
-    ST.pending = null; ST.sel = []; ST.lostConfirm = false;
+    ST.pending = null; ST.sel = []; ST.lostConfirm = false; ST.blockConfirm = false;
     pd.resolve(v);
   }
 
@@ -2485,7 +2474,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     const names = opts.names || [d0.label || d0.name, (d1.label || d1.name) + ' (CPU)'];
     ST.teams = [deckTeam(d0), deckTeam(d1)]; if (ST.teams[0] === ST.teams[1]) ST.teams[1] = 'alt';
     ST.viewer = 0; ST.pending = null; ST.sel = []; ST.detail = null; ST.handoff = null; ST.prevTops = {}; ST.seenSides = new Set(); ST.lastOp = null; ST.logLen = 0;
-    ST.tut = opts.tutorial || null; ST.tutRestrict = null; ST.presel = null;
+    ST.tut = opts.tutorial || null; ST.tutRestrict = null; ST.blockConfirm = false; ST.feedTurn = null;
     const g = new Game({ DB, decks: [d0, d1], names, agents: [humanAgent, cpuAgent], onChange: () => scheduleRender(), animator, preset: opts.preset, seed: opts.seed });
     FX.setVisible(false); FX.setOP(null);
     ST.game = g;
@@ -2504,8 +2493,8 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     FX.setVisible(false); FX.setOP(null);
     renderDetail(); $('#center').className = 'center'; $('#center').innerHTML = ''; $('#center').dataset.html = '';
     $('#prompt').classList.remove('on'); closeModal();
-    document.querySelectorAll('.coinstage, .skillcut').forEach(x => x.remove());
-    ST.presel = null; const gd = document.getElementById('guide'); if (gd) { gd.hidden = true; gd.innerHTML = ''; gd.dataset.k = ''; }
+    document.querySelectorAll('.coinstage, #skillfeed').forEach(x => x.remove());
+    ST.blockConfirm = false;
     const c = document.getElementById('coach'); if (c) c.hidden = true;
   }
 
@@ -2531,6 +2520,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
 
   function render() {
     const g = ST.game; if (!g) return;
+    if (ST.feedTurn !== g.turnNo) { if (ST.feedTurn != null) FX.clearFeed(4000); ST.feedTurn = g.turnNo; }   // 다음 턴이 되면 스킬 기록을 치움 (방금 뜬 것은 남김)
     const top = 1 - ST.viewer, bottom = ST.viewer;
     $('#courtTop').innerHTML = courtHtml(top, true);
     $('#courtBottom').innerHTML = courtHtml(bottom, false);
@@ -2599,10 +2589,9 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     const g = ST.game; const pl = g.players[p];
     const req = ST.pending && ST.handoff === null ? ST.pending.req : null;   // 사람 플레이어의 입력 대기 중일 때만 강조
     const hotArea = req && req.player === p && req.type === 'deploy' ? req.area : req && req.player === p && req.type === 'blockDeploy' ? 'block' : null;
-    const TRs = ST.tutRestrict || {};
-    const pick = req && req.player === p && req.type === 'start' ? ['block', 'receive'].filter(k => TRs.only !== (k === 'block' ? 'receive' : 'block')) : [];
-    const pickCls = a => (pick.includes(a) ? ` pick pick-${a}` : '');
-    const pickHint = a => (pick.includes(a) ? `<span class="pickhint">${a === 'block' ? '블록하려면 여기에' : '리시브하려면 여기에'}</span>` : '');
+    // 블록 등장 단계: 고른 카드를 블록 에리어에 미리 올려 보여 준다 (결정 전)
+    const staging = req && req.player === p && req.type === 'blockDeploy' && p === ST.viewer ? ST.sel.map(u => findCard(g, u)).filter(Boolean) : null;
+    const stagedHtml = (c, isCenter) => `<div class="slot staged">${cardHtml(c, { param: 'block', badge: isCenter ? '센터' : '사이드', cls: 'stg' })}<div class="stg-acts">${isCenter ? '' : `<button class="btn" type="button" data-act="center" data-uid="${c.uid}">센터로</button>`}<button class="btn" type="button" data-act="unstage" data-uid="${c.uid}">빼기</button></div></div>`;
     const gutsLayers = n => Array.from({ length: Math.min(n, 3) }, (_, i) => `<i class="gl" style="--i:${i + 1}"></i>`).join('');
     const TG = courtTargets();
     const tcls = c => (TG && TG.has(c.uid) ? 'targetable' : '');
@@ -2612,17 +2601,19 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       return `<div class="slot">${gutsLayers(Math.max(0, stack.length - 1))}${t ? cardHtml(t, { param, enter, cls: tcls(t) }) : '<div class="empty"></div>'}</div>`;
     };
     const gutsMeta = a => { const n = Math.max(0, pl.areas[a].length - 1); return `<span class="meta ${n ? '' : 'zero'}">가츠 ${n}</span>`; };
-    const area = a => `<div class="area a-${a} ${hotArea === a ? 'hot' : ''}${pickCls(a)}" data-area="${a}" data-p="${p}">
+    const area = a => `<div class="area a-${a} ${hotArea === a ? 'hot' : ''}" data-area="${a}" data-p="${p}">
         <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
-        ${topCard(a, a)}<span class="lab">${AREA_KO[a]}</span>${gutsMeta(a)}${pickHint(a)}</div>`;
+        ${topCard(a, a)}<span class="lab">${AREA_KO[a]}</span>${gutsMeta(a)}</div>`;
     const sides = pl.sides.map(s => {
       const key = s.uid + ':' + g.turnNo; const enter = !ST.seenSides.has(key); ST.seenSides.add(key);
       return `<div class="slot">${cardHtml(s, { param: 'block', enter, badge: 'S', cls: tcls(s) })}</div>`;
     });
-    const sideSlot = i => `<div class="bslot bside"><span class="sl">사이드 블로커</span>${sides[i] || '<div class="slot"><div class="empty"></div></div>'}</div>`;
-    const blockArea = `<div class="area a-block ${hotArea === 'block' ? 'hot' : ''}${pickCls('block')}" data-area="block" data-p="${p}">
-        ${sideSlot(0)}<div class="bslot bcenter"><span class="sl">센터 블로커</span>${topCard('block', 'block')}</div>${sideSlot(1)}
-        <span class="lab">블록</span>${gutsMeta('block')}${pickHint('block')}</div>`;
+    const stSide = staging ? staging.slice(1) : [];
+    const sideSlot = i => `<div class="bslot bside"><span class="sl">사이드 블로커</span>${sides[i] || (stSide[i] ? stagedHtml(stSide[i], false) : '<div class="slot"><div class="empty"></div></div>')}</div>`;
+    const centerSlot = staging && staging[0] ? `<div class="slot">${gutsLayers(pl.areas.block.length)}${stagedHtml(staging[0], true).replace('<div class="slot staged">', '<div class="staged">')}</div>` : topCard('block', 'block');
+    const blockArea = `<div class="area a-block ${hotArea === 'block' ? 'hot' : ''}" data-area="block" data-p="${p}">
+        ${sideSlot(0)}<div class="bslot bcenter"><span class="sl">센터 블로커</span>${centerSlot}</div>${sideSlot(1)}
+        <span class="lab">블록</span>${gutsMeta('block')}</div>`;
     const backs = (n, max, cls = '') => Array.from({ length: Math.min(n, max) }, (_, i) => `<i class="cback ${cls}" style="--i:${i}"></i>`).join('');
     const topOf = arr => arr.length ? `<span class="minicard"><img src="${imgOf(arr[arr.length - 1])}" alt=""></span>` : '';
     const zones = `
@@ -2651,7 +2642,12 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     const mine = pd && ST.handoff === null && pd.req.player === ST.viewer;
     const next = mine && pd.req.type === 'free' && !TR.forcePlay;
     const lost = mine && ['free', 'deploy', 'blockDeploy'].includes(pd.req.type) && (!ST.tut || TR.lostOnly) && !ST.lostConfirm;
-    return `${txt}<div class="netbtns">${lost ? '<button class="lostbtn" type="button" data-act="lostAsk">로스트 선언</button>' : ''}${next ? '<button class="nextbtn on" type="button" data-act="pass">다음으로 ▶</button>' : ''}</div>`;
+    let blk = '';
+    if (mine && pd.req.type === 'blockDeploy' && pd.req.options.length && !ST.blockConfirm) {
+      const bs = blockState();
+      blk = `${pd.req.cancelable && !ST.tut ? '<button class="btn blkcancel" type="button" data-act="blockCancel">취소</button>' : ''}<button class="nextbtn on blkgo" type="button" data-act="blockGo" ${bs.ok ? '' : 'disabled'}>블록 결정 ▶</button>`;
+    }
+    return `${txt}<div class="netbtns">${lost ? '<button class="lostbtn" type="button" data-act="lostAsk">로스트 선언</button>' : ''}${blk}${next ? '<button class="nextbtn on" type="button" data-act="pass">다음으로 ▶</button>' : ''}</div>`;
   }
   function phasesHtml() {
     const g = ST.game; const tk = g.turnKind;
@@ -2665,7 +2661,6 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     const pd = ST.pending; if (!pd) return null;
     const r = pd.req;
     if (['deploy', 'blockDeploy', 'mulligan', 'free'].includes(r.type)) return new Set(r.options);
-    if (r.type === 'start') return new Set(ST.game.players[r.player].hand.filter(c => startKinds(c.uid).length).map(c => c.uid));
     if (r.type === 'choose' && !r.textOptions && r.zone !== 'court' && r.zone !== 'look') {
       const h = ST.game.players[r.player].hand.map(c => c.uid);
       if (r.options.every(u => h.includes(u))) return new Set(r.options);
@@ -2686,7 +2681,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     const r = pd.req;
     return r.type === 'choose' && r.zone === 'court' && r.player === ST.viewer ? new Set(r.options) : null;
   }
-  function handWidth() { const vw = window.innerWidth, vh = window.innerHeight; return vw <= 760 ? Math.max(56, Math.min(76, vw * .15)) : Math.max(62, Math.min(104, vw * .08, vh * .105)); }
+  function handWidth() { const vw = window.innerWidth, vh = window.innerHeight; return vw <= 760 ? Math.max(56, Math.min(76, vw * .15)) : Math.max(58, Math.min(96, vw * .07, vh * .09)); }
   function renderHand() {
     const g = ST.game; const p = ST.viewer; const pl = g.players[p];
     const handEl = $('#hand');
@@ -2695,7 +2690,9 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     const sel = selectable();
     const pd = ST.pending; const r = pd && pd.req;
     const mine = !!(pd && r.player === p);
-    const n = pl.hand.length, hw = handWidth();
+    const staged = mine && r.type === 'blockDeploy' ? new Set(ST.sel) : null;   // 블록 에리어에 올려 둔 카드는 패에서 빼고 보여 줌
+    const list = staged ? pl.hand.filter(c => !staged.has(c.uid)) : pl.hand;
+    const n = list.length, hw = handWidth();
     const W = handEl.clientWidth || 800;
     const sp = n > 1 ? Math.min(hw * .82, (W - hw - 24) / (n - 1)) : 0;
     handEl.style.setProperty('--hw', hw + 'px');
@@ -2704,7 +2701,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     handEl.style.setProperty('--mid', (n - 1) / 2);
     { const mo = (n - 1) / 2; handEl.style.setProperty('--dr', (mo > 0 ? Math.min(1.4, 14 / (mo * mo)) : 0) + 'px'); }   // 바깥 카드가 아래로 처지는 정도 (최대 14px)
     handEl.style.setProperty('--vis', Math.max(30, Math.min(hw, n > 1 ? sp - 2 : hw)) + 'px');   // 옆 카드에 가리지 않고 보이는 폭
-    handEl.innerHTML = pl.hand.map((c, i) => {
+    handEl.innerHTML = list.map((c, i) => {
       const cls = ['hc'];
       if (mine && sel) cls.push(sel.has(c.uid) ? 'selectable' : 'dim');
       const isSel = ST.sel.includes(c.uid); if (isSel) cls.push('sel');
@@ -2713,16 +2710,8 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
         const last = ST.sel[ST.sel.length - 1] === c.uid;
         if (r.type === 'deploy') acts = `<button class="btn primary" type="button" data-act="deploy">${AREA_KO[r.area]} 등장</button>`;
         else if (r.type === 'free') acts = `<button class="btn primary" type="button" data-act="play">플레이</button>`;
-        else if (r.type === 'blockDeploy') {
-          const center = ST.sel[0] === c.uid;
-          tag = center ? '센터' : '사이드';
-          const dup = new Set(ST.sel.map(u => DB[findCard(g, u).no].name)).size !== ST.sel.length
-            || !!(ST.tutRestrict && ST.tutRestrict.minSum && ST.sel.reduce((s2, u) => s2 + (g.base(findCard(g, u), 'block') ?? 0), 0) < ST.tutRestrict.minSum);
-          acts = (center ? '' : `<button class="btn" type="button" data-act="center" data-uid="${c.uid}">센터로</button>`)
-            + (last ? `<button class="btn primary" type="button" data-act="block" ${dup ? 'disabled' : ''}>블록 등장 ${ST.sel.length}장</button>` : '');
-        } else if (r.type === 'mulligan') tag = '되돌림';
+        else if (r.type === 'mulligan') tag = '되돌림';
         else if (r.type === 'choose' && last) acts = `<button class="btn primary" type="button" data-act="choose">확인</button>`;
-        else if (r.type === 'start') acts = startKinds(c.uid).map(k => `<button class="btn ${k === 'block' ? 'pk-block' : 'pk-receive'}" type="button" data-act="${k === 'block' ? 'pickBlock' : 'pickReceive'}">${k === 'block' ? '블록' : '리시브'}</button>`).join('');
       }
       if (i === n - 1) cls.push('last');
       return `<div class="${cls.join(' ')}" style="--i:${i}" data-no="${c.no}">${tag ? `<span class="hc-tag">${tag}</span>` : ''}${acts ? `<div class="hc-acts">${acts}</div>` : ''}<span class="hc-name">${esc(KN(c.no))}</span>${cardHtml(c, {})}${statRow(c.no)}</div>`;
@@ -2742,7 +2731,6 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       if (p != null) center.style.setProperty('--team', TEAM_COLOR[teamOf(p)]);
     };
     const TR = ST.tutRestrict || {};
-    renderGuide(pd && ST.handoff === null && !ST.lostConfirm && g.phase !== 'gameover' && pd.req.type === 'start' ? pd.req : null);
     const canLost = !!(pd && ST.handoff === null && ['free', 'deploy', 'blockDeploy'].includes(pd.req.type)) && (!ST.tut || TR.lostOnly);
     if (g.phase === 'gameover' && g.winner != null) { setPill(`<b>경기 종료</b><span>${esc(g.pname(g.winner))} 승리</span>`, g.winner); setCenter('', false); return; }
     if (!pd) {
@@ -2769,16 +2757,30 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
           <button class="mull-ok" data-act="mull" type="button">${ST.sel.length ? `확인 (${ST.sel.length}장 교환)` : '확인'}</button>`;
         c = `<div style="display:grid;justify-items:center;gap:22px;pointer-events:auto">${c}</div>`; dim = true; break;
       }
-      case 'start': break;   // 화면 위 가운데 안내(#guide) + 블록·리시브 에리어 강조로 처리
+      case 'start': {
+        const op = g.offense ? g.offense.value : '-'; const bm = g.blockMax(p);
+        const bBtn = `<button class="stc stc-block" data-act="block" type="button"><b>블록으로 막기</b><span>블록 에리어에 ${bm === 3 ? '1~3명' : bm + '명까지'} · 드로우 없음<br>성공하면 바로 되받아쳐요</span></button>`;
+        const rBtn = `<button class="stc stc-receive" data-act="receive" type="button"><b>리시브로 받기</b><span>카드 1장 뽑고 리시브<br>토스 · 어택으로 이어가요</span></button>`;
+        c = `<div class="cbox start">${who}<div class="st-op">상대 어택 <b>OP ${op}</b></div><h2>공이 날아와요! 어떻게 받을까요?</h2>
+          <div class="st-choice">${TR.only === 'receive' ? '' : bBtn}${TR.only === 'block' ? '' : rBtn}</div></div>`;
+        break;
+      }
       case 'deploy':
         if (TR.lostOnly) { pillHtml = `<b>${esc(req.title)}</b><span>오른쪽 「로스트 선언」 버튼을 눌러 보세요</span>`; break; }
         if (!req.options.length) { c = `<div class="cbox">${who}<h2>${esc(req.title)}</h2><p>${esc(AREA_KO[req.area])} 에리어에 등장시킬 수 있는 캐릭터가 없습니다. 로스트를 선언합니다.</p><div class="acts"><button class="btn danger" data-act="lostYes" type="button">확인</button></div></div>`; dim = true; }
         else pillHtml = `<b>${esc(req.title)}</b><span>${g.offense && g.offense.owner !== p ? `상대 OP ${g.offense.value} · ` : ''}카드를 ${esc(AREA_KO[req.area])} 에리어로 끌어다 놓거나 눌러서 등장${/불가/.test(req.text) ? ' · ' + esc((req.text.match(/\(([^)]*불가)\)/) || [])[1] || '') : ''}</span>`;
         break;
       case 'blockDeploy': {
-        if (!req.options.length) { c = `<div class="cbox">${who}<h2>블록 불가</h2><p>블록할 수 있는 캐릭터가 없습니다. 로스트를 선언합니다.</p><div class="acts"><button class="btn danger" data-act="lostYes" type="button">확인</button></div></div>`; dim = true; break; }
-        const sum = ST.sel.reduce((s, u) => s + (g.base(findCard(g, u), 'block') ?? 0), 0);
-        pillHtml = `<b>블록 캐릭터 등장</b><span>1~${req.max}장 · 상대 OP ${g.offense ? g.offense.value : '-'} · 선택 ${ST.sel.length}장 블록 합계 ${sum} · 첫 장이 센터</span>`;
+        if (!req.options.length) { c = `<div class="cbox">${who}<h2>블록할 수 있는 캐릭터가 없어요</h2><p>패에 블록 포인트가 있는 캐릭터가 없습니다.</p><div class="acts">${req.cancelable && !ST.tut ? '<button class="btn primary" data-act="blockCancel" type="button">돌아가서 리시브 고르기</button>' : ''}<button class="btn danger" data-act="lostYes" type="button">로스트 선언</button></div></div>`; dim = true; break; }
+        const bs = blockState();
+        if (ST.blockConfirm) {
+          const verdict = bs.sum >= bs.op ? `<span class="bc-ok">합계 ${bs.sum} ≥ OP ${bs.op} — 막아낼 수 있어요</span>` : `<span class="bc-bad">합계 ${bs.sum} &lt; OP ${bs.op} — 이대로면 블록 실패(로스트)예요</span>`;
+          c = `<div class="cbox">${who}<h2>이대로 블록할까요?</h2><div class="tiles">${bs.cards.map((x, i) => cardHtml(x, { param: 'block', badge: i ? '사이드' : '센터', cap: true })).join('')}</div>
+            <p>${verdict}<br><small style="color:var(--muted)">등장 시 스킬로 수치가 바뀔 수 있어요</small></p>
+            <div class="acts"><button class="btn primary" data-act="blockYes" type="button">블록하기</button><button class="btn" data-act="blockNo" type="button">다시 고르기</button></div></div>`;
+          dim = true; break;
+        }
+        pillHtml = `<b>블록 에리어에 올리기</b><span>${bs.cards.length ? `${bs.cards.length}/${req.max}장 · 블록 합계 ${bs.sum} / 상대 OP ${bs.op}` : `카드를 블록 에리어로 끌어다 놓거나 눌러서 올리세요 · 최대 ${req.max}장 · 첫 장이 센터`}</span>`;
         break;
       }
       case 'free':
@@ -2811,25 +2813,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       }
     }
     setPill(pillHtml, p);
-    setCenter(c, dim, p);
-  }
-  // 블록 / 리시브 고르기 안내 (화면 위 가운데)
-  function renderGuide(req) {
-    const el = $('#guide'); const g = ST.game;
-    if (!req || ST.lostConfirm) { if (!el.hidden) { el.hidden = true; el.innerHTML = ''; el.dataset.k = ''; } return; }
-    const TR = ST.tutRestrict || {};
-    const k = `${g.turnNo}:${g.offense ? g.offense.value : '-'}:${TR.only || ''}`;
-    // 상대 블록 줄 위 (상대 어택 카드와 내 블록·리시브 에리어를 가리지 않게)
-    const ob = document.querySelector(`.area[data-area="block"][data-p="${1 - req.player}"]`);
-    if (ob && innerWidth > 760) { const r = ob.getBoundingClientRect(); el.style.top = Math.round(r.top + r.height / 2) + 'px'; el.classList.add('mid'); } else { el.style.top = ''; el.classList.remove('mid'); }
-    if (el.dataset.k === k && !el.hidden) return;
-    el.dataset.k = k; el.hidden = false;
-    el.style.setProperty('--team', TEAM_COLOR[teamOf(req.player)]);
-    const b = TR.only === 'receive' ? '' : `<span class="gd-opt gd-b"><i>블록</i>하려면 <b>블록 에리어</b>에</span>`;
-    const r = TR.only === 'block' ? '' : `<span class="gd-opt gd-r"><i>리시브</i>하려면 <b>리시브 에리어</b>에</span>`;
-    el.innerHTML = `<div class="gd-top"><span class="gd-op">상대 어택 <b>OP ${g.offense ? g.offense.value : '-'}</b></span><span class="gd-q">어떻게 받을까요?</span></div>
-      <div class="gd-opts">${b}${b && r ? '<span class="gd-or">또는</span>' : ''}${r}</div>
-      <small>카드를 끌어다 놓거나, 카드를 누르고 버튼을 고르세요 · 빛나는 에리어를 눌러도 돼요</small>`;
+    setCenter(c, dim, p, req.type === 'start');   // 블록/리시브 선택은 네트 앞 공이 보이도록 위쪽에
   }
   function paramFor(purpose) { return purpose === 'attackBuff' ? 'attack' : purpose === 'blockBuff' ? 'block' : purpose === 'receiveBuff' ? 'receive' : null; }
 
@@ -2875,9 +2859,10 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       const kws = keywordsFor(info.ko);
       el.innerHTML = `<div class="ci-main"><div class="big"><img src="${imgOf(c)}" alt="${esc(KN(c.no))}"></div><div>
         <h3>${esc(KN(c.no))}</h3><div class="attrs">${esc(attrs)}</div>${prm}
-        ${info.ko ? `<p class="sk ko">${esc(info.ko)}</p>` : '<p class="sk ko none">스킬 없음</p>'}</div>${stack}<div class="hint">아무 곳이나 누르면 닫힙니다</div></div>
+        ${info.ko ? `<p class="sk ko">${esc(info.ko)}</p>` : '<p class="sk ko none">스킬 없음</p>'}</div>${stack}<div class="hint">${d.hover ? '카드를 누르면 정보창이 고정돼요' : '아무 곳이나 누르면 닫힙니다'}</div></div>
         ${kws.length ? `<div class="ci-kw"><h4>키워드 설명</h4><dl>${kws.map(k => `<div><dt>${esc(k.k)}</dt><dd>${esc(k.d)}</dd></div>`).join('')}</dl></div>` : ''}`;
     }
+    el.classList.toggle('hover', !!d.hover);
     if (el.dataset.key !== key) { el.hidden = false; el.style.animation = 'none'; void el.offsetWidth; el.style.animation = ''; }
     el.hidden = false; el.dataset.key = key;
   }
@@ -2920,7 +2905,6 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     // 그 밖의 곳을 누르면 정보창을 닫는다. 에리어/드롭/이벤트는 해당 정보를 연다.
     let next = null;
     const areaEl = e.target.closest('.area[data-area]');
-    if (areaEl && areaEl.classList.contains('pick') && ST.pending && ST.pending.req.type === 'start') { ST.detail = null; pickStart(areaEl.dataset.area, ST.sel[0] != null && startKinds(ST.sel[0]).includes(areaEl.dataset.area) ? ST.sel[0] : null); render(); return; }
     if (areaEl) {
       const p = +areaEl.dataset.p, a = areaEl.dataset.area; const pl = ST.game.players[p];
       const t = pl.areas[a][pl.areas[a].length - 1];
@@ -2943,16 +2927,35 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     const pd = ST.pending; if (!pd || ST.handoff !== null || pd.req.player !== ST.viewer) return null;
     const r = pd.req;
     if (['deploy', 'blockDeploy', 'free'].includes(r.type) && r.options.includes(uid)) return r.type;
-    if (r.type === 'start' && startKinds(uid).length) return 'start';
     return null;
   }
   function dropTargets(kind) {
     const r = ST.pending.req, p = ST.viewer;
     if (kind === 'deploy') return [...document.querySelectorAll(`.area[data-area="${r.area}"][data-p="${p}"]`)];
     if (kind === 'blockDeploy') return [...document.querySelectorAll(`.area[data-area="block"][data-p="${p}"]`)];
-    if (kind === 'start') return startKinds(drag.uid).map(k => document.querySelector(`.area[data-area="${k}"][data-p="${p}"]`)).filter(Boolean);
     return [$('#arena')];
   }
+  // 마우스를 카드 위에 올리면 누르지 않아도 정보창 (누르면 고정). 눌러서 연 정보창이 있으면 그대로 둔다
+  let hoverT = 0, hoverKey = null;
+  function hoverTarget(t) { return t && t.closest ? t.closest('.card[data-uid], .mcard[data-uid], [data-cardno]') : null; }
+  function clearHover() { if (ST.detail && ST.detail.hover) { ST.detail = null; renderDetail(); } }
+  function showHover(t) {
+    if (ST.detail && !ST.detail.hover) return;
+    if (!document.body.contains(t)) return;
+    if (t.dataset.cardno) { ST.detail = { static: { no: t.dataset.cardno, ver: 'D' }, hover: true }; renderDetail(); return; }
+    const g = ST.game; if (!g) return; const c = findCard(g, +t.dataset.uid); if (!c) return;
+    const area = g.charArea(c);
+    ST.detail = { card: c, area: area || undefined, hover: true }; renderDetail();
+  }
+  document.addEventListener('pointermove', e => {
+    if (e.pointerType !== 'mouse' || drag) return;
+    const t = hoverTarget(e.target);
+    const key = t ? (t.dataset.uid ? 'u' + t.dataset.uid : 'n' + t.dataset.cardno) : null;
+    if (key === hoverKey) return;
+    hoverKey = key; clearTimeout(hoverT);
+    hoverT = key ? setTimeout(() => showHover(t), 160) : setTimeout(clearHover, 120);
+  }, { passive: true });
+  document.documentElement.addEventListener('pointerleave', () => { hoverKey = null; clearTimeout(hoverT); clearHover(); });
   document.addEventListener('pointerdown', e => {
     if (e.button !== 0) return;
     const cardEl = e.target.closest('#hand .hc .card'); if (!cardEl) return;
@@ -2989,15 +2992,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     const r = ST.pending.req;
     if (d.kind === 'deploy') answer(d.uid);
     else if (d.kind === 'free') answer({ action: 'play', uid: d.uid });
-    else if (d.kind === 'start') pickStart(d.over.dataset.area, d.uid);
-    else if (d.kind === 'blockDeploy') {
-      if (!ST.sel.includes(d.uid)) {
-        const name = DB[findCard(ST.game, d.uid).no].name;
-        const dupIdx = ST.sel.findIndex(u => DB[findCard(ST.game, u).no].name === name);
-        if (dupIdx >= 0) ST.sel.splice(dupIdx, 1, d.uid);           // 같은 이름은 교체
-        else if (ST.sel.length < r.max) ST.sel.push(d.uid);
-      }
-    }
+    else if (d.kind === 'blockDeploy') stageBlock(d.uid, r);
     render();
   }
   document.addEventListener('pointerup', () => endDrag(true));
@@ -3012,7 +3007,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     const TG = courtTargets();
     if (TG && TG.has(uid) && el.closest('.mat')) { ST.detail = null; answer([uid]); render(); return; }
     const inHand = el.closest('#hand'); const inTiles = el.closest('.tiles');
-    if (ST.detail && ST.detail.card === c && !inHand && !inTiles) { ST.detail = null; render(); return; }
+    if (ST.detail && !ST.detail.hover && ST.detail.card === c && !inHand && !inTiles) { ST.detail = null; render(); return; }
     // 自分の非公開カードのみ詳細表示 (相手の手札はそもそも描画しない)
     const area = g.charArea(c);
     if (!el.closest('#center')) ST.detail = { card: c, area: area || undefined };
@@ -3028,12 +3023,29 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     }
     render();
   }
+  // 블록 캐릭터 올리기: 같은 이름은 교체, 최대 장수까지
+  function stageBlock(uid, r) {
+    if (ST.sel.includes(uid)) return;
+    const g = ST.game; const name = DB[findCard(g, uid).no].name;
+    const dupIdx = ST.sel.findIndex(u => DB[findCard(g, u).no].name === name);
+    if (dupIdx >= 0) ST.sel.splice(dupIdx, 1, uid);
+    else if (ST.sel.length < r.max) ST.sel.push(uid);
+    else ST.sel.splice(ST.sel.length - 1, 1, uid);   // 꽉 찼으면 마지막 사이드와 교체
+  }
+  function blockState() {
+    const g = ST.game; const cards = ST.sel.map(u => findCard(g, u)).filter(Boolean);
+    const sum = cards.reduce((s2, c) => s2 + (g.base(c, 'block') ?? 0), 0);
+    const op = g.offense ? g.offense.value : 0;
+    const TR = ST.tutRestrict || {};
+    const ok = cards.length > 0 && !(TR.minSum && sum < TR.minSum);
+    return { cards, sum, op, ok };
+  }
   function toggleSel(uid, r) {
     const i = ST.sel.indexOf(uid);
     if (i >= 0) { ST.sel.splice(i, 1); return; }
     const single = ['deploy', 'free', 'start'].includes(r.type) || (r.type === 'choose' && (r.max ?? 1) === 1);
     if (single) ST.sel = [uid];
-    else if (r.type === 'blockDeploy') { if (ST.sel.length < r.max) ST.sel.push(uid); }
+    else if (r.type === 'blockDeploy') stageBlock(uid, r);
     else if (r.type === 'choose') { if (ST.sel.length < (r.max ?? 1)) ST.sel.push(uid); }
     else ST.sel.push(uid);
   }
@@ -3048,8 +3060,11 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       case 'mull': answer(ST.sel.slice()); break;
       case 'block': answer(r.type === 'start' ? 'block' : { uids: ST.sel.slice(), center: ST.sel[0] }); break;
       case 'receive': answer('receive'); break;
-      case 'pickBlock': pickStart('block', ST.sel[0]); break;
-      case 'pickReceive': pickStart('receive', ST.sel[0]); break;
+      case 'unstage': { const u = +el.dataset.uid; ST.sel = ST.sel.filter(x => x !== u); break; }
+      case 'blockGo': if (blockState().ok) { if (ST.tut) answer({ uids: ST.sel.slice(), center: ST.sel[0] }); else ST.blockConfirm = true; } break;
+      case 'blockYes': ST.blockConfirm = false; answer({ uids: ST.sel.slice(), center: ST.sel[0] }); break;
+      case 'blockNo': ST.blockConfirm = false; break;
+      case 'blockCancel': ST.blockConfirm = false; answer({ cancel: true }); break;
       case 'mtoggle': { const u = +el.dataset.uid; const i = ST.sel.indexOf(u); if (i >= 0) ST.sel.splice(i, 1); else ST.sel.push(u); break; }
       case 'center': { const u = +el.dataset.uid; const i = ST.sel.indexOf(u); if (i > 0) { ST.sel.splice(i, 1); ST.sel.unshift(u); } break; }
       case 'deploy': if (ST.sel[0]) answer(ST.sel[0]); break;
@@ -3241,7 +3256,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
         { on: 'before', m: e => e.type === 'setStart', title: '바보카!! BREAK에 어서 오세요', text: '배구를 카드로 하는 게임입니다. 서로 공을 주고받다가 <b>공을 받지 못한 쪽이 「로스트」</b>하고, 그 세트는 상대가 가져갑니다.' },
         { on: 'before', m: e => e.type === 'setStart', title: '승리 조건', text: '각자 <b>세트 카드 2장</b>을 가지고 시작해요. 로스트할 때마다 세트 카드가 1장씩 패로 돌아오고, <b>세트 카드가 0장인 상태에서 또 로스트하면 패배</b>합니다. 즉 3세트를 먼저 따내면 승리!<br>위쪽 <b>점수판</b>의 큰 숫자는 따낸 세트, 가운데 작은 숫자는 남은 세트 카드예요.', hl: [zone('set', 0), zone('set', 1), '#score .sb'] },
         { on: 'before', m: e => e.type === 'setStart', title: '매트 보는 법', text: '아래가 내 매트, 위가 상대 매트입니다. 가운데 코트에 <b>블록 · 리시브 · 토스 · 어택</b> 에리어, 왼쪽에 <b>서브</b> 에리어가 있어요. 오른쪽은 덱 · 드롭(버림) · 이벤트 에리어입니다. 상대 매트는 뒤집혀 있어서 <b>상대 어택이 내 리시브 바로 위</b>에 있어요.', hl: ['#courtBottom .court', area('serve')] },
-        { on: 'before', m: e => e.type === 'setStart', title: '카드 보는 법', text: '캐릭터 카드 아래쪽 숫자가 <b>서브 · 블록 · 리시브 · 토스 · 어택</b> 포인트예요. 카드를 누르면 왼쪽 위에 크게 보이고, 아무 곳이나 누르면 닫힙니다. 「－」인 능력은 그 에리어에 낼 수 없어요.', hl: ['#hand .hc'] },
+        { on: 'before', m: e => e.type === 'setStart', title: '카드 보는 법', text: '캐릭터 카드 아래쪽 숫자가 <b>서브 · 블록 · 리시브 · 토스 · 어택</b> 포인트예요. 카드에 마우스를 올리면 왼쪽 위에 크게 보이고, 누르면 고정돼요 (아무 곳이나 누르면 닫힘). 「－」인 능력은 그 에리어에 낼 수 없어요.', hl: ['#hand .hc'] },
         { on: 'req', m: r => r.type === 'deploy' && r.area === 'serve', act: true, allow: [K(4)], title: '서브 페이즈', text: '세트의 첫 턴은 서브부터! 서브 에리어에 캐릭터 1장을 냅니다. <b>서브 포인트가 그대로 오펜스 포인트(OP)</b>가 돼요.<br>서브 포인트 5인 <b>야마구치</b>를 서브 에리어로 끌어다 놓거나, 눌러서 「서브 등장」을 누르세요.', hl: [handCard(K(4)), area('serve')] },
         { on: 'after', m: e => e.type === 'offense' && e.p === 0, title: 'OP 5 서브!', text: '상대는 <b>리시브 포인트가 OP 이상</b>인 캐릭터로 받아야 해요. 서브는 블록할 수 없어서 공이 바로 상대 리시브 에리어로 갑니다.' },
         { on: 'after', m: e => e.type === 'judge' && e.p === 1, end: true, title: '상대가 받았어요', text: '상대는 리시브 5로 받았습니다. <b>디펜스 = 오펜스여도 성공</b>이에요. 이렇게 리시브 → 토스 → 어택으로 공을 돌려보내며 랠리가 이어집니다. 다음 챕터에서 직접 해 봐요!' },
@@ -3275,9 +3290,9 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       cpu: [{ type: 'deploy', area: 'receive', no: N(5) }],
       steps: [
         { on: 'req', m: r => r.type === 'start', title: '상대의 어택 (OP 5)', text: '<b>어택으로 온 공</b>은 블록과 리시브 중에 고를 수 있어요. (서브·블록으로 온 공은 리시브만)<br>블록은 드로우가 없지만, 성공하면 <b>바로 상대에게 공을 돌려보냅니다</b>.' },
-        { on: 'req', m: r => r.type === 'start', act: true, only: 'block', title: '블록 선택', text: '블록할 때는 <b>블록 에리어</b>에, 리시브할 때는 <b>리시브 에리어</b>에 카드를 놓으면 돼요.<br>이번엔 블록! 빛나는 <b>블록 에리어</b>를 누르거나, 카드를 블록 에리어로 끌어다 놓으세요.', hl: [area('block')] },
+        { on: 'req', m: r => r.type === 'start', act: true, only: 'block', title: '블록 선택', text: '이번엔 블록으로 막아 볼게요. <b>「블록으로 막기」</b>를 눌러 보세요.', hl: ['#center [data-act="block"]'] },
         { on: 'req', m: r => r.type === 'blockDeploy', title: '블록 페이즈', text: '블록 캐릭터를 <b>1~3명</b> 냅니다. <b>블록 포인트 합계</b>가 디펜스 포인트예요. 같은 이름은 함께 못 내고, 처음 고른 카드가 <b>센터 블로커</b>, 나머지는 <b>사이드 블로커</b>가 됩니다.', hl: [area('block')] },
-        { on: 'req', m: r => r.type === 'blockDeploy', act: true, allow: [K(3), K(6), K(4)], minSum: 5, title: '합계 5 이상 만들기', text: '<b>츠키시마(블록 3)</b>와 <b>타나카(블록 2)</b>를 블록 에리어로 끌어다 놓거나 눌러서 고른 뒤, 카드 위 「블록 등장」을 누르세요. 합계가 OP 5 이상이어야 버튼이 켜져요.', hl: [handCard(K(3)), handCard(K(6)), area('block')] },
+        { on: 'req', m: r => r.type === 'blockDeploy', act: true, allow: [K(3), K(6), K(4)], minSum: 5, title: '합계 5 이상 만들기', text: '<b>츠키시마(블록 3)</b>와 <b>타나카(블록 2)</b>를 블록 에리어로 끌어다 놓거나 눌러서 올린 뒤, 네트 오른쪽 <b>「블록 결정」</b>을 누르세요. 합계가 OP 5 이상이어야 버튼이 켜져요.', hl: [handCard(K(3)), handCard(K(6)), area('block'), '#net .blkgo'] },
         { on: 'after', m: e => e.type === 'judge' && e.p === 0, title: '블록 성공!', text: '디펜스 5 ≥ 오펜스 5. 블록한 공의 <b>OP는 0</b>이에요. (쿠로오의 「도샷」처럼 블록 OP를 올리는 스킬도 있어요)' },
         { on: 'after', m: e => e.type === 'offense' && e.p === 0, end: true, title: '공이 넘어갔어요', text: '블록으로 넘어간 공은 상대가 <b>리시브만</b> 할 수 있어요. 사이드 블로커는 블록 페이즈가 끝나면 드롭 에리어로 가고, 센터 블로커는 매트에 남습니다.' },
       ],
