@@ -1,0 +1,20 @@
+rules_version = '2';
+// 바보카 BREAK 시뮬레이터 — Firestore 보안 규칙
+// Firebase 콘솔 → Firestore Database → 규칙 탭에 이 내용 전체를 붙여넣고 「게시」
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 각자 자기 기록(users/내 UID)만 읽고 쓸 수 있음. 게스트(익명 로그인)도 자기 문서만.
+    match /users/{uid} {
+      allow read, delete: if request.auth != null && request.auth.uid == uid;
+      allow create, update: if request.auth != null && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['d', 'name', 'at'])
+        && request.resource.data.d is string && request.resource.data.d.size() < 300000
+        && (!('name' in request.resource.data) || (request.resource.data.name is string && request.resource.data.name.size() <= 20))
+        && (!('at' in request.resource.data) || request.resource.data.at is number);
+    }
+    // 그 밖의 모든 곳은 막음
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
