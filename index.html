@@ -128,13 +128,13 @@ header.topbar { min-height: 58px; }
     linear-gradient(180deg, var(--wood-a), var(--wood-b));
   box-shadow: inset 0 0 0 1px rgba(0,0,0,.25), 0 10px 40px rgba(20,8,2,.55);
   outline: 3px solid rgba(255,255,255,.78); outline-offset: 7px;   /* 코트 라인 */ }
-.mat { --slot: max(30px, min(calc((100cqh - 200px) / 5.6), 15cqi, 124px)); --col: max(72px, calc(var(--slot) * 1.12 + 12px));
+.mat { --slot: max(30px, min(calc((100cqh - 200px) / 5.6), 15cqi, 124px)); --col: max(72px, calc(var(--slot) * 1.12 + 12px)); --colL: max(96px, calc(var(--slot) * 1.6 + 16px));
   position: relative; display: grid; gap: 6px; padding: 12px 8px 8px; min-height: 0; border-radius: 10px; color: var(--mat-ink);
   background: linear-gradient(180deg, var(--mat-a), var(--mat-b)); box-shadow: 0 6px 16px rgba(40,20,0,.35), inset 0 0 0 1px rgba(0,0,0,.08);
-  grid-template-columns: var(--col) minmax(0, 1fr) var(--col);
-  grid-template-areas: "set court deck" "serve court drop" "serve court event"; grid-template-rows: auto 1fr auto; }
+  grid-template-columns: var(--colL) minmax(0, 1fr) var(--col);   /* 왼쪽(세트 · 서브)은 넓게 */
+  grid-template-areas: "set court deck" "serve court drop" "serve court event"; grid-template-rows: 1fr 1fr 1fr; }
 /* 상대 매트: 위아래 뒤집고, 메인 줄은 어택 · 토스 · 리시브 순서 (상대 어택이 내 리시브 바로 위) */
-.mat.opp { grid-template-areas: "serve court event" "serve court drop" "set court deck"; grid-template-rows: auto 1fr auto; }
+.mat.opp { grid-template-areas: "serve court event" "serve court drop" "set court deck"; grid-template-rows: 1fr 1fr 1fr; }
 .mat.active { box-shadow: 0 6px 16px rgba(40,20,0,.35), 0 0 0 3px var(--team); }
 .mat .who { position: absolute; left: 18px; top: 0; transform: translate(0, -45%); z-index: 3; display: flex; align-items: center; gap: 6px; white-space: nowrap;
   font-family: var(--f-display); font-size: 13px; padding: 2px 12px; border-radius: 999px; background: #1a1a1a; color: var(--team); border: 2px solid var(--team); }
@@ -150,17 +150,20 @@ header.topbar { min-height: 58px; }
 .area { position: relative; display: grid; justify-items: center; align-content: center; gap: 2px; border-radius: 4px; cursor: pointer; min-width: 0; }
 .area .slot { position: relative; width: var(--slot); aspect-ratio: 744 / 1039; }
 .area .slot > .card, .area .slot > .empty { position: relative; z-index: 1; width: 100%; }
-.area .gl { position: absolute; inset: 0; border-radius: 4px; background: #f3efe6; border: 1px solid rgba(0,0,0,.35);
-  transform: translate(calc(var(--i) * 3px), calc(var(--i) * -3px)); z-index: 0; }
+.area .gl { position: absolute; inset: 0; z-index: 0; border-radius: 4px; overflow: hidden; background: #222; transform-origin: 50% 100%;
+  transform: translateX(calc(var(--i) * -17%)) rotate(calc(var(--i) * -7deg)); box-shadow: 0 3px 8px rgba(0,0,0,.45), 0 0 0 1.5px rgba(255,255,255,.55); filter: brightness(.68) saturate(.75); }
+.area .gl img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.area .gcount { position: absolute; left: 0; bottom: 0; z-index: 3; transform: translate(-45%, 30%); min-width: 22px; padding: 0 6px; border-radius: 999px; font-size: 11px; font-weight: 900; line-height: 18px; text-align: center;
+  color: #1b1200; background: #ffd23f; box-shadow: 0 0 0 2px #1b1200; pointer-events: none; }   /* 가츠 장수 (쌓인 카드 왼쪽 아래) */
 .empty { width: var(--slot); aspect-ratio: 744 / 1039; border-radius: 4px; border: 1.5px dashed rgba(255,255,255,.55); }
 .area .lab { font-family: var(--f-display); font-style: italic; font-size: clamp(11px, 2.1cqi, 19px); line-height: 1.05; letter-spacing: .02em; color: #fff;
   transform: skewX(-8deg); text-shadow: 0 2px 0 rgba(0,0,0,.25); }
 .area .meta { position: absolute; right: 4px; top: 4px; z-index: 2; font-size: 10px; font-weight: 700; line-height: 15px; padding: 0 5px; border-radius: 999px;
   color: #fff; background: rgba(0,0,0,.45); font-variant-numeric: tabular-nums; }
-.area .meta.zero { display: none; }
+.area .meta { display: none; }   /* 가츠 장수는 쌓인 카드 옆 숫자(.gcount)로 */
 .mainrow .area { flex: 1 1 0; padding: 11px 6px; }
 /* 에리어 이름은 카드 왼쪽에 크게 (세로 공간 절약) */
-.mainrow .area .lab, .a-serve .lab { position: absolute; left: 14px; top: 50%; transform: translateY(-50%) skewX(-8deg); font-size: clamp(14px, 2.2cqi, 30px); opacity: .95; pointer-events: none; }
+.mainrow .area .lab, .a-serve .lab { position: absolute; z-index: 2; left: 14px; top: 50%; transform: translateY(-50%) skewX(-8deg); font-size: clamp(14px, 2.2cqi, 30px); opacity: .95; pointer-events: none; }
 .a-serve .lab { left: 50%; top: auto; bottom: 6px; transform: translateX(-50%) skewX(-8deg); font-size: clamp(12px, 1.5cqi, 20px); white-space: nowrap; }
 .a-serve { padding-bottom: 28px !important; }
 .a-receive { background: var(--c-receive); } .a-toss { background: var(--c-toss); } .a-attack { background: var(--c-attack); }
@@ -191,11 +194,11 @@ header.topbar { min-height: 58px; }
 .zone .zl { align-self: end; } .zone b { align-self: start; font-size: 17px !important; }
 .zone .zl { font-size: 10.5px; font-weight: 700; letter-spacing: .04em; color: var(--mat-ink-2); white-space: nowrap; }
 .zone b { font-family: var(--f-display); font-size: 15px; line-height: 1; font-weight: 400; font-variant-numeric: tabular-nums; }
-.z-set { grid-area: set; } .z-deck { grid-area: deck; } .z-drop { grid-area: drop; cursor: pointer; } .z-event { grid-area: event; cursor: pointer; align-self: start; }
+.z-set { grid-area: set; } .z-deck { grid-area: deck; } .z-drop { grid-area: drop; cursor: pointer; } .z-event { grid-area: event; cursor: pointer; }
 .z-drop { background: #5a5a5a; color: #fff; } .z-drop .zl { color: #ddd; }
 .pile { position: relative; width: calc(var(--slot) * .5); aspect-ratio: 744 / 1039; }
 .pile.land { width: calc(var(--slot) * .6); aspect-ratio: 1039 / 744; }
-.z-drop .pile, .z-event .pile { width: calc(var(--slot) * .44); }
+.z-drop .pile, .z-event .pile { width: calc(var(--slot) * .5); }
 .z-drop .pile:empty, .z-event .pile:empty { border: 1.5px dashed rgba(0,0,0,.2); border-radius: 4px; }
 .z-drop .pile:empty { border-color: rgba(255,255,255,.3); }
 .pile .cback { position: absolute; inset: 0; transform: translate(calc(var(--i, 0) * 4px), calc(var(--i, 0) * -4px)); }
@@ -609,7 +612,7 @@ body.is-dragging { cursor: grabbing; user-select: none; }
 }
 @media (max-width: 760px) {
   .arena { padding: 6px; border-radius: 10px; }
-  .mat { --slot: clamp(30px, 10.4cqi, 70px); --col: calc(var(--slot) * 1.05 + 8px); gap: 4px; padding: 12px 4px 5px; }
+  .mat { --slot: clamp(30px, 10.4cqi, 70px); --col: calc(var(--slot) * 1.05 + 8px); --colL: calc(var(--slot) * 1.2 + 8px); gap: 4px; padding: 12px 4px 5px; }
   .mat.opp { padding: 5px 4px 12px; }
   .court { padding: 4px; } .mainrow { gap: 4px; padding-top: 4px; } .mat.opp .mainrow { padding-bottom: 4px; }
   .mainrow .area { padding: 6px 2px 4px; }
@@ -899,7 +902,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
 <div class="cardinfo" id="cardInfo" hidden></div>
 <div id="modalRoot"></div>
 
-<script>window.VOBACA_VERSION="20261028172736";window.VOBACA_CHANGELOG=[{"id": 7, "date": "2026-10-28", "title": "경기 결과 연출", "notes": ["승리하면 팀 색 꽃가루와 함께 「승리!」, 패배하면 화면이 어두워지며 「패배…」", "세트마다 마지막 점수를 낸 카드(어택 · 서브 · 블록/도샷, OP, 토스 카드)와 상대가 놓친 이유를 차례로 보여 줘요", "결정타를 가장 많이 낸 카드는 「오늘의 해결사」로 표시 — 카드 그림을 누르면 정보창"]}, {"id": 6, "date": "2026-10-28", "title": "상대 패 모양", "notes": ["상대 패(뒷면) 부채꼴을 내 패를 마주 본 방향으로 뒤집었어요"]}, {"id": 5, "date": "2026-10-28", "title": "드로우 연출 · 효과 알림 개선", "notes": ["카드를 뽑으면 덱(또는 세트 에리어)에서 패로 날아와요 — 상대가 뽑을 때도", "스킬 · 이벤트 알림이 효과가 실제로 적용되는 순간(포인트 증감, 드로우 등)마다 떠요", "알림은 화면 오른쪽 가운데, 알림 속 카드 그림을 누르면 정보창", "키워드 설명은 정보창의 「키워드 설명 보기」를 눌렀을 때만"]}, {"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
+<script>window.VOBACA_VERSION="20261028174407";window.VOBACA_CHANGELOG=[{"id": 8, "date": "2026-10-28", "title": "매트 다듬기 · 첫 패 연출", "notes": ["서브 에리어(왼쪽 줄)를 더 넓게", "가츠: 맨 위 캐릭터 아래 깔린 카드가 왼쪽으로 비스듬히 삐져나오고, 장수는 노란 숫자로", "덱 · 드롭 · 이벤트 칸을 같은 크기로 (드롭과 이벤트는 룰상 다른 영역이라 그대로 따로)", "멀리건이 끝나면 첫 패를 덱에서 한 장씩 뽑아 오는 연출"]}, {"id": 7, "date": "2026-10-28", "title": "경기 결과 연출", "notes": ["승리하면 팀 색 꽃가루와 함께 「승리!」, 패배하면 화면이 어두워지며 「패배…」", "세트마다 마지막 점수를 낸 카드(어택 · 서브 · 블록/도샷, OP, 토스 카드)와 상대가 놓친 이유를 차례로 보여 줘요", "결정타를 가장 많이 낸 카드는 「오늘의 해결사」로 표시 — 카드 그림을 누르면 정보창"]}, {"id": 6, "date": "2026-10-28", "title": "상대 패 모양", "notes": ["상대 패(뒷면) 부채꼴을 내 패를 마주 본 방향으로 뒤집었어요"]}, {"id": 5, "date": "2026-10-28", "title": "드로우 연출 · 효과 알림 개선", "notes": ["카드를 뽑으면 덱(또는 세트 에리어)에서 패로 날아와요 — 상대가 뽑을 때도", "스킬 · 이벤트 알림이 효과가 실제로 적용되는 순간(포인트 증감, 드로우 등)마다 떠요", "알림은 화면 오른쪽 가운데, 알림 속 카드 그림을 누르면 정보창", "키워드 설명은 정보창의 「키워드 설명 보기」를 눌렀을 때만"]}, {"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
 <script src="config.js"></script>
 <script>
 // バボカ BREAK — HV-D01 烏野 / HV-D02 音駒 スターターデッキ カードデータ
@@ -2666,13 +2669,14 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     // 블록 등장 단계: 고른 카드를 블록 에리어에 미리 올려 보여 준다 (결정 전)
     const staging = req && req.player === p && req.type === 'blockDeploy' && p === ST.viewer ? ST.sel.map(u => findCard(g, u)).filter(Boolean) : null;
     const stagedHtml = (c, isCenter) => `<div class="slot staged">${cardHtml(c, { param: 'block', badge: isCenter ? '센터' : '사이드', cls: 'stg' })}<div class="stg-acts">${isCenter ? '' : `<button class="btn" type="button" data-act="center" data-uid="${c.uid}">센터로</button>`}<button class="btn" type="button" data-act="unstage" data-uid="${c.uid}">빼기</button></div></div>`;
-    const gutsLayers = n => Array.from({ length: Math.min(n, 3) }, (_, i) => `<i class="gl" style="--i:${i + 1}"></i>`).join('');
+    // 가츠: 맨 위 캐릭터 아래에 깔린 카드가 왼쪽으로 비스듬히 삐져나오게 (가까운 것부터 최대 3장) + 장수
+    const gutsLayers = cards => cards.length ? cards.slice(-3).reverse().map((c, k) => `<span class="gl" style="--i:${k + 1}"><img src="${imgOf(c)}" alt="" draggable="false"></span>`).join('') + `<span class="gcount" title="가츠 ${cards.length}장">${cards.length}</span>` : '';
     const TG = courtTargets();
     const tcls = c => (TG && TG.has(c.uid) ? 'targetable' : '');
     const topCard = (a, param) => {
       const stack = pl.areas[a]; const t = stack[stack.length - 1];
       const key = p + a; const enter = t && ST.prevTops[key] !== t.uid; if (t) ST.prevTops[key] = t.uid;
-      return `<div class="slot">${gutsLayers(Math.max(0, stack.length - 1))}${t ? cardHtml(t, { param, enter, cls: tcls(t) }) : '<div class="empty"></div>'}</div>`;
+      return `<div class="slot">${gutsLayers(stack.slice(0, -1))}${t ? cardHtml(t, { param, enter, cls: tcls(t) }) : '<div class="empty"></div>'}</div>`;
     };
     const gutsMeta = a => { const n = Math.max(0, pl.areas[a].length - 1); return `<span class="meta ${n ? '' : 'zero'}">가츠 ${n}</span>`; };
     const area = a => `<div class="area a-${a} ${hotArea === a ? 'hot' : ''}" data-area="${a}" data-p="${p}">
@@ -2684,7 +2688,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     });
     const stSide = staging ? staging.slice(1) : [];
     const sideSlot = i => `<div class="bslot bside"><span class="sl">사이드 블로커</span>${sides[i] || (stSide[i] ? stagedHtml(stSide[i], false) : '<div class="slot"><div class="empty"></div></div>')}</div>`;
-    const centerSlot = staging && staging[0] ? `<div class="slot">${gutsLayers(pl.areas.block.length)}${stagedHtml(staging[0], true).replace('<div class="slot staged">', '<div class="staged">')}</div>` : topCard('block', 'block');
+    const centerSlot = staging && staging[0] ? `<div class="slot">${gutsLayers(pl.areas.block)}${stagedHtml(staging[0], true).replace('<div class="slot staged">', '<div class="staged">')}</div>` : topCard('block', 'block');
     const blockArea = `<div class="area a-block ${hotArea === 'block' ? 'hot' : ''}" data-area="block" data-p="${p}">
         ${sideSlot(0)}<div class="bslot bcenter"><span class="sl">센터 블로커</span>${centerSlot}</div>${sideSlot(1)}
         <span class="lab">블록</span>${gutsMeta('block')}</div>`;
@@ -2759,9 +2763,14 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   function trackDraws() {
     const g = ST.game; const me = g.players[ST.viewer], op = g.players[1 - ST.viewer];
     const prev = ST.drawSnap;
-    const snap = { g, viewer: ST.viewer, hand: new Set(me.hand.map(c => c.uid)), deck: new Set(me.deck.map(c => c.uid)), set: new Set(me.setArea.map(c => c.uid)), oh: op.hand.length, od: op.deck.length, os: op.setArea.length };
+    const snap = { g, phase: g.phase, viewer: ST.viewer, hand: new Set(me.hand.map(c => c.uid)), deck: new Set(me.deck.map(c => c.uid)), set: new Set(me.setArea.map(c => c.uid)), oh: op.hand.length, od: op.deck.length, os: op.setArea.length };
     ST.drawSnap = snap;
     if (!prev || prev.g !== g || prev.viewer !== ST.viewer || g.phase === 'setup' || ST.speed === 'instant' || ST.handoff !== null || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (prev.phase === 'setup') {   // 멀리건이 끝나고 경기가 시작될 때: 첫 패를 덱에서 한 장씩 뽑아 오는 연출
+      me.hand.forEach((c, i) => flyDraw(c, 'deck', ST.viewer, i));
+      for (let i = 0; i < Math.min(op.hand.length, 6); i++) flyDraw(null, 'deck', 1 - ST.viewer, i + .5);
+      return;
+    }
     const fresh = me.hand.filter(c => !prev.hand.has(c.uid) && (prev.deck.has(c.uid) || prev.set.has(c.uid)));
     fresh.forEach((c, i) => flyDraw(c, prev.set.has(c.uid) ? 'set' : 'deck', ST.viewer, i));
     const n = Math.max(0, op.hand.length - prev.oh);
