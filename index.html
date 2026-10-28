@@ -843,7 +843,28 @@ body.in-lobby #modalRoot .modal { z-index: 58; }   /* 로비 화면 위에 확�
 .dname { flex: 1 1 200px; max-width: 360px; font: inherit; font-size: 16px; font-weight: 700; padding: 8px 12px; border-radius: 10px; border: 1.5px solid rgba(255,220,170,.35); background: rgba(20,10,4,.7); color: #fff; }
 .dname:focus { outline: 2px solid var(--ball); }
 .screen[data-screen="editor"] > * { max-width: 1520px; }
-.editor { display: grid; grid-template-columns: 300px 330px minmax(0, 1fr); gap: 14px; align-items: start; }
+.editor { display: grid; grid-template-columns: 270px minmax(0, 1.55fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+.editor .pool-grid { grid-template-columns: repeat(auto-fill, minmax(94px, 1fr)); gap: 7px; }
+.editor .pool .ctile { padding: 5px; gap: 3px; border-radius: 10px; }
+.editor .pool .ctile .tn span { display: none; }
+.editor .pool .ctile .tp { gap: 1px; } .editor .pool .ctile .tp span i { display: none; }
+.editor .pool .ctile .cnt { top: 8px; right: 8px; min-width: 24px; height: 24px; font-size: 14px; }
+.editor .pool .ctile .pm button { font-size: 14px; padding: 0; }
+.ed-deckcol .dacts { position: sticky; bottom: -14px; margin: 12px -14px -14px; padding: 10px 14px 14px; background: linear-gradient(180deg, rgba(16,9,4,0), rgba(16,9,4,.97) 30%); }
+.ei-ctl .btn { white-space: nowrap; padding: 8px 10px; font-size: 13.5px; }
+.editor .pool .ctile .tn b { font-size: 12px; } .editor .pool .ctile .tp span { font-size: 10px; }
+.ed-deckcol .dstats b { font-size: 28px; }
+.dgrid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 10px 8px; }
+.dcard { display: grid; gap: 4px; min-width: 0; }
+.dc-img { position: relative; padding: 0; border: 0; background: none; cursor: pointer; border-radius: 7px; }
+.dc-img img { width: 100%; aspect-ratio: 744/1039; display: block; border-radius: 7px; box-shadow: 0 4px 10px rgba(0,0,0,.4); }
+.dc-n { position: absolute; right: -4px; bottom: -4px; min-width: 30px; height: 30px; padding: 0 6px; border-radius: 999px; display: grid; place-items: center; font-family: var(--f-display); font-weight: 400; font-size: 18px; background: var(--ball); color: #1b1600; box-shadow: 0 0 0 2px #1b1200; }
+.dc-name { font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer; color: #e9dccb; }
+.dcard .pm { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+.dcard .pm button { border: 1px solid var(--line); background: var(--panel-2); color: #fff; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; padding: 1px 0; }
+.dcard .pm button[data-inc] { background: rgba(255,210,63,.18); border-color: rgba(255,210,63,.5); }
+.dcard .pm button.blocked { opacity: .3; cursor: not-allowed; }
+.dcard.picked .dc-img img { outline: 2.5px solid var(--ball); outline-offset: 2px; }
 .edcol { min-width: 0; }
 .ed-infocol, .ed-deckcol { position: sticky; top: 0; max-height: calc(100dvh - 40px); overflow-y: auto; overscroll-behavior: contain; background: rgba(16,9,4,.92); border: 1px solid rgba(255,220,170,.25); border-radius: 16px; padding: 14px; }
 .edtabs { display: none; }
@@ -874,7 +895,7 @@ body.in-lobby #modalRoot .modal { z-index: 58; }   /* 로비 화면 위에 확�
 .edtoast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); z-index: 70; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; padding: 10px 16px; border-radius: 12px; background: rgba(30,14,4,.97); border: 1.5px solid var(--ball); color: #fff; font-size: 14px; font-weight: 700; box-shadow: 0 12px 30px rgba(0,0,0,.5); transition: opacity .18s, transform .18s; max-width: calc(100vw - 32px); text-align: center; }
 body.in-lobby:has(#screen[data-screen="editor"]) .sndbtn { display: none; }
 .edtoast.on { opacity: 1; transform: translate(-50%, 0); }
-@media (max-width: 1180px) and (min-width: 861px) { .editor { grid-template-columns: 250px 290px minmax(0, 1fr); } .ei-img { max-width: 200px; } }
+@media (max-width: 1180px) and (min-width: 861px) { .editor { grid-template-columns: 230px minmax(0, 1.35fr) minmax(0, 1fr); } .ei-img { max-width: 180px; } .dgrid { grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); } }
 .pool-grid { grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); }
 .deckpanel { position: sticky; top: 0; background: rgba(16,9,4,.92); border: 1px solid rgba(255,220,170,.25); border-radius: 16px; padding: 14px; max-height: calc(100dvh - 40px); overflow-y: auto; }
 .dstats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; text-align: center; }
@@ -926,7 +947,7 @@ body.in-lobby:has(#screen[data-screen="editor"]) .sndbtn { display: none; }
   .edtabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 4px; margin-bottom: 12px; border-radius: 14px; background: rgba(16,9,4,.92); border: 1px solid rgba(255,220,170,.25); position: sticky; top: -18px; z-index: 6; }
   .edtabs button { padding: 9px 4px; border: 0; border-radius: 10px; background: none; color: #cdbba5; font: inherit; font-size: 14px; font-weight: 800; cursor: pointer; }
   .edtabs button.on { background: var(--ball); color: #1b1600; }
-  .editor .edcol { display: none; position: static; max-height: none; } .ei-img { max-width: 180px; }
+  .editor .edcol { display: none; position: static; max-height: none; } .ei-img { max-width: 180px; } .dgrid { grid-template-columns: repeat(auto-fill, minmax(78px, 1fr)); }
   .editor[data-tab="search"] .pool, .editor[data-tab="deck"] .ed-deckcol, .editor[data-tab="info"] .ed-infocol { display: block; }
   .cardgrid { grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); }
   .coach { top: 98px; right: 10px; width: calc(100vw - 20px); padding: 10px 12px; }
@@ -1339,7 +1360,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
 })(typeof window !== 'undefined' ? window : globalThis);
 
 </script>
-<script>window.VOBACA_VERSION="20261028231130";window.VOBACA_CHANGELOG=[{"id": 12, "date": "2026-10-28", "title": "덱 편집 화면 새 구성", "notes": ["덱 편집을 세 칸으로: 왼쪽 카드 정보(그림 · 능력치 · 효과 · 키워드 설명) · 가운데 덱 정보 · 오른쪽 카드 검색", "덱 규칙에 맞춰 40장을 넘거나 이벤트가 8장을 넘으면 더 넣을 수 없어요 (캐릭터는 같은 카드도 제한 없음)", "덱 목록을 캐릭터 / 이벤트로 나눠 보여 주고 남은 자리를 알려 줘요", "휴대폰에서는 위쪽 탭으로 카드 검색 · 덱 · 카드 정보를 오가요"]}, {"id": 11, "date": "2026-10-28", "title": "효과음 · 배경음", "notes": ["배구 효과음: 서브 · 스파이크(OP가 클수록 세게) · 리시브 · 토스 · 블록 · 도샷 · 원터치 · 공이 바닥에 떨어지는 소리 · 농구화 끼익 · 휘슬 · 관중 환호/탄식", "카드 뽑기 · 캐릭터 등장 · 이벤트/스킬 발동 · 코인 토스 · 승리/패배 소리", "배경음: 로비와 대전에서 각각 다른 곡", "소리 크기: 로비 왼쪽 아래 스피커 버튼, 경기 중에는 「설정」에서 배경음 · 효과음 따로 조절하거나 끌 수 있어요"]}, {"id": 10, "date": "2026-10-28", "title": "부스터 1탄 「쓰레기장의 결전」 카드 추가", "notes": ["부스터 1탄 93종(캐릭터 73 · 이벤트 20) 추가 — 패러렐 버전은 제외, 모든 카드 스킬을 공식 텍스트 · Q&A 기준으로 구현", "새 키워드: 원터치 · 페인트 · 블록아웃 · 턴1 · 도샷(6), 패에서 쓰는 캐릭터 스킬(엔노시타 · 시바야마), 2인 카드(히나타·코즈메 / 츠키시마·쿠로오)의 이름 고르기", "샘플 덱 2종: 아오바죠사이 · 후쿠로다니 (AI 대전에서 바로 선택 가능)", "카드 목록 · 덱 편집: 세트 · 학교 필터와 이름 · 효과 검색"]}, {"id": 9, "date": "2026-10-28", "title": "휴대폰 · 태블릿 지원", "notes": ["휴대폰 세로(아이폰 · 갤럭시 S · 폴드 커버): 스크롤 없이 한 화면에 필드와 패가 꽉 차게, 위쪽 ⋯ 메뉴에 로그 · 설정 · 기권", "태블릿 세로(아이패드 · 갤럭시 탭 · 폴드 펼침): 카드를 화면 폭에 맞춰 크게, 가로는 여백을 줄여 카드를 조금 더 크게", "카드를 꾹 누르면 카드 정보 (휴대폰 · 태블릿)", "휴대폰을 가로로 들면 세로로 돌리라는 안내 (그래도 가로로 볼 수 있음)"]}, {"id": 8, "date": "2026-10-28", "title": "매트 다듬기 · 첫 패 연출", "notes": ["서브 에리어(왼쪽 줄)를 더 넓게", "가츠: 맨 위 캐릭터 아래 깔린 카드가 왼쪽으로 비스듬히 삐져나오고, 장수는 노란 숫자로", "덱 · 드롭 · 이벤트 칸을 같은 크기로 (드롭과 이벤트는 룰상 다른 영역이라 그대로 따로)", "멀리건이 끝나면 첫 패를 덱에서 한 장씩 뽑아 오는 연출"]}, {"id": 7, "date": "2026-10-28", "title": "경기 결과 연출", "notes": ["승리하면 팀 색 꽃가루와 함께 「승리!」, 패배하면 화면이 어두워지며 「패배…」", "세트마다 마지막 점수를 낸 카드(어택 · 서브 · 블록/도샷, OP, 토스 카드)와 상대가 놓친 이유를 차례로 보여 줘요", "결정타를 가장 많이 낸 카드는 「오늘의 해결사」로 표시 — 카드 그림을 누르면 정보창"]}, {"id": 6, "date": "2026-10-28", "title": "상대 패 모양", "notes": ["상대 패(뒷면) 부채꼴을 내 패를 마주 본 방향으로 뒤집었어요"]}, {"id": 5, "date": "2026-10-28", "title": "드로우 연출 · 효과 알림 개선", "notes": ["카드를 뽑으면 덱(또는 세트 에리어)에서 패로 날아와요 — 상대가 뽑을 때도", "스킬 · 이벤트 알림이 효과가 실제로 적용되는 순간(포인트 증감, 드로우 등)마다 떠요", "알림은 화면 오른쪽 가운데, 알림 속 카드 그림을 누르면 정보창", "키워드 설명은 정보창의 「키워드 설명 보기」를 눌렀을 때만"]}, {"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
+<script>window.VOBACA_VERSION="20261028231421";window.VOBACA_CHANGELOG=[{"id": 13, "date": "2026-10-28", "title": "덱 편집 — 덱 칸을 가장 크게", "notes": ["가운데 덱 칸을 가장 넓게, 넣은 카드를 그림으로 보여 줘요 (장수 배지 · ＋/−)", "오른쪽 카드 검색은 카드를 작게 해서 한 줄에 더 많이", "저장 · 취소 버튼이 덱 칸 아래에 늘 보이게"]}, {"id": 12, "date": "2026-10-28", "title": "덱 편집 화면 새 구성", "notes": ["덱 편집을 세 칸으로: 왼쪽 카드 정보(그림 · 능력치 · 효과 · 키워드 설명) · 가운데 덱 정보 · 오른쪽 카드 검색", "덱 규칙에 맞춰 40장을 넘거나 이벤트가 8장을 넘으면 더 넣을 수 없어요 (캐릭터는 같은 카드도 제한 없음)", "덱 목록을 캐릭터 / 이벤트로 나눠 보여 주고 남은 자리를 알려 줘요", "휴대폰에서는 위쪽 탭으로 카드 검색 · 덱 · 카드 정보를 오가요"]}, {"id": 11, "date": "2026-10-28", "title": "효과음 · 배경음", "notes": ["배구 효과음: 서브 · 스파이크(OP가 클수록 세게) · 리시브 · 토스 · 블록 · 도샷 · 원터치 · 공이 바닥에 떨어지는 소리 · 농구화 끼익 · 휘슬 · 관중 환호/탄식", "카드 뽑기 · 캐릭터 등장 · 이벤트/스킬 발동 · 코인 토스 · 승리/패배 소리", "배경음: 로비와 대전에서 각각 다른 곡", "소리 크기: 로비 왼쪽 아래 스피커 버튼, 경기 중에는 「설정」에서 배경음 · 효과음 따로 조절하거나 끌 수 있어요"]}, {"id": 10, "date": "2026-10-28", "title": "부스터 1탄 「쓰레기장의 결전」 카드 추가", "notes": ["부스터 1탄 93종(캐릭터 73 · 이벤트 20) 추가 — 패러렐 버전은 제외, 모든 카드 스킬을 공식 텍스트 · Q&A 기준으로 구현", "새 키워드: 원터치 · 페인트 · 블록아웃 · 턴1 · 도샷(6), 패에서 쓰는 캐릭터 스킬(엔노시타 · 시바야마), 2인 카드(히나타·코즈메 / 츠키시마·쿠로오)의 이름 고르기", "샘플 덱 2종: 아오바죠사이 · 후쿠로다니 (AI 대전에서 바로 선택 가능)", "카드 목록 · 덱 편집: 세트 · 학교 필터와 이름 · 효과 검색"]}, {"id": 9, "date": "2026-10-28", "title": "휴대폰 · 태블릿 지원", "notes": ["휴대폰 세로(아이폰 · 갤럭시 S · 폴드 커버): 스크롤 없이 한 화면에 필드와 패가 꽉 차게, 위쪽 ⋯ 메뉴에 로그 · 설정 · 기권", "태블릿 세로(아이패드 · 갤럭시 탭 · 폴드 펼침): 카드를 화면 폭에 맞춰 크게, 가로는 여백을 줄여 카드를 조금 더 크게", "카드를 꾹 누르면 카드 정보 (휴대폰 · 태블릿)", "휴대폰을 가로로 들면 세로로 돌리라는 안내 (그래도 가로로 볼 수 있음)"]}, {"id": 8, "date": "2026-10-28", "title": "매트 다듬기 · 첫 패 연출", "notes": ["서브 에리어(왼쪽 줄)를 더 넓게", "가츠: 맨 위 캐릭터 아래 깔린 카드가 왼쪽으로 비스듬히 삐져나오고, 장수는 노란 숫자로", "덱 · 드롭 · 이벤트 칸을 같은 크기로 (드롭과 이벤트는 룰상 다른 영역이라 그대로 따로)", "멀리건이 끝나면 첫 패를 덱에서 한 장씩 뽑아 오는 연출"]}, {"id": 7, "date": "2026-10-28", "title": "경기 결과 연출", "notes": ["승리하면 팀 색 꽃가루와 함께 「승리!」, 패배하면 화면이 어두워지며 「패배…」", "세트마다 마지막 점수를 낸 카드(어택 · 서브 · 블록/도샷, OP, 토스 카드)와 상대가 놓친 이유를 차례로 보여 줘요", "결정타를 가장 많이 낸 카드는 「오늘의 해결사」로 표시 — 카드 그림을 누르면 정보창"]}, {"id": 6, "date": "2026-10-28", "title": "상대 패 모양", "notes": ["상대 패(뒷면) 부채꼴을 내 패를 마주 본 방향으로 뒤집었어요"]}, {"id": 5, "date": "2026-10-28", "title": "드로우 연출 · 효과 알림 개선", "notes": ["카드를 뽑으면 덱(또는 세트 에리어)에서 패로 날아와요 — 상대가 뽑을 때도", "스킬 · 이벤트 알림이 효과가 실제로 적용되는 순간(포인트 증감, 드로우 등)마다 떠요", "알림은 화면 오른쪽 가운데, 알림 속 카드 그림을 누르면 정보창", "키워드 설명은 정보창의 「키워드 설명 보기」를 눌렀을 때만"]}, {"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
 <script src="config.js"></script>
 <script>
 // バボカ BREAK — HV-D01 烏野 / HV-D02 音駒 スターターデッキ カードデータ
@@ -7667,7 +7688,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   }
   function renderDeckPanel() {
     const d = { list: edList() }; const s = deckStats(d);
-    const row = c => `<li class="t-${teamOf(c)} ${ED.sel === c.no ? 'picked' : ''}"><img src="${img(c.no)}" alt="" data-pick="${c.no}"><span class="rn" data-pick="${c.no}">${esc(KN(c.no))}</span>${ED.readonly ? '' : `<button type="button" data-dec="${c.no}" aria-label="빼기">−</button>`}<b>${ED.counts.get(c.no)}</b>${ED.readonly ? '' : `<button type="button" data-inc="${c.no}" aria-label="넣기" ${addBlock(c.no) ? 'aria-disabled="true" class="blocked"' : ''}>＋</button>`}</li>`;
+    const row = c => `<li class="dcard t-${teamOf(c)} ${ED.sel === c.no ? 'picked' : ''}"><button type="button" class="dc-img" data-pick="${c.no}" aria-label="${esc(KN(c.no))} 정보"><img src="${img(c.no)}" alt=""><b class="dc-n">${ED.counts.get(c.no)}</b></button><span class="dc-name" data-pick="${c.no}">${esc(KN(c.no))}</span>${ED.readonly ? '' : `<div class="pm"><button type="button" data-dec="${c.no}" aria-label="빼기">−</button><button type="button" data-inc="${c.no}" aria-label="넣기" ${addBlock(c.no) ? 'aria-disabled="true" class="blocked"' : ''}>＋</button></div>`}</li>`;
     const chars = CARDS.filter(c => ED.counts.get(c.no) && c.type === 'C'), evs = CARDS.filter(c => ED.counts.get(c.no) && c.type === 'E');
     const left = DECK_MAX - s.total, evLeft = EVENT_MAX - s.ev;
     $('#deckPanel').innerHTML = `
@@ -7676,8 +7697,8 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       ${s.errs.length ? `<ul class="derrs">${s.errs.map(e => `<li>${esc(e)}</li>`).join('')}</ul>` : '<p class="dok">대전에 쓸 수 있는 덱이에요.</p>'}
       ${ED.readonly ? '' : `<p class="dleft">${left > 0 ? `${left}장 더 넣을 수 있어요 · 이벤트는 ${Math.max(0, Math.min(evLeft, left))}장 더` : left === 0 ? '40장을 다 채웠어요 — 다른 카드를 넣으려면 먼저 빼 주세요' : `${-left}장을 빼야 해요`}</p>`}
       <div class="drows-wrap">
-        ${chars.length ? `<h4 class="dgrp">캐릭터 <em>${s.chars}</em></h4><ul class="drows">${chars.map(row).join('')}</ul>` : ''}
-        ${evs.length ? `<h4 class="dgrp">이벤트 <em>${s.ev} / ${EVENT_MAX}</em></h4><ul class="drows">${evs.map(row).join('')}</ul>` : ''}
+        ${chars.length ? `<h4 class="dgrp">캐릭터 <em>${s.chars}</em></h4><ul class="dgrid">${chars.map(row).join('')}</ul>` : ''}
+        ${evs.length ? `<h4 class="dgrp">이벤트 <em>${s.ev} / ${EVENT_MAX}</em></h4><ul class="dgrid">${evs.map(row).join('')}</ul>` : ''}
         ${!chars.length && !evs.length ? '<ul class="drows"><li class="empty">오른쪽 카드 검색에서 ＋를 눌러 덱에 넣으세요.</li></ul>' : ''}
       </div>
       ${ED.readonly ? `<div class="dacts"><button class="btn primary" type="button" data-deck-copy="${esc(ED.id)}">복사해서 편집</button></div>`
