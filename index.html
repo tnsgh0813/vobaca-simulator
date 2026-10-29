@@ -1381,7 +1381,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
 })(typeof window !== 'undefined' ? window : globalThis);
 
 </script>
-<script>window.VOBACA_VERSION="20261028233208";window.VOBACA_CHANGELOG=[{"id": 16, "date": "2026-10-28", "title": "블록 판정 보이기", "notes": ["여러 명이 블록하면 판정 때 「블록! 3+2+2=7」처럼 블록 포인트 합계를 보여 줘요", "블록 페이즈가 끝나 사이드 블로커가 드롭될 때 드롭 더미로 날아가는 연출 (갑자기 사라져서 1명만 블록한 것처럼 보이던 문제)"]}, {"id": 15, "date": "2026-10-28", "title": "덱 편집 — 카드 목록만 스크롤", "notes": ["덱 편집 화면 전체는 움직이지 않고, 오른쪽 카드 목록만 스크롤돼요 (검색 · 필터는 위에 고정)", "카드 정보 · 덱 칸도 각자 칸 안에서만 스크롤"]}, {"id": 14, "date": "2026-10-28", "title": "상단 고정 · 패 떨림 수정", "notes": ["카드 목록 · 덱 편집 · QNA 등에서 스크롤해도 위쪽 ← 뒤로가기와 제목이 고정돼요", "패의 카드에 마우스를 올렸을 때 카드 아래쪽에서 들썩들썩 떨리던 문제 수정", "카드 목록 타일 · 덱 고르기 · 멀리건 카드 등 살짝 들리는 버튼도 가장자리에서 떨리지 않게"]}, {"id": 13, "date": "2026-10-28", "title": "덱 편집 — 덱 칸을 가장 크게", "notes": ["가운데 덱 칸을 가장 넓게, 넣은 카드를 그림으로 보여 줘요 (장수 배지 · ＋/−)", "오른쪽 카드 검색은 카드를 작게 해서 한 줄에 더 많이", "저장 · 취소 버튼이 덱 칸 아래에 늘 보이게"]}, {"id": 12, "date": "2026-10-28", "title": "덱 편집 화면 새 구성", "notes": ["덱 편집을 세 칸으로: 왼쪽 카드 정보(그림 · 능력치 · 효과 · 키워드 설명) · 가운데 덱 정보 · 오른쪽 카드 검색", "덱 규칙에 맞춰 40장을 넘거나 이벤트가 8장을 넘으면 더 넣을 수 없어요 (캐릭터는 같은 카드도 제한 없음)", "덱 목록을 캐릭터 / 이벤트로 나눠 보여 주고 남은 자리를 알려 줘요", "휴대폰에서는 위쪽 탭으로 카드 검색 · 덱 · 카드 정보를 오가요"]}, {"id": 11, "date": "2026-10-28", "title": "효과음 · 배경음", "notes": ["배구 효과음: 서브 · 스파이크(OP가 클수록 세게) · 리시브 · 토스 · 블록 · 도샷 · 원터치 · 공이 바닥에 떨어지는 소리 · 농구화 끼익 · 휘슬 · 관중 환호/탄식", "카드 뽑기 · 캐릭터 등장 · 이벤트/스킬 발동 · 코인 토스 · 승리/패배 소리", "배경음: 로비와 대전에서 각각 다른 곡", "소리 크기: 로비 왼쪽 아래 스피커 버튼, 경기 중에는 「설정」에서 배경음 · 효과음 따로 조절하거나 끌 수 있어요"]}, {"id": 10, "date": "2026-10-28", "title": "부스터 1탄 「쓰레기장의 결전」 카드 추가", "notes": ["부스터 1탄 93종(캐릭터 73 · 이벤트 20) 추가 — 패러렐 버전은 제외, 모든 카드 스킬을 공식 텍스트 · Q&A 기준으로 구현", "새 키워드: 원터치 · 페인트 · 블록아웃 · 턴1 · 도샷(6), 패에서 쓰는 캐릭터 스킬(엔노시타 · 시바야마), 2인 카드(히나타·코즈메 / 츠키시마·쿠로오)의 이름 고르기", "샘플 덱 2종: 아오바죠사이 · 후쿠로다니 (AI 대전에서 바로 선택 가능)", "카드 목록 · 덱 편집: 세트 · 학교 필터와 이름 · 효과 검색"]}, {"id": 9, "date": "2026-10-28", "title": "휴대폰 · 태블릿 지원", "notes": ["휴대폰 세로(아이폰 · 갤럭시 S · 폴드 커버): 스크롤 없이 한 화면에 필드와 패가 꽉 차게, 위쪽 ⋯ 메뉴에 로그 · 설정 · 기권", "태블릿 세로(아이패드 · 갤럭시 탭 · 폴드 펼침): 카드를 화면 폭에 맞춰 크게, 가로는 여백을 줄여 카드를 조금 더 크게", "카드를 꾹 누르면 카드 정보 (휴대폰 · 태블릿)", "휴대폰을 가로로 들면 세로로 돌리라는 안내 (그래도 가로로 볼 수 있음)"]}, {"id": 8, "date": "2026-10-28", "title": "매트 다듬기 · 첫 패 연출", "notes": ["서브 에리어(왼쪽 줄)를 더 넓게", "가츠: 맨 위 캐릭터 아래 깔린 카드가 왼쪽으로 비스듬히 삐져나오고, 장수는 노란 숫자로", "덱 · 드롭 · 이벤트 칸을 같은 크기로 (드롭과 이벤트는 룰상 다른 영역이라 그대로 따로)", "멀리건이 끝나면 첫 패를 덱에서 한 장씩 뽑아 오는 연출"]}, {"id": 7, "date": "2026-10-28", "title": "경기 결과 연출", "notes": ["승리하면 팀 색 꽃가루와 함께 「승리!」, 패배하면 화면이 어두워지며 「패배…」", "세트마다 마지막 점수를 낸 카드(어택 · 서브 · 블록/도샷, OP, 토스 카드)와 상대가 놓친 이유를 차례로 보여 줘요", "결정타를 가장 많이 낸 카드는 「오늘의 해결사」로 표시 — 카드 그림을 누르면 정보창"]}, {"id": 6, "date": "2026-10-28", "title": "상대 패 모양", "notes": ["상대 패(뒷면) 부채꼴을 내 패를 마주 본 방향으로 뒤집었어요"]}, {"id": 5, "date": "2026-10-28", "title": "드로우 연출 · 효과 알림 개선", "notes": ["카드를 뽑으면 덱(또는 세트 에리어)에서 패로 날아와요 — 상대가 뽑을 때도", "스킬 · 이벤트 알림이 효과가 실제로 적용되는 순간(포인트 증감, 드로우 등)마다 떠요", "알림은 화면 오른쪽 가운데, 알림 속 카드 그림을 누르면 정보창", "키워드 설명은 정보창의 「키워드 설명 보기」를 눌렀을 때만"]}, {"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
+<script>window.VOBACA_VERSION="20261029132327";window.VOBACA_CHANGELOG=[{"id": 17, "date": "2026-10-29", "title": "부스터 1탄 카드 점검 · 수정", "notes": ["스타터 「물리공격으로…」로 패에 넣은 카드에도 이와이즈미 · 텐도 · 「나도 그렇게 생각했어☆」 효과가 적용되도록", "카게야마(006): 공개한 히나타 · 오픈 공격을 패에 넣을지 고를 수 있게 (「1장까지」)", "같은 턴에 도샷이 둘이면(쿠로오 · 츠키시마) 턴 끝에 적용할 도샷을 고르기", "「이게 \"잇는다\"는 거다」: 쓸 수 있으면 둘 중 하나를 반드시 고르기", "「앞으로 기울여 가자」가 아무 효과도 못 냈으면 【턴1】이 걸리지 않게", "엔노시타 · 시바야마 패 스킬: 대상 캐릭터가 없으면 쓸 수 없게", "세트가 끝나면 2인 카드 이름도 원래대로"]}, {"id": 16, "date": "2026-10-28", "title": "블록 판정 보이기", "notes": ["여러 명이 블록하면 판정 때 「블록! 3+2+2=7」처럼 블록 포인트 합계를 보여 줘요", "블록 페이즈가 끝나 사이드 블로커가 드롭될 때 드롭 더미로 날아가는 연출 (갑자기 사라져서 1명만 블록한 것처럼 보이던 문제)"]}, {"id": 15, "date": "2026-10-28", "title": "덱 편집 — 카드 목록만 스크롤", "notes": ["덱 편집 화면 전체는 움직이지 않고, 오른쪽 카드 목록만 스크롤돼요 (검색 · 필터는 위에 고정)", "카드 정보 · 덱 칸도 각자 칸 안에서만 스크롤"]}, {"id": 14, "date": "2026-10-28", "title": "상단 고정 · 패 떨림 수정", "notes": ["카드 목록 · 덱 편집 · QNA 등에서 스크롤해도 위쪽 ← 뒤로가기와 제목이 고정돼요", "패의 카드에 마우스를 올렸을 때 카드 아래쪽에서 들썩들썩 떨리던 문제 수정", "카드 목록 타일 · 덱 고르기 · 멀리건 카드 등 살짝 들리는 버튼도 가장자리에서 떨리지 않게"]}, {"id": 13, "date": "2026-10-28", "title": "덱 편집 — 덱 칸을 가장 크게", "notes": ["가운데 덱 칸을 가장 넓게, 넣은 카드를 그림으로 보여 줘요 (장수 배지 · ＋/−)", "오른쪽 카드 검색은 카드를 작게 해서 한 줄에 더 많이", "저장 · 취소 버튼이 덱 칸 아래에 늘 보이게"]}, {"id": 12, "date": "2026-10-28", "title": "덱 편집 화면 새 구성", "notes": ["덱 편집을 세 칸으로: 왼쪽 카드 정보(그림 · 능력치 · 효과 · 키워드 설명) · 가운데 덱 정보 · 오른쪽 카드 검색", "덱 규칙에 맞춰 40장을 넘거나 이벤트가 8장을 넘으면 더 넣을 수 없어요 (캐릭터는 같은 카드도 제한 없음)", "덱 목록을 캐릭터 / 이벤트로 나눠 보여 주고 남은 자리를 알려 줘요", "휴대폰에서는 위쪽 탭으로 카드 검색 · 덱 · 카드 정보를 오가요"]}, {"id": 11, "date": "2026-10-28", "title": "효과음 · 배경음", "notes": ["배구 효과음: 서브 · 스파이크(OP가 클수록 세게) · 리시브 · 토스 · 블록 · 도샷 · 원터치 · 공이 바닥에 떨어지는 소리 · 농구화 끼익 · 휘슬 · 관중 환호/탄식", "카드 뽑기 · 캐릭터 등장 · 이벤트/스킬 발동 · 코인 토스 · 승리/패배 소리", "배경음: 로비와 대전에서 각각 다른 곡", "소리 크기: 로비 왼쪽 아래 스피커 버튼, 경기 중에는 「설정」에서 배경음 · 효과음 따로 조절하거나 끌 수 있어요"]}, {"id": 10, "date": "2026-10-28", "title": "부스터 1탄 「쓰레기장의 결전」 카드 추가", "notes": ["부스터 1탄 93종(캐릭터 73 · 이벤트 20) 추가 — 패러렐 버전은 제외, 모든 카드 스킬을 공식 텍스트 · Q&A 기준으로 구현", "새 키워드: 원터치 · 페인트 · 블록아웃 · 턴1 · 도샷(6), 패에서 쓰는 캐릭터 스킬(엔노시타 · 시바야마), 2인 카드(히나타·코즈메 / 츠키시마·쿠로오)의 이름 고르기", "샘플 덱 2종: 아오바죠사이 · 후쿠로다니 (AI 대전에서 바로 선택 가능)", "카드 목록 · 덱 편집: 세트 · 학교 필터와 이름 · 효과 검색"]}, {"id": 9, "date": "2026-10-28", "title": "휴대폰 · 태블릿 지원", "notes": ["휴대폰 세로(아이폰 · 갤럭시 S · 폴드 커버): 스크롤 없이 한 화면에 필드와 패가 꽉 차게, 위쪽 ⋯ 메뉴에 로그 · 설정 · 기권", "태블릿 세로(아이패드 · 갤럭시 탭 · 폴드 펼침): 카드를 화면 폭에 맞춰 크게, 가로는 여백을 줄여 카드를 조금 더 크게", "카드를 꾹 누르면 카드 정보 (휴대폰 · 태블릿)", "휴대폰을 가로로 들면 세로로 돌리라는 안내 (그래도 가로로 볼 수 있음)"]}, {"id": 8, "date": "2026-10-28", "title": "매트 다듬기 · 첫 패 연출", "notes": ["서브 에리어(왼쪽 줄)를 더 넓게", "가츠: 맨 위 캐릭터 아래 깔린 카드가 왼쪽으로 비스듬히 삐져나오고, 장수는 노란 숫자로", "덱 · 드롭 · 이벤트 칸을 같은 크기로 (드롭과 이벤트는 룰상 다른 영역이라 그대로 따로)", "멀리건이 끝나면 첫 패를 덱에서 한 장씩 뽑아 오는 연출"]}, {"id": 7, "date": "2026-10-28", "title": "경기 결과 연출", "notes": ["승리하면 팀 색 꽃가루와 함께 「승리!」, 패배하면 화면이 어두워지며 「패배…」", "세트마다 마지막 점수를 낸 카드(어택 · 서브 · 블록/도샷, OP, 토스 카드)와 상대가 놓친 이유를 차례로 보여 줘요", "결정타를 가장 많이 낸 카드는 「오늘의 해결사」로 표시 — 카드 그림을 누르면 정보창"]}, {"id": 6, "date": "2026-10-28", "title": "상대 패 모양", "notes": ["상대 패(뒷면) 부채꼴을 내 패를 마주 본 방향으로 뒤집었어요"]}, {"id": 5, "date": "2026-10-28", "title": "드로우 연출 · 효과 알림 개선", "notes": ["카드를 뽑으면 덱(또는 세트 에리어)에서 패로 날아와요 — 상대가 뽑을 때도", "스킬 · 이벤트 알림이 효과가 실제로 적용되는 순간(포인트 증감, 드로우 등)마다 떠요", "알림은 화면 오른쪽 가운데, 알림 속 카드 그림을 누르면 정보창", "키워드 설명은 정보창의 「키워드 설명 보기」를 눌렀을 때만"]}, {"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
 <script src="config.js"></script>
 <script>
 // バボカ BREAK — HV-D01 烏野 / HV-D02 音駒 スターターデッキ カードデータ
@@ -1856,6 +1856,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
    "kind": "hand",
    "phase": "receive"
   },
+  "handAff": "烏野",
   "skill": "p013"
  },
  {
@@ -2360,6 +2361,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
    "kind": "hand",
    "phase": "receive"
   },
+  "handAff": "音駒",
   "skill": "p031"
  },
  {
@@ -4289,6 +4291,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       await this.anim({ type: 'lost', p, reason });
       this.offense = null; this.defense = null; this.pending = [];
       for (const s of [...this.players[p].sides]) this.toDrop(s);   // サイドブロッカーはドロップ
+      for (const q of [0, 1]) for (const { card } of this.chars(q)) card.nameAs = null;   // 턴이 끝났으므로 2인 카드 이름도 원래대로
       this.request = null;
     }
 
@@ -4435,7 +4438,13 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       const ok = await this.judge(p, 'block');
       // ドシャット (ブロック成功時)
       if (ok && this.turnFlags.doshutArmed) {
-        this.turnFlags.doshut = this.turnFlags.doshutArmed;
+        const vals = [...new Set(this.turnFlags.doshutList || [this.turnFlags.doshutArmed])];
+        let v = this.turnFlags.doshutArmed;
+        if (vals.length > 1) {   // Q&A 008: 같은 턴 도샷이 여럿이면 원하는 순서로 해결 → 마지막 것이 적용
+          const [id] = await this.chooseCards(p, { title: '도샷 해결 순서', text: '도샷이 여러 개입니다. 마지막에 해결해 적용할 도샷을 고르세요.', options: vals.map(x => ({ id: String(x), label: `도샷(${x}) — 턴 종료 시 오펜스 포인트 ${x}` })), min: 1, max: 1, purpose: 'doshutPick', textOptions: true });
+          if (vals.includes(+id)) v = +id;
+        }
+        this.turnFlags.doshut = v;
         this.say(`블록 성공! 【도샷(${this.turnFlags.doshut})】 — 이 턴 종료 시 오펜스 포인트가 ${this.turnFlags.doshut}가 됩니다.`, p, 'skill');
       }
       // オフェンスポイント算出 (ブロックは 0 基準)
@@ -4645,7 +4654,8 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       return this.players[p].hand.filter(c => {
         const d = this.c(c);
         if (d.type === 'E') return (d.timing || []).includes(phase) && !(noTA && d.timing.some(t => t === 'toss' || t === 'attack'));
-        return d.trigger?.kind === 'hand' && d.trigger.phase === phase;   // 縁下 力 等: [レシーブフェイズ][手札]
+        if (d.trigger?.kind !== 'hand' || d.trigger.phase !== phase) return false;   // 縁下 力 等: [レシーブフェイズ][手札]
+        const aff = d.handAff; return !aff || this.chars(p).some(x => this.hasAff(x.card, aff) && this.base(x.card, 'receive') !== null);   // 대상이 있을 때만
       });
     }
 
@@ -4681,8 +4691,9 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
         await this.withSkill(p, card, async () => {}, { event: true, fallback: '【턴1】 — 스킬 무효' });
         return;
       }
-      await this.withSkill(p, card, () => SKILLS[this.c(card).skill](this, p, card, {}), { event: true, fallback: '효과 없음' });
-      if (this.c(card).turn1) this.addEffect({ kind: 'turn1', owner: p, target: p, turnNo: this.turnNo, name: this.cname(card) });
+      let res;
+      await this.withSkill(p, card, async () => { res = await SKILLS[this.c(card).skill](this, p, card, {}); }, { event: true, fallback: '효과 없음' });
+      if (this.c(card).turn1 && res !== false) this.addEffect({ kind: 'turn1', owner: p, target: p, turnNo: this.turnNo, name: this.cname(card) });
     }
 
     // ───────── スキル補助 ─────────
@@ -4788,7 +4799,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     },
     async kurooD02(g, p, card) {
       await g.optionalGuts(p, card, 1, '블록 성공 시 도샷(5)', async () => {
-        g.turnFlags.doshutArmed = 5;
+        (g.turnFlags.doshutList = g.turnFlags.doshutList || []).push(5); g.turnFlags.doshutArmed = 5;
         g.say('이번 턴 블록에 성공하면 【도샷(5)】합니다.', p, 'skill');
       });
     },
@@ -4860,8 +4871,8 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       g.say(`${g.pname(p)}: 덱 위 ${look.length}장을 확인합니다.`, p);
       const [u] = await g.chooseCards(p, { title: '덱 위 카드 확인', text: `덱 위 ${look.length}장입니다. 「하이바 레프」 또는 「이누오카 소」 1장까지 공개해 패에 넣을 수 있습니다.`, options: targets.map(c => c.uid), reveal: look.map(c => c.uid), min: 0, max: 1, purpose: 'butsuri', zone: 'look' });
       const picked = targets.find(c => c.uid === u);
-      if (picked) { pl.deck.splice(pl.deck.indexOf(picked), 1); pl.hand.push(picked); g.say(`${g.pname(p)}: 「${g.dname(picked)}」을(를) 공개하고 패에 넣었습니다.`, p, 'draw'); g.fxNote(`「${g.dname(picked)}」 공개 → 패에`); }
-      const rest = look.filter(c => c !== picked);
+      if (picked) await g.addToHand(p, [picked], '공개');   // 이와이즈미 · 텐도 · 「나도 그렇게 생각했어☆」 판정을 거침
+      const rest = look.filter(c => g.where(c) === 'deck');
       let order = rest;
       if (rest.length > 1) {
         const r = await g.ask(p, { type: 'order', title: '덱 아래로 보낼 순서', text: '덱 아래에 둘 순서대로 카드를 누르세요. 먼저 고른 카드부터 덱 아래에 놓입니다(나중에 놓은 카드가 가장 아래).', options: rest.map(c => c.uid), zone: 'look' });
@@ -4996,7 +5007,10 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     async p006(g, p, card) {
       await g.optionalGuts(p, card, 2, '덱 위 공개 → 「히나타 쇼요」/「오픈 공격」 패에 + 이번 턴 히나타 어택 +2', async () => {
         await revealThen(g, p, async top => {
-          if (['日向 翔陽', 'オープン攻撃'].includes(g.c(top).name)) return (await g.addToHand(p, [top], '카게야마 토비오')).length > 0;
+          if (['日向 翔陽', 'オープン攻撃'].includes(g.c(top).name)) {   // 「1枚までを手札に加え」 — 넣지 않아도 됨
+            const yes = await g.ask(p, { type: 'yesno', title: '카게야마 토비오의 스킬', text: `공개한 「${g.dname(top)}」을(를) 패에 넣을까요? (넣지 않으면 덱 아래로)`, card: card.uid, skill: 'p006add' });
+            return yes ? (await g.addToHand(p, [top], '카게야마 토비오')).length > 0 : false;
+          }
           return false;
         });
         thisTurn(g, p, card, 'hinataBoost'); g.fxNote('이번 턴: 「히나타 쇼요」가 등장할 때마다 어택 +2');
@@ -5006,7 +5020,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       await g.optionalGuts(p, card, 2, '야마구치가 있으면 블록 +2 · 블록 성공 시 도샷(6)', async () => {
         if (g.chars(p).some(x => g.cname(x.card) === '山口 忠')) g.addMod(card, 'block', 2, card.uid);
         else g.say('코트에 「야마구치 타다시」가 없어 블록 포인트는 오르지 않습니다.', p);
-        g.turnFlags.doshutArmed = 6; g.say('이번 턴 블록에 성공하면 【도샷(6)】합니다.', p, 'skill');
+        (g.turnFlags.doshutList = g.turnFlags.doshutList || []).push(6); g.turnFlags.doshutArmed = 6; g.say('이번 턴 블록에 성공하면 【도샷(6)】합니다.', p, 'skill');
       });
     },
     async p010(g, p, card) {
@@ -5231,7 +5245,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     },
     async p077(g, p) {
       const rc = g.top(p, 'receive');
-      if (!rc || !g.hasAff(rc, '烏野')) { g.say('리시브 캐릭터가 카라스노가 아니라 효과가 없습니다.', p); return; }
+      if (!rc || !g.hasAff(rc, '烏野')) { g.say('리시브 캐릭터가 카라스노가 아니라 효과가 없습니다.', p); return false; }   // 아무것도 해결되지 않음 → 【턴1】도 적용 안 됨
       g.addMod(rc, 'receive', 2, 'evt');
       if (g.cname(rc) === '西谷 夕') g.draw(p, 1, '이벤트');
     },
@@ -5284,7 +5298,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       if (a.length) opts.push({ id: 'plus', label: '네코마 캐릭터 1명 리시브 포인트 +1' });
       if (b.length) opts.push({ id: 'seven', label: '리시브 5 이상인 네코마 캐릭터 1명 리시브 포인트를 7로' });
       if (!opts.length) return;
-      const [pick] = await g.chooseCards(p, { title: '효과 선택', text: '다음 중 하나를 골라 사용할 수 있습니다.', options: opts, min: 0, max: 1, purpose: 'tsunagu', textOptions: true });
+      const [pick] = await g.chooseCards(p, { title: '효과 선택', text: '다음 중 하나를 골라 사용할 수 있습니다.', options: opts, min: 1, max: 1, purpose: 'tsunagu', textOptions: true });   // 고를 수 있으면 반드시 하나
       if (pick === 'plus') { const t = await g.chooseChar(p, c => a.includes(c), '리시브 포인트 +1 대상', 'receiveBuff'); if (t) g.addMod(t, 'receive', 1, 'evt'); }
       else if (pick === 'seven') { const t = await g.chooseChar(p, c => b.includes(c), '리시브 포인트를 7로 할 대상', 'receiveBuff'); if (t) g.setParam(t, 'receive', 7, 'evt'); }
       else g.say('효과를 사용하지 않았습니다.', p);
@@ -5550,7 +5564,8 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
           const min = req.min ?? 1, max = req.max ?? 1;
           if (req.textOptions) {
             const ids = req.options.map(o => o.id);
-            if (req.purpose === 'tsunagu') return [ids.includes('seven') ? 'seven' : ids[0]];
+            if (req.purpose === 'doshutPick') return [ids.slice().sort((x, y) => +y - +x)[0]];
+          if (req.purpose === 'tsunagu') return [ids.includes('seven') ? 'seven' : ids[0]];
           if (req.purpose === 'param') {
             const c = findCard(g, req.card); const a = c && g.charArea(c);
             const want = a === 'side' ? 'block' : a;
