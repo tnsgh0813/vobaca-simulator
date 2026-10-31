@@ -1409,7 +1409,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
 })(typeof window !== 'undefined' ? window : globalThis);
 
 </script>
-<script>window.VOBACA_VERSION="20261030182414";window.VOBACA_CHANGELOG=[{"id": 22, "date": "2026-10-30", "title": "부스터 4탄 「재능과 센스」 추가 · 세트 간 점검", "notes": ["부스터 4탄 HV-P04 101종 추가 (패러렐 제외) — 카라스노 · 아오바죠사이 · 카도카와 · 죠젠지 · 와쿠타니미나미 · 네코마 · 다테공고 · 시라토리자와 · 후쿠로다니 · 이나리자키 · 유스 · 동네 팀", "새 키워드: 【A패스(N)】, 【동시다발 위치차 공격〈소속〉(N)】, 「덱 위에서 N장까지 드롭」, 상대 로스트 시 발동하는 「이걸로 스타트라인이다」 등 — 카드 텍스트와 공식 Q&A 기준", "샘플 덱 2종: 카라스노 (4탄 샘플, 스타터 카드로 보강) · 아오바죠사이 (4탄 샘플)", "카드 목록 · 덱 편집에 「부스터 4탄」 세트와 카도카와 · 죠젠지 · 와쿠타니미나미 학교 필터 추가", "CPU: 상대 효과로 등장할 수 없는 리시브 캐릭터를 고르다 로스트하던 문제, 「원래 리시브 5 이상」 같은 조건부 −효과를 잘못 계산하던 문제 수정", "패에서 「~장까지」 고르는 선택에 「고르지 않음」 버튼 추가", "경기가 끝나는 로스트에서는 「로스트했을 때」 효과를 묻지 않도록 수정", "스타터 · 1~4탄을 섞은 무작위 덱 24,000판 자동 대전 — 오류 0건"]}, {"id": 21, "date": "2026-10-29", "title": "전체 최적화", "notes": ["덱 편집: ＋/− 를 누를 때 카드 목록 전체를 다시 만들지 않고 숫자만 바꿔요 (한 번 누를 때 약 80ms → 5ms)", "덱 편집 · 카드 목록 · Q&A: 카드 이미지를 화면에 보일 때만 불러와요 (덱 편집을 열 때 이미지 320장 → 약 80장)", "검색창: 글자를 칠 때마다가 아니라 잠깐 멈췄을 때 목록을 다시 그려요", "경기 화면: 바뀐 부분만 다시 그리고, 깜빡이는 강조 효과를 가벼운 방식으로 바꿔 입력을 기다리는 동안 CPU 사용을 줄였어요", "배경음: 소리를 끄거나 배경음 음량이 0이면 음악 합성을 멈춰요", "페이지 크기 약 22% 감소 (카드 데이터 압축)", "기기에서 「동작 줄이기」를 켜 두면 반복 애니메이션을 멈춰요"]}, {"id": 20, "date": "2026-10-29", "title": "부스터 3탄 「유스 & 선발 강화 합숙」 추가 · 전체 점검", "notes": ["부스터 3탄 HV-P03 99종 추가 (패러렐 제외) — 유스 · 유사 유스, 볼 줍기 캐릭터, 【백어택(N)】, 「−되지 않는다」 등 새 규칙", "샘플 덱 2종: 유스 합숙 · 유사 유스. 덱 편집에 세트 「부스터 3탄」, 학교 필터 유스 · 유사 유스, 포지션 필터 「볼 줍기」", "룰 수정: 캐릭터가 코트를 떠나면 바로 아래 가츠가 캐릭터가 됨 (등장이 아니며 효과도 이어받지 않음 — 종합 룰 1-2-15-3)", "룰 수정: 「N가츠 지불」에서 지불할 가츠를 직접 고를 수 있음 (종합 룰 1-4-8-1)", "룰 수정: 조건을 못 채우거나 【턴1】으로 무효여도 이벤트는 이벤트 에리어에 놓을 수 있음 (공식 Q&A)", "미야 아츠무(2탄 016)끼리 대전할 때 내 016이 무효가 되던 버그, 2탄 켄마로 등장한 1탄 레프가 +2를 못 받던 버그 수정", "상대 로스트로 「그 순간」과 야치 효과가 함께 유발하면 해결 순서를 고를 수 있게"]}, {"id": 19, "date": "2026-10-29", "title": "부스터 2탄 「최강의 도전자」 추가", "notes": ["부스터 2탄 HV-P02 100종 추가 (캐릭터 78 · 이벤트 22, 패러렐 제외) — 이나리자키 · 다테공고 · 시라토리자와 등", "새 규칙: 【투어택(N)】 · 코인 던지기 · 카드 비스듬히 놓기 · 「상대가 카드를 패에 넣을 때마다」 · 스킬로 사이드 블로커 등장 · 「센터 블로커의 블록 포인트 없음」", "샘플 덱 2종: 이나리자키 · 다테공고", "덱 편집: 세트 「부스터 2탄」, 학교 필터에 이나리자키 · 다테공고 · 시라토리자와 추가", "캐릭터만 코트를 떠나면 그 에리어에는 가츠만 남도록 (하이바 레프 D02 이동 포함)", "CPU: 패의 【블록】 이벤트까지 계산해서 블록을 고름"]}, {"id": 18, "date": "2026-10-29", "title": "스타터 카드 점검", "notes": ["「손은 앞이라고 했잖아 노부카츠 군」: 쓸 수 있으면 두 효과 중 하나를 반드시 고르기 (같은 문구의 부스터 카드와 똑같이)", "CPU: 이와이즈미 효과로 카드를 못 뽑을 때는 뽑기만 하는 스킬(시바야마 · 츠키시마)에 가츠를 쓰지 않음"]}, {"id": 17, "date": "2026-10-29", "title": "부스터 1탄 카드 점검 · 수정", "notes": ["스타터 「물리공격으로…」로 패에 넣은 카드에도 이와이즈미 · 텐도 · 「나도 그렇게 생각했어☆」 효과가 적용되도록", "카게야마(006): 공개한 히나타 · 오픈 공격을 패에 넣을지 고를 수 있게 (「1장까지」)", "같은 턴에 도샷이 둘이면(쿠로오 · 츠키시마) 턴 끝에 적용할 도샷을 고르기", "「이게 \"잇는다\"는 거다」: 쓸 수 있으면 둘 중 하나를 반드시 고르기", "「앞으로 기울여 가자」가 아무 효과도 못 냈으면 【턴1】이 걸리지 않게", "엔노시타 · 시바야마 패 스킬: 대상 캐릭터가 없으면 쓸 수 없게", "세트가 끝나면 2인 카드 이름도 원래대로"]}, {"id": 16, "date": "2026-10-28", "title": "블록 판정 보이기", "notes": ["여러 명이 블록하면 판정 때 「블록! 3+2+2=7」처럼 블록 포인트 합계를 보여 줘요", "블록 페이즈가 끝나 사이드 블로커가 드롭될 때 드롭 더미로 날아가는 연출 (갑자기 사라져서 1명만 블록한 것처럼 보이던 문제)"]}, {"id": 15, "date": "2026-10-28", "title": "덱 편집 — 카드 목록만 스크롤", "notes": ["덱 편집 화면 전체는 움직이지 않고, 오른쪽 카드 목록만 스크롤돼요 (검색 · 필터는 위에 고정)", "카드 정보 · 덱 칸도 각자 칸 안에서만 스크롤"]}, {"id": 14, "date": "2026-10-28", "title": "상단 고정 · 패 떨림 수정", "notes": ["카드 목록 · 덱 편집 · QNA 등에서 스크롤해도 위쪽 ← 뒤로가기와 제목이 고정돼요", "패의 카드에 마우스를 올렸을 때 카드 아래쪽에서 들썩들썩 떨리던 문제 수정", "카드 목록 타일 · 덱 고르기 · 멀리건 카드 등 살짝 들리는 버튼도 가장자리에서 떨리지 않게"]}, {"id": 13, "date": "2026-10-28", "title": "덱 편집 — 덱 칸을 가장 크게", "notes": ["가운데 덱 칸을 가장 넓게, 넣은 카드를 그림으로 보여 줘요 (장수 배지 · ＋/−)", "오른쪽 카드 검색은 카드를 작게 해서 한 줄에 더 많이", "저장 · 취소 버튼이 덱 칸 아래에 늘 보이게"]}, {"id": 12, "date": "2026-10-28", "title": "덱 편집 화면 새 구성", "notes": ["덱 편집을 세 칸으로: 왼쪽 카드 정보(그림 · 능력치 · 효과 · 키워드 설명) · 가운데 덱 정보 · 오른쪽 카드 검색", "덱 규칙에 맞춰 40장을 넘거나 이벤트가 8장을 넘으면 더 넣을 수 없어요 (캐릭터는 같은 카드도 제한 없음)", "덱 목록을 캐릭터 / 이벤트로 나눠 보여 주고 남은 자리를 알려 줘요", "휴대폰에서는 위쪽 탭으로 카드 검색 · 덱 · 카드 정보를 오가요"]}, {"id": 11, "date": "2026-10-28", "title": "효과음 · 배경음", "notes": ["배구 효과음: 서브 · 스파이크(OP가 클수록 세게) · 리시브 · 토스 · 블록 · 도샷 · 원터치 · 공이 바닥에 떨어지는 소리 · 농구화 끼익 · 휘슬 · 관중 환호/탄식", "카드 뽑기 · 캐릭터 등장 · 이벤트/스킬 발동 · 코인 토스 · 승리/패배 소리", "배경음: 로비와 대전에서 각각 다른 곡", "소리 크기: 로비 왼쪽 아래 스피커 버튼, 경기 중에는 「설정」에서 배경음 · 효과음 따로 조절하거나 끌 수 있어요"]}, {"id": 10, "date": "2026-10-28", "title": "부스터 1탄 「쓰레기장의 결전」 카드 추가", "notes": ["부스터 1탄 93종(캐릭터 73 · 이벤트 20) 추가 — 패러렐 버전은 제외, 모든 카드 스킬을 공식 텍스트 · Q&A 기준으로 구현", "새 키워드: 원터치 · 페인트 · 블록아웃 · 턴1 · 도샷(6), 패에서 쓰는 캐릭터 스킬(엔노시타 · 시바야마), 2인 카드(히나타·코즈메 / 츠키시마·쿠로오)의 이름 고르기", "샘플 덱 2종: 아오바죠사이 · 후쿠로다니 (AI 대전에서 바로 선택 가능)", "카드 목록 · 덱 편집: 세트 · 학교 필터와 이름 · 효과 검색"]}, {"id": 9, "date": "2026-10-28", "title": "휴대폰 · 태블릿 지원", "notes": ["휴대폰 세로(아이폰 · 갤럭시 S · 폴드 커버): 스크롤 없이 한 화면에 필드와 패가 꽉 차게, 위쪽 ⋯ 메뉴에 로그 · 설정 · 기권", "태블릿 세로(아이패드 · 갤럭시 탭 · 폴드 펼침): 카드를 화면 폭에 맞춰 크게, 가로는 여백을 줄여 카드를 조금 더 크게", "카드를 꾹 누르면 카드 정보 (휴대폰 · 태블릿)", "휴대폰을 가로로 들면 세로로 돌리라는 안내 (그래도 가로로 볼 수 있음)"]}, {"id": 8, "date": "2026-10-28", "title": "매트 다듬기 · 첫 패 연출", "notes": ["서브 에리어(왼쪽 줄)를 더 넓게", "가츠: 맨 위 캐릭터 아래 깔린 카드가 왼쪽으로 비스듬히 삐져나오고, 장수는 노란 숫자로", "덱 · 드롭 · 이벤트 칸을 같은 크기로 (드롭과 이벤트는 룰상 다른 영역이라 그대로 따로)", "멀리건이 끝나면 첫 패를 덱에서 한 장씩 뽑아 오는 연출"]}, {"id": 7, "date": "2026-10-28", "title": "경기 결과 연출", "notes": ["승리하면 팀 색 꽃가루와 함께 「승리!」, 패배하면 화면이 어두워지며 「패배…」", "세트마다 마지막 점수를 낸 카드(어택 · 서브 · 블록/도샷, OP, 토스 카드)와 상대가 놓친 이유를 차례로 보여 줘요", "결정타를 가장 많이 낸 카드는 「오늘의 해결사」로 표시 — 카드 그림을 누르면 정보창"]}, {"id": 6, "date": "2026-10-28", "title": "상대 패 모양", "notes": ["상대 패(뒷면) 부채꼴을 내 패를 마주 본 방향으로 뒤집었어요"]}, {"id": 5, "date": "2026-10-28", "title": "드로우 연출 · 효과 알림 개선", "notes": ["카드를 뽑으면 덱(또는 세트 에리어)에서 패로 날아와요 — 상대가 뽑을 때도", "스킬 · 이벤트 알림이 효과가 실제로 적용되는 순간(포인트 증감, 드로우 등)마다 떠요", "알림은 화면 오른쪽 가운데, 알림 속 카드 그림을 누르면 정보창", "키워드 설명은 정보창의 「키워드 설명 보기」를 눌렀을 때만"]}, {"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
+<script>window.VOBACA_VERSION="20261031161923";window.VOBACA_CHANGELOG=[{"id": 23, "date": "2026-10-31", "title": "스타터 덱 이나리자키 · 아오바죠사이 추가", "notes": ["스타터 덱 HV-D03 「이나리자키 고교」 · HV-D04 「아오바죠사이 고교」 추가 — 카드 26종, 덱 구성은 공식 수록 내용 그대로 (키라 버전 포함)", "새 스킬: 미야 아츠무의 「오늘은 뭘 할래?」 회수, 미야 오사무의 덱 아래로 보내기, 킨다이치의 【도샷(6)】, 덱 맨 위 공개 등 — 카드 텍스트와 공식 Q&A 기준", "덱 목록에서 스타터 덱 4개가 먼저 나오도록 정리", "모든 세트를 섞은 무작위 덱 8,000판 자동 대전 추가 — 오류 0건"]}, {"id": 22, "date": "2026-10-30", "title": "부스터 4탄 「재능과 센스」 추가 · 세트 간 점검", "notes": ["부스터 4탄 HV-P04 101종 추가 (패러렐 제외) — 카라스노 · 아오바죠사이 · 카도카와 · 죠젠지 · 와쿠타니미나미 · 네코마 · 다테공고 · 시라토리자와 · 후쿠로다니 · 이나리자키 · 유스 · 동네 팀", "새 키워드: 【A패스(N)】, 【동시다발 위치차 공격〈소속〉(N)】, 「덱 위에서 N장까지 드롭」, 상대 로스트 시 발동하는 「이걸로 스타트라인이다」 등 — 카드 텍스트와 공식 Q&A 기준", "샘플 덱 2종: 카라스노 (4탄 샘플, 스타터 카드로 보강) · 아오바죠사이 (4탄 샘플)", "카드 목록 · 덱 편집에 「부스터 4탄」 세트와 카도카와 · 죠젠지 · 와쿠타니미나미 학교 필터 추가", "CPU: 상대 효과로 등장할 수 없는 리시브 캐릭터를 고르다 로스트하던 문제, 「원래 리시브 5 이상」 같은 조건부 −효과를 잘못 계산하던 문제 수정", "패에서 「~장까지」 고르는 선택에 「고르지 않음」 버튼 추가", "경기가 끝나는 로스트에서는 「로스트했을 때」 효과를 묻지 않도록 수정", "스타터 · 1~4탄을 섞은 무작위 덱 24,000판 자동 대전 — 오류 0건"]}, {"id": 21, "date": "2026-10-29", "title": "전체 최적화", "notes": ["덱 편집: ＋/− 를 누를 때 카드 목록 전체를 다시 만들지 않고 숫자만 바꿔요 (한 번 누를 때 약 80ms → 5ms)", "덱 편집 · 카드 목록 · Q&A: 카드 이미지를 화면에 보일 때만 불러와요 (덱 편집을 열 때 이미지 320장 → 약 80장)", "검색창: 글자를 칠 때마다가 아니라 잠깐 멈췄을 때 목록을 다시 그려요", "경기 화면: 바뀐 부분만 다시 그리고, 깜빡이는 강조 효과를 가벼운 방식으로 바꿔 입력을 기다리는 동안 CPU 사용을 줄였어요", "배경음: 소리를 끄거나 배경음 음량이 0이면 음악 합성을 멈춰요", "페이지 크기 약 22% 감소 (카드 데이터 압축)", "기기에서 「동작 줄이기」를 켜 두면 반복 애니메이션을 멈춰요"]}, {"id": 20, "date": "2026-10-29", "title": "부스터 3탄 「유스 & 선발 강화 합숙」 추가 · 전체 점검", "notes": ["부스터 3탄 HV-P03 99종 추가 (패러렐 제외) — 유스 · 유사 유스, 볼 줍기 캐릭터, 【백어택(N)】, 「−되지 않는다」 등 새 규칙", "샘플 덱 2종: 유스 합숙 · 유사 유스. 덱 편집에 세트 「부스터 3탄」, 학교 필터 유스 · 유사 유스, 포지션 필터 「볼 줍기」", "룰 수정: 캐릭터가 코트를 떠나면 바로 아래 가츠가 캐릭터가 됨 (등장이 아니며 효과도 이어받지 않음 — 종합 룰 1-2-15-3)", "룰 수정: 「N가츠 지불」에서 지불할 가츠를 직접 고를 수 있음 (종합 룰 1-4-8-1)", "룰 수정: 조건을 못 채우거나 【턴1】으로 무효여도 이벤트는 이벤트 에리어에 놓을 수 있음 (공식 Q&A)", "미야 아츠무(2탄 016)끼리 대전할 때 내 016이 무효가 되던 버그, 2탄 켄마로 등장한 1탄 레프가 +2를 못 받던 버그 수정", "상대 로스트로 「그 순간」과 야치 효과가 함께 유발하면 해결 순서를 고를 수 있게"]}, {"id": 19, "date": "2026-10-29", "title": "부스터 2탄 「최강의 도전자」 추가", "notes": ["부스터 2탄 HV-P02 100종 추가 (캐릭터 78 · 이벤트 22, 패러렐 제외) — 이나리자키 · 다테공고 · 시라토리자와 등", "새 규칙: 【투어택(N)】 · 코인 던지기 · 카드 비스듬히 놓기 · 「상대가 카드를 패에 넣을 때마다」 · 스킬로 사이드 블로커 등장 · 「센터 블로커의 블록 포인트 없음」", "샘플 덱 2종: 이나리자키 · 다테공고", "덱 편집: 세트 「부스터 2탄」, 학교 필터에 이나리자키 · 다테공고 · 시라토리자와 추가", "캐릭터만 코트를 떠나면 그 에리어에는 가츠만 남도록 (하이바 레프 D02 이동 포함)", "CPU: 패의 【블록】 이벤트까지 계산해서 블록을 고름"]}, {"id": 18, "date": "2026-10-29", "title": "스타터 카드 점검", "notes": ["「손은 앞이라고 했잖아 노부카츠 군」: 쓸 수 있으면 두 효과 중 하나를 반드시 고르기 (같은 문구의 부스터 카드와 똑같이)", "CPU: 이와이즈미 효과로 카드를 못 뽑을 때는 뽑기만 하는 스킬(시바야마 · 츠키시마)에 가츠를 쓰지 않음"]}, {"id": 17, "date": "2026-10-29", "title": "부스터 1탄 카드 점검 · 수정", "notes": ["스타터 「물리공격으로…」로 패에 넣은 카드에도 이와이즈미 · 텐도 · 「나도 그렇게 생각했어☆」 효과가 적용되도록", "카게야마(006): 공개한 히나타 · 오픈 공격을 패에 넣을지 고를 수 있게 (「1장까지」)", "같은 턴에 도샷이 둘이면(쿠로오 · 츠키시마) 턴 끝에 적용할 도샷을 고르기", "「이게 \"잇는다\"는 거다」: 쓸 수 있으면 둘 중 하나를 반드시 고르기", "「앞으로 기울여 가자」가 아무 효과도 못 냈으면 【턴1】이 걸리지 않게", "엔노시타 · 시바야마 패 스킬: 대상 캐릭터가 없으면 쓸 수 없게", "세트가 끝나면 2인 카드 이름도 원래대로"]}, {"id": 16, "date": "2026-10-28", "title": "블록 판정 보이기", "notes": ["여러 명이 블록하면 판정 때 「블록! 3+2+2=7」처럼 블록 포인트 합계를 보여 줘요", "블록 페이즈가 끝나 사이드 블로커가 드롭될 때 드롭 더미로 날아가는 연출 (갑자기 사라져서 1명만 블록한 것처럼 보이던 문제)"]}, {"id": 15, "date": "2026-10-28", "title": "덱 편집 — 카드 목록만 스크롤", "notes": ["덱 편집 화면 전체는 움직이지 않고, 오른쪽 카드 목록만 스크롤돼요 (검색 · 필터는 위에 고정)", "카드 정보 · 덱 칸도 각자 칸 안에서만 스크롤"]}, {"id": 14, "date": "2026-10-28", "title": "상단 고정 · 패 떨림 수정", "notes": ["카드 목록 · 덱 편집 · QNA 등에서 스크롤해도 위쪽 ← 뒤로가기와 제목이 고정돼요", "패의 카드에 마우스를 올렸을 때 카드 아래쪽에서 들썩들썩 떨리던 문제 수정", "카드 목록 타일 · 덱 고르기 · 멀리건 카드 등 살짝 들리는 버튼도 가장자리에서 떨리지 않게"]}, {"id": 13, "date": "2026-10-28", "title": "덱 편집 — 덱 칸을 가장 크게", "notes": ["가운데 덱 칸을 가장 넓게, 넣은 카드를 그림으로 보여 줘요 (장수 배지 · ＋/−)", "오른쪽 카드 검색은 카드를 작게 해서 한 줄에 더 많이", "저장 · 취소 버튼이 덱 칸 아래에 늘 보이게"]}, {"id": 12, "date": "2026-10-28", "title": "덱 편집 화면 새 구성", "notes": ["덱 편집을 세 칸으로: 왼쪽 카드 정보(그림 · 능력치 · 효과 · 키워드 설명) · 가운데 덱 정보 · 오른쪽 카드 검색", "덱 규칙에 맞춰 40장을 넘거나 이벤트가 8장을 넘으면 더 넣을 수 없어요 (캐릭터는 같은 카드도 제한 없음)", "덱 목록을 캐릭터 / 이벤트로 나눠 보여 주고 남은 자리를 알려 줘요", "휴대폰에서는 위쪽 탭으로 카드 검색 · 덱 · 카드 정보를 오가요"]}, {"id": 11, "date": "2026-10-28", "title": "효과음 · 배경음", "notes": ["배구 효과음: 서브 · 스파이크(OP가 클수록 세게) · 리시브 · 토스 · 블록 · 도샷 · 원터치 · 공이 바닥에 떨어지는 소리 · 농구화 끼익 · 휘슬 · 관중 환호/탄식", "카드 뽑기 · 캐릭터 등장 · 이벤트/스킬 발동 · 코인 토스 · 승리/패배 소리", "배경음: 로비와 대전에서 각각 다른 곡", "소리 크기: 로비 왼쪽 아래 스피커 버튼, 경기 중에는 「설정」에서 배경음 · 효과음 따로 조절하거나 끌 수 있어요"]}, {"id": 10, "date": "2026-10-28", "title": "부스터 1탄 「쓰레기장의 결전」 카드 추가", "notes": ["부스터 1탄 93종(캐릭터 73 · 이벤트 20) 추가 — 패러렐 버전은 제외, 모든 카드 스킬을 공식 텍스트 · Q&A 기준으로 구현", "새 키워드: 원터치 · 페인트 · 블록아웃 · 턴1 · 도샷(6), 패에서 쓰는 캐릭터 스킬(엔노시타 · 시바야마), 2인 카드(히나타·코즈메 / 츠키시마·쿠로오)의 이름 고르기", "샘플 덱 2종: 아오바죠사이 · 후쿠로다니 (AI 대전에서 바로 선택 가능)", "카드 목록 · 덱 편집: 세트 · 학교 필터와 이름 · 효과 검색"]}, {"id": 9, "date": "2026-10-28", "title": "휴대폰 · 태블릿 지원", "notes": ["휴대폰 세로(아이폰 · 갤럭시 S · 폴드 커버): 스크롤 없이 한 화면에 필드와 패가 꽉 차게, 위쪽 ⋯ 메뉴에 로그 · 설정 · 기권", "태블릿 세로(아이패드 · 갤럭시 탭 · 폴드 펼침): 카드를 화면 폭에 맞춰 크게, 가로는 여백을 줄여 카드를 조금 더 크게", "카드를 꾹 누르면 카드 정보 (휴대폰 · 태블릿)", "휴대폰을 가로로 들면 세로로 돌리라는 안내 (그래도 가로로 볼 수 있음)"]}, {"id": 8, "date": "2026-10-28", "title": "매트 다듬기 · 첫 패 연출", "notes": ["서브 에리어(왼쪽 줄)를 더 넓게", "가츠: 맨 위 캐릭터 아래 깔린 카드가 왼쪽으로 비스듬히 삐져나오고, 장수는 노란 숫자로", "덱 · 드롭 · 이벤트 칸을 같은 크기로 (드롭과 이벤트는 룰상 다른 영역이라 그대로 따로)", "멀리건이 끝나면 첫 패를 덱에서 한 장씩 뽑아 오는 연출"]}, {"id": 7, "date": "2026-10-28", "title": "경기 결과 연출", "notes": ["승리하면 팀 색 꽃가루와 함께 「승리!」, 패배하면 화면이 어두워지며 「패배…」", "세트마다 마지막 점수를 낸 카드(어택 · 서브 · 블록/도샷, OP, 토스 카드)와 상대가 놓친 이유를 차례로 보여 줘요", "결정타를 가장 많이 낸 카드는 「오늘의 해결사」로 표시 — 카드 그림을 누르면 정보창"]}, {"id": 6, "date": "2026-10-28", "title": "상대 패 모양", "notes": ["상대 패(뒷면) 부채꼴을 내 패를 마주 본 방향으로 뒤집었어요"]}, {"id": 5, "date": "2026-10-28", "title": "드로우 연출 · 효과 알림 개선", "notes": ["카드를 뽑으면 덱(또는 세트 에리어)에서 패로 날아와요 — 상대가 뽑을 때도", "스킬 · 이벤트 알림이 효과가 실제로 적용되는 순간(포인트 증감, 드로우 등)마다 떠요", "알림은 화면 오른쪽 가운데, 알림 속 카드 그림을 누르면 정보창", "키워드 설명은 정보창의 「키워드 설명 보기」를 눌렀을 때만"]}, {"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
 <script src="config.js"></script>
 <script>
 // バボカ BREAK — HV-D01 烏野 / HV-D02 音駒 スターターデッキ カードデータ
@@ -1588,6 +1588,634 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   const mk4 = arr => arr.map(([n, k]) => [N4(n), k, C.DB[N4(n)].img]);
   C.DECKS.karasuno4 = { id: 'karasuno4', label: '카라스노 (4탄 샘플)', short: '카라스노 4탄', code: 'HV-P04 샘플', color: 'karasuno', sample: true, list: mk4([[1, 3], [2, 3], [5, 3], [8, 4], [10, 4], [4, 2], [7, 2], [12, 2], [84, 4], ["HV-D01-006", 4], ["HV-D01-010", 3], ["HV-D01-012", 4], ["HV-D01-009", 2]]) };
   C.DECKS.seijoh4 = { id: 'seijoh4', label: '아오바죠사이 (4탄 샘플)', short: '아오바죠사이 4탄', code: 'HV-P04 샘플', color: 'seijoh', sample: true, list: mk4([[15, 1], [16, 3], [18, 2], [19, 1], [20, 3], [21, 1], [22, 3], [23, 2], [24, 2], [25, 2], [26, 1], [27, 3], [28, 2], [29, 2], [30, 2], [31, 2], [85, 2], [87, 2], [88, 2], [89, 2]]) };
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<script>
+// 스타터 덱 HV-D03 稲荷崎高校 · HV-D04 青葉城西高校 — scripts/build_d34.py 로 생성. 덱 구성은 공식 「収録内容」 이미지 기준, 한국어 번역은 비공식
+(function (G) {
+  'use strict';
+  const D34 = [
+ {
+  "no": "HV-D03-001",
+  "name": "宮 侑",
+  "kr": "미야 아츠무",
+  "aff": [
+   "稲荷崎"
+  ],
+  "jp": "[登場][トスエリア]\n2ガッツ払えば使える。このキャラのトスポイントに+1し、自分のイベントエリアから「今日 何をする？」1枚までを手札に加える。加えた場合、自分の手札からカード1枚をデッキの下に置く。",
+  "ko": "【등장】【토스 에리어】 2가츠를 지불하면 사용할 수 있다. 이 캐릭터의 토스 포인트 +1. 자신의 이벤트 에리어에서 「오늘은 뭘 할래?」 1장까지를 패에 넣는다. 넣었다면, 자신의 패에서 카드 1장을 덱 아래에 둔다.",
+  "type": "C",
+  "grade": "2年",
+  "pos": [
+   "S"
+  ],
+  "params": {
+   "serve": 2,
+   "block": 2,
+   "receive": 0,
+   "toss": 1,
+   "attack": 0
+  },
+  "trigger": {
+   "kind": "appear",
+   "areas": [
+    "toss"
+   ]
+  },
+  "skill": "d3_001"
+ },
+ {
+  "no": "HV-D03-002",
+  "name": "宮 治",
+  "kr": "미야 오사무",
+  "aff": [
+   "稲荷崎"
+  ],
+  "jp": "[登場][アタックエリア]\n自分のトスキャラが「宮 侑」の場合、自分の手札からカード1枚をデッキの下に置けば使える。このキャラのアタックポイントに+2する。",
+  "ko": "【등장】【어택 에리어】 자신의 토스 캐릭터가 「미야 아츠무」라면, 자신의 패에서 카드 1장을 덱 아래에 두면 사용할 수 있다. 이 캐릭터의 어택 포인트 +2.",
+  "type": "C",
+  "grade": "2年",
+  "pos": [
+   "WS"
+  ],
+  "params": {
+   "serve": 1,
+   "block": 1,
+   "receive": 1,
+   "toss": 1,
+   "attack": 2
+  },
+  "trigger": {
+   "kind": "appear",
+   "areas": [
+    "attack"
+   ]
+  },
+  "skill": "d3_002"
+ },
+ {
+  "no": "HV-D03-003",
+  "name": "宮 侑",
+  "kr": "미야 아츠무",
+  "aff": [
+   "稲荷崎"
+  ],
+  "jp": "[登場][サーブエリア]\n自分の手札からイベントカード1枚をイベントエリアに置けば使える。カード1枚を引き、以下から1つを選ぶ。\n ▶このキャラのサーブポイントに+1する。\n ▶次の相手のターン中、相手のトスキャラが登場するたび、そのキャラのトスポイントに－2する。\n（このスキルで置かれたイベントカードのスキルは使用できない）",
+  "ko": "【등장】【서브 에리어】 자신의 패에서 이벤트 카드 1장을 이벤트 에리어에 놓으면 사용할 수 있다. 카드 1장을 뽑고, 다음 중 1개를 고른다. ▶이 캐릭터의 서브 포인트 +1. ▶다음 상대 턴 동안 상대의 토스 캐릭터가 등장할 때마다 그 캐릭터의 토스 포인트 −2. (이 스킬로 놓은 이벤트 카드의 스킬은 사용할 수 없다)",
+  "type": "C",
+  "grade": "2年",
+  "pos": [
+   "S"
+  ],
+  "params": {
+   "serve": 5,
+   "block": 0,
+   "receive": 0,
+   "toss": 1,
+   "attack": 0
+  },
+  "trigger": {
+   "kind": "appear",
+   "areas": [
+    "serve"
+   ]
+  },
+  "skill": "d3_003"
+ },
+ {
+  "no": "HV-D03-004",
+  "name": "宮 侑",
+  "kr": "미야 아츠무",
+  "aff": [
+   "稲荷崎"
+  ],
+  "jp": "",
+  "ko": "",
+  "type": "C",
+  "grade": "2年",
+  "pos": [
+   "S"
+  ],
+  "params": {
+   "serve": 4,
+   "block": 0,
+   "receive": 0,
+   "toss": 2,
+   "attack": 3
+  }
+ },
+ {
+  "no": "HV-D03-005",
+  "name": "宮 治",
+  "kr": "미야 오사무",
+  "aff": [
+   "稲荷崎"
+  ],
+  "jp": "",
+  "ko": "",
+  "type": "C",
+  "grade": "2年",
+  "pos": [
+   "WS"
+  ],
+  "params": {
+   "serve": 1,
+   "block": 3,
+   "receive": 0,
+   "toss": 2,
+   "attack": 2
+  }
+ },
+ {
+  "no": "HV-D03-006",
+  "name": "北 信介",
+  "kr": "키타 신스케",
+  "aff": [
+   "稲荷崎"
+  ],
+  "jp": "",
+  "ko": "",
+  "type": "C",
+  "grade": "3年",
+  "pos": [
+   "WS"
+  ],
+  "params": {
+   "serve": 2,
+   "block": 0,
+   "receive": 5,
+   "toss": 1,
+   "attack": 0
+  }
+ },
+ {
+  "no": "HV-D03-007",
+  "name": "角名 倫太郎",
+  "kr": "스나 린타로",
+  "aff": [
+   "稲荷崎"
+  ],
+  "jp": "",
+  "ko": "",
+  "type": "C",
+  "grade": "2年",
+  "pos": [
+   "MB"
+  ],
+  "params": {
+   "serve": 2,
+   "block": 3,
+   "receive": 3,
+   "toss": 0,
+   "attack": 3
+  }
+ },
+ {
+  "no": "HV-D03-008",
+  "name": "尾白 アラン",
+  "kr": "오지로 아란",
+  "aff": [
+   "稲荷崎"
+  ],
+  "jp": "[登場][アタックエリア]\n5ガッツ払えば使える。このキャラのアタックポイントに+2する。",
+  "ko": "【등장】【어택 에리어】 5가츠를 지불하면 사용할 수 있다. 이 캐릭터의 어택 포인트 +2.",
+  "type": "C",
+  "grade": "3年",
+  "pos": [
+   "WS"
+  ],
+  "params": {
+   "serve": 4,
+   "block": 0,
+   "receive": 1,
+   "toss": 0,
+   "attack": 3
+  },
+  "trigger": {
+   "kind": "appear",
+   "areas": [
+    "attack"
+   ]
+  },
+  "skill": "d3_008"
+ },
+ {
+  "no": "HV-D03-009",
+  "name": "銀島 結",
+  "kr": "긴지마 히토시",
+  "aff": [
+   "稲荷崎"
+  ],
+  "jp": "",
+  "ko": "",
+  "type": "C",
+  "grade": "2年",
+  "pos": [
+   "WS"
+  ],
+  "params": {
+   "serve": 2,
+   "block": 2,
+   "receive": 4,
+   "toss": 0,
+   "attack": 3
+  }
+ },
+ {
+  "no": "HV-D03-010",
+  "name": "大耳 練",
+  "kr": "오미미 렌",
+  "aff": [
+   "稲荷崎"
+  ],
+  "jp": "",
+  "ko": "",
+  "type": "C",
+  "grade": "3年",
+  "pos": [
+   "MB"
+  ],
+  "params": {
+   "serve": 3,
+   "block": 3,
+   "receive": 2,
+   "toss": 0,
+   "attack": 3
+  }
+ },
+ {
+  "no": "HV-D03-011",
+  "name": "赤木 路成",
+  "kr": "아카기 미치나리",
+  "aff": [
+   "稲荷崎"
+  ],
+  "jp": "[登場][レシーブエリア]\n2ガッツ払えば使える。このキャラのレシーブポイントに+2する。",
+  "ko": "【등장】【리시브 에리어】 2가츠를 지불하면 사용할 수 있다. 이 캐릭터의 리시브 포인트 +2.",
+  "type": "C",
+  "grade": "3年",
+  "pos": [
+   "Li"
+  ],
+  "params": {
+   "serve": null,
+   "block": null,
+   "receive": 5,
+   "toss": 0,
+   "attack": 0
+  },
+  "trigger": {
+   "kind": "appear",
+   "areas": [
+    "receive"
+   ]
+  },
+  "skill": "d3_011"
+ },
+ {
+  "no": "HV-D03-012",
+  "name": "優勝候補ってやつだ",
+  "kr": "우승 후보라는 거다",
+  "aff": [
+   "稲荷崎"
+  ],
+  "jp": "[レシーブ]\nカード1枚を引き、自分の稲荷崎のキャラ1人のレシーブポイントに+1する。自分のレシーブエリアから4ガッツ払えば使える。カード1枚を引く。",
+  "ko": "【리시브】 카드 1장을 뽑고, 자신의 이나리자키 캐릭터 1명의 리시브 포인트 +1. 자신의 리시브 에리어에서 4가츠를 지불하면 사용할 수 있다. 카드 1장을 뽑는다.",
+  "type": "E",
+  "timing": [
+   "receive"
+  ],
+  "skill": "d3_012",
+  "role": []
+ },
+ {
+  "no": "HV-D03-013",
+  "name": "今日 何をする？",
+  "kr": "오늘은 뭘 할래?",
+  "aff": [
+   "稲荷崎"
+  ],
+  "jp": "[トス][アタック]\n自分のトスキャラが「宮 侑」か「宮 治」の場合に使える。カード1枚を引き、そのキャラのトスポイントに+1する。",
+  "ko": "【토스】【어택】 자신의 토스 캐릭터가 「미야 아츠무」나 「미야 오사무」라면 사용할 수 있다. 카드 1장을 뽑고, 그 캐릭터의 토스 포인트 +1.",
+  "type": "E",
+  "timing": [
+   "toss",
+   "attack"
+  ],
+  "skill": "d3_013",
+  "role": []
+ },
+ {
+  "no": "HV-D04-001",
+  "name": "及川 徹",
+  "kr": "오이카와 토오루",
+  "aff": [
+   "青葉城西"
+  ],
+  "jp": "[登場][サーブエリア][トスエリア]\n2ガッツ払えば使える。払ったカードすべてが青葉城西の場合、このキャラのパラメータ1つに+2する。",
+  "ko": "【등장】【서브 에리어】【토스 에리어】 2가츠를 지불하면 사용할 수 있다. 지불한 카드가 모두 아오바죠사이라면, 이 캐릭터의 파라미터 1개 +2.",
+  "type": "C",
+  "grade": "3年",
+  "pos": [
+   "S"
+  ],
+  "params": {
+   "serve": 4,
+   "block": 1,
+   "receive": 0,
+   "toss": 1,
+   "attack": 0
+  },
+  "trigger": {
+   "kind": "appear",
+   "areas": [
+    "serve",
+    "toss"
+   ]
+  },
+  "skill": "d4_001"
+ },
+ {
+  "no": "HV-D04-002",
+  "name": "岩泉 一",
+  "kr": "이와이즈미 하지메",
+  "aff": [
+   "青葉城西"
+  ],
+  "jp": "[登場][アタックエリア]\n自分のトスキャラが「及川 徹」の場合、2ガッツ払えば使える。このキャラのアタックポイントに+3し、自分のセットカードが相手のセットカードより少ない場合、さらにアタックポイントに+1する。",
+  "ko": "【등장】【어택 에리어】 자신의 토스 캐릭터가 「오이카와 토오루」라면, 2가츠를 지불하면 사용할 수 있다. 이 캐릭터의 어택 포인트 +3. 자신의 세트 카드가 상대의 세트 카드보다 적다면, 추가로 어택 포인트 +1.",
+  "type": "C",
+  "grade": "3年",
+  "pos": [
+   "WS"
+  ],
+  "params": {
+   "serve": 3,
+   "block": 3,
+   "receive": 0,
+   "toss": 0,
+   "attack": 1
+  },
+  "trigger": {
+   "kind": "appear",
+   "areas": [
+    "attack"
+   ]
+  },
+  "skill": "d4_002"
+ },
+ {
+  "no": "HV-D04-003",
+  "name": "及川 徹",
+  "kr": "오이카와 토오루",
+  "aff": [
+   "青葉城西"
+  ],
+  "jp": "",
+  "ko": "",
+  "type": "C",
+  "grade": "3年",
+  "pos": [
+   "S"
+  ],
+  "params": {
+   "serve": 5,
+   "block": 0,
+   "receive": 1,
+   "toss": 2,
+   "attack": 2
+  }
+ },
+ {
+  "no": "HV-D04-004",
+  "name": "岩泉 一",
+  "kr": "이와이즈미 하지메",
+  "aff": [
+   "青葉城西"
+  ],
+  "jp": "",
+  "ko": "",
+  "type": "C",
+  "grade": "3年",
+  "pos": [
+   "WS"
+  ],
+  "params": {
+   "serve": 5,
+   "block": 0,
+   "receive": 4,
+   "toss": 0,
+   "attack": 3
+  }
+ },
+ {
+  "no": "HV-D04-005",
+  "name": "金田一 勇太郎",
+  "kr": "킨다이치 유타로",
+  "aff": [
+   "青葉城西"
+  ],
+  "jp": "[登場][ブロックエリア]\n相手のオフェンスポイントが2以下の場合、[ドシャット(6)]する。",
+  "ko": "【등장】【블록 에리어】 상대의 오펜스 포인트가 2 이하라면, 【도샷(6)】한다.",
+  "type": "C",
+  "grade": "1年",
+  "pos": [
+   "MB"
+  ],
+  "params": {
+   "serve": 1,
+   "block": 2,
+   "receive": 0,
+   "toss": 0,
+   "attack": 3
+  },
+  "trigger": {
+   "kind": "appear",
+   "areas": [
+    "block"
+   ]
+  },
+  "skill": "d4_005"
+ },
+ {
+  "no": "HV-D04-006",
+  "name": "松川 一静",
+  "kr": "마츠카와 잇세이",
+  "aff": [
+   "青葉城西"
+  ],
+  "jp": "",
+  "ko": "",
+  "type": "C",
+  "grade": "3年",
+  "pos": [
+   "MB"
+  ],
+  "params": {
+   "serve": 2,
+   "block": 3,
+   "receive": 3,
+   "toss": 0,
+   "attack": 3
+  }
+ },
+ {
+  "no": "HV-D04-007",
+  "name": "花巻 貴大",
+  "kr": "하나마키 타카히로",
+  "aff": [
+   "青葉城西"
+  ],
+  "jp": "",
+  "ko": "",
+  "type": "C",
+  "grade": "3年",
+  "pos": [
+   "WS"
+  ],
+  "params": {
+   "serve": 0,
+   "block": 0,
+   "receive": 5,
+   "toss": 1,
+   "attack": 2
+  }
+ },
+ {
+  "no": "HV-D04-008",
+  "name": "渡 親治",
+  "kr": "와타리 신지",
+  "aff": [
+   "青葉城西"
+  ],
+  "jp": "[登場][レシーブエリア]\n4ガッツ払えば使える。カード1枚を引き、このキャラのレシーブポイントに+2する。",
+  "ko": "【등장】【리시브 에리어】 4가츠를 지불하면 사용할 수 있다. 카드 1장을 뽑고, 이 캐릭터의 리시브 포인트 +2.",
+  "type": "C",
+  "grade": "2年",
+  "pos": [
+   "Li"
+  ],
+  "params": {
+   "serve": null,
+   "block": null,
+   "receive": 5,
+   "toss": 1,
+   "attack": 0
+  },
+  "trigger": {
+   "kind": "appear",
+   "areas": [
+    "receive"
+   ]
+  },
+  "skill": "d4_008"
+ },
+ {
+  "no": "HV-D04-009",
+  "name": "矢巾 秀",
+  "kr": "야하바 시게루",
+  "aff": [
+   "青葉城西"
+  ],
+  "jp": "",
+  "ko": "",
+  "type": "C",
+  "grade": "2年",
+  "pos": [
+   "S"
+  ],
+  "params": {
+   "serve": 2,
+   "block": 2,
+   "receive": 1,
+   "toss": 2,
+   "attack": 2
+  }
+ },
+ {
+  "no": "HV-D04-010",
+  "name": "国見 英",
+  "kr": "쿠니미 아키라",
+  "aff": [
+   "青葉城西"
+  ],
+  "jp": "",
+  "ko": "",
+  "type": "C",
+  "grade": "1年",
+  "pos": [
+   "WS"
+  ],
+  "params": {
+   "serve": 1,
+   "block": 2,
+   "receive": 5,
+   "toss": 0,
+   "attack": 2
+  }
+ },
+ {
+  "no": "HV-D04-011",
+  "name": "京谷 賢太郎",
+  "kr": "쿄타니 켄타로",
+  "aff": [
+   "青葉城西"
+  ],
+  "jp": "",
+  "ko": "",
+  "type": "C",
+  "grade": "2年",
+  "pos": [
+   "WS"
+  ],
+  "params": {
+   "serve": 4,
+   "block": 2,
+   "receive": 3,
+   "toss": 0,
+   "attack": 3
+  }
+ },
+ {
+  "no": "HV-D04-012",
+  "name": "…残念ながら―― お前は決めるに決まっている",
+  "kr": "…유감스럽게도―― 너는 결정할 게 뻔해",
+  "aff": [
+   "青葉城西"
+  ],
+  "jp": "[サーブ][アタック]\n自分の青葉城西のキャラ1人のパラメータ1つに+1する。アタックフェイズ中の場合、カード1枚を引く。このターン中、自分は「…残念ながら―― お前は決めるに決まっている」のスキルを使えない。",
+  "ko": "【서브】【어택】 자신의 아오바죠사이 캐릭터 1명의 파라미터 1개 +1. 어택 페이즈 중이라면 카드 1장을 뽑는다. 이번 턴 동안 자신은 「…유감스럽게도―― 너는 결정할 게 뻔해」의 스킬을 사용할 수 없다.",
+  "type": "E",
+  "timing": [
+   "serve",
+   "attack"
+  ],
+  "skill": "d4_012",
+  "role": [],
+  "turn1": true
+ },
+ {
+  "no": "HV-D04-013",
+  "name": "さすがお前らしっかりしすぎて主将悲しい!!",
+  "kr": "역시 너희들 너무 듬직해서 주장은 슬퍼!!",
+  "aff": [
+   "青葉城西"
+  ],
+  "jp": "[レシーブ]\n自分の青葉城西のキャラ1人のレシーブポイントに+1する。自分のデッキの上から1枚までを公開し、そのカードが青葉城西の場合、そのカードを手札に加え、加えなかったカードをデッキの下に置く。公開したカードがイベントカードの場合、カード1枚を引く。",
+  "ko": "【리시브】 자신의 아오바죠사이 캐릭터 1명의 리시브 포인트 +1. 자신의 덱 위에서 1장까지를 공개하고, 그 카드가 아오바죠사이라면 패에 넣고, 넣지 않은 카드는 덱 아래에 둔다. 공개한 카드가 이벤트 카드라면 카드 1장을 뽑는다.",
+  "type": "E",
+  "timing": [
+   "receive"
+  ],
+  "skill": "d4_013",
+  "role": []
+ }
+];
+  const C = G.VobacaCards;
+  for (const c of D34) { if (c.params) { const p = c.params; c.params = { serve: p.serve ?? null, block: p.block ?? null, receive: p.receive ?? null, toss: p.toss ?? null, attack: p.attack ?? null }; } C.CARDS.push(c); C.DB[c.no] = c; }
+  C.DECKS.inarizakiD = { id: 'inarizakiD', label: '이나리자키 고교', short: '이나리자키', jpLabel: '稲荷崎高校', code: 'HV-D03', color: 'inari', list: [["HV-D03-001", 2, "D"], ["HV-D03-001", 1, "DP"], ["HV-D03-002", 2, "D"], ["HV-D03-002", 1, "DP"], ["HV-D03-003", 2, "D"], ["HV-D03-004", 2, "D"], ["HV-D03-005", 2, "D"], ["HV-D03-006", 3, "D"], ["HV-D03-007", 4, "D"], ["HV-D03-008", 4, "D"], ["HV-D03-009", 4, "D"], ["HV-D03-010", 3, "D"], ["HV-D03-011", 2, "D"], ["HV-D03-012", 4, "D"], ["HV-D03-013", 4, "D"]] };
+  C.DECKS.seijohD = { id: 'seijohD', label: '아오바죠사이 고교', short: '아오바죠사이', jpLabel: '青葉城西高校', code: 'HV-D04', color: 'seijoh', list: [["HV-D04-001", 3, "D"], ["HV-D04-001", 1, "DP"], ["HV-D04-002", 3, "D"], ["HV-D04-002", 1, "DP"], ["HV-D04-003", 4, "D"], ["HV-D04-004", 4, "D"], ["HV-D04-005", 2, "D"], ["HV-D04-006", 2, "D"], ["HV-D04-007", 2, "D"], ["HV-D04-008", 3, "D"], ["HV-D04-009", 2, "D"], ["HV-D04-010", 3, "D"], ["HV-D04-011", 2, "D"], ["HV-D04-012", 4, "D"], ["HV-D04-013", 4, "D"]] };
 })(typeof window !== 'undefined' ? window : globalThis);
 
 </script>
@@ -5061,6 +5689,118 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
 
 </script>
 <script>
+// 스타터 덱 HV-D03 稲荷崎高校 · HV-D04 青葉城西高校 카드 스킬
+(function (G) {
+  'use strict';
+  const E = G.VobacaEngine; const S = E.SKILLS;
+
+  const nope = (g, p, card, why) => { g.say(`${g.dname(card)}의 스킬: ${why}`, p); return false; };
+  const charName = (g, p, area) => { const t = g.top(p, area); return t ? g.cname(t) : null; };
+  const nextOpp = (g, p, card, kind, extra = {}) => g.addEffect({ kind, owner: p, target: g.other(p), turnNo: g.turnNo + 1, src: card.uid, ...extra });
+  const has = k => (g, c) => g.base(c, k) !== null;
+  async function handToBottom(g, p, why) {
+    const pl = g.players[p]; if (!pl.hand.length) return null;
+    const [u] = await g.chooseCards(p, { title: '덱 아래에 놓을 카드', text: `${why}: 패에서 덱 아래에 놓을 카드 1장을 고르세요.`, options: pl.hand.map(c => c.uid), min: 1, max: 1, purpose: 'toDeck' });
+    const c = pl.hand.find(x => x.uid === u) || pl.hand[0];
+    pl.hand.splice(pl.hand.indexOf(c), 1); c.mods = []; pl.deck.unshift(c);
+    g.say(`${g.pname(p)}: 패 1장을 덱 아래에 놓음`, p, 'cost');
+    return c;
+  }
+
+  Object.assign(S, {
+    // ───────── HV-D03 稲荷崎 ─────────
+    async d3_001(g, p, card) {
+      await g.optionalGuts(p, card, 2, '토스 +1 · 이벤트 에리어의 「오늘은 뭘 할래?」 1장까지 회수 (넣으면 패 1장을 덱 아래로)', async () => {
+        g.addMod(card, 'toss', 1, card.uid);
+        const cs = g.players[p].event.filter(c => g.c(c).name === '今日 何をする？');   // Q&A1248: 맨 위가 아니어도 됨
+        if (!cs.length) { g.fxNote('이벤트 에리어에 「오늘은 뭘 할래?」가 없음'); return; }
+        const [u] = await g.chooseCards(p, { title: '이벤트 에리어에서 회수', text: '패에 넣을 「오늘은 뭘 할래?」를 1장까지 고르세요. (넣으면 패 1장을 덱 아래에 둡니다)', options: cs.map(c => c.uid), min: 0, max: 1, purpose: 'recover' });
+        const c = cs.find(x => x.uid === u); if (!c) return;
+        const got = await g.addToHand(p, [c], '이벤트 에리어');
+        if (got.length) await handToBottom(g, p, '미야 아츠무');
+      });
+    },
+    async d3_002(g, p, card) {
+      if (charName(g, p, 'toss') !== '宮 侑') return nope(g, p, card, '토스 캐릭터가 「미야 아츠무」가 아니라 사용할 수 없습니다.');
+      if (!g.players[p].hand.length) return nope(g, p, card, '패가 없어 사용할 수 없습니다.');
+      if (!await g.yesno(p, card, '패에서 카드 1장을 덱 아래에 두고 「어택 +2」를 사용할까요?')) { g.say(`${g.dname(card)}의 스킬을 사용하지 않았습니다.`, p); return; }
+      await handToBottom(g, p, '미야 오사무');
+      await g.withSkill(p, card, async () => g.addMod(card, 'attack', 2, card.uid));
+    },
+    async d3_003(g, p, card) {
+      const pl = g.players[p]; const evs = pl.hand.filter(c => g.c(c).type === 'E');
+      if (!evs.length) return nope(g, p, card, '패에 이벤트 카드가 없어 사용할 수 없습니다.');
+      if (!await g.yesno(p, card, '패의 이벤트 카드 1장을 이벤트 에리어에 놓고 「1장 뽑기 + (서브 +1 / 다음 상대 턴 토스 캐릭터 −2)」를 사용할까요? (놓은 이벤트의 스킬은 사용되지 않습니다)')) { g.say(`${g.dname(card)}의 스킬을 사용하지 않았습니다.`, p); return; }
+      let ev = evs[0];
+      if (evs.length > 1) { const [u] = await g.chooseCards(p, { title: '이벤트 에리어에 놓을 카드', text: '이벤트 에리어에 놓을 이벤트 카드를 고르세요. (스킬은 사용되지 않습니다)', options: evs.map(c => c.uid), min: 1, max: 1, purpose: 'cost' }); ev = evs.find(c => c.uid === u) || ev; }
+      pl.hand.splice(pl.hand.indexOf(ev), 1); ev.mods = []; pl.event.push(ev);
+      g.say(`${g.pname(p)}: 「${g.dname(ev)}」을(를) 이벤트 에리어에 놓음`, p, 'cost');
+      await g.withSkill(p, card, async () => {
+        g.draw(p, 1, '미야 아츠무');
+        const [id] = await g.chooseCards(p, { title: '효과 선택', text: '다음 중 하나를 고르세요.', options: [{ id: 'serve', label: '이 캐릭터의 서브 포인트 +1' }, { id: 'toss', label: '다음 상대 턴: 상대 토스 캐릭터가 등장할 때마다 토스 −2' }], min: 1, max: 1, purpose: 'atsumuD03', textOptions: true });
+        if (id === 'toss') { nextOpp(g, p, card, 'tossDebuff', { label: '미야 아츠무의 효과' }); g.fxNote('다음 상대 턴: 상대 토스 캐릭터 등장마다 토스 −2'); }
+        else g.addMod(card, 'serve', 1, card.uid);
+      });
+    },
+    async d3_008(g, p, card) { await g.optionalGuts(p, card, 5, '어택 +2', async () => g.addMod(card, 'attack', 2, card.uid)); },
+    async d3_011(g, p, card) { await g.optionalGuts(p, card, 2, '리시브 +2', async () => g.addMod(card, 'receive', 2, card.uid)); },
+    async d3_012(g, p, card) {
+      g.draw(p, 1, '이벤트');
+      const t = await g.chooseChar(p, c => g.hasAff(c, '稲荷崎') && has('receive')(g, c), '리시브 +1 대상 (이나리자키)', 'receiveBuff'); if (t) g.addMod(t, 'receive', 1, 'evt');
+      if (g.guts(p, 'receive').length < 4) return;
+      if (!await g.ask(p, { type: 'yesno', title: g.dname(card), text: `리시브 에리어에서 4가츠를 지불하고 카드 1장을 더 뽑을까요? (리시브 가츠 ${g.guts(p, 'receive').length}장)`, card: card.uid, skill: 'd3_012x' })) return;
+      if (await g.payGutsMulti(p, ['receive'], 4, '「우승 후보라는 거다」')) g.draw(p, 1, '이벤트');
+    },
+    async d3_013(g, p) {
+      const t = g.top(p, 'toss');
+      if (!t || !['宮 侑', '宮 治'].includes(g.cname(t))) { g.say('토스 캐릭터가 「미야 아츠무」나 「미야 오사무」가 아니라 사용할 수 없습니다. (「미야 형제」는 그 이름으로 등장했을 때만)', p); return false; }
+      g.draw(p, 1, '이벤트'); g.addMod(t, 'toss', 1, 'evt');
+    },
+
+    // ───────── HV-D04 青葉城西 ─────────
+    async d4_001(g, p, card) {
+      await g.optionalGuts(p, card, 2, '(지불한 카드가 모두 아오바죠사이면) 파라미터 1개 +2', async () => {
+        const paid = g._lastPaid || [];
+        if (!paid.length || !paid.every(c => g.hasAff(c, '青葉城西'))) { g.fxNote('지불한 카드가 모두 아오바죠사이가 아님 — 효과 없음'); return; }
+        await g.buffParam(p, card, 2, card.uid);
+      });
+    },
+    async d4_002(g, p, card) {
+      if (charName(g, p, 'toss') !== '及川 徹') return nope(g, p, card, '토스 캐릭터가 「오이카와 토오루」가 아니라 사용할 수 없습니다.');
+      await g.optionalGuts(p, card, 2, '어택 +3 (세트 카드가 상대보다 적으면 +1)', async () => {
+        g.addMod(card, 'attack', 3, card.uid);
+        if (g.players[p].setArea.length < g.players[g.other(p)].setArea.length) g.addMod(card, 'attack', 1, card.uid);
+      });
+    },
+    async d4_005(g, p, card) {
+      const op = g.oppOffense(p);
+      if (op == null || op > 2) return nope(g, p, card, `상대 오펜스 포인트가 2 이하가 아니라(${op ?? '-'}) 효과가 없습니다.`);
+      await g.withSkill(p, card, async () => { g.armDoshut(6); g.say('이번 턴 블록에 성공하면 【도샷(6)】합니다.', p, 'skill'); });
+    },
+    async d4_008(g, p, card) { await g.optionalGuts(p, card, 4, '1장 뽑기 + 리시브 +2', async () => { g.draw(p, 1, '와타리 신지'); g.addMod(card, 'receive', 2, card.uid); }); },
+    async d4_012(g, p) {
+      const t = await g.chooseChar(p, c => g.hasAff(c, '青葉城西') && g.paramChoices(c).length > 0, '파라미터 +1 대상 (아오바죠사이)', 'paramBuff');
+      if (t) await g.buffParam(p, t, 1, 'evt');
+      if (g.phase === 'attack') g.draw(p, 1, '이벤트');
+    },
+    async d4_013(g, p, card) {
+      const t = await g.chooseChar(p, c => g.hasAff(c, '青葉城西') && has('receive')(g, c), '리시브 +1 대상 (아오바죠사이)', 'receiveBuff');
+      if (t) g.addMod(t, 'receive', 1, 'evt');
+      const pl = g.players[p]; if (!pl.deck.length) return;
+      if (!await g.ask(p, { type: 'yesno', title: g.dname(card), text: '덱 맨 위 카드를 공개할까요? (아오바죠사이면 패에, 아니면 덱 아래 · 이벤트 카드면 1장 뽑기)', card: card.uid, skill: 'd4_013r' })) return;
+      const top = pl.deck[pl.deck.length - 1];
+      g.say(`${g.pname(p)}: 덱 맨 위 「${g.dname(top)}」 공개`, p, 'skill'); g.fxNote(`공개: 「${g.dname(top)}」`, top.uid);
+      const isEv = g.c(top).type === 'E';
+      let got = [];
+      if (g.hasAff(top, '青葉城西')) got = await g.addToHand(p, [top], '공개');
+      if (!got.length && g.where(top) === 'deck') { pl.deck.splice(pl.deck.indexOf(top), 1); pl.deck.unshift(top); g.say(`「${g.dname(top)}」 → 덱 아래`, p, 'skill'); }
+      if (isEv) g.draw(p, 1, '이벤트');   // Q&A1849/1850: 아오바죠사이가 아니어도, 패에 넣은 뒤에도 뽑는다
+    },
+  });
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<script>
 // CPU プレイヤー（ヒューリスティック）
 (function (G) {
   'use strict';
@@ -5223,6 +5963,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
           const p02 = p02YesNo(g, p, req, op); if (p02 !== undefined) return p02;
           const p03 = p03YesNo(g, p, req, op); if (p03 !== undefined) return p03;
           const p04 = p04YesNo(g, p, req, op); if (p04 !== undefined) return p04;
+          const d34 = d34YesNo(g, p, req, op); if (d34 !== undefined) return d34;
           // 이와이즈미(035) 효과로 스킬 드로우가 막혔으면 뽑기만 하는 스킬에 가츠를 쓰지 않음
           if (['shibayamaD02', 'tsukishimaD01'].includes(req.skill) && g.activeEffects('noAddHand', p).length) return false;
           if (req.skill === 'lev') {
@@ -5249,7 +5990,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
             if (dp < op && pick('HV-D02-011') && g.blockChars(p).some(c => g.cname(c) === '黒尾 鉄朗')) return { action: 'play', uid: pick('HV-D02-011').uid };
           }
           if (req.phase === 'attack' && pick('HV-D01-012')) return { action: 'play', uid: pick('HV-D01-012').uid };
-          const p01 = p01Free(g, p, req, evs, op) || p02Free(g, p, req, evs, op) || p03Free(g, p, req, evs, op) || p04Free(g, p, req, evs, op);
+          const p01 = p01Free(g, p, req, evs, op) || p02Free(g, p, req, evs, op) || p03Free(g, p, req, evs, op) || p04Free(g, p, req, evs, op) || d34Free(g, p, req, evs, op);
           if (p01) return { action: 'play', uid: p01.uid };
           return { action: 'pass' };
         }
@@ -5259,6 +6000,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
             const ids = req.options.map(o => o.id);
             if (req.purpose === 'millUpTo') { const d = g.players[p].deck.length; const n = Math.max(...ids.map(Number)); return [String(d > 12 ? n : d > 6 ? Math.min(n, 1) : 0)]; }
             if (req.purpose === 'nebari') { const rc = g.top(p, 'receive'); return [ids.includes('six') && rc && (g.param(rc, 'receive') ?? 0) < 5 ? 'six' : ids[0]]; }
+            if (req.purpose === 'atsumuD03') return [g.phase === 'serve' && opVal(g, p) === 0 && hand(g, p).length > 3 ? 'toss' : 'serve'];
             if (req.purpose === 'akita') return [ids.includes('serve') ? 'serve' : ids[0]];
             if (req.purpose === 'doshutPick') return [ids.slice().sort((x, y) => +y - +x)[0]];
           if (req.purpose === 'tsunagu') return [ids.includes('seven') ? 'seven' : ids[0]];
@@ -5605,6 +6347,43 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
         const list = [];
         if (g.blockChars(p).some(c => g.cname(c) === '百沢 雄大')) list.push(92);
         if (g.allAff(p, '条善寺')) list.push(93);
+        return by(list);
+      }
+    }
+    return null;
+  }
+
+  // 스타터 HV-D03 · HV-D04
+  function d34YesNo(g, p, req, op) {
+    const h = hand(g, p).length;
+    switch (req.skill) {
+      case 'd3_002': case 'd3_003': return h >= 3;
+      case 'd3_012x': return h <= 5;
+      case 'd4_013r': return true;
+    }
+    return undefined;
+  }
+  function d34Free(g, p, req, evs, op) {
+    const usedT1 = new Set(g.activeEffects('turn1', p).map(e => e.name));
+    const ok = evs.filter(c => /^HV-D0[34]-/.test(c.no) && !usedT1.has(g.c(c).name));
+    if (!ok.length) return null;
+    const by = list => { for (const n of list) { const e = ok.find(c => c.no === n); if (e) return e; } return null; };
+    const top = a => { const t = g.top(p, a); return t ? g.cname(t) : null; };
+    switch (req.phase) {
+      case 'receive': {
+        const rc = g.top(p, 'receive'); if (!rc) return null;
+        const short = (g.param(rc, 'receive') ?? 0) < op;
+        const list = [];
+        if (g.hasAff(rc, '稲荷崎') && (short || hand(g, p).length <= 3)) list.push('HV-D03-012');
+        if (g.hasAff(rc, '青葉城西') && short) list.push('HV-D04-013');
+        return by(list);
+      }
+      case 'toss': return ['宮 侑', '宮 治'].includes(top('toss')) ? by(['HV-D03-013']) : null;
+      case 'attack': {
+        if (!g.top(p, 'attack')) return null;
+        const list = [];
+        if (['宮 侑', '宮 治'].includes(top('toss'))) list.push('HV-D03-013');
+        if (g.chars(p).some(x => g.hasAff(x.card, '青葉城西'))) list.push('HV-D04-012');
         return by(list);
       }
     }
@@ -7498,7 +8277,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   function markTut(id) { const s = tutDone(); s.add(id); store.set('vobaca-tut', [...s]); }
 
   function starterDecks() {
-    return Object.values(DECKS).map(d => ({ id: 'starter-' + d.id, name: d.label, code: d.code, starter: true, sample: !!d.sample, color: d.color, list: d.list.map(x => x.slice()) }));
+    return Object.values(DECKS).sort((a, b) => (a.sample ? 1 : 0) - (b.sample ? 1 : 0)).map(d => ({ id: 'starter-' + d.id, name: d.label, code: d.code, starter: true, sample: !!d.sample, color: d.color, list: d.list.map(x => x.slice()) }));
   }
   function allDecks() { return [...starterDecks(), ...customDecks()]; }
   function deckStats(d) {
@@ -7559,7 +8338,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
         <div class="logo"><span class="lg1">바보카!!</span><span class="lg2">BREAK</span><small>하이큐!! 트레이딩 카드 게임 시뮬레이터</small></div>
         <div class="fan" aria-hidden="true">${fan.map(([no, v], i) => `<img src="${img(no, v)}" alt="" style="--i:${i - 2}">`).join('')}</div>
         <button class="startbtn" type="button" data-go="hub">게임 시작</button>
-        <p class="foot">스타터 덱 HV-D01 카라스노 · HV-D02 네코마 · 부스터 1탄 「쓰레기장의 결전」 · 2탄 「최강의 도전자」 · 3탄 「유스 & 선발 강화 합숙」 · 4탄 「재능과 센스」 수록 카드 · 종합 룰 ver.1.06 기준 · 비공식 팬 시뮬레이터</p>
+        <p class="foot">스타터 덱 HV-D01 카라스노 · HV-D02 네코마 · HV-D03 이나리자키 · HV-D04 아오바죠사이 · 부스터 1탄 「쓰레기장의 결전」 · 2탄 「최강의 도전자」 · 3탄 「유스 & 선발 강화 합숙」 · 4탄 「재능과 센스」 수록 카드 · 종합 룰 ver.1.06 기준 · 비공식 팬 시뮬레이터</p>
       </div>`;
     },
     hub() {
