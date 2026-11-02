@@ -728,6 +728,38 @@ body.in-lobby #modalRoot .modal { z-index: 58; }   /* 로비 화면 위에 확�
 .m-tut { background: linear-gradient(160deg, #1d6cd0, #123f86); }
 .m-multi { background: linear-gradient(160deg, #5b5d63, #33353a); }
 .mode.locked { cursor: not-allowed; filter: grayscale(.4); opacity: .75; }
+.m-multi:not(.locked) { background: linear-gradient(160deg, #d6588c, #7a2347); }
+/* 온라인 멀티 대전 */
+.online { display: grid; gap: 14px; max-width: 980px; }
+.on-card { display: grid; gap: 10px; padding: 16px; border-radius: 16px; background: rgba(18,10,4,.55); border: 1.5px solid rgba(255,220,170,.18); min-width: 0; }
+.on-acts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.on-t { font-family: var(--f-display); font-weight: 400; font-size: 22px; color: #fff; }
+.on-join { display: flex; gap: 8px; }
+.on-join input, .on-linkrow input { flex: 1; min-width: 0; font: inherit; font-size: 18px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; padding: 10px 12px; border-radius: 10px; border: 1.5px solid rgba(255,220,170,.35); background: rgba(0,0,0,.35); color: #fff; }
+.on-linkrow input { font-size: 13px; letter-spacing: 0; text-transform: none; font-weight: 600; }
+.on-linkrow { display: flex; gap: 8px; }
+.on-code { justify-items: center; text-align: center; }
+.on-big { font-family: var(--f-display); font-weight: 400; font-size: clamp(44px, 10vw, 72px); letter-spacing: .14em; color: var(--ball); line-height: 1; -webkit-text-stroke: 2px #1b1200; paint-order: stroke fill; text-shadow: 0 5px 0 #1b1200; }
+.on-code .on-linkrow { width: min(560px, 100%); }
+.on-slots { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 12px; align-items: stretch; }
+.on-vs { align-self: center; font-family: var(--f-display); font-size: 26px; color: #fff; -webkit-text-stroke: 1.5px #1b1200; paint-order: stroke fill; }
+.on-slot { display: grid; gap: 4px; align-content: center; padding: 14px; border-radius: 14px; background: rgba(255,255,255,.06); border: 2px solid rgba(255,255,255,.12); min-width: 0; }
+.on-slot.me { border-color: color-mix(in srgb, var(--ball) 60%, transparent); }
+.on-slot.ready { background: color-mix(in srgb, var(--ok) 16%, transparent); border-color: var(--ok); }
+.on-slot.empty { opacity: .7; border-style: dashed; }
+.on-slot b { font-size: 18px; color: #fff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.on-who { font-size: 11.5px; font-weight: 800; color: var(--muted); letter-spacing: .05em; }
+.on-deck { font-size: 12.5px; color: #e9dccb; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.on-ready { font-style: normal; font-size: 12px; font-weight: 800; color: var(--muted); } .on-slot.ready .on-ready { color: var(--ok); }
+.on-bar { display: flex; gap: 10px; align-items: center; justify-content: flex-end; flex-wrap: wrap; }
+.netstatus { position: fixed; top: calc(62px + env(safe-area-inset-top, 0px)); left: 50%; transform: translateX(-50%); z-index: 46; display: flex; align-items: center; gap: 8px; max-width: calc(100vw - 24px); padding: 4px 12px; border-radius: 999px; font-size: 12px; background: rgba(10,12,20,.82); border: 1px solid rgba(255,255,255,.18); color: #dfe4ee; white-space: nowrap; }
+.netstatus em { font-style: normal; color: var(--ball); font-weight: 700; } .netstatus .ns-warn { color: var(--bad); } .netstatus .btn { padding: 3px 10px; font-size: 12px; }
+.netstatus span { overflow: hidden; text-overflow: ellipsis; }
+.ns-dot { width: 8px; height: 8px; border-radius: 50%; flex: 0 0 auto; } .ns-dot.ok { background: var(--ok); } .ns-dot.bad { background: var(--bad); }
+.nettoast { position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 90; display: grid; gap: 6px; width: min(460px, calc(100vw - 24px)); pointer-events: none; }
+.nt-item { padding: 10px 14px; border-radius: 12px; background: rgba(10,12,20,.94); border: 1.5px solid var(--ball); color: #fff; font-size: 13px; font-weight: 600; box-shadow: 0 10px 24px rgba(0,0,0,.5); animation: cbox-in .2s ease-out; }
+.nt-item.bad { border-color: var(--bad); }
+@media (max-width: 760px) { .on-acts { grid-template-columns: minmax(0, 1fr); } .on-slots { grid-template-columns: minmax(0, 1fr); } .on-vs { justify-self: center; } .netstatus { top: calc(52px + env(safe-area-inset-top, 0px)); } }
 .mode em { position: absolute; top: 14px; right: 14px; font-style: normal; font-size: 12px; font-weight: 900; padding: 2px 10px; border-radius: 999px; }
 .mode em.lock { background: rgba(0,0,0,.45); color: #ddd; }
 .mode em.rec { position: relative; background: var(--ball); color: #1b1600; }
@@ -1410,7 +1442,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
 })(typeof window !== 'undefined' ? window : globalThis);
 
 </script>
-<script>window.VOBACA_VERSION="20261031173015";window.VOBACA_CHANGELOG=[{"id": 24, "date": "2026-10-31", "title": "연출 · 화면 버그 수정", "notes": ["경기 중 캐릭터 카드 정보 창을 열면 오류가 나서 창이 바뀌지 않던 문제 수정 (부스터 3탄 업데이트 때 생긴 버그 · 튜토리얼에서도 발생)", "휴대폰 세로 화면에서 경기 결과 창이 오른쪽으로 잘리던 문제 수정 (팀 이름이 긴 덱)", "「연출 끄기」 · 「동작 줄이기」에서 「스파이크!」 같은 글자 연출이 화면에 보이지 않게 계속 쌓이던 문제 수정", "같은 카드의 효과가 이어서 나오면(공개 → 패에 넣기 → 뽑기 등) 스킬 기록 한 칸에 줄을 덧붙여 보여 줘요 — 기록이 덜 넘치고 기다리는 시간도 짧아짐", "경기가 끝나면 스킬 기록을 치워 결과 창 뒤에 남지 않게", "Esc 키로 카드 정보 창 닫기"]}, {"id": 23, "date": "2026-10-31", "title": "스타터 덱 이나리자키 · 아오바죠사이 추가", "notes": ["스타터 덱 HV-D03 「이나리자키 고교」 · HV-D04 「아오바죠사이 고교」 추가 — 카드 26종, 덱 구성은 공식 수록 내용 그대로 (키라 버전 포함)", "새 스킬: 미야 아츠무의 「오늘은 뭘 할래?」 회수, 미야 오사무의 덱 아래로 보내기, 킨다이치의 【도샷(6)】, 덱 맨 위 공개 등 — 카드 텍스트와 공식 Q&A 기준", "덱 목록에서 스타터 덱 4개가 먼저 나오도록 정리", "모든 세트를 섞은 무작위 덱 8,000판 자동 대전 추가 — 오류 0건"]}, {"id": 22, "date": "2026-10-30", "title": "부스터 4탄 「재능과 센스」 추가 · 세트 간 점검", "notes": ["부스터 4탄 HV-P04 101종 추가 (패러렐 제외) — 카라스노 · 아오바죠사이 · 카도카와 · 죠젠지 · 와쿠타니미나미 · 네코마 · 다테공고 · 시라토리자와 · 후쿠로다니 · 이나리자키 · 유스 · 동네 팀", "새 키워드: 【A패스(N)】, 【동시다발 위치차 공격〈소속〉(N)】, 「덱 위에서 N장까지 드롭」, 상대 로스트 시 발동하는 「이걸로 스타트라인이다」 등 — 카드 텍스트와 공식 Q&A 기준", "샘플 덱 2종: 카라스노 (4탄 샘플, 스타터 카드로 보강) · 아오바죠사이 (4탄 샘플)", "카드 목록 · 덱 편집에 「부스터 4탄」 세트와 카도카와 · 죠젠지 · 와쿠타니미나미 학교 필터 추가", "CPU: 상대 효과로 등장할 수 없는 리시브 캐릭터를 고르다 로스트하던 문제, 「원래 리시브 5 이상」 같은 조건부 −효과를 잘못 계산하던 문제 수정", "패에서 「~장까지」 고르는 선택에 「고르지 않음」 버튼 추가", "경기가 끝나는 로스트에서는 「로스트했을 때」 효과를 묻지 않도록 수정", "스타터 · 1~4탄을 섞은 무작위 덱 24,000판 자동 대전 — 오류 0건"]}, {"id": 21, "date": "2026-10-29", "title": "전체 최적화", "notes": ["덱 편집: ＋/− 를 누를 때 카드 목록 전체를 다시 만들지 않고 숫자만 바꿔요 (한 번 누를 때 약 80ms → 5ms)", "덱 편집 · 카드 목록 · Q&A: 카드 이미지를 화면에 보일 때만 불러와요 (덱 편집을 열 때 이미지 320장 → 약 80장)", "검색창: 글자를 칠 때마다가 아니라 잠깐 멈췄을 때 목록을 다시 그려요", "경기 화면: 바뀐 부분만 다시 그리고, 깜빡이는 강조 효과를 가벼운 방식으로 바꿔 입력을 기다리는 동안 CPU 사용을 줄였어요", "배경음: 소리를 끄거나 배경음 음량이 0이면 음악 합성을 멈춰요", "페이지 크기 약 22% 감소 (카드 데이터 압축)", "기기에서 「동작 줄이기」를 켜 두면 반복 애니메이션을 멈춰요"]}, {"id": 20, "date": "2026-10-29", "title": "부스터 3탄 「유스 & 선발 강화 합숙」 추가 · 전체 점검", "notes": ["부스터 3탄 HV-P03 99종 추가 (패러렐 제외) — 유스 · 유사 유스, 볼 줍기 캐릭터, 【백어택(N)】, 「−되지 않는다」 등 새 규칙", "샘플 덱 2종: 유스 합숙 · 유사 유스. 덱 편집에 세트 「부스터 3탄」, 학교 필터 유스 · 유사 유스, 포지션 필터 「볼 줍기」", "룰 수정: 캐릭터가 코트를 떠나면 바로 아래 가츠가 캐릭터가 됨 (등장이 아니며 효과도 이어받지 않음 — 종합 룰 1-2-15-3)", "룰 수정: 「N가츠 지불」에서 지불할 가츠를 직접 고를 수 있음 (종합 룰 1-4-8-1)", "룰 수정: 조건을 못 채우거나 【턴1】으로 무효여도 이벤트는 이벤트 에리어에 놓을 수 있음 (공식 Q&A)", "미야 아츠무(2탄 016)끼리 대전할 때 내 016이 무효가 되던 버그, 2탄 켄마로 등장한 1탄 레프가 +2를 못 받던 버그 수정", "상대 로스트로 「그 순간」과 야치 효과가 함께 유발하면 해결 순서를 고를 수 있게"]}, {"id": 19, "date": "2026-10-29", "title": "부스터 2탄 「최강의 도전자」 추가", "notes": ["부스터 2탄 HV-P02 100종 추가 (캐릭터 78 · 이벤트 22, 패러렐 제외) — 이나리자키 · 다테공고 · 시라토리자와 등", "새 규칙: 【투어택(N)】 · 코인 던지기 · 카드 비스듬히 놓기 · 「상대가 카드를 패에 넣을 때마다」 · 스킬로 사이드 블로커 등장 · 「센터 블로커의 블록 포인트 없음」", "샘플 덱 2종: 이나리자키 · 다테공고", "덱 편집: 세트 「부스터 2탄」, 학교 필터에 이나리자키 · 다테공고 · 시라토리자와 추가", "캐릭터만 코트를 떠나면 그 에리어에는 가츠만 남도록 (하이바 레프 D02 이동 포함)", "CPU: 패의 【블록】 이벤트까지 계산해서 블록을 고름"]}, {"id": 18, "date": "2026-10-29", "title": "스타터 카드 점검", "notes": ["「손은 앞이라고 했잖아 노부카츠 군」: 쓸 수 있으면 두 효과 중 하나를 반드시 고르기 (같은 문구의 부스터 카드와 똑같이)", "CPU: 이와이즈미 효과로 카드를 못 뽑을 때는 뽑기만 하는 스킬(시바야마 · 츠키시마)에 가츠를 쓰지 않음"]}, {"id": 17, "date": "2026-10-29", "title": "부스터 1탄 카드 점검 · 수정", "notes": ["스타터 「물리공격으로…」로 패에 넣은 카드에도 이와이즈미 · 텐도 · 「나도 그렇게 생각했어☆」 효과가 적용되도록", "카게야마(006): 공개한 히나타 · 오픈 공격을 패에 넣을지 고를 수 있게 (「1장까지」)", "같은 턴에 도샷이 둘이면(쿠로오 · 츠키시마) 턴 끝에 적용할 도샷을 고르기", "「이게 \"잇는다\"는 거다」: 쓸 수 있으면 둘 중 하나를 반드시 고르기", "「앞으로 기울여 가자」가 아무 효과도 못 냈으면 【턴1】이 걸리지 않게", "엔노시타 · 시바야마 패 스킬: 대상 캐릭터가 없으면 쓸 수 없게", "세트가 끝나면 2인 카드 이름도 원래대로"]}, {"id": 16, "date": "2026-10-28", "title": "블록 판정 보이기", "notes": ["여러 명이 블록하면 판정 때 「블록! 3+2+2=7」처럼 블록 포인트 합계를 보여 줘요", "블록 페이즈가 끝나 사이드 블로커가 드롭될 때 드롭 더미로 날아가는 연출 (갑자기 사라져서 1명만 블록한 것처럼 보이던 문제)"]}, {"id": 15, "date": "2026-10-28", "title": "덱 편집 — 카드 목록만 스크롤", "notes": ["덱 편집 화면 전체는 움직이지 않고, 오른쪽 카드 목록만 스크롤돼요 (검색 · 필터는 위에 고정)", "카드 정보 · 덱 칸도 각자 칸 안에서만 스크롤"]}, {"id": 14, "date": "2026-10-28", "title": "상단 고정 · 패 떨림 수정", "notes": ["카드 목록 · 덱 편집 · QNA 등에서 스크롤해도 위쪽 ← 뒤로가기와 제목이 고정돼요", "패의 카드에 마우스를 올렸을 때 카드 아래쪽에서 들썩들썩 떨리던 문제 수정", "카드 목록 타일 · 덱 고르기 · 멀리건 카드 등 살짝 들리는 버튼도 가장자리에서 떨리지 않게"]}, {"id": 13, "date": "2026-10-28", "title": "덱 편집 — 덱 칸을 가장 크게", "notes": ["가운데 덱 칸을 가장 넓게, 넣은 카드를 그림으로 보여 줘요 (장수 배지 · ＋/−)", "오른쪽 카드 검색은 카드를 작게 해서 한 줄에 더 많이", "저장 · 취소 버튼이 덱 칸 아래에 늘 보이게"]}, {"id": 12, "date": "2026-10-28", "title": "덱 편집 화면 새 구성", "notes": ["덱 편집을 세 칸으로: 왼쪽 카드 정보(그림 · 능력치 · 효과 · 키워드 설명) · 가운데 덱 정보 · 오른쪽 카드 검색", "덱 규칙에 맞춰 40장을 넘거나 이벤트가 8장을 넘으면 더 넣을 수 없어요 (캐릭터는 같은 카드도 제한 없음)", "덱 목록을 캐릭터 / 이벤트로 나눠 보여 주고 남은 자리를 알려 줘요", "휴대폰에서는 위쪽 탭으로 카드 검색 · 덱 · 카드 정보를 오가요"]}, {"id": 11, "date": "2026-10-28", "title": "효과음 · 배경음", "notes": ["배구 효과음: 서브 · 스파이크(OP가 클수록 세게) · 리시브 · 토스 · 블록 · 도샷 · 원터치 · 공이 바닥에 떨어지는 소리 · 농구화 끼익 · 휘슬 · 관중 환호/탄식", "카드 뽑기 · 캐릭터 등장 · 이벤트/스킬 발동 · 코인 토스 · 승리/패배 소리", "배경음: 로비와 대전에서 각각 다른 곡", "소리 크기: 로비 왼쪽 아래 스피커 버튼, 경기 중에는 「설정」에서 배경음 · 효과음 따로 조절하거나 끌 수 있어요"]}, {"id": 10, "date": "2026-10-28", "title": "부스터 1탄 「쓰레기장의 결전」 카드 추가", "notes": ["부스터 1탄 93종(캐릭터 73 · 이벤트 20) 추가 — 패러렐 버전은 제외, 모든 카드 스킬을 공식 텍스트 · Q&A 기준으로 구현", "새 키워드: 원터치 · 페인트 · 블록아웃 · 턴1 · 도샷(6), 패에서 쓰는 캐릭터 스킬(엔노시타 · 시바야마), 2인 카드(히나타·코즈메 / 츠키시마·쿠로오)의 이름 고르기", "샘플 덱 2종: 아오바죠사이 · 후쿠로다니 (AI 대전에서 바로 선택 가능)", "카드 목록 · 덱 편집: 세트 · 학교 필터와 이름 · 효과 검색"]}, {"id": 9, "date": "2026-10-28", "title": "휴대폰 · 태블릿 지원", "notes": ["휴대폰 세로(아이폰 · 갤럭시 S · 폴드 커버): 스크롤 없이 한 화면에 필드와 패가 꽉 차게, 위쪽 ⋯ 메뉴에 로그 · 설정 · 기권", "태블릿 세로(아이패드 · 갤럭시 탭 · 폴드 펼침): 카드를 화면 폭에 맞춰 크게, 가로는 여백을 줄여 카드를 조금 더 크게", "카드를 꾹 누르면 카드 정보 (휴대폰 · 태블릿)", "휴대폰을 가로로 들면 세로로 돌리라는 안내 (그래도 가로로 볼 수 있음)"]}, {"id": 8, "date": "2026-10-28", "title": "매트 다듬기 · 첫 패 연출", "notes": ["서브 에리어(왼쪽 줄)를 더 넓게", "가츠: 맨 위 캐릭터 아래 깔린 카드가 왼쪽으로 비스듬히 삐져나오고, 장수는 노란 숫자로", "덱 · 드롭 · 이벤트 칸을 같은 크기로 (드롭과 이벤트는 룰상 다른 영역이라 그대로 따로)", "멀리건이 끝나면 첫 패를 덱에서 한 장씩 뽑아 오는 연출"]}, {"id": 7, "date": "2026-10-28", "title": "경기 결과 연출", "notes": ["승리하면 팀 색 꽃가루와 함께 「승리!」, 패배하면 화면이 어두워지며 「패배…」", "세트마다 마지막 점수를 낸 카드(어택 · 서브 · 블록/도샷, OP, 토스 카드)와 상대가 놓친 이유를 차례로 보여 줘요", "결정타를 가장 많이 낸 카드는 「오늘의 해결사」로 표시 — 카드 그림을 누르면 정보창"]}, {"id": 6, "date": "2026-10-28", "title": "상대 패 모양", "notes": ["상대 패(뒷면) 부채꼴을 내 패를 마주 본 방향으로 뒤집었어요"]}, {"id": 5, "date": "2026-10-28", "title": "드로우 연출 · 효과 알림 개선", "notes": ["카드를 뽑으면 덱(또는 세트 에리어)에서 패로 날아와요 — 상대가 뽑을 때도", "스킬 · 이벤트 알림이 효과가 실제로 적용되는 순간(포인트 증감, 드로우 등)마다 떠요", "알림은 화면 오른쪽 가운데, 알림 속 카드 그림을 누르면 정보창", "키워드 설명은 정보창의 「키워드 설명 보기」를 눌렀을 때만"]}, {"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
+<script>window.VOBACA_VERSION="20261102152604";window.VOBACA_CHANGELOG=[{"id": 25, "date": "2026-11-02", "title": "멀티 대전 (방 만들기) 테스트 시작", "notes": ["배틀 → 멀티 대전: 방을 만들면 6자리 코드와 초대 링크가 생겨요. 친구가 코드를 넣거나 링크를 누르면 대기실에서 만나 덱을 고르고 「준비」 → 방장이 「대전 시작」", "두 기기가 같은 셔플 시드로 같은 게임을 돌리고, 서로의 선택만 주고받아요 (로그인 필요 · 게스트 가능)", "새로고침하거나 잠깐 끊겨도 초대 링크로 다시 들어오면 이어서 진행해요", "상대 연결이 1분 넘게 끊기면 위쪽에 알려 주고, 2분이 지나면 「승리로 끝내기」를 누를 수 있어요. 대전 중에 나가면 기권으로 처리돼요", "셔플을 브라우저의 암호용 난수로 뽑은 128비트 시드로 바꿨어요 (게임마다 새 시드)", "알려진 한계: 테스트 단계라 개발자 도구를 쓰면 상대의 패·덱 순서를 볼 수 있어요. 두 사람 모두 같은 버전이어야 해서, 업데이트 직후엔 새로고침이 필요해요"]}, {"id": 24, "date": "2026-10-31", "title": "연출 · 화면 버그 수정", "notes": ["경기 중 캐릭터 카드 정보 창을 열면 오류가 나서 창이 바뀌지 않던 문제 수정 (부스터 3탄 업데이트 때 생긴 버그 · 튜토리얼에서도 발생)", "휴대폰 세로 화면에서 경기 결과 창이 오른쪽으로 잘리던 문제 수정 (팀 이름이 긴 덱)", "「연출 끄기」 · 「동작 줄이기」에서 「스파이크!」 같은 글자 연출이 화면에 보이지 않게 계속 쌓이던 문제 수정", "같은 카드의 효과가 이어서 나오면(공개 → 패에 넣기 → 뽑기 등) 스킬 기록 한 칸에 줄을 덧붙여 보여 줘요 — 기록이 덜 넘치고 기다리는 시간도 짧아짐", "경기가 끝나면 스킬 기록을 치워 결과 창 뒤에 남지 않게", "Esc 키로 카드 정보 창 닫기"]}, {"id": 23, "date": "2026-10-31", "title": "스타터 덱 이나리자키 · 아오바죠사이 추가", "notes": ["스타터 덱 HV-D03 「이나리자키 고교」 · HV-D04 「아오바죠사이 고교」 추가 — 카드 26종, 덱 구성은 공식 수록 내용 그대로 (키라 버전 포함)", "새 스킬: 미야 아츠무의 「오늘은 뭘 할래?」 회수, 미야 오사무의 덱 아래로 보내기, 킨다이치의 【도샷(6)】, 덱 맨 위 공개 등 — 카드 텍스트와 공식 Q&A 기준", "덱 목록에서 스타터 덱 4개가 먼저 나오도록 정리", "모든 세트를 섞은 무작위 덱 8,000판 자동 대전 추가 — 오류 0건"]}, {"id": 22, "date": "2026-10-30", "title": "부스터 4탄 「재능과 센스」 추가 · 세트 간 점검", "notes": ["부스터 4탄 HV-P04 101종 추가 (패러렐 제외) — 카라스노 · 아오바죠사이 · 카도카와 · 죠젠지 · 와쿠타니미나미 · 네코마 · 다테공고 · 시라토리자와 · 후쿠로다니 · 이나리자키 · 유스 · 동네 팀", "새 키워드: 【A패스(N)】, 【동시다발 위치차 공격〈소속〉(N)】, 「덱 위에서 N장까지 드롭」, 상대 로스트 시 발동하는 「이걸로 스타트라인이다」 등 — 카드 텍스트와 공식 Q&A 기준", "샘플 덱 2종: 카라스노 (4탄 샘플, 스타터 카드로 보강) · 아오바죠사이 (4탄 샘플)", "카드 목록 · 덱 편집에 「부스터 4탄」 세트와 카도카와 · 죠젠지 · 와쿠타니미나미 학교 필터 추가", "CPU: 상대 효과로 등장할 수 없는 리시브 캐릭터를 고르다 로스트하던 문제, 「원래 리시브 5 이상」 같은 조건부 −효과를 잘못 계산하던 문제 수정", "패에서 「~장까지」 고르는 선택에 「고르지 않음」 버튼 추가", "경기가 끝나는 로스트에서는 「로스트했을 때」 효과를 묻지 않도록 수정", "스타터 · 1~4탄을 섞은 무작위 덱 24,000판 자동 대전 — 오류 0건"]}, {"id": 21, "date": "2026-10-29", "title": "전체 최적화", "notes": ["덱 편집: ＋/− 를 누를 때 카드 목록 전체를 다시 만들지 않고 숫자만 바꿔요 (한 번 누를 때 약 80ms → 5ms)", "덱 편집 · 카드 목록 · Q&A: 카드 이미지를 화면에 보일 때만 불러와요 (덱 편집을 열 때 이미지 320장 → 약 80장)", "검색창: 글자를 칠 때마다가 아니라 잠깐 멈췄을 때 목록을 다시 그려요", "경기 화면: 바뀐 부분만 다시 그리고, 깜빡이는 강조 효과를 가벼운 방식으로 바꿔 입력을 기다리는 동안 CPU 사용을 줄였어요", "배경음: 소리를 끄거나 배경음 음량이 0이면 음악 합성을 멈춰요", "페이지 크기 약 22% 감소 (카드 데이터 압축)", "기기에서 「동작 줄이기」를 켜 두면 반복 애니메이션을 멈춰요"]}, {"id": 20, "date": "2026-10-29", "title": "부스터 3탄 「유스 & 선발 강화 합숙」 추가 · 전체 점검", "notes": ["부스터 3탄 HV-P03 99종 추가 (패러렐 제외) — 유스 · 유사 유스, 볼 줍기 캐릭터, 【백어택(N)】, 「−되지 않는다」 등 새 규칙", "샘플 덱 2종: 유스 합숙 · 유사 유스. 덱 편집에 세트 「부스터 3탄」, 학교 필터 유스 · 유사 유스, 포지션 필터 「볼 줍기」", "룰 수정: 캐릭터가 코트를 떠나면 바로 아래 가츠가 캐릭터가 됨 (등장이 아니며 효과도 이어받지 않음 — 종합 룰 1-2-15-3)", "룰 수정: 「N가츠 지불」에서 지불할 가츠를 직접 고를 수 있음 (종합 룰 1-4-8-1)", "룰 수정: 조건을 못 채우거나 【턴1】으로 무효여도 이벤트는 이벤트 에리어에 놓을 수 있음 (공식 Q&A)", "미야 아츠무(2탄 016)끼리 대전할 때 내 016이 무효가 되던 버그, 2탄 켄마로 등장한 1탄 레프가 +2를 못 받던 버그 수정", "상대 로스트로 「그 순간」과 야치 효과가 함께 유발하면 해결 순서를 고를 수 있게"]}, {"id": 19, "date": "2026-10-29", "title": "부스터 2탄 「최강의 도전자」 추가", "notes": ["부스터 2탄 HV-P02 100종 추가 (캐릭터 78 · 이벤트 22, 패러렐 제외) — 이나리자키 · 다테공고 · 시라토리자와 등", "새 규칙: 【투어택(N)】 · 코인 던지기 · 카드 비스듬히 놓기 · 「상대가 카드를 패에 넣을 때마다」 · 스킬로 사이드 블로커 등장 · 「센터 블로커의 블록 포인트 없음」", "샘플 덱 2종: 이나리자키 · 다테공고", "덱 편집: 세트 「부스터 2탄」, 학교 필터에 이나리자키 · 다테공고 · 시라토리자와 추가", "캐릭터만 코트를 떠나면 그 에리어에는 가츠만 남도록 (하이바 레프 D02 이동 포함)", "CPU: 패의 【블록】 이벤트까지 계산해서 블록을 고름"]}, {"id": 18, "date": "2026-10-29", "title": "스타터 카드 점검", "notes": ["「손은 앞이라고 했잖아 노부카츠 군」: 쓸 수 있으면 두 효과 중 하나를 반드시 고르기 (같은 문구의 부스터 카드와 똑같이)", "CPU: 이와이즈미 효과로 카드를 못 뽑을 때는 뽑기만 하는 스킬(시바야마 · 츠키시마)에 가츠를 쓰지 않음"]}, {"id": 17, "date": "2026-10-29", "title": "부스터 1탄 카드 점검 · 수정", "notes": ["스타터 「물리공격으로…」로 패에 넣은 카드에도 이와이즈미 · 텐도 · 「나도 그렇게 생각했어☆」 효과가 적용되도록", "카게야마(006): 공개한 히나타 · 오픈 공격을 패에 넣을지 고를 수 있게 (「1장까지」)", "같은 턴에 도샷이 둘이면(쿠로오 · 츠키시마) 턴 끝에 적용할 도샷을 고르기", "「이게 \"잇는다\"는 거다」: 쓸 수 있으면 둘 중 하나를 반드시 고르기", "「앞으로 기울여 가자」가 아무 효과도 못 냈으면 【턴1】이 걸리지 않게", "엔노시타 · 시바야마 패 스킬: 대상 캐릭터가 없으면 쓸 수 없게", "세트가 끝나면 2인 카드 이름도 원래대로"]}, {"id": 16, "date": "2026-10-28", "title": "블록 판정 보이기", "notes": ["여러 명이 블록하면 판정 때 「블록! 3+2+2=7」처럼 블록 포인트 합계를 보여 줘요", "블록 페이즈가 끝나 사이드 블로커가 드롭될 때 드롭 더미로 날아가는 연출 (갑자기 사라져서 1명만 블록한 것처럼 보이던 문제)"]}, {"id": 15, "date": "2026-10-28", "title": "덱 편집 — 카드 목록만 스크롤", "notes": ["덱 편집 화면 전체는 움직이지 않고, 오른쪽 카드 목록만 스크롤돼요 (검색 · 필터는 위에 고정)", "카드 정보 · 덱 칸도 각자 칸 안에서만 스크롤"]}, {"id": 14, "date": "2026-10-28", "title": "상단 고정 · 패 떨림 수정", "notes": ["카드 목록 · 덱 편집 · QNA 등에서 스크롤해도 위쪽 ← 뒤로가기와 제목이 고정돼요", "패의 카드에 마우스를 올렸을 때 카드 아래쪽에서 들썩들썩 떨리던 문제 수정", "카드 목록 타일 · 덱 고르기 · 멀리건 카드 등 살짝 들리는 버튼도 가장자리에서 떨리지 않게"]}, {"id": 13, "date": "2026-10-28", "title": "덱 편집 — 덱 칸을 가장 크게", "notes": ["가운데 덱 칸을 가장 넓게, 넣은 카드를 그림으로 보여 줘요 (장수 배지 · ＋/−)", "오른쪽 카드 검색은 카드를 작게 해서 한 줄에 더 많이", "저장 · 취소 버튼이 덱 칸 아래에 늘 보이게"]}, {"id": 12, "date": "2026-10-28", "title": "덱 편집 화면 새 구성", "notes": ["덱 편집을 세 칸으로: 왼쪽 카드 정보(그림 · 능력치 · 효과 · 키워드 설명) · 가운데 덱 정보 · 오른쪽 카드 검색", "덱 규칙에 맞춰 40장을 넘거나 이벤트가 8장을 넘으면 더 넣을 수 없어요 (캐릭터는 같은 카드도 제한 없음)", "덱 목록을 캐릭터 / 이벤트로 나눠 보여 주고 남은 자리를 알려 줘요", "휴대폰에서는 위쪽 탭으로 카드 검색 · 덱 · 카드 정보를 오가요"]}, {"id": 11, "date": "2026-10-28", "title": "효과음 · 배경음", "notes": ["배구 효과음: 서브 · 스파이크(OP가 클수록 세게) · 리시브 · 토스 · 블록 · 도샷 · 원터치 · 공이 바닥에 떨어지는 소리 · 농구화 끼익 · 휘슬 · 관중 환호/탄식", "카드 뽑기 · 캐릭터 등장 · 이벤트/스킬 발동 · 코인 토스 · 승리/패배 소리", "배경음: 로비와 대전에서 각각 다른 곡", "소리 크기: 로비 왼쪽 아래 스피커 버튼, 경기 중에는 「설정」에서 배경음 · 효과음 따로 조절하거나 끌 수 있어요"]}, {"id": 10, "date": "2026-10-28", "title": "부스터 1탄 「쓰레기장의 결전」 카드 추가", "notes": ["부스터 1탄 93종(캐릭터 73 · 이벤트 20) 추가 — 패러렐 버전은 제외, 모든 카드 스킬을 공식 텍스트 · Q&A 기준으로 구현", "새 키워드: 원터치 · 페인트 · 블록아웃 · 턴1 · 도샷(6), 패에서 쓰는 캐릭터 스킬(엔노시타 · 시바야마), 2인 카드(히나타·코즈메 / 츠키시마·쿠로오)의 이름 고르기", "샘플 덱 2종: 아오바죠사이 · 후쿠로다니 (AI 대전에서 바로 선택 가능)", "카드 목록 · 덱 편집: 세트 · 학교 필터와 이름 · 효과 검색"]}, {"id": 9, "date": "2026-10-28", "title": "휴대폰 · 태블릿 지원", "notes": ["휴대폰 세로(아이폰 · 갤럭시 S · 폴드 커버): 스크롤 없이 한 화면에 필드와 패가 꽉 차게, 위쪽 ⋯ 메뉴에 로그 · 설정 · 기권", "태블릿 세로(아이패드 · 갤럭시 탭 · 폴드 펼침): 카드를 화면 폭에 맞춰 크게, 가로는 여백을 줄여 카드를 조금 더 크게", "카드를 꾹 누르면 카드 정보 (휴대폰 · 태블릿)", "휴대폰을 가로로 들면 세로로 돌리라는 안내 (그래도 가로로 볼 수 있음)"]}, {"id": 8, "date": "2026-10-28", "title": "매트 다듬기 · 첫 패 연출", "notes": ["서브 에리어(왼쪽 줄)를 더 넓게", "가츠: 맨 위 캐릭터 아래 깔린 카드가 왼쪽으로 비스듬히 삐져나오고, 장수는 노란 숫자로", "덱 · 드롭 · 이벤트 칸을 같은 크기로 (드롭과 이벤트는 룰상 다른 영역이라 그대로 따로)", "멀리건이 끝나면 첫 패를 덱에서 한 장씩 뽑아 오는 연출"]}, {"id": 7, "date": "2026-10-28", "title": "경기 결과 연출", "notes": ["승리하면 팀 색 꽃가루와 함께 「승리!」, 패배하면 화면이 어두워지며 「패배…」", "세트마다 마지막 점수를 낸 카드(어택 · 서브 · 블록/도샷, OP, 토스 카드)와 상대가 놓친 이유를 차례로 보여 줘요", "결정타를 가장 많이 낸 카드는 「오늘의 해결사」로 표시 — 카드 그림을 누르면 정보창"]}, {"id": 6, "date": "2026-10-28", "title": "상대 패 모양", "notes": ["상대 패(뒷면) 부채꼴을 내 패를 마주 본 방향으로 뒤집었어요"]}, {"id": 5, "date": "2026-10-28", "title": "드로우 연출 · 효과 알림 개선", "notes": ["카드를 뽑으면 덱(또는 세트 에리어)에서 패로 날아와요 — 상대가 뽑을 때도", "스킬 · 이벤트 알림이 효과가 실제로 적용되는 순간(포인트 증감, 드로우 등)마다 떠요", "알림은 화면 오른쪽 가운데, 알림 속 카드 그림을 누르면 정보창", "키워드 설명은 정보창의 「키워드 설명 보기」를 눌렀을 때만"]}, {"id": 4, "date": "2026-10-28", "title": "업데이트 알림", "notes": ["새 버전이 올라오면 화면 위에 「새로고침」 안내가 떠요 (게임 중이면 끝난 뒤에 눌러도 돼요)", "업데이트 후 처음 열면 이렇게 바뀐 점을 잠깐 보여 줘요"]}, {"id": 3, "date": "2026-10-28", "title": "블록 결정 · 스킬 기록 · 필드 확대", "notes": ["블록/리시브를 버튼으로 고르고, 블록할 카드를 에리어에 먼저 올린 뒤 「블록 결정」 → 확인 (「취소」하면 다시 고르기)", "스킬 · 이벤트를 쓰면 오른쪽 아래에 기록이 쌓여요 (20초 또는 다음 턴까지)", "필드를 더 크게, 에리어 여백을 넉넉하게", "카드에 마우스를 올리면 정보창이 떠요 (누르면 고정)"]}, {"id": 2, "date": "2026-10-28", "title": "독립 사이트 · 로그인", "notes": ["Google · 이메일 회원가입 · 게스트로 시작", "덱 · 튜토리얼 진행 · 설정이 계정에 저장돼서 다른 기기에서도 이어서", "게스트도 나중에 계정을 연결하면 기록이 그대로 옮겨져요"]}, {"id": 1, "date": "2026-10-28", "title": "게임 메뉴 · 점수판 · QNA 검색", "notes": ["게임 메뉴: 배틀 / 덱 메이킹 / 카드 목록 / QNA 검색", "넘김식 점수판, 코인 토스 연출, 공식 Q&A 49건 한국어 검색"]}];</script>
 <script src="config.js"></script>
 <script>
 // バボカ BREAK — HV-D01 烏野 / HV-D02 音駒 スターターデッキ カードデータ
@@ -2236,6 +2268,25 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   class LostSignal { constructor(player, reason) { this.player = player; this.reason = reason; } }
   class AbortSignal {}
 
+  // 128비트 시드 난수 (xoshiro128**): 시드는 32비트 정수 4개. 같은 시드 → 같은 셔플 · 코인 결과 (온라인 대전은 이 시드 하나를 두 기기가 공유)
+  function xoshiro128ss(seed) {
+    let [a, b, c, d] = seed.map(x => x >>> 0);
+    if (!(a | b | c | d)) a = 1;
+    const rotl = (x, k) => (x << k) | (x >>> (32 - k));
+    return function () {
+      const r = Math.imul(rotl(Math.imul(b, 5), 7), 9) >>> 0;
+      const t = b << 9;
+      c ^= a; d ^= b; b ^= c; a ^= d; c ^= t; d = rotl(d, 11);
+      return r / 4294967296;
+    };
+  }
+  function newSeed() {
+    const s = new Uint32Array(4);
+    try { (globalThis.crypto || require('crypto').webcrypto).getRandomValues(s); } catch (e) { for (let i = 0; i < 4; i++) s[i] = (Math.random() * 4294967296) >>> 0; }
+    return [...s];
+  }
+  function makeRng(seed) { return Array.isArray(seed) ? xoshiro128ss(seed) : mulberry32(seed >>> 0); }   // 숫자 시드(테스트 · 튜토리얼)는 예전 방식 그대로
+
   function mulberry32(a) {
     return function () {
       a |= 0; a = a + 0x6D2B79F5 | 0;
@@ -2248,8 +2299,8 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   class Game {
     constructor(opts) {
       this.DB = opts.DB;
-      this.seed = opts.seed ?? (Date.now() >>> 0);
-      this.rng = mulberry32(this.seed);
+      this.seed = opts.seed ?? newSeed();
+      this.rng = makeRng(this.seed);
       this.agents = opts.agents;
       this.onChange = opts.onChange || (() => {});
       this.animator = opts.animator || null;
@@ -3437,7 +3488,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     await g.withSkill(p, card, async () => { g.addMod(card, 'receive', bonus, card.uid); });
   }
 
-  G.VobacaEngine = { Game, LostSignal, AbortSignal, PARAMS, AREAS, AREA_KO, PARAM_KO, PHASE_KO, TIMING_KO, SKILLS, EFF_LABEL, CANPLAY };
+  G.VobacaEngine = { newSeed, makeRng, Game, LostSignal, AbortSignal, PARAMS, AREAS, AREA_KO, PARAM_KO, PHASE_KO, TIMING_KO, SKILLS, EFF_LABEL, CANPLAY };
 })(typeof window !== 'undefined' ? window : globalThis);
 
 </script>
@@ -6988,7 +7039,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     lostConfirm: false, prevTops: {}, lastOp: null, logLen: 0, seenSides: new Set(), dragJustEnded: false,
     teams: ['karasuno', 'nekoma'], tut: null, tutRestrict: null,
   };
-  const isHuman = p => ST.mode === 'pvp' || p === 0;
+  const isHuman = p => ST.mode === 'pvp' || (ST.mode === 'online' ? p === ST.viewer : p === 0);
   try { const pr = JSON.parse(localStorage.getItem('vobaca-prefs') || 'null'); if (pr) { if (pr.speed) ST.speed = pr.speed; if (typeof pr.autoPass === 'boolean') ST.autoPass = pr.autoPass; } } catch {}
   function savePrefs() { try { localStorage.setItem('vobaca-prefs', JSON.stringify({ speed: ST.speed, autoPass: ST.autoPass })); } catch {} }
 
@@ -7025,7 +7076,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   const FX = window.VobacaFX.create({
     arena: $('#arena'), shakeEl: $('#arena'),
     speed: () => ST.speed, esc,
-    coinLabel: p => (p === ST.viewer ? '나' : 'CPU'),
+    coinLabel: p => (p === ST.viewer ? '나' : ST.mode === 'online' ? '상대' : 'CPU'),
     teamColor: p => TEAM_COLOR[teamOf(p)],
     cardInfo: uid => { const g = ST.game; const c = g && uid != null && findCard(g, uid); return c ? { img: imgOf(c), name: KN(c.no), ko: DB[c.no].ko || '', event: DB[c.no].type === 'E' } : null; },
     isTop: p => p !== ST.viewer,
@@ -7054,7 +7105,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   window.__vobacaFX = FX;   // 디버그용
   window.__vobacaDebug = () => ({ ST, render, showResult });
   async function animator(g, ev) {
-    if (g !== ST.game) return;
+    if (g !== ST.game || ST.replaying) return;   // 온라인 재접속: 지난 수를 다시 재생하는 동안은 연출 생략
     if (ST.tut) await ST.tut.onAnim(g, ev, 'before');
     if (g.aborted) return;
     await FX.play(g, ev);
@@ -7102,15 +7153,16 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   }
   function startGame(opts) {
     if (ST.game) ST.game.aborted = true;
-    ST.mode = 'cpu'; if (opts.speed) ST.speed = opts.speed; ST.logOpen = false; savePrefs();
+    ST.mode = opts.online ? 'online' : 'cpu'; ST.online = opts.online || null; ST.replaying = false; if (opts.speed) ST.speed = opts.speed; ST.logOpen = false; savePrefs();
     const [d0, d1] = opts.decks;
     preloadDeck(d0); preloadDeck(d1);
     try { window.VobacaAudio && window.VobacaAudio.bgm('bgm_battle'); } catch (e) {}
     const names = opts.names || [d0.label || d0.name, (d1.label || d1.name) + ' (CPU)'];
     ST.teams = [deckTeam(d0), deckTeam(d1)]; if (ST.teams[0] === ST.teams[1]) ST.teams[1] = 'alt';
-    ST.viewer = 0; ST.pending = null; ST.sel = []; ST.detail = null; ST.handoff = null; ST.prevTops = {}; ST.seenSides = new Set(); ST.lastOp = null; ST.logLen = 0;
+    ST.viewer = opts.online ? opts.online.local : 0; ST.pending = null; ST.sel = []; ST.detail = null; ST.handoff = null; ST.prevTops = {}; ST.seenSides = new Set(); ST.lastOp = null; ST.logLen = 0;
     ST.tut = opts.tutorial || null; ST.tutRestrict = null; ST.blockConfirm = false; ST.feedTurn = null;
-    const g = new Game({ DB, decks: [d0, d1], names, agents: [humanAgent, cpuAgent], onChange: () => scheduleRender(), animator, preset: opts.preset, seed: opts.seed });
+    const agents = opts.online ? opts.online.agents(humanAgent) : [humanAgent, cpuAgent];   // 온라인: 내 쪽은 화면 입력, 상대 쪽은 상대 기기에서 온 선택
+    const g = new Game({ DB, decks: [d0, d1], names, agents, onChange: () => scheduleRender(), animator, preset: opts.preset, seed: opts.seed });
     FX.setVisible(false); FX.setOP(null);
     ST.game = g;
     document.documentElement.style.setProperty('--c0', TEAM_COLOR[ST.teams[0]]);
@@ -7123,6 +7175,8 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   }
   function leaveGame() {
     if (ST.game) ST.game.aborted = true;
+    if (ST.online && ST.online.onLeave) { try { ST.online.onLeave(); } catch (e) {} }
+    ST.online = null; ST.replaying = false;
     ST.game = null; ST.pending = null; ST.tut = null; ST.tutRestrict = null; ST.detail = null; ST.logOpen = false;
     document.body.classList.remove('tutorial');
     FX.setVisible(false); FX.setOP(null);
@@ -7793,7 +7847,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   }
 
   function onAct(act, el) {
-    if (act === 'newgame') { leaveGame(); window.VobacaLobby && window.VobacaLobby.show('ai'); return; }
+    if (act === 'newgame') { const on = ST.mode === 'online'; leaveGame(); window.VobacaLobby && window.VobacaLobby.show(on ? 'online' : 'ai'); return; }
     const pd = ST.pending; if (!pd) return;
     const r = pd.req;
     switch (act) {
@@ -7910,9 +7964,9 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   $('#btnBack').addEventListener('click', () => { ST.detail = null; confirmLeave(); });
   function confirmLeave() {
     const root = $('#modalRoot'); root.dataset.kind = 'leave';
-    root.innerHTML = `<div class="modal"><div class="sheet"><h1>로비로 나갈까요?</h1><div class="sub">${ST.tut ? '튜토리얼을 그만두고 로비로 돌아갑니다.' : '진행 중인 경기는 끝나고 로비로 돌아갑니다.'}</div><div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn" type="button" id="leaveNo">계속하기</button><button class="btn primary" type="button" id="leaveYes">로비로</button></div></div></div>`;
+    root.innerHTML = `<div class="modal"><div class="sheet"><h1>로비로 나갈까요?</h1><div class="sub">${ST.tut ? '튜토리얼을 그만두고 로비로 돌아갑니다.' : ST.mode === 'online' && ST.game && ST.game.winner == null ? '온라인 대전에서 나가면 기권으로 처리돼요.' : '진행 중인 경기는 끝나고 로비로 돌아갑니다.'}</div><div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn" type="button" id="leaveNo">계속하기</button><button class="btn primary" type="button" id="leaveYes">로비로</button></div></div></div>`;
     $('#leaveNo').addEventListener('click', () => { closeModal(); if (ST.game) render(); });
-    $('#leaveYes').addEventListener('click', () => { const tut = !!ST.tut; leaveGame(); window.VobacaLobby && window.VobacaLobby.show(tut ? 'tutorial' : 'battle'); });
+    $('#leaveYes').addEventListener('click', () => { const tut = !!ST.tut, on = ST.mode === 'online'; leaveGame(); window.VobacaLobby && window.VobacaLobby.show(tut ? 'tutorial' : on ? 'online' : 'battle'); });
   }
   $('#btnLog').addEventListener('click', () => { ST.logOpen = !ST.logOpen; render(); });
   $('#btnSettings').addEventListener('click', showSettings);
@@ -7943,14 +7997,14 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   $('#btnConcede').addEventListener('click', () => {
     const g = ST.game; if (!g || g.winner != null) return;
     if (ST.tut) { confirmLeave(); return; }
-    const p = ST.mode === 'pvp' ? (ST.pending ? ST.pending.req.player : ST.viewer) : 0;
+    const p = ST.mode === 'pvp' ? (ST.pending ? ST.pending.req.player : ST.viewer) : ST.mode === 'online' ? ST.viewer : 0;
     if (!confirmConcede(p)) return;
   });
   function confirmConcede(p) {
     const g = ST.game; const root = $('#modalRoot'); root.dataset.kind = 'concede';
     root.innerHTML = `<div class="modal"><div class="sheet" ${teamStyle(p)}><h1 style="color:var(--team)">기권할까요?</h1><div class="sub">${esc(g.pname(p))}이(가) 기권하면 즉시 패배합니다. (종합 룰 0-1-3-2)</div><div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn" type="button" id="concNo">취소</button><button class="btn danger" type="button" id="concYes">기권</button></div></div></div>`;
     $('#concNo').addEventListener('click', () => { closeModal(); render(); });
-    $('#concYes').addEventListener('click', () => { ST.pending = null; ST.handoff = null; g.concede(p); closeModal(); render(); showResult(); });
+    $('#concYes').addEventListener('click', () => { ST.pending = null; ST.handoff = null; if (ST.online && ST.online.onConcede) ST.online.onConcede(p); g.concede(p); closeModal(); render(); showResult(); });
     return false;
   }
   document.addEventListener('keydown', e => {
@@ -7960,7 +8014,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
 
   // 外部 (로비·튜토리얼) から使う API
   function showCardInfo(no, ver) { ST.detail = no ? { static: { no, ver: ver || DB[no].img || 'D' } } : null; renderDetail(); }
-  window.VobacaUI = { ST, render, startGame, leaveGame, showCardInfo, renderDetail, imgOf, KN, esc, keywordsFor: t => keywordsFor(t), savePrefs, PRELOAD, updatePreload, deckTeam, TEAM_COLOR };
+  window.VobacaUI = { humanAgent, answer, showResult, ST, render, startGame, leaveGame, showCardInfo, renderDetail, imgOf, KN, esc, keywordsFor: t => keywordsFor(t), savePrefs, PRELOAD, updatePreload, deckTeam, TEAM_COLOR };
 })();
 
 </script>
@@ -8380,7 +8434,8 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
       <p class="lead">어떤 방식으로 플레이할지 골라 주세요.</p>
       <div class="modes">
         <button class="mode m-ai" type="button" data-go="ai">${art('HV-D02-002', 'DP')}<span class="mi">VS</span><b>AI 대전</b><span>컴퓨터와 1:1로 겨뤄요<br>덱을 골라 바로 시작</span></button>
-        <div class="mode m-multi locked" aria-disabled="true"><span class="mi">2P</span><b>멀티 대전</b><span>다른 플레이어와 대전<br>준비 중이에요</span><em class="lock">준비 중</em></div>
+        ${window.VobacaOnline && window.VobacaOnline.available() ? `<button class="mode m-multi" type="button" data-go="online">${art('HV-D03-001', 'DP')}<span class="mi">2P</span><b>멀티 대전</b><span>방을 만들어 친구와 대전<br>초대 코드 · 링크로 입장</span><em class="rec">테스트</em></button>`
+          : `<div class="mode m-multi locked" aria-disabled="true"><span class="mi">2P</span><b>멀티 대전</b><span>다른 플레이어와 대전<br>${window.VobacaOnline ? '로그인하면 할 수 있어요' : '독립 사이트에서 할 수 있어요'}</span><em class="lock">${window.VobacaOnline ? '로그인 필요' : '사이트 전용'}</em></div>`}
         <button class="mode m-tut" type="button" data-go="tutorial">${art('HV-D01-001', 'DP')}<span class="mi">?</span><b>튜토리얼</b><span>${done ? `진행 ${done}/${T.CHAPTERS.length}` : '처음이라면 여기부터!'}<br>직접 해 보며 규칙 익히기</span>${done ? '' : '<em class="rec">추천</em>'}</button>
       </div>`;
     },
@@ -8414,6 +8469,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
         </div>
       </form>`;
     },
+    online(arg) { return window.VobacaOnline ? window.VobacaOnline.screen(arg, LOBBY_API) : ''; },
     tutorial() {
       const done = tutDone();
       return `${head('튜토리얼', 'battle')}
@@ -8604,6 +8660,7 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   }
 
   const AFTER = {
+    online(arg) { if (window.VobacaOnline) window.VobacaOnline.after(arg, LOBBY_API); },
     ai() {
       UI.updatePreload();
       $('#aiForm').addEventListener('change', ev => {
@@ -8726,7 +8783,9 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
     UI.showCardInfo(null);
   });
 
-  window.VobacaLobby = { show, hide, startTutorial };
+  // 온라인 대전(online.js, 독립 사이트 전용)이 쓰는 로비 도우미
+  const LOBBY_API = { allDecks, deckStats, toGameDeck, deckCover, deckHero, head, esc, store, img, show, hide };
+  window.VobacaLobby = { show, hide, startTutorial, api: LOBBY_API, current: () => cur };
   show('main');
 })();
 
@@ -9415,6 +9474,346 @@ body.targeting .mat .card:not(.targetable) { filter: brightness(.5) saturate(.6)
   setTimeout(check, 4000);
   setTimeout(showWhatsNew, 600);
   window.VobacaUpdate = { check, showWhatsNew, version: CUR };
+})();
+
+</script>
+<script>
+// 온라인 멀티 대전 (독립 사이트 전용 · Firebase Firestore)
+// 방식: 방장이 정한 셔플 시드와 두 덱으로 두 기기가 같은 게임을 각자 돌리고, 플레이어의 선택(엔진 요청에 대한 답)만 주고받는다.
+//  rooms/{코드}           방 정보 (방장 · 참가자 · 덱 · 준비 · 시드 · 상태 · 접속 확인)
+//  rooms/{코드}/moves/{n}  n번째 선택 { s, p, t, v, h, by } — 쓰기만 하고 고치지 않음
+(function () {
+  'use strict';
+  const A = window.VobacaAuth;
+  const UI = window.VobacaUI, L = () => window.VobacaLobby;
+  const { DB } = window.VobacaCards;
+  const { newSeed } = window.VobacaEngine;
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const ALPHA = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  const VER = () => window.VOBACA_VERSION || 'dev';
+  const HB_MS = 25000, LOST_MS = 60000;
+  const me = () => (A ? A.me() : {});
+  const available = () => !!(A && A.configured && me().uid && !me().offline);
+  const pad = n => String(n).padStart(6, '0');
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+  // ───── Firestore ─────
+  let F = null;
+  async function fb() { if (!F) F = await A.fb(); return F; }
+  const roomRef = code => F.fs.doc(F.db, 'rooms', code);
+  const movesCol = code => F.fs.collection(F.db, 'rooms', code, 'moves');
+
+  function deckPayload(d) { return JSON.stringify({ name: String(d.name || '덱').slice(0, 30), color: d.color || null, list: d.list.map(([no, n, ver]) => [no, n, ver || DB[no].img || 'D']) }); }
+  function checkDeck(json) {
+    let d; try { d = JSON.parse(json); } catch (e) { return { err: '덱 정보를 읽을 수 없어요' }; }
+    if (!d || !Array.isArray(d.list)) return { err: '덱 정보가 비어 있어요' };
+    let total = 0, ev = 0;
+    for (const x of d.list) {
+      if (!Array.isArray(x) || !DB[x[0]] || !(x[1] > 0) || x[1] > 40) return { err: `이 버전에 없는 카드가 있어요 (${x && x[0]}) — 두 사람 모두 새로고침해 주세요` };
+      total += x[1]; if (DB[x[0]].type === 'E') ev += x[1];
+    }
+    if (total !== 40) return { err: `덱이 40장이 아니에요 (${total}장)` };
+    if (ev > 8) return { err: `이벤트 카드가 8장을 넘어요 (${ev}장)` };
+    return { deck: { id: 'online', label: d.name, color: d.color, list: d.list } };
+  }
+
+  async function createRoom(deck) {
+    await fb();
+    const u = me();
+    for (let tries = 0; tries < 6; tries++) {
+      const code = Array.from({ length: 6 }, () => ALPHA[Math.floor(Math.random() * ALPHA.length)]).join('');
+      const ok = await F.fs.runTransaction(F.db, async tx => {
+        const s = await tx.get(roomRef(code)); if (s.exists()) return false;
+        tx.set(roomRef(code), { code, host: u.uid, hostName: String(u.name || '방장').slice(0, 20), guest: null, guestName: '', ver: VER(), status: 'open',
+          hostDeck: deckPayload(deck), guestDeck: '', hostReady: false, guestReady: false, seed: null, conceded: -1, at: Date.now(), hb0: Date.now(), hb1: 0 });
+        return true;
+      });
+      if (ok) return code;
+    }
+    throw new Error('방 코드를 만들지 못했어요. 잠시 뒤 다시 해 주세요.');
+  }
+  async function joinRoom(code, deck) {
+    await fb();
+    const u = me();
+    return F.fs.runTransaction(F.db, async tx => {
+      const s = await tx.get(roomRef(code));
+      if (!s.exists()) throw new Error('그런 방이 없어요. 코드를 확인해 주세요.');
+      const r = s.data();
+      if (r.ver !== VER()) throw new Error('방장과 시뮬레이터 버전이 달라요. 두 사람 모두 페이지를 새로고침한 뒤 다시 들어와 주세요.');
+      if (r.host === u.uid) return 0;                                   // 내가 만든 방 (다시 들어옴)
+      if (r.guest && r.guest !== u.uid) throw new Error('이미 두 사람이 들어간 방이에요.');
+      if (r.guest === u.uid) return 1;                                  // 재접속
+      if (r.status !== 'open') throw new Error('이미 시작했거나 닫힌 방이에요.');
+      tx.update(roomRef(code), { guest: u.uid, guestName: String(u.name || '참가자').slice(0, 20), guestDeck: deckPayload(deck), guestReady: false, hb1: Date.now() });
+      return 1;
+    });
+  }
+  const update = (code, data) => F.fs.updateDoc(roomRef(code), data);
+
+  // ───── 방 상태 ─────
+  // R: { code, local, room, unsubRoom, unsubMoves, hb, session }
+  let R = null;
+  function clearRoom() {
+    if (!R) return;
+    try { R.unsubRoom && R.unsubRoom(); } catch (e) {}
+    try { R.unsubMoves && R.unsubMoves(); } catch (e) {}
+    clearInterval(R.hb); clearInterval(R.watch);
+    R = null;
+    const ns = document.getElementById('netStatus'); if (ns) ns.remove();
+    try { history.replaceState(null, '', location.pathname); } catch (e) {}
+  }
+  function enterRoom(code, local) {
+    clearRoom();
+    R = { code, local, room: null, session: null };
+    try { history.replaceState(null, '', location.pathname + '?room=' + code); } catch (e) {}
+    const beat = () => update(code, { ['hb' + local]: Date.now() }).catch(() => {});
+    beat(); R.hb = setInterval(beat, HB_MS);
+    R.unsubRoom = F.fs.onSnapshot(roomRef(code), snap => {
+      if (!R || R.code !== code) return;
+      if (!snap.exists()) { leaveToLobby('방이 없어졌어요.'); return; }
+      R.room = snap.data(); onRoom();
+    }, err => { console.warn(err); toast('방 정보를 받지 못했어요: ' + (err.code || err.message), true); });
+  }
+  function onRoom() {
+    const r = R.room;
+    if (R.session) { R.session.onRoom(r); return; }
+    if (r.status === 'playing' && r.seed) { startSession(); return; }
+    if (r.status === 'closed') { leaveToLobby('방장이 방을 닫았어요.'); return; }
+    if (L().current() === 'online') renderRoom();
+  }
+  async function leaveRoom() {
+    if (!R) return;
+    const { code, local, room } = R;
+    try {
+      if (room && room.status === 'open') {
+        if (local === 0) await update(code, { status: 'closed' });
+        else await update(code, { guest: null, guestName: '', guestDeck: '', guestReady: false });
+      }
+    } catch (e) {}
+    clearRoom();
+  }
+  function leaveToLobby(msg) { clearRoom(); if (msg) toast(msg); if (!UI.ST.game) L().show('online'); }
+
+  // ───── 게임 진행 (선택 주고받기) ─────
+  function hashOf(g, req) {
+    const P = g.players.map(pl => [pl.hand.length, pl.deck.length, pl.drop.length, pl.event.length, pl.setArea.length, pl.sides.length,
+      ...['serve', 'receive', 'toss', 'attack', 'block'].map(a => { const t = pl.areas[a][pl.areas[a].length - 1]; return t ? t.uid + ':' + pl.areas[a].length : '-'; })].join(','));
+    const s = [g.setNo, g.turnNo, g.phase, g.turnPlayer, g.offense ? g.offense.value : '', req.type, req.player, (req.options || []).length, ...P].join('|');
+    let h = 5381; for (let i = 0; i < s.length; i++) h = (h * 33 + s.charCodeAt(i)) >>> 0;
+    return h.toString(36);
+  }
+  function startSession() {
+    const r = R.room, code = R.code, local = R.local, remote = 1 - local;
+    const d0 = checkDeck(r.hostDeck), d1 = checkDeck(r.guestDeck);
+    if (d0.err || d1.err) { toast('시작할 수 없어요: ' + (d0.err || d1.err), true); return; }
+    const S = R.session = { moves: new Map(), waiters: new Map(), seq: 0, replayUntil: 0, desync: false, ended: false, g: null, lostWarned: false };
+    const uid = me().uid;
+    function got(m) {
+      if (!m || typeof m.s !== 'number' || S.moves.has(m.s)) return;
+      S.moves.set(m.s, m);
+      const w = S.waiters.get(m.s); if (w) { S.waiters.delete(m.s); w(m); }
+    }
+    function waitFor(s) { const m = S.moves.get(s); return m ? Promise.resolve(m) : new Promise(res => S.waiters.set(s, res)); }
+    function send(m) {
+      const ref = F.fs.doc(movesCol(code), pad(m.s));
+      const go = (n = 0) => F.fs.setDoc(ref, m).catch(async e => {
+        // 응답만 늦게 와서 실패로 보였는데 사실은 저장된 경우(다시 쓰기는 규칙상 막힘): 이미 있으면 성공으로 본다
+        if (e && e.code === 'permission-denied') { try { const s2 = await F.fs.getDoc(ref); if (s2.exists()) return; } catch (e2) {} }
+        console.warn('move send failed', e);
+        if (n < 5) setTimeout(() => go(n + 1), 1000 * (n + 1)); else toast('선택을 보내지 못했어요 — 인터넷 연결을 확인해 주세요', true);
+      });
+      go();
+    }
+    const agent = p => ({
+      async decide(g, req) {
+        if (req.type === 'free' && !(req.options || []).length) return { action: 'pass' };   // 낼 수 있는 게 없는 프리 스텝: 두 기기 모두 자동으로 넘김 (보내지 않음)
+        const s = ++S.seq;
+        if (S.replayUntil && s > S.replayUntil) { S.replayUntil = 0; UI.ST.replaying = false; UI.render(); }
+        const h = hashOf(g, req);
+        let m = S.moves.get(s);
+        if (!m && p === local) {
+          const v = await UI.humanAgent.decide(g, req);
+          if (g.aborted) return v;
+          m = { s, p, t: req.type, v: JSON.stringify(v === undefined ? null : v), h, by: uid };
+          S.moves.set(s, m); send(m);
+          return v;
+        }
+        if (!m) { netStatus(); m = await waitFor(s); }
+        if (m.p !== p || m.t !== req.type || m.h !== h) {
+          if (!S.desync) { S.desync = true; console.warn('desync', { s, m, mine: { p, t: req.type, h } }); toast('두 기기의 게임 상태가 어긋났어요 (동기화 오류). 이 판은 기록이 정확하지 않을 수 있어요.', true); }
+        }
+        return JSON.parse(m.v);
+      },
+    });
+    // 지난 선택을 먼저 다 받아 두고(재접속), 그다음부터 실시간으로
+    F.fs.getDocs(F.fs.query(movesCol(code), F.fs.orderBy('s'))).then(qs => {
+      if (!R || R.session !== S) return;
+      qs.docs.forEach(d => got(d.data()));
+      S.replayUntil = S.moves.size ? Math.max(...S.moves.keys()) : 0;
+      R.unsubMoves = F.fs.onSnapshot(F.fs.query(movesCol(code), F.fs.orderBy('s')), q => q.docChanges().forEach(ch => { if (ch.type === 'added') got(ch.doc.data()); }),
+        err => { console.warn(err); toast('상대의 선택을 받지 못했어요: ' + (err.code || err.message), true); });
+      L().hide();
+      UI.ST.replaying = !!S.replayUntil;
+      const names = [r.hostName || '방장', r.guestName || '참가자'];
+      S.g = UI.startGame({ decks: [d0.deck, d1.deck], names, seed: r.seed, online: {
+        local, agents: () => [agent(0), agent(1)],
+        onConcede: p => { if (p === local) update(code, { conceded: local, status: 'ended' }).catch(() => {}); },
+        onLeave: () => { const g = S.g; if (g && g.winner == null && !S.ended) update(code, { conceded: local, status: 'ended' }).catch(() => {}); S.ended = true; clearRoom(); },
+      } });
+      if (S.replayUntil) toast('이어서 진행해요 — 지난 진행을 다시 불러오는 중…');
+      watchEnd();
+    }).catch(e => { console.warn(e); toast('진행 기록을 불러오지 못했어요: ' + (e.code || e.message), true); });
+    function watchEnd() {
+      R.watch = setInterval(() => {
+        const g = S.g; if (!g || !R || R.session !== S) return;
+        if (g.winner != null && !S.ended) { S.ended = true; if (local === 0) update(code, { status: 'ended' }).catch(() => {}); }
+        netStatus();
+      }, 1000);
+    }
+    S.onRoom = room => {
+      R.room = room;
+      const g = S.g;
+      if (g && room.conceded === remote && g.winner == null) { S.ended = true; g.concede(remote); UI.ST.pending = null; UI.render(); UI.showResult(); toast(`${room[remote ? 'guestName' : 'hostName'] || '상대'} 님이 기권했어요.`); }
+      netStatus();
+    };
+    netStatus();
+  }
+
+  // 화면 위쪽: 온라인 상태 표시 (상대 접속 끊김 등)
+  function netStatus() {
+    let el = document.getElementById('netStatus');
+    const S = R && R.session;
+    if (!S || !UI.ST.game) { if (el) el.remove(); return; }
+    if (!el) { el = document.createElement('div'); el.id = 'netStatus'; el.className = 'netstatus'; el.setAttribute('role', 'status'); document.body.appendChild(el); }
+    const r = R.room || {}, remote = 1 - R.local, hb = r['hb' + remote] || 0, age = Date.now() - hb;
+    const nm = r[remote ? 'guestName' : 'hostName'] || '상대';
+    const g = UI.ST.game, waiting = g && g.request && g.request.player === remote && g.winner == null;
+    let html = `<i class="ns-dot ${age > LOST_MS ? 'bad' : 'ok'}"></i><span>온라인 · 방 ${esc(R.code)} · ${esc(nm)}</span>`;
+    if (g && g.winner == null && age > LOST_MS) {
+      const sec = Math.floor(age / 1000);
+      html += `<b class="ns-warn">상대 연결이 끊긴 것 같아요 (${sec}초)</b>`;
+      if (age > LOST_MS * 2) html += `<button type="button" class="btn" id="nsClaim">승리로 끝내기</button>`;
+    } else if (waiting) html += `<em>상대가 고르는 중…</em>`;
+    if (S.desync) html += `<b class="ns-warn">동기화 오류</b>`;
+    if (el._h !== html) { el.innerHTML = html; el._h = html; const c = el.querySelector('#nsClaim'); if (c) c.onclick = () => { update(R.code, { conceded: remote, status: 'ended' }).catch(() => {}); }; }
+  }
+
+  function toast(msg, bad) {
+    let box = document.getElementById('netToast');
+    if (!box) { box = document.createElement('div'); box.id = 'netToast'; box.className = 'nettoast'; box.setAttribute('aria-live', 'polite'); document.body.appendChild(box); }
+    const t = document.createElement('div'); t.className = 'nt-item' + (bad ? ' bad' : ''); t.textContent = msg; box.appendChild(t);
+    setTimeout(() => t.remove(), bad ? 9000 : 5000);
+  }
+
+  // ───── 로비 화면 ─────
+  let API = null, screenArg = null, busy = false;
+  const pickedDeck = () => { const id = API.store.get('vobaca-online-deck', null); const ds = API.allDecks().filter(d => API.deckStats(d).valid); return ds.find(d => d.id === id) || ds[0]; };
+  function deckPicker(sel) {
+    const ds = API.allDecks().filter(d => API.deckStats(d).valid);
+    return `<div class="ds-picks on-picks" role="radiogroup" aria-label="내 덱 고르기">${ds.map(d => `<label class="dpick t-${UI.deckTeam(d)}" title="${esc(d.name)}"><input type="radio" name="odeck" value="${esc(d.id)}" ${sel && d.id === sel.id ? 'checked' : ''}><img src="${API.deckCover(d)}" alt=""><span>${esc(d.name)}</span></label>`).join('')}</div>`;
+  }
+  function homeHtml(arg) {
+    const d = pickedDeck(); const join = (arg && arg.join) || '';
+    return `${API.head('멀티 대전', 'battle')}
+      <p class="lead">방을 만들고 친구에게 코드나 링크를 보내면 함께 대전할 수 있어요. (테스트 중 · ${esc(me().name)} 님으로 참가)</p>
+      <div class="online">
+        <section class="on-card"><div class="fieldlab">내 덱</div><div id="onHero">${d ? API.deckHero(d) : '<p class="lead small">완성된 덱이 없어요.</p>'}</div>${deckPicker(d)}</section>
+        <div class="on-acts">
+          <section class="on-card"><b class="on-t">방 만들기</b><p class="lead small">방을 만들면 6자리 코드와 초대 링크가 생겨요.</p><button class="startbtn sm" type="button" id="onCreate">방 만들기</button></section>
+          <section class="on-card"><b class="on-t">코드로 들어가기</b><form id="onJoin" class="on-join"><input id="onCode" maxlength="6" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="ABC123" value="${esc(join)}" aria-label="방 코드"><button class="btn primary" type="submit">들어가기</button></form></section>
+        </div>
+      </div>`;
+  }
+  function roomHtml() {
+    const r = R.room || {}, local = R.local;
+    const link = location.origin + location.pathname + '?room=' + R.code;
+    const slot = i => {
+      const uid = i ? r.guest : r.host, name = i ? r.guestName : r.hostName, ready = i ? r.guestReady : r.hostReady, dj = i ? r.guestDeck : r.hostDeck;
+      let dn = ''; try { dn = dj ? JSON.parse(dj).name : ''; } catch (e) {}
+      if (!uid) return `<div class="on-slot empty"><span class="on-who">${i ? '참가자' : '방장'}</span><b>기다리는 중…</b><span class="on-deck">코드를 친구에게 보내 주세요</span></div>`;
+      return `<div class="on-slot ${ready ? 'ready' : ''} ${i === local ? 'me' : ''}"><span class="on-who">${i ? '참가자' : '방장'}${i === local ? ' · 나' : ''}</span><b>${esc(name)}</b><span class="on-deck">${esc(dn)}</span><em class="on-ready">${ready ? '준비 완료' : '준비 중'}</em></div>`;
+    };
+    const both = r.host && r.guest && r.hostReady && r.guestReady;
+    const myReady = local ? r.guestReady : r.hostReady;
+    return `${API.head('멀티 대전 · 대기실', 'online')}
+      <div class="online">
+        <section class="on-card on-code"><span class="fieldlab">방 코드</span><b class="on-big">${esc(R.code)}</b>
+          <div class="on-linkrow"><input readonly value="${esc(link)}" aria-label="초대 링크" id="onLink"><button class="btn" type="button" id="onCopy">링크 복사</button></div></section>
+        <div class="on-slots">${slot(0)}<span class="on-vs">VS</span>${slot(1)}</div>
+        ${r.status === 'open' ? `<section class="on-card"><div class="fieldlab">내 덱 (준비 전까지 바꿀 수 있어요)</div>${deckPicker(pickedDeck())}</section>` : ''}
+        <div class="on-bar">
+          <button class="btn" type="button" id="onLeave">방 나가기</button>
+          <button class="btn ${myReady ? '' : 'primary'}" type="button" id="onReady" ${r.status !== 'open' ? 'disabled' : ''}>${myReady ? '준비 취소' : '준비'}</button>
+          ${local === 0 ? `<button class="startbtn sm" type="button" id="onStart" ${both ? '' : 'disabled'}>대전 시작</button>` : `<span class="lead small" style="margin:0">${both ? '방장이 시작하기를 기다려요' : '두 사람 모두 준비하면 방장이 시작해요'}</span>`}
+        </div>
+      </div>`;
+  }
+  function renderRoom() { const root = $('#screen'); if (!root || !R) return; root.innerHTML = roomHtml(); bindRoom(); }
+  function bindDeckPick(onPick) {
+    document.querySelectorAll('input[name=odeck]').forEach(inp => inp.addEventListener('change', () => {
+      const d = API.allDecks().find(x => x.id === inp.value); if (!d) return;
+      API.store.set('vobaca-online-deck', d.id); onPick(d);
+    }));
+  }
+  function bindRoom() {
+    const r = R.room || {}, code = R.code, local = R.local;
+    const copy = $('#onCopy'); if (copy) copy.onclick = async () => { const v = $('#onLink').value; try { await navigator.clipboard.writeText(v); toast('초대 링크를 복사했어요'); } catch (e) { $('#onLink').select(); toast('링크를 길게 눌러 복사해 주세요'); } };
+    $('#onLeave').onclick = async () => { await leaveRoom(); L().show('online'); };
+    const bk = document.querySelector('#screen .scr-head [data-go]'); if (bk) bk.addEventListener('click', async e => { e.stopPropagation(); e.preventDefault(); await leaveRoom(); L().show('online'); }, { capture: true });
+    $('#onReady').onclick = () => update(code, { [local ? 'guestReady' : 'hostReady']: !(local ? r.guestReady : r.hostReady) }).catch(e => toast('바꾸지 못했어요: ' + (e.code || e.message), true));
+    const st = $('#onStart'); if (st) st.onclick = () => { st.disabled = true; update(code, { status: 'playing', seed: newSeed(), conceded: -1, startedAt: Date.now() }).catch(e => { st.disabled = false; toast('시작하지 못했어요: ' + (e.code || e.message), true); }); };
+    bindDeckPick(d => update(code, { [local ? 'guestDeck' : 'hostDeck']: deckPayload(d), [local ? 'guestReady' : 'hostReady']: false }).catch(() => {}));
+  }
+
+  function screen(arg, api) {
+    API = api; screenArg = arg;
+    if (!available()) return `${api.head('멀티 대전', 'battle')}<p class="lead">멀티 대전은 로그인(게스트 포함)한 뒤 할 수 있어요.</p>`;
+    if (R && R.room && !R.session) return roomHtml();
+    return homeHtml(arg);
+  }
+  function after(arg, api) {
+    API = api;
+    if (!available()) return;
+    if (R && R.room && !R.session) { bindRoom(); return; }
+    bindDeckPick(d => { const h = $('#onHero'); if (h) h.innerHTML = API.deckHero(d); });
+    const guard = async (btn, fn) => { if (busy) return; busy = true; if (btn) btn.disabled = true; try { await fn(); } catch (e) { console.warn(e); toast(e.message || String(e), true); } finally { busy = false; if (btn && document.body.contains(btn)) btn.disabled = false; } };
+    $('#onCreate').onclick = e => guard(e.currentTarget, async () => {
+      const d = pickedDeck(); if (!d) throw new Error('완성된 덱(40장)이 필요해요.');
+      const code = await createRoom(d); enterRoom(code, 0);
+    });
+    $('#onJoin').onsubmit = e => { e.preventDefault(); guard(e.submitter, async () => {
+      const code = ($('#onCode').value || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+      if (code.length !== 6) throw new Error('방 코드는 6자리예요.');
+      const d = pickedDeck(); if (!d) throw new Error('완성된 덱(40장)이 필요해요.');
+      const local = await joinRoom(code, d); enterRoom(code, local);
+    }); };
+    $('#onCode').addEventListener('input', e => { e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 6); });
+  }
+
+  // 초대 링크(?room=코드)로 들어온 경우: 로그인이 끝나면 멀티 대전 화면을 열어 둔다
+  function checkLink() {
+    const m = /[?&]room=([A-Za-z0-9]{6})/.exec(location.search); if (!m) return;
+    const code = m[1].toUpperCase();
+    let n = 0;
+    const t = setInterval(() => {
+      if (++n > 1200) { clearInterval(t); return; }
+      if (!available() || !L() || UI.ST.game) return;
+      const gate = document.querySelector('.authgate'); if (gate && !gate.hidden) return;
+      clearInterval(t);
+      // 이미 들어가 있던 방(새로고침 · 끊겼다 다시 옴)이면 바로 이어서, 아니면 코드를 채운 입장 화면
+      fb().then(() => F.fs.getDoc(roomRef(code))).then(snap => {
+        const r = snap.exists() ? snap.data() : null, uid = me().uid;
+        const local = r && r.host === uid ? 0 : r && r.guest === uid ? 1 : -1;
+        if (r && local >= 0 && (r.status === 'open' || r.status === 'playing') && r.ver === VER()) { L().show('online'); enterRoom(code, local); }
+        else L().show('online', { join: code });
+      }).catch(() => L().show('online', { join: code }));
+    }, 500);
+  }
+  window.addEventListener('beforeunload', () => { if (R && R.room && R.room.status === 'open' && R.local === 1) { try { update(R.code, { guest: null, guestName: '', guestDeck: '', guestReady: false }); } catch (e) {} } });
+
+  window.VobacaOnline = { available, screen, after, _hashOf: hashOf, _checkDeck: checkDeck, _state: () => R };
+  checkLink();
 })();
 
 </script>
